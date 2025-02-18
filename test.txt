@@ -1,0 +1,6 @@
+[Page] This is a Title
+ [Page] Box
+  [Entry true] Toggleable Entry
+  [Entry false] Can be false by default
+ [Page] Other Box
+  [Text] some [wave]WaVy[/wave] text!

@@ -9,9 +9,12 @@ static func parse_line(line: String) -> Dictionary:
 	var to = line.find("]")
 	args.raw_args =line.substr(from + 1, to - from - 1)
 	var tags := Array(String(args.raw_args).split(" "))
-	tags.pop_front()
-	for i in tags:
-		var elements =
+	args.type = tags.pop_front()
+	for i: String in tags:
+		var expression = Expression.new()
+		if expression.parse(i.get_slice("=", 1)):
+			push_error(expression.get_error_text())
+		args[i.get_slice("=", 0)] = expression.execute()
 	print(args)
 
 	return args

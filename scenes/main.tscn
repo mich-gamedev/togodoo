@@ -167,6 +167,7 @@ size_flags_vertical = 0
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Control/PanelContainer2/MarginContainer/Control"]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -297,8 +298,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_0bw6x")
 
-[node name="Tree" type="Tree" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree"]
 layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Tree" type="Tree" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+drop_mode_flags = 1
+select_mode = 1
 scroll_horizontal_enabled = false
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2"]

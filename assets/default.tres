@@ -1,0 +1,6 @@
+[gd_resource type="SystemFont" format=3 uid="uid://cs86onhiy2r3w"]
+
+[resource]
+font_names = PackedStringArray("Consolas", "Noto Sans Mono", "Source Code Pro")
+generate_mipmaps = true
+multichannel_signed_distance_field = true

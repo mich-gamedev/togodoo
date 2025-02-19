@@ -2,7 +2,7 @@ class_name FileManager extends Object
 
 static var block_types: Dictionary
 
-func load_mods() -> void:
+static func load_mods() -> void:
 	for type in DirAccess.get_directories_at("res://blocks/"):
 		type += "/"
 		for block in DirAccess.get_directories_at("res://blocks/" + type):
@@ -16,9 +16,17 @@ func load_mods() -> void:
 				continue
 
 			var cfg = ConfigFile.new()
-			cfg.load(meta)
+			if cfg.load(meta):
+				push_error("meta.cfg file was invalid in %s" % dir)
+				continue
 			if !cfg.has_section_key("logic", "format"):
 				push_error("No logic>format key found in %s" % meta)
 				continue
 
 			block_types[cfg.get_value("logic", "format")] = dir
+	print(block_types)
+
+static func get_block_config(path: String) -> ConfigFile:
+	var config = ConfigFile.new()
+	config.load(path.rstrip("/") + "/meta.cfg")
+	return config

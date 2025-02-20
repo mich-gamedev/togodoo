@@ -1,7 +1,12 @@
-[gd_scene format=3 uid="uid://druhkk4psrfc"]
+[gd_scene load_steps=2 format=3 uid="uid://druhkk4psrfc"]
 
-[node name="HBoxContainer" type="HBoxContainer"]
+[ext_resource type="Script" path="res://objects/properties/property_block.gd" id="1_qcmmd"]
+
+[node name="HBoxContainer" type="HBoxContainer" node_paths=PackedStringArray("value_node")]
 offset_right = 256.0
+script = ExtResource("1_qcmmd")
+value_node = NodePath("ValueBool")
+value_property = &"button_pressed"
 
 [node name="PropertyName" type="Label" parent="."]
 unique_name_in_owner = true
@@ -11,5 +16,8 @@ text = "state"
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="CheckBox" type="CheckBox" parent="."]
+[node name="ValueBool" type="CheckBox" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
+
+[connection signal="toggled" from="ValueBool" to="." method="property_change_emit" unbinds=1]

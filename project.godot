@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 run/low_processor_mode=true
 config/icon="res://icon.svg"
 
+[autoload]
+
+PropertyBus="*res://components/property_list/sngl_property_bus.gd"
+
 [display]
 
 window/size/viewport_width=1280

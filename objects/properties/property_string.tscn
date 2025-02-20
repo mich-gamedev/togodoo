@@ -1,7 +1,12 @@
-[gd_scene format=3 uid="uid://clp1bxutxd3de"]
+[gd_scene load_steps=2 format=3 uid="uid://clp1bxutxd3de"]
 
-[node name="HBoxContainer" type="HBoxContainer"]
+[ext_resource type="Script" path="res://objects/properties/property_block.gd" id="1_phhyl"]
+
+[node name="HBoxContainer" type="HBoxContainer" node_paths=PackedStringArray("value_node")]
 offset_right = 256.0
+script = ExtResource("1_phhyl")
+value_node = NodePath("LineEdit")
+value_property = &"text"
 
 [node name="PropertyName" type="Label" parent="."]
 unique_name_in_owner = true
@@ -17,3 +22,5 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 placeholder_text = "..."
 caret_blink = true
+
+[connection signal="text_changed" from="LineEdit" to="." method="property_change_emit" unbinds=1]

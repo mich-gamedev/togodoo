@@ -29,7 +29,7 @@ static func load_mods() -> void:
 	print(block_types)
 
 	for i in DirAccess.get_files_at("res://objects/properties/"):
-		usage_types[i.get_basename()] = load("res://objects/properties/" + i)
+		if ResourceLoader.exists("res://objects/properties/" + i, "PackedScene"): usage_types[i.get_basename()] = load("res://objects/properties/" + i)
 
 static func get_block_config(path: String) -> ConfigFile:
 	var config = ConfigFile.new()

@@ -30,7 +30,7 @@ window/stretch/scale=1.25
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/dictionary_inspector/plugin.cfg", "res://addons/inspector_extender/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/dictionary_inspector/plugin.cfg", "res://addons/icon_explorer/plugin.cfg", "res://addons/inspector_extender/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg")
 
 [gui]
 

@@ -1,0 +1,97 @@
+{
+	"categories": [
+		{
+			"uuid": "6f13e761-3544-45fc-a68e-815679fc5f20",
+			"title": "Task",
+			"color": "f5a97f"
+		},
+		{
+			"uuid": "fc68a719-0327-4644-b5e4-7bb11094c8af",
+			"title": "Roadmap",
+			"color": "8aadf4"
+		},
+		{
+			"uuid": "4259af00-b52d-4e9e-b03c-9bbc177becc0",
+			"title": "Bug",
+			"color": "ed8796"
+		},
+		{
+			"uuid": "d1f17c8f-a7bc-4087-aec7-30106a41114e",
+			"title": "Idea",
+			"color": "c6a0f6"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "894c5d72-a5f8-42c7-b2ee-e73d516003cf",
+			"title": "Todo",
+			"tasks": [
+				"5a260db5-3d2a-48e2-b4df-b1df72d7a2ed",
+				"0d373f8c-b9ae-48c7-80ad-f3fe221e793b",
+				"05f3557b-6c42-4423-9f13-3b8b5dc21499",
+				"468e3154-63b6-4a88-b4b5-640f58c114cd",
+				"04969385-5fe0-4a97-8f1c-ed5ae0126f84"
+			]
+		},
+		{
+			"uuid": "76174e0b-e9bc-4b06-941e-f70c77c363a3",
+			"title": "Doing",
+			"tasks": []
+		},
+		{
+			"uuid": "24e43496-b9de-4005-b8ea-2db4b5f74048",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "5a260db5-3d2a-48e2-b4df-b1df72d7a2ed",
+			"title": "implement serialization",
+			"description": "",
+			"category": "fc68a719-0327-4644-b5e4-7bb11094c8af",
+			"steps": []
+		},
+		{
+			"uuid": "0d373f8c-b9ae-48c7-80ad-f3fe221e793b",
+			"title": "add project manager menu",
+			"description": "",
+			"category": "fc68a719-0327-4644-b5e4-7bb11094c8af",
+			"steps": []
+		},
+		{
+			"uuid": "05f3557b-6c42-4423-9f13-3b8b5dc21499",
+			"title": "synchronize property and tree",
+			"description": "",
+			"category": "6f13e761-3544-45fc-a68e-815679fc5f20",
+			"steps": []
+		},
+		{
+			"uuid": "468e3154-63b6-4a88-b4b5-640f58c114cd",
+			"title": "add central display",
+			"description": "",
+			"category": "6f13e761-3544-45fc-a68e-815679fc5f20",
+			"steps": []
+		},
+		{
+			"uuid": "04969385-5fe0-4a97-8f1c-ed5ae0126f84",
+			"title": "Switching to parent block doesn't properly reset property list",
+			"description": "",
+			"category": "4259af00-b52d-4e9e-b03c-9bbc177becc0",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"894c5d72-a5f8-42c7-b2ee-e73d516003cf"
+			],
+			[
+				"76174e0b-e9bc-4b06-941e-f70c77c363a3"
+			],
+			[
+				"24e43496-b9de-4005-b8ea-2db4b5f74048"
+			]
+		]
+	}
+}

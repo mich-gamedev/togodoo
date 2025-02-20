@@ -22,6 +22,30 @@ grow_vertical = 2
 theme = ExtResource("1_to3i3")
 script = ExtResource("1_6yeym")
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -54.5
+offset_right = 205.0
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.431373, 0.45098, 0.552941, 1)
+theme_override_font_sizes/font_size = 14
+text = "   __                              ___
+__\\  \\__  _____   _____   _____   _\\  \\   _____   _____
+\\__   __\\(  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\
+  _\\  \\   \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\
+  \\____)   \\_____) \\___  \\ \\_____) \\_____) \\_____) \\_____) (_)
+__  __  __  __  __    _\\  \\
+\\_\\ \\√\\ \\√\\ \\_\\ \\√\\  \\_____) A tree-based todo app
+"
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -308,6 +332,7 @@ theme_override_constants/margin_bottom = 4
 [node name="Tree" type="Tree" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+columns = 2
 drop_mode_flags = 1
 select_mode = 1
 scroll_horizontal_enabled = false
@@ -360,6 +385,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_0bw6x")
 
-[node name="Tree" type="Tree" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties"]
 layout_mode = 2
-scroll_horizontal_enabled = false
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="PropertyList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/Tree" to="." method="_on_tree_item_selected"]

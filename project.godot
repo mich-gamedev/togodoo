@@ -24,8 +24,13 @@ window/subwindows/embed_subwindows=false
 window/stretch/aspect="expand"
 window/stretch/scale=1.25
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/dictionary_inspector/plugin.cfg", "res://addons/inspector_extender/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg")
+
 [gui]
 
+theme/custom="res://resources/themes/menu.theme"
 theme/default_font_multichannel_signed_distance_field=true
 
 [rendering]

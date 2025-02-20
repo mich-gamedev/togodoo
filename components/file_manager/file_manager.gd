@@ -2,6 +2,8 @@ class_name FileManager extends Object
 
 static var block_types: Dictionary
 
+static var usage_types: Dictionary
+
 static func load_mods() -> void:
 	for type in DirAccess.get_directories_at("res://blocks/"):
 		type += "/"
@@ -25,6 +27,9 @@ static func load_mods() -> void:
 
 			block_types[cfg.get_value("logic", "format")] = dir
 	print(block_types)
+
+	for i in DirAccess.get_files_at("res://objects/properties/"):
+		usage_types[i.get_basename()] = load("res://objects/properties/" + i)
 
 static func get_block_config(path: String) -> ConfigFile:
 	var config = ConfigFile.new()

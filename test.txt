@@ -4,3 +4,4 @@
   [Entry state=false] Can be false by default
  [Page] Other Box
   [Text] some [wave]WaVy[/wave] text!
+  [Entry state=true] it also auto generates!!!

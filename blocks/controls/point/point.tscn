@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://3yn80bqdtlvy"]
+
+[ext_resource type="Script" path="res://blocks/controls/point/point.gd" id="1_k258f"]
+[ext_resource type="Script" path="res://components/blocks/block.gd" id="2_6wqrc"]
+
+[node name="HFlowContainer" type="HFlowContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+script = ExtResource("1_k258f")
+
+[node name="BulletPoint" type="Label" parent="."]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+fit_content = true
+
+[node name="Block" type="Node" parent="."]
+script = ExtResource("2_6wqrc")

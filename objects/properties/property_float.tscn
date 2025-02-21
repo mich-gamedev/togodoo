@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjcfstsikuijo"]
+
+[ext_resource type="Script" path="res://objects/properties/property_block.gd" id="1_qfqrh"]
+
+[node name="HBoxContainer" type="HBoxContainer" node_paths=PackedStringArray("value_node")]
+offset_right = 256.0
+script = ExtResource("1_qfqrh")
+value_node = NodePath("SpinBox")
+value_property = &"value"
+
+[node name="PropertyName" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "state"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="SpinBox" type="SpinBox" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+step = 0.01
+allow_greater = true
+allow_lesser = true
+custom_arrow_step = 1.0
+
+[connection signal="value_changed" from="SpinBox" to="." method="property_change_emit" unbinds=1]

@@ -33,6 +33,14 @@ func _ready() -> void: #TODO: replace with selection later
 		item.set_expand_right(0, true)
 		item.set_tooltip_text(0, "Type: %s" % config.get_value("display", "display_name"))
 		previous_tree_items.append(item)
+
+		var block_inst = (load(config.get_value("logic", "scene")) as PackedScene).instantiate()
+		items[i].display_node = block_inst
+		var parent_node = (items[get_parent_from_item(items, i)].display_node as Node).get_node_or_null(^"%ChildContainer")
+		(parent_node if is_instance_valid(parent_node) else items[get_parent_from_item(items, i)].display_node as Node).add_child(block_inst)
+		for block: Block in block_inst.find_children("*", "Block"):
+			block.args = items[i]
+		block_inst.propagate_call("_update_block")
 	tree_items = previous_tree_items.duplicate()
 
 func get_parent_from_item(items: Array, idx: int) -> int:
@@ -65,7 +73,7 @@ func _on_tree_item_selected() -> void:
 				var inst := (FileManager.usage_types[tag] as PackedScene).instantiate() as PropertyBlock
 				%PropertyList.add_child(inst)
 				inst.name = i.to_pascal_case()
-				inst.get_node("%PropertyName").text = i.replace("_", " ")
+				if inst.has_node("%PropertyName"): inst.get_node("%PropertyName").text = i.replace("_", " ")
 				inst.index = curr_item
 				inst.responsible_property = i
 				print(i, "'s value: ", current_dict.get(i))

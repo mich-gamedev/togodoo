@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://n7bryc6jh3r4"]
+
+[ext_resource type="Script" path="res://blocks/items/text/text.gd" id="1_6bj5u"]
+[ext_resource type="Script" path="res://components/blocks/block.gd" id="2_3kogx"]
+
+[node name="Label" type="RichTextLabel"]
+offset_right = 1.0
+offset_bottom = 16.75
+size_flags_horizontal = 3
+bbcode_enabled = true
+fit_content = true
+script = ExtResource("1_6bj5u")
+
+[node name="Block" type="Node" parent="."]
+script = ExtResource("2_3kogx")

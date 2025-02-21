@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjmt7cn2oqkwr"]
+
+[ext_resource type="Script" path="res://blocks/pages/page/page.gd" id="1_3sh16"]
+[ext_resource type="StyleBox" uid="uid://bpuoro8beqwxu" path="res://resources/styles/panel_local_to_scene.stylebox" id="1_aj45x"]
+[ext_resource type="Script" path="res://components/blocks/block.gd" id="2_uefg2"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_x8p5e"]
+color = Color(0.141176, 0.152941, 0.227451, 1)
+
+[node name="Tree" type="PanelContainer"]
+offset_right = 10.0
+offset_bottom = 2.0
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("1_aj45x")
+script = ExtResource("1_3sh16")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
+theme_override_font_sizes/font_size = 14
+text = "tree"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Control/TitleLabel"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_x8p5e")
+
+[node name="Block" type="Node" parent="."]
+script = ExtResource("2_uefg2")
+
+[node name="ChildContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2

@@ -2,6 +2,9 @@ class_name Block extends Node
 
 var args : Dictionary
 
+func get_type() -> String:
+	return args.type
+
 func get_title() -> String: ## returns the title of the block, or the [code]TEXT[/code] in [code][args] TEXT[/code]
 	return args.title
 

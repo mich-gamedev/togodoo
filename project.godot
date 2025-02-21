@@ -13,7 +13,6 @@ config_version=5
 config/name="Togodoo"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-run/low_processor_mode=true
 config/icon="res://icon.svg"
 
 [autoload]
@@ -34,11 +33,17 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/
 
 [gui]
 
+timers/tooltip_delay_sec=0.1
 theme/custom="res://resources/themes/menu.theme"
 theme/default_font_multichannel_signed_distance_field=true
 
+[plugins]
+
+icon_explorer/load_on_startup=true
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=2
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.0941176, 0.0980392, 0.14902, 1)

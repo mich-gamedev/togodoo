@@ -31,6 +31,7 @@ func _ready() -> void: #TODO: replace with selection later
 				break
 		item.set_text(0, items[i].stripped_title)
 		item.set_expand_right(0, true)
+		item.set_tooltip_text(0, "Type: %s" % config.get_value("display", "display_name"))
 		previous_tree_items.append(item)
 	tree_items = previous_tree_items.duplicate()
 
@@ -50,10 +51,13 @@ func _on_tree_item_selected() -> void:
 		if curr_item == -1 and tree_items[i].is_selected(0):
 			curr_item = i
 	print("new item selected, with an index of %d" % curr_item)
+
 	for i in %PropertyList.get_children():
 		i.reparent(self)
 		i.queue_free()
 	var config = FileManager.get_block_config(FileManager.block_types[items[curr_item].type])
+	%TypeLabel.text = config.get_value("display", "display_name")
+	var current_dict = items[curr_item]
 	if config.has_section("properties"): for i in config.get_section_keys("properties"):
 		var usage_tags = config.get_value("usage", i, "none").replace(" ", "").split(",")
 		for tag in usage_tags:
@@ -64,18 +68,18 @@ func _on_tree_item_selected() -> void:
 				inst.get_node("%PropertyName").text = i.replace("_", " ")
 				inst.index = curr_item
 				inst.responsible_property = i
-				var current_dict = items[curr_item]
-				inst.display_value(current_dict.get_or_add(i, config.get_value("properties", i)))
+				print(i, "'s value: ", current_dict.get(i))
+				inst.display_value.call_deferred(current_dict.get_or_add(i, config.get_value("properties", i)))
 				break
 #TODO: sync properties tab with actual values
 
 func _on_tree_item_edited() -> void:
 	var curr_item = tree.get_edited()
 	var curr_column = tree.get_edited_column()
-	var config = FileManager.get_block_config(FileManager.block_types[items[get_index_recursive(curr_item)].type])
+	var config = FileManager.get_block_config(FileManager.block_types[items[tree_items.find(curr_item)].type])
 	var curr_property: String
-	print("edited item: ", curr_item.get_text(0), "; with index: ", get_index_recursive(curr_item))
-	print("edited item type: ", items[get_index_recursive(curr_item)].type)
+	print("edited item: ", curr_item.get_text(0), "; with index: ", tree_items.find(curr_item))
+	print("edited item type: ", items[tree_items.find(curr_item)].type)
 	if config.has_section("properties"): for i in config.get_section_keys("properties"):
 		var usage_tags = config.get_value("usage", i, "none").replace(" ", "").split(",")
 		for tag in usage_tags:
@@ -90,10 +94,21 @@ func _on_tree_item_edited() -> void:
 		)
 
 func _on_property_changed(item: int, property: StringName, value: Variant) -> void:
-	tree_items[item].set_checked(1, value)
-	print(%PropertyList.get_children().map(func(i): return i.name.to_snake_case()))
-	var filtered_nodes = %PropertyList.get_children().filter(func(i: Node): return i.name.to_snake_case() == property)
+	items[item][property] = value
+	var config = FileManager.get_block_config(FileManager.block_types[items[item].type])
+	var usage_tags = config.get_value("usage", property, "none").replace(" ", "").split(",")
+	if "title_checkbox" in usage_tags:
+		tree_items[item].set_checked(1, value)
+	if "tree_bg_color" in usage_tags:
+		tree_items[item].call_recursive("set_custom_bg_color", 0, Color(value).lerp(Color("#1e2030"), 0.8))
+		tree_items[item].call_recursive("set_custom_bg_color", 1, Color(value).lerp(Color("#1e2030"), 0.8))
+	var filtered_nodes = %PropertyList.get_children().filter(func(i: Node): return i.responsible_property == property)
 	filtered_nodes[0].display_value(value)
 
-func get_index_recursive(item: TreeItem) -> int:
-	return item.get_index() + (get_index_recursive(item.get_parent()) + 1 if is_instance_valid(item.get_parent()) else 0)
+func _on_property_search_text_changed(new_text: String) -> void:
+	for i in %PropertyList.get_children():
+		if new_text.is_empty():
+			i.show()
+		elif i is PropertyBlock:
+			var similar_value = max((i.get_node(^"%PropertyName") as Label).text.similarity(new_text), i.responsible_property.similarity(new_text))
+			i.visible = similar_value > 0.4

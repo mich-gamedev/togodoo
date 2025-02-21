@@ -7,7 +7,7 @@
    viewBox="0 0 16 16"
    version="1.1"
    id="svg1"
-   inkscape:export-filename="eye_closed.svg"
+   inkscape:export-filename="new_block.svg"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -47,25 +47,23 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1"
-     style="display:inline;opacity:1">
+     id="layer1">
     <path
-       id="path9"
+       id="rect3"
        style="fill:#ffffff;fill-opacity:1;stroke:#6e738d;stroke-width:0;stroke-opacity:1"
-       d="M 8,3 A 7,5 0 0 0 1,8 7,5 0 0 0 8,13 7,5 0 0 0 15,8 7,5 0 0 0 8,3 Z M 8,4 A 6,4 0 0 1 14,8 6,4 0 0 1 8,12 6,4 0 0 1 2,8 6,4 0 0 1 8,4 Z" />
+       d="M 3,3 V 13 H 13 V 7 h -1 v 5 H 4 V 4 H 9 V 3 Z" />
     <path
-       id="circle12"
-       style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:#6e738d;stroke-width:0;stroke-opacity:1"
-       d="M 8,5 A 2.9999995,3 0 0 0 5,8 2.9999995,3 0 0 0 8,11 2.9999995,3 0 0 0 11,8 2.9999995,3 0 0 0 8,5 Z M 8,6 A 1.9999999,1.999999 0 0 1 10,8 1.9999999,1.999999 0 0 1 8,10 1.9999999,1.999999 0 0 1 6,8 1.9999999,1.999999 0 0 1 8,6 Z" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer2"
-     inkscape:label="Layer 2"
-     style="display:none">
-    <path
-       id="path11"
+       id="path7"
        style="fill:#ffffff;fill-opacity:1;stroke:#6e738d;stroke-width:0;stroke-opacity:1"
-       d="m 1,8 a 7,5 0 0 0 7,5 7,5 0 0 0 7,-5 H 14 A 6,4 0 0 1 8,12 6,4 0 0 1 2,8 Z" />
+       d="M 10.5,3 11,6 h 3 l 0.5,-3 z m 1.181641,1 h 1.636718 l -0.166015,1 h -1.304688 z" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#6e738d;stroke-width:0;stroke-opacity:1"
+       d="m 10,2.5 h 5 V 2 h -5 z"
+       id="path8"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#6e738d;stroke-width:0;stroke-opacity:1"
+       d="m 11.5,2 h 2 L 13,1.5 h -1 z"
+       id="path9" />
   </g>
 </svg>

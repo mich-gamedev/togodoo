@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://crcl4vkglyd81"]
+
+[ext_resource type="Script" path="res://objects/properties/property_block.gd" id="1_oicwi"]
+[ext_resource type="Script" path="res://objects/properties/color_picker_button.gd" id="2_qfp5a"]
+
+[node name="HBoxContainer" type="HBoxContainer" node_paths=PackedStringArray("value_node")]
+custom_minimum_size = Vector2(0, 24)
+offset_right = 256.0
+script = ExtResource("1_oicwi")
+value_node = NodePath("PanelContainer/MarginContainer/ColorPickerButton")
+value_property = &"color"
+
+[node name="PropertyName" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "state"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(24, 13)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.5
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+color = Color(1, 0, 0.522977, 1)
+script = ExtResource("2_qfp5a")
+
+[connection signal="color_changed" from="PanelContainer/MarginContainer/ColorPickerButton" to="." method="property_change_emit" unbinds=1]
+[connection signal="picker_created" from="PanelContainer/MarginContainer/ColorPickerButton" to="PanelContainer/MarginContainer/ColorPickerButton" method="_on_picker_created"]

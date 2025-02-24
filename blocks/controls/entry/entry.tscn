@@ -30,3 +30,5 @@ fit_content = true
 
 [node name="Block" type="Node" parent="."]
 script = ExtResource("2_05vk0")
+
+[connection signal="toggled" from="Control/CheckBox" to="." method="_on_check_box_toggled"]

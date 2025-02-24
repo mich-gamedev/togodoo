@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bn2aqpvkqauvr"]
+[gd_scene load_steps=21 format=3 uid="uid://bn2aqpvkqauvr"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_6yeym"]
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_to3i3"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://7mqamsoh1bka" path="res://resources/themes/search.svg" id="8_cugfj"]
 [ext_resource type="Texture2D" uid="uid://604lm5djgj3y" path="res://resources/themes/new_block.svg" id="8_jqwe6"]
 [ext_resource type="Texture2D" uid="uid://c3ujjxood5adf" path="res://resources/themes/remove_block.svg" id="8_wyq7v"]
+[ext_resource type="Script" path="res://scenes/tree.gd" id="10_uy6d5"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="10_viifr"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="11_q3wb5"]
 
@@ -425,10 +426,12 @@ theme_override_styles/separator = SubResource("StyleBoxLine_dk6e4")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/icon_max_width = 16
 columns = 2
 drop_mode_flags = 1
 select_mode = 1
 scroll_horizontal_enabled = false
+script = ExtResource("10_uy6d5")
 
 [node name="Visual" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2"]
 unique_name_in_owner = true

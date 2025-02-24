@@ -6,5 +6,5 @@ extends HFlowContainer
 @onready var label: RichTextLabel = $RichTextLabel
 
 func _update_block() -> void:
-	check_box.button_pressed = block.get_arg("state")
+	check_box.set_pressed_no_signal(block.get_arg("state"))
 	label.text = block.get_title()

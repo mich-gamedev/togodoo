@@ -7,6 +7,7 @@ offset_right = 256.0
 script = ExtResource("1_qcmmd")
 value_node = NodePath("ValueBool")
 value_property = &"button_pressed"
+custom_function = &"set_pressed_no_signal"
 
 [node name="PropertyName" type="Label" parent="."]
 unique_name_in_owner = true

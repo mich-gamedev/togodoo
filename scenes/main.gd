@@ -16,6 +16,7 @@ func _ready() -> void: #TODO: replace with selection later
 		items.append(parsed)
 	var previous_tree_items: Array[TreeItem]
 	tree.set_column_expand(1, false)
+	#tree.set_column_expand(0, false)
 	for i in items.size():
 		var parent_index = get_parent_from_item(i)
 		var item := tree.create_item(previous_tree_items[parent_index] if parent_index != -1 else null)
@@ -29,6 +30,10 @@ func _ready() -> void: #TODO: replace with selection later
 				item.set_expand_right(1, false)
 				item.set_icon_max_width(1, 16)
 				break
+		print(config.get_value("display", "icon"))
+		if ResourceLoader.exists(config.get_value("display", "icon")):
+			item.set_cell_mode(0, TreeItem.CELL_MODE_CUSTOM)
+			item.set_icon(0, load(config.get_value("display", "icon")))
 		item.set_text(0, items[i].stripped_title)
 		item.set_expand_right(0, true)
 		item.set_tooltip_text(0, "Type: %s" % config.get_value("display", "display_name"))
@@ -87,7 +92,6 @@ func _on_tree_item_selected() -> void:
 				print(i, "'s value: ", current_dict.get(i))
 				inst.display_value.call_deferred(current_dict.get_or_add(i, config.get_value("properties", i)))
 				break
-#TODO: sync properties tab with actual values
 
 func _on_tree_item_edited() -> void:
 	var curr_item = tree.get_edited()

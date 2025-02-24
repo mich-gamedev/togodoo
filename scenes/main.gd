@@ -17,8 +17,8 @@ func _ready() -> void: #TODO: replace with selection later
 	var previous_tree_items: Array[TreeItem]
 	tree.set_column_expand(1, false)
 	for i in items.size():
-		var parent_index = get_parent_from_item(items, i)
-		var item := tree.create_item(previous_tree_items[parent_index] if parent_index else null)
+		var parent_index = get_parent_from_item(i)
+		var item := tree.create_item(previous_tree_items[parent_index] if parent_index != -1 else null)
 		#item.set_expand_right(0, false)
 		var config := FileManager.get_block_config(FileManager.block_types[items[i].type])
 		if config.has_section("usage"): for arg in config.get_section_keys("usage"):
@@ -34,23 +34,31 @@ func _ready() -> void: #TODO: replace with selection later
 		item.set_tooltip_text(0, "Type: %s" % config.get_value("display", "display_name"))
 		previous_tree_items.append(item)
 
+		print(items[i].title, ": ", get_parent_from_item(i))
+		print(items[i].indents)
 		var block_inst = (load(config.get_value("logic", "scene")) as PackedScene).instantiate()
+		block_inst.name = items[i].title
 		items[i].display_node = block_inst
-		var parent_node = (items[get_parent_from_item(items, i)].display_node as Node).get_node_or_null(^"%ChildContainer")
-		(parent_node if is_instance_valid(parent_node) else items[get_parent_from_item(items, i)].display_node as Node).add_child(block_inst)
+		if get_parent_from_item(i) != -1:
+			items[get_parent_from_item(i)].display_node.get_node(^"%ChildContainer").add_child(block_inst, true)
+		else:
+			%BlockDisplay.add_child(block_inst, true)
 		for block: Block in block_inst.find_children("*", "Block"):
 			block.args = items[i]
 		block_inst.propagate_call("_update_block")
+
 	tree_items = previous_tree_items.duplicate()
 
-func get_parent_from_item(items: Array, idx: int) -> int:
+
+
+func get_parent_from_item(idx: int) -> int:
 	var back_idx := 0
-	while back_idx != idx:
+	while back_idx <= idx:
 		#item[idx].indents <= item[back_idx].indents
 		if items[idx].indents > items[idx - back_idx].indents:
 			return idx - back_idx
 		back_idx += 1
-	return 0
+	return -1
 
 func _on_tree_item_selected() -> void:
 	var curr_item: int = -1

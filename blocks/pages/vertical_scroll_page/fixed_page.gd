@@ -5,6 +5,8 @@ extends PanelContainer
 func _update_block() -> void:
 	%TitleLabel.text = block.get_title()
 
+	custom_minimum_size.y = block.get_arg("size")
+
 	if block.get_arg("use_preset_color"):
 		var style := get_theme_stylebox(&"panel")
 		if style is StyleBoxFlat:

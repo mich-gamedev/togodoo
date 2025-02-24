@@ -4,19 +4,28 @@
 [ext_resource type="Script" path="res://components/blocks/block.gd" id="2_05vk0"]
 
 [node name="HBoxContainer" type="HFlowContainer"]
-offset_right = 21.0
-offset_bottom = 24.0
+offset_right = 128.0
+offset_bottom = 16.0
 size_flags_horizontal = 3
 script = ExtResource("1_u5xpu")
 
-[node name="CheckBox" type="CheckBox" parent="."]
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(16, 18)
 layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="Control"]
+layout_mode = 1
+offset_right = 16.0
+offset_bottom = 24.0
 size_flags_horizontal = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 8
 bbcode_enabled = true
+text = "adgadgadg"
 fit_content = true
 
 [node name="Block" type="Node" parent="."]

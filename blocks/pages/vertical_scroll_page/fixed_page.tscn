@@ -1,15 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjmt7cn2oqkwr"]
+[gd_scene load_steps=9 format=3 uid="uid://jlcccc7usfc5"]
 
-[ext_resource type="Script" path="res://blocks/pages/page/page.gd" id="1_3sh16"]
-[ext_resource type="StyleBox" uid="uid://bpuoro8beqwxu" path="res://resources/styles/panel_local_to_scene.stylebox" id="1_aj45x"]
-[ext_resource type="Script" path="res://components/blocks/block.gd" id="2_uefg2"]
+[ext_resource type="StyleBox" uid="uid://bpuoro8beqwxu" path="res://resources/styles/panel_local_to_scene.stylebox" id="1_wxuhs"]
+[ext_resource type="Script" path="res://blocks/pages/vertical_scroll_page/fixed_page.gd" id="2_ndjtg"]
+[ext_resource type="Script" path="res://components/blocks/block.gd" id="3_2wo26"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="4_k1rl2"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="5_g55tx"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_x8p5e"]
 color = Color(0.141176, 0.152941, 0.227451, 1)
 
+[sub_resource type="Resource" id="Resource_6xeye"]
+script = ExtResource("5_g55tx")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_1c5if"]
+script = ExtResource("5_g55tx")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
 [node name="VBoxContainer" type="VBoxContainer"]
-offset_right = 18.0
-offset_bottom = 24.0
+offset_right = 10.0
+offset_bottom = 20.0
 theme_override_constants/separation = 0
 
 [node name="Spacer" type="Control" parent="."]
@@ -19,8 +33,8 @@ layout_mode = 2
 [node name="Page" type="PanelContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = ExtResource("1_aj45x")
-script = ExtResource("1_3sh16")
+theme_override_styles/panel = ExtResource("1_wxuhs")
+script = ExtResource("2_ndjtg")
 
 [node name="MarginContainer" type="MarginContainer" parent="Page"]
 layout_mode = 2
@@ -60,7 +74,7 @@ grow_vertical = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_x8p5e")
 
 [node name="Block" type="Node" parent="Page"]
-script = ExtResource("2_uefg2")
+script = ExtResource("3_2wo26")
 
 [node name="MarginContainer2" type="MarginContainer" parent="Page"]
 layout_mode = 2
@@ -69,6 +83,14 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="ChildContainer" type="VBoxContainer" parent="Page/MarginContainer2"]
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="Page/MarginContainer2"]
+layout_mode = 2
+script = ExtResource("4_k1rl2")
+wheel_scroll_damper = SubResource("Resource_6xeye")
+dragging_scroll_damper = SubResource("Resource_1c5if")
+
+[node name="ChildContainer" type="VBoxContainer" parent="Page/MarginContainer2/SmoothScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

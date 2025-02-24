@@ -1,6 +1,6 @@
 class_name Utils extends Node
 
-const COLORS = [
+const COLORS : Array[Color] = [
 	Color8(24, 25, 38), Color8(30, 32, 48),Color8(36, 39, 58),Color8(54, 58, 79),Color8(73, 77, 100),
 	Color8(91, 96, 120),Color8(110, 115, 141),Color8(128, 135, 162),Color8(147, 154, 183),Color8(165, 173, 203),
 	Color8(184, 192, 224),Color8(202, 211, 245),Color8(183, 189, 248),Color8(138, 173, 244),

@@ -4,8 +4,9 @@
 [ext_resource type="Script" path="res://components/blocks/block.gd" id="2_3kogx"]
 
 [node name="Label" type="RichTextLabel"]
+custom_minimum_size = Vector2(0, 18)
 offset_right = 1.0
-offset_bottom = 16.75
+offset_bottom = 18.0
 size_flags_horizontal = 3
 bbcode_enabled = true
 fit_content = true

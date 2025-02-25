@@ -26,7 +26,7 @@ PropertyBus="*res://components/property_list/sngl_property_bus.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/aspect="expand"
-window/stretch/scale=1.48
+window/stretch/scale=1.25
 
 [editor_plugins]
 

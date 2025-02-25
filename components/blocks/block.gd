@@ -18,5 +18,15 @@ func get_raw_args() -> String:
 	return args.raw_args
 
 func get_arg(name: String) -> Variant:
-	print(FileManager.get_block_config(FileManager.block_types[get_type()]).get_section_keys("properties"))
 	return args.get(name, FileManager.get_block_config(FileManager.block_types[get_type()]).get_value("properties", name))
+
+func get_idx() -> int:
+	return args.index
+
+func _ready() -> void:
+	PropertyBus.property_changed.connect(_on_property_changed)
+
+func _on_property_changed(index: int, property: String, value: Variant) -> void:
+	if index == args.index:
+		args[property] = value
+		owner.propagate_call("_update_block")

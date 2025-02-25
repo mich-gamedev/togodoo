@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bn2aqpvkqauvr"]
+[gd_scene load_steps=22 format=3 uid="uid://bn2aqpvkqauvr"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_6yeym"]
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_to3i3"]
@@ -20,6 +20,18 @@ color = Color(0.141176, 0.152941, 0.227451, 1)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_dk6e4"]
 color = Color(0.211765, 0.227451, 0.309804, 1)
+
+[sub_resource type="Resource" id="Resource_vafg3"]
+script = ExtResource("11_q3wb5")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_41xyg"]
+script = ExtResource("11_q3wb5")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_x352f"]
 script = ExtResource("11_q3wb5")
@@ -415,15 +427,27 @@ icon = ExtResource("8_jqwe6")
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_dk6e4")
 
-[node name="Tree" type="Tree" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer"]
-unique_name_in_owner = true
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
+script = ExtResource("10_viifr")
+speed = 500.0
+wheel_scroll_damper = SubResource("Resource_vafg3")
+dragging_scroll_damper = SubResource("Resource_41xyg")
+
+[node name="Tree" type="Tree" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
 theme_override_constants/icon_max_width = 16
 columns = 2
 drop_mode_flags = 1
 select_mode = 1
 scroll_horizontal_enabled = false
+scroll_vertical_enabled = false
 script = ExtResource("10_uy6d5")
 
 [node name="Visual" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2"]
@@ -557,6 +581,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[connection signal="item_edited" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/Tree" to="." method="_on_tree_item_edited"]
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/Tree" to="." method="_on_tree_item_selected"]
+[connection signal="item_edited" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer/Tree" to="." method="_on_tree_item_edited"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer/Tree" to="." method="_on_tree_item_selected"]
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer/PropertySearch" to="." method="_on_property_search_text_changed"]

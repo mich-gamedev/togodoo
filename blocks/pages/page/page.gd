@@ -3,6 +3,7 @@ extends PanelContainer
 @onready var block: Block = $Block
 
 func _update_block() -> void:
+	print("Page updated")
 	%TitleLabel.text = block.get_title()
 
 	if block.get_arg("use_preset_color"):

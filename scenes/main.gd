@@ -5,6 +5,8 @@ extends Control
 var tree_items : Array[TreeItem]
 var items : Array[Dictionary]
 
+var curr_item: int
+
 func _ready() -> void: #TODO: replace with selection later
 	FileManager.load_mods()
 	var file = FileAccess.open("res://test.txt", FileAccess.READ)
@@ -18,6 +20,7 @@ func _ready() -> void: #TODO: replace with selection later
 	tree.set_column_expand(1, false)
 	#tree.set_column_expand(0, false)
 	for i in items.size():
+		items[i].index = i
 		var parent_index = get_parent_from_item(i)
 		var item := tree.create_item(previous_tree_items[parent_index] if parent_index != -1 else null)
 		#item.set_expand_right(0, false)
@@ -36,6 +39,8 @@ func _ready() -> void: #TODO: replace with selection later
 			item.set_icon(0, load(config.get_value("display", "icon")))
 			item.set_icon_modulate(0, Color("cdd6f4"))
 		item.set_text(0, items[i].stripped_title)
+		item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD_SMART)
+
 		item.set_expand_right(0, true)
 		#item.set_tooltip_text(0, "Type: %s" % config.get_value("display", "display_name"))
 		previous_tree_items.append(item)
@@ -67,11 +72,7 @@ func get_parent_from_item(idx: int) -> int:
 	return -1
 
 func _on_tree_item_selected() -> void:
-	var curr_item: int = -1
-	for i in tree_items.size():
-		tree_items[i].set_editable.call_deferred(0, tree_items[i].is_selected(0))
-		if curr_item == -1 and tree_items[i].is_selected(0):
-			curr_item = i
+	curr_item = tree_items.find(tree.get_selected())
 	print("new item selected, with an index of %d" % curr_item)
 
 	for i in %PropertyList.get_children():
@@ -111,7 +112,7 @@ func _on_tree_item_edited() -> void:
 				break
 	if curr_property and curr_item.get_cell_mode(curr_column) == TreeItem.CELL_MODE_CHECK:
 		PropertyBus.property_changed.emit.call_deferred(
-			curr_item.get_index(),
+			tree_items.find(curr_item),
 			curr_property,
 			curr_item.is_checked(curr_column)
 		)
@@ -125,8 +126,9 @@ func _on_property_changed(item: int, property: StringName, value: Variant) -> vo
 	if "tree_bg_color" in usage_tags:
 		tree_items[item].call_recursive("set_custom_bg_color", 0, Color(value).lerp(Color("#1e2030"), 0.8))
 		tree_items[item].call_recursive("set_custom_bg_color", 1, Color(value).lerp(Color("#1e2030"), 0.8))
-	var filtered_nodes = %PropertyList.get_children().filter(func(i: Node): return i.responsible_property == property)
-	filtered_nodes[0].display_value(value)
+	if item == curr_item:
+		var filtered_nodes = %PropertyList.get_children().filter(func(i: Node): return i.responsible_property == property)
+		filtered_nodes[0].display_value(value)
 
 func _on_property_search_text_changed(new_text: String) -> void:
 	for i in %PropertyList.get_children():

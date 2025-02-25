@@ -79,17 +79,24 @@ script = ExtResource("3_2wo26")
 [node name="MarginContainer2" type="MarginContainer" parent="Page"]
 layout_mode = 2
 theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
+theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="SmoothScrollContainer" type="ScrollContainer" parent="Page/MarginContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="Page/MarginContainer2"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/margin_top = 6
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="Page/MarginContainer2/MarginContainer"]
+clip_contents = false
 layout_mode = 2
 script = ExtResource("4_k1rl2")
+speed = 500.0
 wheel_scroll_damper = SubResource("Resource_6xeye")
 dragging_scroll_damper = SubResource("Resource_1c5if")
 
-[node name="ChildContainer" type="VBoxContainer" parent="Page/MarginContainer2/SmoothScrollContainer"]
+[node name="ChildContainer" type="VBoxContainer" parent="Page/MarginContainer2/MarginContainer/SmoothScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

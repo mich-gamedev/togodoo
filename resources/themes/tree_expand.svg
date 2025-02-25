@@ -51,26 +51,9 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       id="rect3"
-       style="fill:#ffffff;fill-opacity:1;stroke:#6e738d;stroke-width:0;stroke-opacity:1"
-       d="m 3.086,3 v 1 h 1 H 4.7246719 9.086 V 3 Z m 9,4 v 5 H 4.7246719 4.086 h -1 v 1 h 10 V 7 Z" />
-    <path
-       style="fill:#000000"
-       d="M 9.1113892,3.4443054 Z"
-       id="path1" />
-    <path
-       id="path2"
-       style="fill:#ffffff;fill-opacity:1"
-       d="M 8.0859998,3 V 8 H 13.086 V 7 l -4,-4 z M 9.086,4.414 11.5,7 H 9.086 Z"
-       sodipodi:nodetypes="cccccccccc" />
-    <path
-       style="fill:#ffffff;fill-opacity:1"
-       d="M 9.0112641,4.5256571 V 7.028786"
-       id="path3" />
-    <path
-       style="fill:#ffffff;fill-opacity:1"
-       d="m 3.586,5 -2,2 h 1.5 v 2 h -1.5 l 2,2 2,-2 h -1.5 V 7 h 1.5 z"
-       id="path4"
-       sodipodi:nodetypes="ccccccccccc" />
+       id="rect7"
+       style="fill:#cad3f5;fill-opacity:1;stroke:#6e738d;stroke-width:0"
+       d="M 8.1427765,1.7926262 V 2.7925194 H 14.142136 V 1.7926262 -3.2068397 h -0.999894 v 4.9994659 z"
+       transform="rotate(45)" />
   </g>
 </svg>

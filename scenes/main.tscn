@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bn2aqpvkqauvr"]
+[gd_scene load_steps=20 format=3 uid="uid://bn2aqpvkqauvr"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_6yeym"]
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_to3i3"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cali1huvlmf83" path="res://resources/themes/eye_open.svg" id="5_gafk2"]
 [ext_resource type="Texture2D" uid="uid://7mqamsoh1bka" path="res://resources/themes/search.svg" id="8_cugfj"]
 [ext_resource type="Texture2D" uid="uid://604lm5djgj3y" path="res://resources/themes/new_block.svg" id="8_jqwe6"]
-[ext_resource type="Texture2D" uid="uid://c3ujjxood5adf" path="res://resources/themes/remove_block.svg" id="8_wyq7v"]
 [ext_resource type="Script" path="res://scenes/tree.gd" id="10_uy6d5"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="10_viifr"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="11_q3wb5"]
@@ -63,10 +62,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -205.0
-offset_top = -54.5
-offset_right = 205.0
-offset_bottom = 54.5
+offset_left = -239.0
+offset_top = -61.5
+offset_right = 239.0
+offset_bottom = 61.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_to3i3")
@@ -404,17 +403,11 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="NewBlock" type="Button" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 10
-tooltip_text = "remove selected block"
-icon = ExtResource("8_wyq7v")
-
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 8
 tooltip_text = "create new block"
 icon = ExtResource("8_jqwe6")
 
@@ -535,11 +528,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
+[node name="TypeIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.431373, 0.45098, 0.552941, 1)
+layout_mode = 2
+
 [node name="TypeLabel" type="Label" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.431373, 0.45098, 0.552941, 1)
-text = "Entry"
+text = "Nothing Selected"
 vertical_alignment = 2
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer/HBoxContainer"]

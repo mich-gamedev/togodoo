@@ -34,9 +34,10 @@ func _ready() -> void: #TODO: replace with selection later
 		if ResourceLoader.exists(config.get_value("display", "icon")):
 			item.set_cell_mode(0, TreeItem.CELL_MODE_CUSTOM)
 			item.set_icon(0, load(config.get_value("display", "icon")))
+			item.set_icon_modulate(0, Color("cdd6f4"))
 		item.set_text(0, items[i].stripped_title)
 		item.set_expand_right(0, true)
-		item.set_tooltip_text(0, "Type: %s" % config.get_value("display", "display_name"))
+		#item.set_tooltip_text(0, "Type: %s" % config.get_value("display", "display_name"))
 		previous_tree_items.append(item)
 
 		print(items[i].title, ": ", get_parent_from_item(i))
@@ -78,7 +79,9 @@ func _on_tree_item_selected() -> void:
 		i.queue_free()
 	var config = FileManager.get_block_config(FileManager.block_types[items[curr_item].type])
 	%TypeLabel.text = config.get_value("display", "display_name")
+	%TypeIcon.texture = load(config.get_value("display", "icon"))
 	var current_dict = items[curr_item]
+
 	if config.has_section("properties"): for i in config.get_section_keys("properties"):
 		var usage_tags = config.get_value("usage", i, "none").replace(" ", "").split(",")
 		for tag in usage_tags:

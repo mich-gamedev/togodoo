@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bax1h41v68m68"
-path="res://.godot/imported/fixed_page.svg-e50bb492b8f664d0f938aa2f3f2446ef.ctex"
+uid="uid://npomtk540ich"
+path="res://.godot/imported/x.svg-6d05dafecbfdd2b3c3246f857e1f91df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://blocks/pages/vertical_scroll_page/fixed_page.svg"
-dest_files=["res://.godot/imported/fixed_page.svg-e50bb492b8f664d0f938aa2f3f2446ef.ctex"]
+source_file="res://resources/themes/x.svg"
+dest_files=["res://.godot/imported/x.svg-6d05dafecbfdd2b3c3246f857e1f91df.ctex"]
 
 [params]
 

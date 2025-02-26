@@ -7,6 +7,10 @@ var items : Array[Dictionary]
 
 var curr_item: int
 
+const MENU_NEW_BLOCK = preload("res://scenes/menu_new_block.tscn")
+
+var curr_new_block_window: Window
+
 func _ready() -> void: #TODO: replace with selection later
 	FileManager.load_mods()
 	var file = FileAccess.open("res://test.txt", FileAccess.READ)
@@ -123,9 +127,8 @@ func _on_property_changed(item: int, property: StringName, value: Variant) -> vo
 	var usage_tags = config.get_value("usage", property, "none").replace(" ", "").split(",")
 	if "title_checkbox" in usage_tags:
 		tree_items[item].set_checked(1, value)
-	if "tree_bg_color" in usage_tags:
-		tree_items[item].call_recursive("set_custom_bg_color", 0, Color(value).lerp(Color("#1e2030"), 0.8))
-		tree_items[item].call_recursive("set_custom_bg_color", 1, Color(value).lerp(Color("#1e2030"), 0.8))
+	#if "tree_bg_color" in usage_tags:
+		#tree_items[item].call_recursive("set_custom_bg_color", 0, Color(value).lerp(Color("#1e2030"), 0.8))
 	if item == curr_item:
 		var filtered_nodes = %PropertyList.get_children().filter(func(i: Node): return i.responsible_property == property)
 		filtered_nodes[0].display_value(value)
@@ -137,3 +140,17 @@ func _on_property_search_text_changed(new_text: String) -> void:
 		elif i is PropertyBlock:
 			var similar_value = max((i.get_node(^"%PropertyName") as Label).text.similarity(new_text), i.responsible_property.similarity(new_text))
 			i.visible = similar_value > 0.4
+
+func _on_new_block_pressed() -> void:
+	curr_new_block_window = MENU_NEW_BLOCK.instantiate()
+	add_child(curr_new_block_window)
+	curr_new_block_window.block_create_pressed.connect(create_block)
+
+func create_block(type: String, to_item: TreeItem = null) -> void:
+	var config = FileManager.get_block_config(FileManager.block_types[type])
+	var parsed = LineParser.parse_line("[{Type}] New {Display Name}".format({"Type": type, "Display Name": config.get_value("display", "display_name")}))
+	if to_item:
+		tree.create_item(to_item)
+	else:
+		if tree.get_selected():
+			pass

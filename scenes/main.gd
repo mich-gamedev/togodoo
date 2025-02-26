@@ -20,49 +20,49 @@ func _ready() -> void: #TODO: replace with selection later
 		var line = file.get_line()
 		var parsed = LineParser.parse_line(line)
 		items.append(parsed)
-	var previous_tree_items: Array[TreeItem]
 	tree.set_column_expand(1, false)
 	#tree.set_column_expand(0, false)
 	for i in items.size():
 		items[i].index = i
 		var parent_index = get_parent_from_item(i)
-		var item := tree.create_item(previous_tree_items[parent_index] if parent_index != -1 else null)
+		var item := tree.create_item(tree_items[parent_index] if parent_index != -1 else null)
 		#item.set_expand_right(0, false)
-		var config := FileManager.get_block_config(FileManager.block_types[items[i].type])
-		if config.has_section("usage"): for arg in config.get_section_keys("usage"):
-			if String(config.get_value("usage", arg)).replace(" ", "").split(",").has("title_checkbox"):
-				item.set_cell_mode(1, TreeItem.CELL_MODE_CHECK)
-				item.set_editable(1, true)
-				item.set_checked(1, items[i].get(arg))
-				item.set_expand_right(1, false)
-				item.set_icon_max_width(1, 16)
-				break
-		print(config.get_value("display", "icon"))
-		if ResourceLoader.exists(config.get_value("display", "icon")):
-			item.set_cell_mode(0, TreeItem.CELL_MODE_CUSTOM)
-			item.set_icon(0, load(config.get_value("display", "icon")))
-			item.set_icon_modulate(0, Color("cdd6f4"))
-		item.set_text(0, items[i].stripped_title)
-		item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD_SMART)
+		tree_items.append(item)
+		setup_item(items[i], item)
+		#var config := FileManager.get_block_config(FileManager.block_types[items[i].type])
+		#if config.has_section("usage"): for arg in config.get_section_keys("usage"):
+			#if String(config.get_value("usage", arg)).replace(" ", "").split(",").has("title_checkbox"):
+				#item.set_cell_mode(1, TreeItem.CELL_MODE_CHECK)
+				#item.set_editable(1, true)
+				#item.set_checked(1, items[i].get(arg))
+				#item.set_expand_right(1, false)
+				#item.set_icon_max_width(1, 16)
+				#break
+		#print(config.get_value("display", "icon"))
+		#if ResourceLoader.exists(config.get_value("display", "icon")):
+			#item.set_cell_mode(0, TreeItem.CELL_MODE_CUSTOM)
+			#item.set_icon(0, load(config.get_value("display", "icon")))
+			#item.set_icon_modulate(0, Color("cdd6f4"))
+		#item.set_text(0, items[i].stripped_title)
+		#item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD_SMART)
+#
+		#item.set_expand_right(0, true)
+		##item.set_tooltip_text(0, "Type: %s" % config.get_value("display", "display_name"))
+		#previous_tree_items.append(item)
+#
+		#print(items[i].title, ": ", get_parent_from_item(i))
+		#print(items[i].indents)
+		#var block_inst = (load(config.get_value("logic", "scene")) as PackedScene).instantiate()
+		#block_inst.name = items[i].title
+		#items[i].display_node = block_inst
+		#if get_parent_from_item(i) != -1:
+			#items[get_parent_from_item(i)].display_node.get_node(^"%ChildContainer").add_child(block_inst, true)
+		#else:
+			#%BlockDisplay.add_child(block_inst, true)
+		#for block: Block in block_inst.find_children("*", "Block"):
+			#block.args = items[i]
+		#block_inst.propagate_call("_update_block")
 
-		item.set_expand_right(0, true)
-		#item.set_tooltip_text(0, "Type: %s" % config.get_value("display", "display_name"))
-		previous_tree_items.append(item)
-
-		print(items[i].title, ": ", get_parent_from_item(i))
-		print(items[i].indents)
-		var block_inst = (load(config.get_value("logic", "scene")) as PackedScene).instantiate()
-		block_inst.name = items[i].title
-		items[i].display_node = block_inst
-		if get_parent_from_item(i) != -1:
-			items[get_parent_from_item(i)].display_node.get_node(^"%ChildContainer").add_child(block_inst, true)
-		else:
-			%BlockDisplay.add_child(block_inst, true)
-		for block: Block in block_inst.find_children("*", "Block"):
-			block.args = items[i]
-		block_inst.propagate_call("_update_block")
-
-	tree_items = previous_tree_items.duplicate()
 
 
 
@@ -144,13 +144,50 @@ func _on_property_search_text_changed(new_text: String) -> void:
 func _on_new_block_pressed() -> void:
 	curr_new_block_window = MENU_NEW_BLOCK.instantiate()
 	add_child(curr_new_block_window)
-	curr_new_block_window.block_create_pressed.connect(create_block)
+	curr_new_block_window.block_create_pressed.connect(create_default_block)
 
-func create_block(type: String, to_item: TreeItem = null) -> void:
+func create_default_block(type: String, to_item: TreeItem = null) -> void:
 	var config = FileManager.get_block_config(FileManager.block_types[type])
 	var parsed = LineParser.parse_line("[{Type}] New {Display Name}".format({"Type": type, "Display Name": config.get_value("display", "display_name")}))
-	if to_item:
-		tree.create_item(to_item)
+	if !to_item and curr_item and tree_items.size() > curr_item: to_item = tree_items[curr_item]
+	parsed.index = tree_items.find(to_item)
+	var last_parent_item: TreeItem
+	while last_parent_item.get_parent():
+		last_parent_item = last_parent_item.get_parent()
+		parsed.indents += 1
+	var new_item = tree.create_item(to_item)
+	setup_item(parsed, new_item)
+
+func setup_item(info: Dictionary, item: TreeItem) -> void:
+	var config := FileManager.get_block_config(FileManager.block_types[info.type])
+	if config.has_section("usage"): for arg in config.get_section_keys("usage"):
+		if String(config.get_value("usage", arg)).replace(" ", "").split(",").has("title_checkbox"):
+			item.set_cell_mode(1, TreeItem.CELL_MODE_CHECK)
+			item.set_editable(1, true)
+			item.set_checked(1, info.get(arg))
+			item.set_expand_right(1, false)
+			item.set_icon_max_width(1, 16)
+			break
+	print(config.get_value("display", "icon"))
+	if ResourceLoader.exists(config.get_value("display", "icon")):
+		item.set_cell_mode(0, TreeItem.CELL_MODE_CUSTOM)
+		item.set_icon(0, load(config.get_value("display", "icon")))
+		item.set_icon_modulate(0, Color("cdd6f4"))
+	item.set_text(0, info.stripped_title)
+	item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD_SMART)
+
+	item.set_expand_right(0, true)
+	#item.set_tooltip_text(0, "Type: %s" % config.get_value("display", "display_name"))
+
+	print(info.title, ": ", get_parent_from_item(info.index))
+	print(info.indents)
+	var block_inst = (load(config.get_value("logic", "scene")) as PackedScene).instantiate()
+	block_inst.name = info.title
+	info.display_node = block_inst
+	if get_parent_from_item(info.index) != -1:
+		items[get_parent_from_item(info.index)].display_node.get_node(^"%ChildContainer").add_child(block_inst, true)
 	else:
-		if tree.get_selected():
-			pass
+		%BlockDisplay.add_child(block_inst, true)
+	for block: Block in block_inst.find_children("*", "Block"):
+		block.args = info
+	block_inst.propagate_call("_update_block")

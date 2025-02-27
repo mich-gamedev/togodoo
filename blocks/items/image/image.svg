@@ -51,46 +51,16 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       id="rect3"
-       style="fill:#ffffff;fill-opacity:1;stroke:#6e738d;stroke-width:0;stroke-opacity:1"
-       d="M 3,3 V 4 7 H 4 V 4 H 4.6386719 8 v 4 h 4 v 4 H 8 v 1 h 5 V 8 7 L 9,3 H 8 Z M 9,4.4140625 11.414062,7 H 9 Z"
-       sodipodi:nodetypes="cccccccccccccccccccccc" />
-    <path
-       style="fill:#000000"
-       d="M 9.1113892,3.4443054 Z"
-       id="path1" />
-    <path
-       style="fill:#ffffff;fill-opacity:1"
-       d="M 9.0112641,4.5256571 V 7.028786"
-       id="path3" />
-    <path
-       id="rect1"
-       style="fill:#ffffff;stroke:#6e738d;stroke-width:0"
-       d="m 2,10 v 4 h 5 v -4 z m 1,1 h 3 v 2 H 3 Z"
-       sodipodi:nodetypes="cccccccccc" />
-    <path
-       id="path2"
-       style="fill:#ffffff;stroke:#6e738d;stroke-width:0"
-       d="M 4.5,7.5 A 1.5,1.5 0 0 0 3,9 H 4 A 0.5,0.5 0 0 1 4.5,8.5 0.5,0.5 0 0 1 5,9 H 6 A 1.5,1.5 0 0 0 4.5,7.5 Z" />
-    <rect
-       style="fill:#ffffff;stroke:#6e738d;stroke-width:0"
-       id="rect6"
-       width="1"
-       height="1"
-       x="3"
-       y="9" />
-    <rect
-       style="fill:#ffffff;stroke:#6e738d;stroke-width:0"
        id="rect7"
-       width="1"
-       height="1"
-       x="5"
-       y="9" />
-    <circle
        style="fill:#ffffff;stroke:#6e738d;stroke-width:0"
-       id="path7"
-       cx="4.5"
-       cy="12"
-       r="0.5" />
+       d="M 3,3 V 13 H 13 V 3 Z m 1,1 h 8 v 8 H 4 Z" />
+    <path
+       id="rect8"
+       style="fill:#ffffff;stroke:#6e738d;stroke-width:0"
+       d="M 3.0000007,10.914214 3.7071075,11.62132 6.5355346,8.7928933 8.656855,10.914214 9.3639618,10.207107 10.071069,9.5 12.192389,11.62132 12.899496,10.914214 10.778176,8.7928933 10.071069,8.0857865 8.656855,9.5 7.2426414,8.0857865 6.5355346,7.3786797 Z" />
+    <path
+       id="path11"
+       style="fill:#ffffff;stroke:#6e738d;stroke-width:0"
+       d="M 10,4.5 A 1.5,1.5 0 0 0 8.5,6 1.5,1.5 0 0 0 10,7.5 1.5,1.5 0 0 0 11.5,6 1.5,1.5 0 0 0 10,4.5 Z m 0,1 A 0.5,0.5 0 0 1 10.5,6 0.5,0.5 0 0 1 10,6.5 0.5,0.5 0 0 1 9.5,6 0.5,0.5 0 0 1 10,5.5 Z" />
   </g>
 </svg>

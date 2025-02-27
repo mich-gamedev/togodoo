@@ -150,12 +150,14 @@ func create_default_block(type: String, to_item: TreeItem = null) -> void:
 	var config = FileManager.get_block_config(FileManager.block_types[type])
 	var parsed = LineParser.parse_line("[{Type}] New {Display Name}".format({"Type": type, "Display Name": config.get_value("display", "display_name")}))
 	if !to_item and curr_item and tree_items.size() > curr_item: to_item = tree_items[curr_item]
-	parsed.index = tree_items.find(to_item)
-	var last_parent_item: TreeItem
+	var new_item = tree.create_item(to_item)
+	parsed.index = tree_items.find(to_item) + new_item.get_index()
+	tree_items.insert(parsed.index, new_item)
+	items.insert(parsed.index, parsed)
+	var last_parent_item: TreeItem = new_item
 	while last_parent_item.get_parent():
 		last_parent_item = last_parent_item.get_parent()
 		parsed.indents += 1
-	var new_item = tree.create_item(to_item)
 	setup_item(parsed, new_item)
 
 func setup_item(info: Dictionary, item: TreeItem) -> void:
@@ -164,7 +166,7 @@ func setup_item(info: Dictionary, item: TreeItem) -> void:
 		if String(config.get_value("usage", arg)).replace(" ", "").split(",").has("title_checkbox"):
 			item.set_cell_mode(1, TreeItem.CELL_MODE_CHECK)
 			item.set_editable(1, true)
-			item.set_checked(1, info.get(arg))
+			item.set_checked(1, info.get_or_add(arg, config.get_value("properties", arg)))
 			item.set_expand_right(1, false)
 			item.set_icon_max_width(1, 16)
 			break

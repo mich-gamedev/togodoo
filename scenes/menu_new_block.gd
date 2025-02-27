@@ -29,3 +29,4 @@ func _on_close_requested() -> void:
 
 func _on_create_pressed() -> void:
 	block_create_pressed.emit(last_type)
+	queue_free()

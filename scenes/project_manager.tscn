@@ -1,0 +1,226 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6jg6njwa37da"]
+
+[ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_rf8uy"]
+[ext_resource type="SystemFont" uid="uid://cs86onhiy2r3w" path="res://assets/default.tres" id="2_q6prh"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_e1eln"]
+color = Color(0.141176, 0.152941, 0.227451, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.152941, 0.227451, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HSplitContainer" type="HSplitContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect/MarginContainer/HSplitContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="ColorRect/MarginContainer/HSplitContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/PanelContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
+theme_override_font_sizes/font_size = 14
+text = "recent files"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/HSplitContainer/PanelContainer/MarginContainer/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_e1eln")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="ColorRect/MarginContainer/HSplitContainer"]
+layout_mode = 2
+split_offset = 510
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
+theme_override_font_sizes/font_size = 14
+text = "nav"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_e1eln")
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("1_rf8uy")
+theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
+theme_override_fonts/font = ExtResource("2_q6prh")
+theme_override_font_sizes/font_size = 14
+text = "   __                              ___
+__\\  \\__  _____   _____   _____   _\\  \\   _____   _____
+\\__   __\\(  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\
+  _\\  \\   \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\
+  \\____)   \\_____) \\___  \\ \\_____) \\_____) \\_____) \\_____) (_)
+__  __  __  __  __    _\\  \\
+\\_\\ \\√\\ \\√\\ \\_\\ \\√\\  \\_____) A tree-based todo app
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="NewFile" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "new file"
+
+[node name="OpenFile" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "open file"
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Preferences" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "preferences"
+
+[node name="ManageMods" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "manage mods"
+
+[node name="CheckForUpdates" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "check for updates"
+
+[node name="HSeparator2" type="HSeparator" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="OpenDocs" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "open docs"
+
+[node name="Contribute" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "contribute"
+
+[node name="PanelContainer2" type="PanelContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
+theme_override_font_sizes/font_size = 14
+text = "templates"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2/MarginContainer/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_e1eln")

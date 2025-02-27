@@ -1,0 +1,9 @@
+[Page] New Page
+ [Text] Description of topic.
+ [Indent] Topic indent
+  [Point] Bullet Point 1
+  [Point] Bullet Point 2
+  [Point] Bullet Point 3
+ [Text] Conclusion of topic.
+ [Page use_preset_color=false color=Color("#f5a97f")] Important!!
+  [Text] [wave]Very[/wave] important note, that should be noticed

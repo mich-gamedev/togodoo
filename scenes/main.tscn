@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bn2aqpvkqauvr"]
+[gd_scene load_steps=25 format=3 uid="uid://bn2aqpvkqauvr"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_6yeym"]
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_to3i3"]
@@ -7,12 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://doy33hxmprcko" path="res://resources/themes/cursor.svg" id="3_p2csi"]
 [ext_resource type="Texture2D" uid="uid://bqqi662bw4vha" path="res://resources/themes/pencil.svg" id="4_1u5h2"]
 [ext_resource type="Texture2D" uid="uid://cali1huvlmf83" path="res://resources/themes/eye_open.svg" id="5_gafk2"]
+[ext_resource type="Texture2D" uid="uid://cfkcptx0bj2e4" path="res://resources/themes/bbcode.svg" id="8_2p2gg"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="8_ac2rg"]
 [ext_resource type="Texture2D" uid="uid://7mqamsoh1bka" path="res://resources/themes/search.svg" id="8_cugfj"]
+[ext_resource type="Texture2D" uid="uid://demawiqbabxvq" path="res://resources/themes/bbcode_off.svg" id="9_d2vxv"]
 [ext_resource type="Script" path="res://scenes/tree.gd" id="10_uy6d5"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="10_viifr"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="11_q3wb5"]
-[ext_resource type="Texture2D" uid="uid://32x1nijrcc3s" path="res://resources/themes/checkbox_indeterminant.svg" id="13_y8sbi"]
+[ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="13_vq61s"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_0bw6x"]
 color = Color(0.141176, 0.152941, 0.227451, 1)
@@ -319,6 +321,10 @@ alignment = 1
 [node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/Control/PanelContainer2/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
+theme_override_colors/icon_normal_color = Color(0.211765, 0.227451, 0.309804, 1)
+theme_override_colors/icon_pressed_color = Color(0.647059, 0.678431, 0.796078, 1)
+theme_override_colors/icon_hover_color = Color(0.431373, 0.45098, 0.552941, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 toggle_mode = true
 button_pressed = true
 button_group = SubResource("ButtonGroup_ebf3d")
@@ -332,6 +338,10 @@ theme_override_constants/separation = 0
 [node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/Control/PanelContainer2/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
+theme_override_colors/icon_normal_color = Color(0.211765, 0.227451, 0.309804, 1)
+theme_override_colors/icon_pressed_color = Color(0.647059, 0.678431, 0.796078, 1)
+theme_override_colors/icon_hover_color = Color(0.431373, 0.45098, 0.552941, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 toggle_mode = true
 button_group = SubResource("ButtonGroup_ebf3d")
 icon = ExtResource("4_1u5h2")
@@ -344,6 +354,10 @@ theme_override_constants/separation = 0
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Control/PanelContainer2/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
+theme_override_colors/icon_normal_color = Color(0.211765, 0.227451, 0.309804, 1)
+theme_override_colors/icon_pressed_color = Color(0.647059, 0.678431, 0.796078, 1)
+theme_override_colors/icon_hover_color = Color(0.431373, 0.45098, 0.552941, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 toggle_mode = true
 button_group = SubResource("ButtonGroup_ebf3d")
 icon = ExtResource("5_gafk2")
@@ -421,6 +435,15 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer"]
 layout_mode = 2
+
+[node name="Button" type="CheckBox" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+tooltip_text = "display bbcode tags in block titles"
+theme_override_constants/icon_max_width = 16
+theme_override_icons/checked = ExtResource("8_2p2gg")
+theme_override_icons/unchecked = ExtResource("9_d2vxv")
+button_pressed = true
 
 [node name="NewBlock" type="Button" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -565,7 +588,7 @@ unique_name_in_owner = true
 modulate = Color(0.431373, 0.45098, 0.552941, 1)
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
-texture = ExtResource("13_y8sbi")
+texture = ExtResource("13_vq61s")
 expand_mode = 1
 
 [node name="TypeLabel" type="Label" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer/HBoxContainer"]

@@ -76,6 +76,7 @@ func get_parent_from_item(idx: int) -> int:
 	return -1
 
 func _on_tree_item_selected() -> void:
+	tree_items[curr_item].set_editable(0, false)
 	curr_item = tree_items.find(tree.get_selected())
 	print("new item selected, with an index of %d" % curr_item)
 
@@ -86,6 +87,8 @@ func _on_tree_item_selected() -> void:
 	%TypeLabel.text = config.get_value("display", "display_name")
 	%TypeIcon.texture = load(config.get_value("display", "icon"))
 	var current_dict = items[curr_item]
+
+	tree_items[curr_item].set_editable.call_deferred(0, true)
 
 	if config.has_section("properties"): for i in config.get_section_keys("properties"):
 		var usage_tags = config.get_value("usage", i, "none").replace(" ", "").split(",")
@@ -120,6 +123,12 @@ func _on_tree_item_edited() -> void:
 			curr_property,
 			curr_item.is_checked(curr_column)
 		)
+	if curr_column == 0:
+		PropertyBus.property_changed.emit.call_deferred(
+			tree_items.find(curr_item),
+			"title",
+			curr_item.get_text(0)
+		)
 
 func _on_property_changed(item: int, property: StringName, value: Variant) -> void:
 	items[item][property] = value
@@ -131,7 +140,7 @@ func _on_property_changed(item: int, property: StringName, value: Variant) -> vo
 		#tree_items[item].call_recursive("set_custom_bg_color", 0, Color(value).lerp(Color("#1e2030"), 0.8))
 	if item == curr_item:
 		var filtered_nodes = %PropertyList.get_children().filter(func(i: Node): return i.responsible_property == property)
-		filtered_nodes[0].display_value(value)
+		if !filtered_nodes.is_empty(): filtered_nodes[0].display_value(value)
 
 func _on_property_search_text_changed(new_text: String) -> void:
 	for i in %PropertyList.get_children():
@@ -159,6 +168,7 @@ func create_default_block(type: String, to_item: TreeItem = null) -> void:
 		last_parent_item = last_parent_item.get_parent()
 		parsed.indents += 1
 	setup_item(parsed, new_item)
+	tree.scroll_to_item(new_item)
 
 func setup_item(info: Dictionary, item: TreeItem) -> void:
 	var config := FileManager.get_block_config(FileManager.block_types[info.type])
@@ -172,14 +182,15 @@ func setup_item(info: Dictionary, item: TreeItem) -> void:
 			break
 	print(config.get_value("display", "icon"))
 	if ResourceLoader.exists(config.get_value("display", "icon")):
-		item.set_cell_mode(0, TreeItem.CELL_MODE_CUSTOM)
+		item.set_cell_mode(0, TreeItem.CELL_MODE_STRING)
 		item.set_icon(0, load(config.get_value("display", "icon")))
 		item.set_icon_modulate(0, Color("cdd6f4"))
-	item.set_text(0, info.stripped_title)
+		#item.set_editable(0, true)
+	item.set_text(0, info.title)
 	item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD_SMART)
 
 	item.set_expand_right(0, true)
-	#item.set_tooltip_text(0, "Type: %s" % config.get_value("display", "display_name"))
+	item.set_tooltip_text(0, "Type: %s" % config.get_value("display", "display_name"))
 
 	print(info.title, ": ", get_parent_from_item(info.index))
 	print(info.indents)
@@ -193,3 +204,7 @@ func setup_item(info: Dictionary, item: TreeItem) -> void:
 	for block: Block in block_inst.find_children("*", "Block"):
 		block.args = info
 	block_inst.propagate_call("_update_block")
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.keycode == KEY_F2:
+		tree.edit_selected()

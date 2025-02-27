@@ -1,0 +1,6 @@
+[Page] New Page
+ [Text] Description of the below list.
+ [FixedPage size=240] List
+  [Entry] Bullet Point 1
+  [Entry] Bullet Point 2
+  [Entry] Bullet Point 3

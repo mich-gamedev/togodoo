@@ -13,7 +13,7 @@ var curr_new_block_window: Window
 
 func _ready() -> void: #TODO: replace with selection later
 	FileManager.load_mods()
-	var file = FileAccess.open("res://test.txt", FileAccess.READ)
+	var file = FileAccess.open(FileManager.file_path, FileAccess.READ)
 	PropertyBus.property_changed.connect(_on_property_changed)
 
 	while file.get_position() < file.get_length():
@@ -158,11 +158,17 @@ func _on_new_block_pressed() -> void:
 func create_default_block(type: String, to_item: TreeItem = null) -> void:
 	var config = FileManager.get_block_config(FileManager.block_types[type])
 	var parsed = LineParser.parse_line("[{Type}] New {Display Name}".format({"Type": type, "Display Name": config.get_value("display", "display_name")}))
-	if !to_item and curr_item and tree_items.size() > curr_item: to_item = tree_items[curr_item]
+	if !to_item:
+		if curr_item and tree_items.size() > curr_item: to_item = tree_items[curr_item]
+		else: to_item = tree.get_root()
 	var new_item = tree.create_item(to_item)
 	parsed.index = tree_items.find(to_item) + new_item.get_index()
 	tree_items.insert(parsed.index, new_item)
 	items.insert(parsed.index, parsed)
+	print("items = ", items.map(func(a): return a.title))
+	print("tree items = ", tree_items.map(func(a): return a.get_text(0)))
+	print("parent's index = ", tree_items.find(to_item))
+	print("child relative index = ", new_item.get_index())
 	var last_parent_item: TreeItem = new_item
 	while last_parent_item.get_parent():
 		last_parent_item = last_parent_item.get_parent()

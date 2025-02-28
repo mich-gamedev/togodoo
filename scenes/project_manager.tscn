@@ -1,7 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6jg6njwa37da"]
+[gd_scene load_steps=13 format=3 uid="uid://b6jg6njwa37da"]
 
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_rf8uy"]
+[ext_resource type="Script" path="res://scenes/project_manager.gd" id="1_rryq6"]
 [ext_resource type="SystemFont" uid="uid://cs86onhiy2r3w" path="res://assets/default.tres" id="2_q6prh"]
+[ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="3_unyqo"]
+[ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/themes/folder.svg" id="4_csqmn"]
+[ext_resource type="Texture2D" uid="uid://c2kr2kifcs4yc" path="res://resources/themes/settings.svg" id="5_5tm0h"]
+[ext_resource type="Texture2D" uid="uid://bw60ho2s4y84t" path="res://resources/themes/wrench.svg" id="6_gca4t"]
+[ext_resource type="Texture2D" uid="uid://d3y5186u78brm" path="res://resources/themes/redo.svg" id="6_qiwro"]
+[ext_resource type="Texture2D" uid="uid://ddlsrj8v0qiuv" path="res://resources/themes/search_nomod.svg" id="7_218y8"]
+[ext_resource type="Texture2D" uid="uid://cfx2ivv7ag1q0" path="res://resources/themes/github-mark-white.svg" id="8_2w5n4"]
+[ext_resource type="Script" path="res://scenes/logo_label.gd" id="11_tjm2u"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_e1eln"]
 color = Color(0.141176, 0.152941, 0.227451, 1)
@@ -13,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rryq6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -39,7 +49,7 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="ColorRect/MarginContainer/HSplitContainer"]
-custom_minimum_size = Vector2(180, 0)
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/PanelContainer"]
@@ -80,7 +90,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_e1eln")
 
 [node name="VSplitContainer" type="VSplitContainer" parent="ColorRect/MarginContainer/HSplitContainer"]
 layout_mode = 2
-split_offset = 510
+split_offset = 585
 
 [node name="PanelContainer" type="PanelContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer"]
 layout_mode = 2
@@ -123,29 +133,13 @@ theme_override_styles/separator = SubResource("StyleBoxLine_e1eln")
 
 [node name="MarginContainer2" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 24
+theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-theme = ExtResource("1_rf8uy")
-theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_fonts/font = ExtResource("2_q6prh")
-theme_override_font_sizes/font_size = 14
-text = "   __                              ___
-__\\  \\__  _____   _____   _____   _\\  \\   _____   _____
-\\__   __\\(  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\
-  _\\  \\   \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\
-  \\____)   \\_____) \\___  \\ \\_____) \\_____) \\_____) \\_____) (_)
-__  __  __  __  __    _\\  \\
-\\_\\ \\√\\ \\√\\ \\_\\ \\√\\  \\_____) A tree-based todo app
-"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer"]
 layout_mode = 2
@@ -155,10 +149,14 @@ alignment = 1
 [node name="NewFile" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "new file"
+icon = ExtResource("3_unyqo")
+expand_icon = true
 
 [node name="OpenFile" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "open file"
+icon = ExtResource("4_csqmn")
+expand_icon = true
 
 [node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -166,14 +164,21 @@ layout_mode = 2
 [node name="Preferences" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "preferences"
+icon = ExtResource("5_5tm0h")
+expand_icon = true
 
 [node name="ManageMods" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "manage mods"
+icon = ExtResource("6_gca4t")
+expand_icon = true
 
 [node name="CheckForUpdates" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 text = "check for updates"
+icon = ExtResource("6_qiwro")
+expand_icon = true
 
 [node name="HSeparator2" type="HSeparator" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -181,12 +186,47 @@ layout_mode = 2
 [node name="OpenDocs" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "open docs"
+icon = ExtResource("7_218y8")
+expand_icon = true
 
 [node name="Contribute" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "contribute"
+icon = ExtResource("8_2w5n4")
+expand_icon = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_rf8uy")
+theme_override_colors/font_color = Color(0.803922, 0.839216, 0.956863, 1)
+theme_override_fonts/font = ExtResource("2_q6prh")
+theme_override_font_sizes/font_size = 12
+text = "   __                              ___
+__\\  \\__  _____   _____   _____   _\\  \\   _____   _____
+\\__   __\\(  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\
+  _\\  \\   \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\
+  \\____)   \\_____) \\___  \\ \\_____) \\_____) \\_____) \\_____) (_)
+__  __  __  __  __    _\\  \\
+\\√\\ \\√\\ \\√\\ \\√\\ \\√\\  \\_____) A tree-based todo app
+"
+script = ExtResource("11_tjm2u")
+
+[node name="Timer" type="Timer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2/Label"]
+wait_time = 0.5
+autostart = true
+
+[node name="Label2" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "v1.0.0"
+horizontal_alignment = 2
 
 [node name="PanelContainer2" type="PanelContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer"]
+custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2"]
@@ -224,3 +264,8 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_e1eln")
+
+[connection signal="pressed" from="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/NewFile" to="." method="_on_new_file_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/OpenFile" to="." method="_on_open_file_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/Contribute" to="." method="_on_contribute_pressed"]
+[connection signal="timeout" from="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2/Label/Timer" to="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2/Label" method="_on_timer_timeout"]

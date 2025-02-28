@@ -4,6 +4,8 @@ static var block_types: Dictionary
 
 static var usage_types: Dictionary
 
+static var file_path: String
+
 static func load_mods() -> void:
 	for type in DirAccess.get_directories_at("res://blocks/"):
 		type += "/"

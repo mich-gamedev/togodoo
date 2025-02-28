@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Togodoo"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/project_manager.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 run/max_fps=60
 run/low_processor_mode=true
@@ -27,7 +27,7 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/subwindows/embed_subwindows=false
 window/stretch/aspect="expand"
-window/stretch/scale=1.25
+window/stretch/scale=1.5
 
 [editor_plugins]
 

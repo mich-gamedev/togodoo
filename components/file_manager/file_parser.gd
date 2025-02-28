@@ -23,3 +23,17 @@ static func parse_line(line: String) -> Dictionary:
 	print(args)
 
 	return args
+
+static func parse_dict(dict: Dictionary) -> String:
+	var config = FileManager.get_block_config(FileManager.block_types[dict.type])
+
+	var tags: String
+	if config.has_section("properties"): for i in config.get_section_keys("properties"):
+		if dict.has(i) and dict[i] != config.get_value("properties", i):
+			if tags.is_empty(): tags = " "
+			tags += "%s=%s" % [i, dict[i]]
+	var indents: String
+	for i in dict.indents:
+		indents += " "
+
+	return indents + "[{type}{tags}] {title}".format({"type": dict.type, "tags": tags, "title": dict.title})

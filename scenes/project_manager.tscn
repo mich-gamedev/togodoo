@@ -24,16 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rryq6")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.141176, 0.152941, 0.227451, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,22 +36,22 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="HSplitContainer" type="HSplitContainer" parent="ColorRect/MarginContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="ColorRect/MarginContainer/HSplitContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HSplitContainer"]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_left = 8
 
-[node name="Control" type="Control" parent="ColorRect/MarginContainer/HSplitContainer/PanelContainer/MarginContainer"]
+[node name="Control" type="Control" parent="MarginContainer/HSplitContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/PanelContainer/MarginContainer/Control"]
+[node name="Label" type="Label" parent="MarginContainer/HSplitContainer/PanelContainer/MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -75,7 +66,7 @@ text = "recent files"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/HSplitContainer/PanelContainer/MarginContainer/Control/Label"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HSplitContainer/PanelContainer/MarginContainer/Control/Label"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 14
@@ -88,22 +79,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_e1eln")
 
-[node name="VSplitContainer" type="VSplitContainer" parent="ColorRect/MarginContainer/HSplitContainer"]
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/HSplitContainer"]
 layout_mode = 2
 split_offset = 585
 
-[node name="PanelContainer" type="PanelContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HSplitContainer/VSplitContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_left = 8
 
-[node name="Control" type="Control" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer"]
+[node name="Control" type="Control" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer/Control"]
+[node name="Label" type="Label" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -118,7 +109,7 @@ text = "nav"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer/Control/Label"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer/Control/Label"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 14
@@ -131,74 +122,74 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_e1eln")
 
-[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="NewFile" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+[node name="NewFile" type="Button" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "new file"
 icon = ExtResource("3_unyqo")
 expand_icon = true
 
-[node name="OpenFile" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+[node name="OpenFile" type="Button" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "open file"
 icon = ExtResource("4_csqmn")
 expand_icon = true
 
-[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Preferences" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+[node name="Preferences" type="Button" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "preferences"
 icon = ExtResource("5_5tm0h")
 expand_icon = true
 
-[node name="ManageMods" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+[node name="ManageMods" type="Button" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "manage mods"
 icon = ExtResource("6_gca4t")
 expand_icon = true
 
-[node name="CheckForUpdates" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+[node name="CheckForUpdates" type="Button" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 text = "check for updates"
 icon = ExtResource("6_qiwro")
 expand_icon = true
 
-[node name="HSeparator2" type="HSeparator" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="OpenDocs" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+[node name="OpenDocs" type="Button" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "open docs"
 icon = ExtResource("7_218y8")
 expand_icon = true
 
-[node name="Contribute" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+[node name="Contribute" type="Button" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "contribute"
 icon = ExtResource("8_2w5n4")
 expand_icon = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -216,28 +207,28 @@ __  __  __  __  __    _\\  \\
 "
 script = ExtResource("11_tjm2u")
 
-[node name="Timer" type="Timer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2/Label"]
+[node name="Timer" type="Timer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2/Label"]
 wait_time = 0.5
 autostart = true
 
-[node name="Label2" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2"]
+[node name="Label2" type="Label" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "v1.0.0"
 horizontal_alignment = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/HSplitContainer/VSplitContainer"]
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_left = 8
 
-[node name="Control" type="Control" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2/MarginContainer"]
+[node name="Control" type="Control" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2/MarginContainer/Control"]
+[node name="Label" type="Label" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2/MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -252,7 +243,7 @@ text = "templates"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2/MarginContainer/Control/Label"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2/MarginContainer/Control/Label"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 14
@@ -265,7 +256,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_e1eln")
 
-[connection signal="pressed" from="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/NewFile" to="." method="_on_new_file_pressed"]
-[connection signal="pressed" from="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/OpenFile" to="." method="_on_open_file_pressed"]
-[connection signal="pressed" from="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/Contribute" to="." method="_on_contribute_pressed"]
-[connection signal="timeout" from="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2/Label/Timer" to="ColorRect/MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2/Label" method="_on_timer_timeout"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/NewFile" to="." method="_on_new_file_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/OpenFile" to="." method="_on_open_file_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/Contribute" to="." method="_on_contribute_pressed"]
+[connection signal="timeout" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2/Label/Timer" to="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2/Label" method="_on_timer_timeout"]

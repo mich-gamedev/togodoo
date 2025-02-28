@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bn2aqpvkqauvr"]
+[gd_scene load_steps=34 format=3 uid="uid://bn2aqpvkqauvr"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_6yeym"]
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_to3i3"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/themes/folder.svg" id="5_twi5r"]
 [ext_resource type="Texture2D" uid="uid://c1i5cycfe2vlq" path="res://resources/themes/open_recent.svg" id="6_eafuf"]
 [ext_resource type="Texture2D" uid="uid://6uf2kxe7jqtl" path="res://resources/themes/tree_expand.svg" id="7_62ttq"]
+[ext_resource type="Script" path="res://scenes/file.gd" id="7_rl21x"]
 [ext_resource type="Texture2D" uid="uid://c2kr2kifcs4yc" path="res://resources/themes/settings.svg" id="7_yyf83"]
 [ext_resource type="Texture2D" uid="uid://cfkcptx0bj2e4" path="res://resources/themes/bbcode.svg" id="8_2p2gg"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="8_ac2rg"]
@@ -189,26 +190,32 @@ theme_override_colors/icon_hover_color = Color(0.803922, 0.839216, 0.956863, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.717647, 0.741176, 0.972549, 1)
 text = "file"
 icon_alignment = 1
-item_count = 8
+item_count = 10
 popup/item_0/text = "open project manager"
 popup/item_1/id = 5
 popup/item_1/separator = true
-popup/item_2/text = "save project"
+popup/item_2/text = "save as"
 popup/item_2/icon = ExtResource("4_eyves")
-popup/item_2/id = 1
-popup/item_3/id = 4
-popup/item_3/separator = true
-popup/item_4/text = "open"
-popup/item_4/icon = ExtResource("5_twi5r")
-popup/item_4/id = 5
-popup/item_5/text = "open recent"
-popup/item_5/icon = ExtResource("6_eafuf")
-popup/item_5/id = 3
-popup/item_6/id = 6
-popup/item_6/separator = true
-popup/item_7/text = "show in filesystem"
-popup/item_7/icon = ExtResource("5_twi5r")
-popup/item_7/id = 7
+popup/item_2/id = 8
+popup/item_3/text = "save"
+popup/item_3/icon = ExtResource("4_eyves")
+popup/item_3/id = 1
+popup/item_4/id = 4
+popup/item_4/separator = true
+popup/item_5/text = "open"
+popup/item_5/icon = ExtResource("5_twi5r")
+popup/item_5/id = 2
+popup/item_6/text = "open recent"
+popup/item_6/icon = ExtResource("6_eafuf")
+popup/item_6/id = 3
+popup/item_7/id = 6
+popup/item_7/separator = true
+popup/item_8/text = "show in filesystem"
+popup/item_8/icon = ExtResource("5_twi5r")
+popup/item_8/id = 4
+popup/item_9/text = "open in text editor"
+popup/item_9/id = 9
+script = ExtResource("7_rl21x")
 
 [node name="Edit" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(24, 18)
@@ -247,18 +254,18 @@ popup/item_1/id = 6
 popup/item_1/separator = true
 popup/item_2/text = "toggle docks"
 popup/item_2/icon = ExtResource("5_gafk2")
-popup/item_2/id = 4
+popup/item_2/id = 2
 popup/item_3/text = "fullscreen"
 popup/item_3/checkable = 1
 popup/item_3/id = 3
-popup/item_4/id = 5
+popup/item_4/id = 4
 popup/item_4/separator = true
 popup/item_5/text = "open user data folder"
 popup/item_5/icon = ExtResource("5_twi5r")
-popup/item_5/id = 1
+popup/item_5/id = 5
 popup/item_6/text = "manage mods"
 popup/item_6/icon = ExtResource("9_dkpn6")
-popup/item_6/id = 2
+popup/item_6/id = 6
 
 [node name="Help" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(24, 18)
@@ -390,6 +397,23 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_ebf3d")
 icon = ExtResource("5_gafk2")
 expand_icon = true
+
+[node name="SaveIndicator" type="Label" parent="MarginContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -8.375
+offset_bottom = 8.375
+grow_horizontal = 0
+grow_vertical = 2
+text = "Saving..."
+horizontal_alignment = 2
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

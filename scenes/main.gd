@@ -12,6 +12,7 @@ const MENU_NEW_BLOCK = preload("res://scenes/menu_new_block.tscn")
 var curr_new_block_window: Window
 
 func _ready() -> void: #TODO: replace with selection later
+	PropertyBus.save_requested.connect(_on_save_requested)
 	FileManager.load_mods()
 	var file = FileAccess.open(FileManager.file_path, FileAccess.READ)
 	PropertyBus.property_changed.connect(_on_property_changed)
@@ -212,5 +213,34 @@ func setup_item(info: Dictionary, item: TreeItem) -> void:
 	block_inst.propagate_call("_update_block")
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.keycode == KEY_F2:
-		tree.edit_selected()
+	if event is InputEventKey:
+		match event.keycode:
+
+			KEY_F2:
+				tree.edit_selected()
+
+func _on_save_requested(path: String) -> void:
+	if path == "":
+		if !FileManager.file_path.begins_with("res://"):
+			path = FileManager.file_path
+		else:
+			var dialog = FileDialog.new()
+			dialog.access = FileDialog.ACCESS_FILESYSTEM
+			dialog.use_native_dialog = true
+			dialog.add_filter("*.togodoo", "Togodoo Project")
+			dialog.file_mode = FileDialog.FILE_MODE_SAVE_FILE
+			dialog.current_path = OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)
+			dialog.file_selected.connect(_dialog_accepted)
+			add_child(dialog)
+			dialog.show()
+			return
+	var file = FileAccess.open(path, FileAccess.WRITE)
+	for i in items:
+		file.store_line(LineParser.parse_dict(i))
+	%SaveIndicator.modulate.a = 1.0
+	%SaveIndicator.text = "Saving..."
+	var tween := create_tween()
+	tween.tween_property(%SaveIndicator, "modulate:a", 0.0, 3.0)
+
+func _dialog_accepted(path: String) -> void:
+	PropertyBus.save_requested.emit(path)

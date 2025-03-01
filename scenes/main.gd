@@ -101,6 +101,7 @@ func _on_tree_item_selected() -> void:
 				if inst.has_node("%PropertyName"): inst.get_node("%PropertyName").text = i.replace("_", " ")
 				inst.index = curr_item
 				inst.responsible_property = i
+				inst.property_usage_tags = usage_tags
 				print(i, "'s value: ", current_dict.get(i))
 				inst.display_value.call_deferred(current_dict.get_or_add(i, config.get_value("properties", i)))
 				break

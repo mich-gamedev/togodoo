@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2xhktb10kcpb"]
+
+[ext_resource type="Script" path="res://property_blocks/property_block.gd" id="1_3s6wj"]
+[ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/themes/folder.svg" id="2_p6s60"]
+[ext_resource type="Script" path="res://property_blocks/property_file_dialog.gd" id="3_dmp1v"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 256.0
+script = ExtResource("1_3s6wj")
+
+[node name="PropertyName" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "state"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+icon = ExtResource("2_p6s60")
+expand_icon = true
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+size = Vector2i(214, 133)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.togodoo")
+use_native_dialog = true
+script = ExtResource("3_dmp1v")
+
+[connection signal="display_requested" from="." to="FileDialog" method="_on__display_requested"]

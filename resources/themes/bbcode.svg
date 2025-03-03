@@ -22,7 +22,16 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
      inkscape:document-units="px"
-     showgrid="true">
+     showgrid="true"
+     inkscape:zoom="45.254834"
+     inkscape:cx="7.9328542"
+     inkscape:cy="8.396893"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
     <inkscape:grid
        id="grid1"
        units="px"
@@ -54,42 +63,42 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#a5adcb;stroke-width:0.250572;fill-opacity:1"
+       style="fill:#ffffff;stroke-width:0.250572"
        id="rect1"
        width="0.26458332"
        height="2.6458333"
        x="0.79374999"
        y="0.79374999" />
     <rect
-       style="fill:#a5adcb;stroke-width:0.370641;fill-opacity:1"
+       style="fill:#ffffff;stroke-width:0.370641"
        id="rect2"
        width="0.52916664"
        height="0.26458332"
        x="1.0583333"
        y="0.79374999" />
     <rect
-       style="fill:#a5adcb;stroke-width:0.442777;fill-opacity:1"
+       style="fill:#ffffff;stroke-width:0.442777"
        id="rect3"
        width="0.52916664"
        height="0.26458332"
        x="1.0583333"
        y="3.175" />
     <rect
-       style="fill:#a5adcb;stroke-width:0.270597;fill-opacity:1"
+       style="fill:#ffffff;stroke-width:0.270597"
        id="rect4"
        width="0.26458332"
        height="2.6458333"
        x="3.175"
        y="0.79374999" />
     <rect
-       style="fill:#a5adcb;stroke-width:0.426271;fill-opacity:1"
+       style="fill:#ffffff;stroke-width:0.426271"
        id="rect5"
        width="0.52916664"
        height="0.26458332"
        x="2.6458333"
        y="3.175" />
     <rect
-       style="fill:#a5adcb;stroke-width:0.396514;fill-opacity:1"
+       style="fill:#ffffff;stroke-width:0.396514"
        id="rect6"
        width="0.52916664"
        height="0.26458332"
@@ -97,11 +106,11 @@
        y="0.79374999" />
     <path
        id="rect7"
-       style="fill:#a5adcb;stroke-width:0.261548;fill-opacity:1"
+       style="fill:#ffffff;stroke-width:0.261548"
        d="m 1.2567708,1.3229166 v 1.190625 0.396875 h 0.2645834 v -0.023771 a 0.39687499,0.39687499 0 0 0 0.1322916,0.023771 0.39687499,0.39687499 0 0 0 0.396875,-0.396875 0.39687499,0.39687499 0 0 0 -0.396875,-0.396875 0.39687499,0.39687499 0 0 0 -0.1322916,0.023771 V 1.3229166 Z M 1.6536458,2.38125 A 0.13229166,0.13229166 0 0 1 1.7859375,2.5135416 0.13229166,0.13229166 0 0 1 1.6536458,2.6458333 0.13229166,0.13229166 0 0 1 1.5213542,2.5135416 0.13229166,0.13229166 0 0 1 1.6536458,2.38125 Z" />
     <path
        id="path9"
-       style="fill:#a5adcb;stroke-width:0.261548;fill-opacity:1"
+       style="fill:#ffffff;stroke-width:0.261548"
        d="m 2.1828125,1.3229166 v 1.190625 0.396875 h 0.2645834 v -0.023771 a 0.39687499,0.39687499 0 0 0 0.1322916,0.023771 0.39687499,0.39687499 0 0 0 0.396875,-0.396875 0.39687499,0.39687499 0 0 0 -0.396875,-0.396875 0.39687499,0.39687499 0 0 0 -0.1322916,0.023771 V 1.3229166 Z M 2.5796875,2.38125 A 0.13229166,0.13229166 0 0 1 2.7119792,2.5135416 0.13229166,0.13229166 0 0 1 2.5796875,2.6458333 0.13229166,0.13229166 0 0 1 2.4473959,2.5135416 0.13229166,0.13229166 0 0 1 2.5796875,2.38125 Z" />
   </g>
 </svg>

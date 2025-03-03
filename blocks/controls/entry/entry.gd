@@ -1,4 +1,4 @@
-extends HFlowContainer
+extends Control
 
 @onready var block: Block = $Block
 
@@ -13,5 +13,6 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 	PropertyBus.property_changed.emit.call_deferred(
 		block.get_idx(),
 		"state",
-		toggled_on
+		toggled_on,
+		true
 	)

@@ -1,4 +1,4 @@
-extends HFlowContainer
+extends Control
 
 @onready var block: Block = $Block
 @onready var bullet_point: Label = $BulletPoint

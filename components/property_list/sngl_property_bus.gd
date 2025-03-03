@@ -1,6 +1,6 @@
 extends Node
 
-signal property_changed(item: int, property: StringName, value: Variant)
+signal property_changed(item: int, property: StringName, value: Variant, reset_property_list: bool)
 
 
 signal save_requested(path: String )

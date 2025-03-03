@@ -5,7 +5,7 @@
 
 [node name="HBoxContainer" type="HFlowContainer"]
 offset_right = 128.0
-offset_bottom = 16.0
+offset_bottom = 18.0
 size_flags_horizontal = 3
 script = ExtResource("1_u5xpu")
 

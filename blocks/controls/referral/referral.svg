@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="15.999999"
+   viewBox="0 0 4.2333332 4.233333"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="bbcode.svg"
+   inkscape:export-filename="bbcode.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showgrid="true">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="0.13229166"
+       spacingy="0.13229166"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="2"
+       enabled="true"
+       visible="true"
+       snapvisiblegridlinesonly="true" />
+    <inkscape:page
+       x="0"
+       y="0"
+       width="4.2333331"
+       height="4.2333331"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect1"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.29574"
+       d="M 0.79374998,0.79374998 V 2.1166666 H 1.0583333 v -0.2645833 -0.79375 h 2.1166666 v 0.79375 H 2.1166666 V 2.1166666 H 3.4395832 V 0.79374998 Z"
+       sodipodi:nodetypes="cccccccccccc" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.251772"
+       id="rect2"
+       width="0.26458332"
+       height="1.3229166"
+       x="1.5875"
+       y="1.8520833" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.24249"
+       id="rect3"
+       width="1.3187826"
+       height="0.26458332"
+       x="1.8520833"
+       y="2.9104166" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+       d="M 3.4395832,3.0427083 2.9104166,2.5135416 v 1.0583333 z"
+       id="path3"
+       sodipodi:nodetypes="cccc" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.266823"
+       id="rect4"
+       width="0.26458332"
+       height="0.26458332"
+       x="1.0583333"
+       y="1.8520833" />
+  </g>
+</svg>

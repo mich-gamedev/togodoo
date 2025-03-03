@@ -23,5 +23,6 @@ func property_change_emit() -> void:
 	PropertyBus.property_changed.emit.call_deferred(
 		index,
 		responsible_property,
-		value_node[value_property]
+		value_node[value_property],
+		false
 	)

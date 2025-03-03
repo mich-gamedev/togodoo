@@ -11,6 +11,7 @@ const MENU_NEW_BLOCK = preload("res://scenes/menu_new_block.tscn")
 
 var curr_new_block_window: Window
 
+
 func _ready() -> void: #TODO: replace with selection later
 	PropertyBus.save_requested.connect(_on_save_requested)
 	FileManager.load_mods()
@@ -123,16 +124,18 @@ func _on_tree_item_edited() -> void:
 		PropertyBus.property_changed.emit.call_deferred(
 			tree_items.find(curr_item),
 			curr_property,
-			curr_item.is_checked(curr_column)
+			curr_item.is_checked(curr_column),
+			true
 		)
 	if curr_column == 0:
 		PropertyBus.property_changed.emit.call_deferred(
 			tree_items.find(curr_item),
 			"title",
-			curr_item.get_text(0)
+			curr_item.get_text(0),
+			true
 		)
 
-func _on_property_changed(item: int, property: StringName, value: Variant) -> void:
+func _on_property_changed(item: int, property: StringName, value: Variant, reset_property_list := true) -> void:
 	items[item][property] = value
 	var config = FileManager.get_block_config(FileManager.block_types[items[item].type])
 	var usage_tags = config.get_value("usage", property, "none").replace(" ", "").split(",")
@@ -140,7 +143,7 @@ func _on_property_changed(item: int, property: StringName, value: Variant) -> vo
 		tree_items[item].set_checked(1, value)
 	#if "tree_bg_color" in usage_tags:
 		#tree_items[item].call_recursive("set_custom_bg_color", 0, Color(value).lerp(Color("#1e2030"), 0.8))
-	if item == curr_item:
+	if reset_property_list and item == curr_item:
 		var filtered_nodes = %PropertyList.get_children().filter(func(i: Node): return i.responsible_property == property)
 		if !filtered_nodes.is_empty(): filtered_nodes[0].display_value(value)
 
@@ -161,7 +164,12 @@ func create_default_block(type: String, to_item: TreeItem = null) -> void:
 	var config = FileManager.get_block_config(FileManager.block_types[type])
 	var parsed = LineParser.parse_line("[{Type}] New {Display Name}".format({"Type": type, "Display Name": config.get_value("display", "display_name")}))
 	if !to_item:
-		if curr_item and tree_items.size() > curr_item: to_item = tree_items[curr_item]
+		if curr_item and tree_items.size() > curr_item:
+			var parent_config = FileManager.get_block_config(FileManager.block_types[items[curr_item].type])
+			if parent_config.get_value("logic", "can_have_children", false):
+				to_item = tree_items[curr_item]
+			else:
+				to_item = tree_items[curr_item].get_parent()
 		else: to_item = tree.get_root()
 	var new_item = tree.create_item(to_item)
 	parsed.index = tree_items.find(to_item) + new_item.get_index() + 1
@@ -245,3 +253,27 @@ func _on_save_requested(path: String) -> void:
 
 func _dialog_accepted(path: String) -> void:
 	PropertyBus.save_requested.emit(path)
+
+var new_block_tween: Tween
+
+func _on_new_block_mouse_entered() -> void:
+	var parent_config = FileManager.get_block_config(FileManager.block_types[items[curr_item].type])
+	var to_item: TreeItem
+	if parent_config.get_value("logic", "can_have_children", false):
+		to_item = tree_items[curr_item]
+	else:
+		to_item = tree_items[curr_item].get_parent()
+	if new_block_tween: new_block_tween.kill()
+	new_block_tween = get_tree().create_tween().set_parallel()
+	new_block_tween.tween_method(func(v): to_item.set_custom_bg_color(0, v), Color("#24273a00"), Color("#24273aFF"), 0.2)
+
+func _on_new_block_mouse_exited() -> void:
+	var parent_config = FileManager.get_block_config(FileManager.block_types[items[curr_item].type])
+	var to_item: TreeItem
+	if parent_config.get_value("logic", "can_have_children", false):
+		to_item = tree_items[curr_item]
+	else:
+		to_item = tree_items[curr_item].get_parent()
+	if new_block_tween: new_block_tween.kill()
+	new_block_tween = get_tree().create_tween().set_parallel()
+	new_block_tween.tween_method(func(v): to_item.set_custom_bg_color(0, v), Color("#24273aFF"), Color("#24273a00"), 0.2)

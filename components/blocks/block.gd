@@ -26,7 +26,7 @@ func get_idx() -> int:
 func _ready() -> void:
 	PropertyBus.property_changed.connect(_on_property_changed)
 
-func _on_property_changed(index: int, property: String, value: Variant) -> void:
+func _on_property_changed(index: int, property: String, value: Variant, reset_property_list: bool) -> void:
 	if index == args.index:
 		args[property] = value
 		owner.propagate_call("_update_block")

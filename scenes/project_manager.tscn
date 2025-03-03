@@ -2,7 +2,6 @@
 
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_rf8uy"]
 [ext_resource type="Script" path="res://scenes/project_manager.gd" id="1_rryq6"]
-[ext_resource type="SystemFont" uid="uid://cs86onhiy2r3w" path="res://assets/default.tres" id="2_q6prh"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="3_unyqo"]
 [ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/themes/folder.svg" id="4_csqmn"]
 [ext_resource type="Texture2D" uid="uid://c2kr2kifcs4yc" path="res://resources/themes/settings.svg" id="5_5tm0h"]
@@ -10,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d3y5186u78brm" path="res://resources/themes/redo.svg" id="6_qiwro"]
 [ext_resource type="Texture2D" uid="uid://ddlsrj8v0qiuv" path="res://resources/themes/search_nomod.svg" id="7_218y8"]
 [ext_resource type="Texture2D" uid="uid://cfx2ivv7ag1q0" path="res://resources/themes/github-mark-white.svg" id="8_2w5n4"]
+[ext_resource type="FontVariation" uid="uid://d027d2mhd4b14" path="res://assets/test.tres" id="10_jd0mh"]
 [ext_resource type="Script" path="res://scenes/logo_label.gd" id="11_tjm2u"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_e1eln"]
@@ -165,7 +165,7 @@ icon = ExtResource("6_gca4t")
 expand_icon = true
 
 [node name="CheckForUpdates" type="Button" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(130, 0)
+custom_minimum_size = Vector2(148, 0)
 layout_mode = 2
 text = "check for updates"
 icon = ExtResource("6_qiwro")
@@ -195,7 +195,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme = ExtResource("1_rf8uy")
 theme_override_colors/font_color = Color(0.803922, 0.839216, 0.956863, 1)
-theme_override_fonts/font = ExtResource("2_q6prh")
+theme_override_fonts/font = ExtResource("10_jd0mh")
 theme_override_font_sizes/font_size = 12
 text = "   __                              ___
 __\\  \\__  _____   _____   _____   _\\  \\   _____   _____

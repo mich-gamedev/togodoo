@@ -32,7 +32,7 @@ static func parse_dict(dict: Dictionary) -> String:
 		if dict.has(i) and dict[i] != config.get_value("properties", i):
 			if tags.is_empty(): tags = " "
 			tags += "%s=%s" % [i, dict[i]]
-	var indents: String
+	var indents: String = ""
 	for i in dict.indents:
 		indents += " "
 

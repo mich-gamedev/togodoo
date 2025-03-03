@@ -164,7 +164,7 @@ func create_default_block(type: String, to_item: TreeItem = null) -> void:
 		if curr_item and tree_items.size() > curr_item: to_item = tree_items[curr_item]
 		else: to_item = tree.get_root()
 	var new_item = tree.create_item(to_item)
-	parsed.index = tree_items.find(to_item) + new_item.get_index()
+	parsed.index = tree_items.find(to_item) + new_item.get_index() + 1
 	tree_items.insert(parsed.index, new_item)
 	items.insert(parsed.index, parsed)
 	print("items = ", items.map(func(a): return a.title))

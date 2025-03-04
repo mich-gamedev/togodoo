@@ -49,7 +49,9 @@ border_color = Color(0.431373, 0.45098, 0.552941, 1)
 title = "Create new block"
 initial_position = 2
 size = Vector2i(815, 420)
+visible = false
 wrap_controls = true
+force_native = true
 min_size = Vector2i(620, 150)
 keep_title_visible = true
 script = ExtResource("1_tunnl")
@@ -135,6 +137,7 @@ theme_override_constants/margin_bottom = 4
 [node name="SmoothScrollContainer" type="ScrollContainer" parent="ColorRect/MarginContainer/HSplitContainer/Panel/MarginContainer2"]
 layout_mode = 2
 script = ExtResource("1_t1llj")
+speed = 500.0
 wheel_scroll_damper = SubResource("Resource_ip8e0")
 dragging_scroll_damper = SubResource("Resource_qlm2l")
 

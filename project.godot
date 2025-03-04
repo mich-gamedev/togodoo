@@ -42,9 +42,24 @@ run/main_run_args="--project=res://project_templates/empty.togodoo"
 
 enabled=PackedStringArray("res://addons/SmoothScroll/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/dictionary_inspector/plugin.cfg", "res://addons/icon_explorer/plugin.cfg", "res://addons/inspector_extender/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "gray",
+"res://blocks/": "red",
+"res://components/": "orange",
+"res://project_templates/": "yellow",
+"res://property_blocks/": "green",
+"res://resources/": "teal",
+"res://scenes/": "blue",
+"res://templates/": "purple"
+}
+
 [gui]
 
 theme/custom="res://resources/themes/menu.theme"
+theme/default_font_antialiasing=2
 theme/default_font_multichannel_signed_distance_field=true
 
 [input]

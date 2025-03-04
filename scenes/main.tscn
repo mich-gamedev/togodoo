@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://bn2aqpvkqauvr"]
+[gd_scene load_steps=34 format=3 uid="uid://bn2aqpvkqauvr"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_6yeym"]
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_to3i3"]
 [ext_resource type="Texture2D" uid="uid://bf8gx4q036dm7" path="res://resources/themes/h_seperator_grabber.svg" id="3_c1k5k"]
 [ext_resource type="Texture2D" uid="uid://doy33hxmprcko" path="res://resources/themes/cursor.svg" id="3_p2csi"]
+[ext_resource type="SystemFont" uid="uid://cs86onhiy2r3w" path="res://assets/default.tres" id="3_yga8b"]
 [ext_resource type="Texture2D" uid="uid://bqqi662bw4vha" path="res://resources/themes/pencil.svg" id="4_1u5h2"]
 [ext_resource type="Texture2D" uid="uid://bd67ndox07uia" path="res://resources/themes/save.svg" id="4_eyves"]
 [ext_resource type="Texture2D" uid="uid://cali1huvlmf83" path="res://resources/themes/eye_open.svg" id="5_gafk2"]
@@ -93,6 +94,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_to3i3")
 theme_override_colors/font_color = Color(0.211765, 0.227451, 0.309804, 1)
+theme_override_fonts/font = ExtResource("3_yga8b")
 theme_override_font_sizes/font_size = 14
 text = "   __                              ___
 __\\  \\__  _____   _____   _____   _\\  \\   _____   _____

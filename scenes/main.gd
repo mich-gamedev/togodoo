@@ -160,6 +160,7 @@ func _on_property_search_text_changed(new_text: String) -> void:
 
 func _on_new_block_pressed() -> void:
 	curr_new_block_window = MENU_NEW_BLOCK.instantiate()
+	curr_new_block_window.show()
 	add_child(curr_new_block_window)
 	curr_new_block_window.block_create_pressed.connect(create_default_block)
 
@@ -175,7 +176,12 @@ func create_default_block(type: String, to_item: TreeItem = null) -> void:
 				to_item = tree_items[curr_item].get_parent()
 		else: to_item = tree.get_root()
 	var new_item = tree.create_item(to_item)
-	parsed.index = tree_items.find(to_item) + new_item.get_index() + 1
+	var i: int
+	var current := tree.get_root()
+	while current != new_item:
+		current = current.get_next_in_tree()
+		i += 1
+	parsed.index = i
 	tree_items.insert(parsed.index, new_item)
 	items.insert(parsed.index, parsed)
 	print("items = ", items.map(func(a): return a.title))

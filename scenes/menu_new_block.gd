@@ -4,9 +4,20 @@ signal block_create_pressed(type: String)
 
 var last_type: String
 
+var iterated_sections: Array[String]
+
+const SEPERATOR = preload("res://scenes/new_block_type_seperator.tscn")
+
 func _ready() -> void:
-	for i in FileManager.block_types:
+	for i: String in FileManager.block_types:
 		var config = FileManager.get_block_config(FileManager.block_types[i])
+		var section = FileManager.block_types[i].trim_prefix("res://").get_slice("/", 1)
+		if !(section in iterated_sections):
+			print(section)
+			var separator = SEPERATOR.instantiate()
+			%BlockTypeContainer.add_child(separator)
+			separator.get_node(^"%TypeLabel").text = section.to_pascal_case()
+			iterated_sections.append(section)
 		var inst = Button.new()
 		%BlockTypeContainer.add_child(inst)
 		inst.text = config.get_value("display", "display_name")

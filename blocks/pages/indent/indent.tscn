@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwj7cuhskxfum"]
+
+[ext_resource type="Script" path="res://blocks/pages/indent/indent.gd" id="1_ed4t1"]
+[ext_resource type="Script" path="res://components/blocks/block.gd" id="2_visvv"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_pha8j"]
+color = Color(0.541176, 0.678431, 0.956863, 1)
+thickness = 2
+vertical = true
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_pha8j")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ed4t1")
+
+[node name="ChildContainer" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Block" type="Node" parent="MarginContainer"]
+script = ExtResource("2_visvv")

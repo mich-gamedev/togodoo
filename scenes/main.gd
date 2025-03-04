@@ -245,6 +245,7 @@ func _input(event: InputEvent) -> void:
 				tree_tween.kill()
 			for i in tree_items:
 				i.set_custom_bg_color(0, Color("#363a4f00"))
+			if get_viewport().gui_is_dragging(): return
 			if item:
 				tree_tween = create_tween()
 				tree_tween.tween_method(func(a): item.set_custom_bg_color(0, a, true), Color("#a5adcb00"), Color("#a5adcbFF"), 0.15)

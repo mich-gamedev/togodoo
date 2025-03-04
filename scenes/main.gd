@@ -1,4 +1,6 @@
-extends Control
+class_name Main extends Control
+
+static var node: Main
 
 @onready var tree: Tree = %Tree
 
@@ -13,6 +15,7 @@ var curr_new_block_window: Window
 
 
 func _ready() -> void: #TODO: replace with selection later
+	node = self
 	PropertyBus.save_requested.connect(_on_save_requested)
 	FileManager.load_mods()
 	var file = FileAccess.open(FileManager.file_path, FileAccess.READ)
@@ -270,6 +273,7 @@ func _dialog_accepted(path: String) -> void:
 var new_block_tween: Tween
 
 func _on_new_block_mouse_entered() -> void:
+	if items.is_empty(): return
 	var parent_config = FileManager.get_block_config(FileManager.block_types[items[curr_item].type])
 	var to_item: TreeItem
 	if parent_config.get_value("logic", "can_have_children", false):
@@ -281,6 +285,7 @@ func _on_new_block_mouse_entered() -> void:
 	new_block_tween.tween_method(func(v): to_item.set_custom_bg_color(0, v), Color("#24273a00"), Color("#24273aFF"), 0.2)
 
 func _on_new_block_mouse_exited() -> void:
+	if items.is_empty(): return
 	var parent_config = FileManager.get_block_config(FileManager.block_types[items[curr_item].type])
 	var to_item: TreeItem
 	if parent_config.get_value("logic", "can_have_children", false):

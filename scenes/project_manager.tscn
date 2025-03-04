@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6jg6njwa37da"]
+[gd_scene load_steps=13 format=3 uid="uid://b6jg6njwa37da"]
 
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_rf8uy"]
 [ext_resource type="Script" path="res://scenes/project_manager.gd" id="1_rryq6"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d3y5186u78brm" path="res://resources/themes/redo.svg" id="6_qiwro"]
 [ext_resource type="Texture2D" uid="uid://ddlsrj8v0qiuv" path="res://resources/themes/search_nomod.svg" id="7_218y8"]
 [ext_resource type="Texture2D" uid="uid://cfx2ivv7ag1q0" path="res://resources/themes/github-mark-white.svg" id="8_2w5n4"]
+[ext_resource type="SystemFont" uid="uid://cs86onhiy2r3w" path="res://assets/default.tres" id="10_4rwfj"]
 [ext_resource type="Script" path="res://scenes/logo_label.gd" id="11_tjm2u"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_e1eln"]
@@ -194,6 +195,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme = ExtResource("1_rf8uy")
 theme_override_colors/font_color = Color(0.803922, 0.839216, 0.956863, 1)
+theme_override_fonts/font = ExtResource("10_4rwfj")
 theme_override_font_sizes/font_size = 12
 text = "   __                              ___
 __\\  \\__  _____   _____   _____   _\\  \\   _____   _____

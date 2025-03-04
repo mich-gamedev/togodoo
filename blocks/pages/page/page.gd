@@ -5,6 +5,7 @@ extends PanelContainer
 func _update_block() -> void:
 	print("Page updated")
 	%TitleLabel.text = block.get_title()
+	%ChildContainer.add_theme_constant_override(&"separation", block.get_arg("vertical_spacing"))
 
 	if block.get_arg("use_preset_color"):
 		var style := get_theme_stylebox(&"panel")

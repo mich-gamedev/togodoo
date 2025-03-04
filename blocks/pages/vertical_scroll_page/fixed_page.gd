@@ -4,6 +4,7 @@ extends PanelContainer
 
 func _update_block() -> void:
 	%TitleLabel.text = block.get_title()
+	%ChildContainer.add_theme_constant_override(&"separation", block.get_arg("vertical_spacing"))
 
 	custom_minimum_size.y = block.get_arg("size")
 

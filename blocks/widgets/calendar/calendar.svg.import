@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deplfb0equr58"
-path="res://.godot/imported/image.svg-ece77a81b2ccea49f83ea9aff812e7ff.ctex"
+uid="uid://bywnfpqmu1vll"
+path="res://.godot/imported/calendar.svg-59d6e1f199d832c3051bf7d1d14db865.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://blocks/items/image/image.svg"
-dest_files=["res://.godot/imported/image.svg-ece77a81b2ccea49f83ea9aff812e7ff.ctex"]
+source_file="res://blocks/widgets/calendar/calendar.svg"
+dest_files=["res://.godot/imported/calendar.svg-59d6e1f199d832c3051bf7d1d14db865.ctex"]
 
 [params]
 

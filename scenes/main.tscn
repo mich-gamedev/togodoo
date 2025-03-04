@@ -1,9 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://bn2aqpvkqauvr"]
+[gd_scene load_steps=33 format=3 uid="uid://bn2aqpvkqauvr"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_6yeym"]
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_to3i3"]
 [ext_resource type="Texture2D" uid="uid://bf8gx4q036dm7" path="res://resources/themes/h_seperator_grabber.svg" id="3_c1k5k"]
-[ext_resource type="FontVariation" uid="uid://d027d2mhd4b14" path="res://assets/test.tres" id="3_ejmvy"]
 [ext_resource type="Texture2D" uid="uid://doy33hxmprcko" path="res://resources/themes/cursor.svg" id="3_p2csi"]
 [ext_resource type="Texture2D" uid="uid://bqqi662bw4vha" path="res://resources/themes/pencil.svg" id="4_1u5h2"]
 [ext_resource type="Texture2D" uid="uid://bd67ndox07uia" path="res://resources/themes/save.svg" id="4_eyves"]
@@ -94,7 +93,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_to3i3")
 theme_override_colors/font_color = Color(0.211765, 0.227451, 0.309804, 1)
-theme_override_fonts/font = ExtResource("3_ejmvy")
 theme_override_font_sizes/font_size = 14
 text = "   __                              ___
 __\\  \\__  _____   _____   _____   _\\  \\   _____   _____
@@ -435,19 +433,23 @@ split_offset = 1028
 layout_mode = 2
 split_offset = 240
 
-[node name="Tree" type="PanelContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2"]
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2"]
+layout_mode = 2
+split_offset = 240
+
+[node name="Tree" type="PanelContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer"]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_left = 8
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer/Control"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -462,7 +464,7 @@ text = "tree"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer/Control/Label"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer/Control/Label"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 14
@@ -475,20 +477,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_0bw6x")
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="CheckBox" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="Button" type="CheckBox" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 tooltip_text = "display bbcode tags in block titles"
@@ -497,7 +499,7 @@ theme_override_icons/checked = ExtResource("8_2p2gg")
 theme_override_icons/unchecked = ExtResource("9_d2vxv")
 button_pressed = true
 
-[node name="NewBlock" type="Button" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="NewBlock" type="Button" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
@@ -506,11 +508,11 @@ tooltip_text = "create new block"
 icon = ExtResource("8_ac2rg")
 expand_icon = true
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_dk6e4")
 
-[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer"]
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
@@ -519,7 +521,7 @@ speed = 500.0
 wheel_scroll_damper = SubResource("Resource_vafg3")
 dragging_scroll_damper = SubResource("Resource_41xyg")
 
-[node name="Tree" type="Tree" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
+[node name="Tree" type="Tree" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -527,11 +529,61 @@ size_flags_vertical = 3
 mouse_filter = 1
 theme_override_constants/icon_max_width = 16
 columns = 2
-drop_mode_flags = 1
 select_mode = 1
 scroll_horizontal_enabled = false
 scroll_vertical_enabled = false
 script = ExtResource("10_uy6d5")
+
+[node name="FileSys" type="PanelContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer"]
+visible = false
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/FileSys"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/FileSys/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/FileSys/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
+theme_override_font_sizes/font_size = 14
+text = "file sys"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/FileSys/MarginContainer/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_0bw6x")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/FileSys"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/FileSys/MarginContainer2"]
+layout_mode = 2
 
 [node name="Visual" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2"]
 unique_name_in_owner = true
@@ -667,9 +719,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/HBoxContainer/NewBlock" to="." method="_on_new_block_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/HBoxContainer/NewBlock" to="." method="_on_new_block_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/HBoxContainer/NewBlock" to="." method="_on_new_block_pressed"]
-[connection signal="item_edited" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer/Tree" to="." method="_on_tree_item_edited"]
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer/Tree" to="." method="_on_tree_item_selected"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer/NewBlock" to="." method="_on_new_block_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer/NewBlock" to="." method="_on_new_block_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer/NewBlock" to="." method="_on_new_block_pressed"]
+[connection signal="item_edited" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer/Tree" to="." method="_on_tree_item_edited"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer/Tree" to="." method="_on_tree_item_selected"]
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer/PropertySearch" to="." method="_on_property_search_text_changed"]

@@ -221,12 +221,25 @@ func setup_item(info: Dictionary, item: TreeItem) -> void:
 		block.args = info
 	block_inst.propagate_call("_update_block")
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		match event.keycode:
+var tree_tween: Tween
+var last_hovered_item: TreeItem
 
-			KEY_F2:
-				tree.edit_selected()
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(&"rename"):
+		tree.edit_selected()
+	elif event.is_action_pressed(&"save"):
+		PropertyBus.save_requested.emit("")
+	elif event is InputEventMouseMotion:
+		var item = tree.get_item_at_position(tree.get_local_mouse_position())
+		if item != last_hovered_item:
+			if tree_tween:
+				tree_tween.kill()
+			for i in tree_items:
+				i.set_custom_bg_color(0, Color("#363a4f00"))
+			if item:
+				tree_tween = create_tween()
+				tree_tween.tween_method(func(a): item.set_custom_bg_color(0, a, true), Color("#a5adcb00"), Color("#a5adcbFF"), 0.15)
+			last_hovered_item = item
 
 func _on_save_requested(path: String) -> void:
 	if path == "":

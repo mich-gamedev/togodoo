@@ -36,7 +36,7 @@ window/stretch/scale=1.5
 
 [editor]
 
-run/main_run_args="--project=/home/_michdev/Documents/togodoo_projects/25_05_03-Doppler-Effect--Physics.togodoo"
+run/main_run_args="--project=C:\\Users\\bigol\\Downloads\\togodoo_projects\\test.togodoo"
 
 [editor_plugins]
 

@@ -8,13 +8,21 @@ static func parse_line(line: String) -> Dictionary:
 	var from = line.find("[")
 	var to = line.find("]")
 	args.raw_args =line.substr(from + 1, to - from - 1)
-	var tags := Array(String(args.raw_args).split(" "))
+	var filtered_args: String
+	var in_quote := false
+	for char in args.raw_args:
+		if char == "\"":
+			in_quote = !in_quote
+		if char == " " and in_quote:
+			char = "<SPACE>"
+		filtered_args += char
+	var tags := Array(filtered_args.split(" "))
 	print("TAGS: ", tags)
 	args.type = tags.pop_front()
 	for i: String in tags:
 		var expression = Expression.new()
-		if expression.parse(i.trim_prefix(i.get_slice("=", 0))):
-			print("TAGS error: ", i.get_slice("=", 1))
+		if expression.parse(i.trim_prefix(i.get_slice("=", 0) + "=").replace("<SPACE>", " ")):
+			print("TAGS error: ", i.trim_prefix(i.get_slice("=", 0) + "=").replace("<SPACE>", " "))
 			push_error(expression.get_error_text())
 		args[i.get_slice("=", 0)] = expression.execute()
 	args.title = line.lstrip(" ").replace(line.substr(from, to - from + 1), "").lstrip(" ").rstrip(" ")

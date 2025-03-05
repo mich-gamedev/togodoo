@@ -13,7 +13,7 @@ static func parse_line(line: String) -> Dictionary:
 	args.type = tags.pop_front()
 	for i: String in tags:
 		var expression = Expression.new()
-		if expression.parse(i.get_slice("=", 1)):
+		if expression.parse(i.trim_prefix(i.get_slice("=", 0))):
 			print("TAGS error: ", i.get_slice("=", 1))
 			push_error(expression.get_error_text())
 		args[i.get_slice("=", 0)] = expression.execute()

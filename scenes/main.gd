@@ -20,6 +20,7 @@ func _ready() -> void: #TODO: replace with selection later
 	PropertyBus.save_requested.connect(_on_save_requested)
 	FileManager.load_mods()
 	var file = FileAccess.open(FileManager.file_path, FileAccess.READ)
+	print(error_string(FileAccess.get_open_error()))
 	PropertyBus.property_changed.connect(_on_property_changed)
 
 	while file.get_position() < file.get_length():
@@ -225,6 +226,7 @@ func setup_item(info: Dictionary, item: TreeItem) -> void:
 	info.display_node = block_inst
 	if get_parent_from_item(info.index) != -1:
 		items[get_parent_from_item(info.index)].display_node.get_node(^"%ChildContainer").add_child(block_inst, true)
+		block_inst.get_parent().move_child(block_inst, item.get_index())
 	else:
 		%BlockDisplay.add_child(block_inst, true)
 	for block: Block in block_inst.find_children("*", "Block"):
@@ -251,8 +253,48 @@ func _input(event: InputEvent) -> void:
 				tree_tween = create_tween()
 				tree_tween.tween_method(func(a): item.set_custom_bg_color(0, a, true), Color("#a5adcb00"), Color("#a5adcbFF"), 0.15)
 			last_hovered_item = item
+	elif event.is_action_pressed(&"delete_skip_dialog"):
+		remove_block(curr_item)
 	elif event.is_action_pressed(&"ui_text_delete"):
 		_on_destroy_block_pressed()
+	elif event.is_action_pressed(&"ui_copy"):
+		var dict = items[curr_item]; dict.erase("display_node")
+		DisplayServer.clipboard_set(var_to_str(dict))
+	elif event.is_action_pressed(&"ui_paste"):
+		var parent_config = FileManager.get_block_config(FileManager.block_types[items[curr_item].type])
+		var to_item: TreeItem
+		if parent_config.get_value("logic", "can_have_children", false):
+			to_item = tree_items[curr_item]
+		else:
+			to_item = tree_items[curr_item].get_parent()
+
+		var dict = str_to_var(DisplayServer.clipboard_get())
+		if dict:
+			var new_item = to_item.create_child()
+			var idx := 0
+			var current_block = tree.get_root()
+			while current_block != new_item:
+				current_block = current_block.get_next_in_tree()
+				idx += 1
+			tree_items.insert(idx, new_item)
+			items.insert(idx, dict)
+			setup_item(dict, new_item)
+	elif event.is_action_pressed(&"duplicate"):
+		var parent_config = FileManager.get_block_config(FileManager.block_types[items[curr_item].type])
+		var to_item: TreeItem
+		if parent_config.get_value("logic", "can_have_children", false):
+			to_item = tree_items[curr_item]
+		else:
+			to_item = tree_items[curr_item].get_parent()
+		var new_item = to_item.create_child(tree_items[curr_item].get_index() + 1)
+		var idx := 0
+		var current_block = tree.get_root()
+		while current_block != new_item:
+			current_block = current_block.get_next_in_tree()
+			idx += 1
+		tree_items.insert(idx, new_item)
+		items.insert(idx, items[curr_item].duplicate())
+		setup_item(items[idx], new_item)
 
 func _on_save_requested(path: String) -> void:
 	if path == "":

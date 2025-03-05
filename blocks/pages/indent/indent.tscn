@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://components/blocks/block.gd" id="2_visvv"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_pha8j"]
+resource_local_to_scene = true
 color = Color(0.541176, 0.678431, 0.956863, 1)
 thickness = 2
 vertical = true
@@ -12,6 +13,9 @@ vertical = true
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/separation = 0
+
+[node name="Spacer" type="Control" parent="."]
+layout_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="."]
 layout_mode = 2

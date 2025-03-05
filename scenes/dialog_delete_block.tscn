@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dwj50drmgm32x"]
+
+[node name="Window" type="Window"]
+title = "Delete block"
+initial_position = 2
+size = Vector2i(270, 90)
+visible = false
+force_native = true
+
+[node name="Control" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/PanelContainer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Delete \"%s\"?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Accept" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ButtonWithPanel"
+text = "Accept"
+
+[node name="Cancel" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ButtonWithPanel"
+text = "Cancel"
+
+[connection signal="close_requested" from="." to="." method="queue_free"]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/Accept" to="." method="queue_free" flags=3]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/Cancel" to="." method="queue_free"]

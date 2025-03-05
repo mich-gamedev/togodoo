@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bb1vde2pnt0oq"]
+[gd_scene load_steps=10 format=3 uid="uid://bb1vde2pnt0oq"]
 
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="1_t1llj"]
 [ext_resource type="Script" path="res://scenes/menu_new_block.gd" id="1_tunnl"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="2_licha"]
 [ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="4_l45g7"]
+[ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="5_43w16"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="8_gs133"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_vwsas"]
@@ -20,30 +21,6 @@ script = ExtResource("2_licha")
 friction = 4.0
 minimum_velocity = 0.4
 rebound_strength = 7.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2l5mi"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 3.0
-bg_color = Color(0.141176, 0.152941, 0.227451, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 2
-border_color = Color(0.431373, 0.45098, 0.552941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggk4c"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 3.0
-bg_color = Color(0.141176, 0.152941, 0.227451, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 2
-border_color = Color(0.431373, 0.45098, 0.552941, 1)
 
 [node name="CreateNewBlock" type="Window"]
 title = "Create new block"
@@ -246,18 +223,19 @@ size_flags_horizontal = 8
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
+theme_type_variation = &"ButtonWithPanel"
 theme_override_constants/icon_max_width = 16
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_2l5mi")
 text = "Cancel"
 
 [node name="Create" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
+theme = ExtResource("5_43w16")
+theme_type_variation = &"ButtonWithPanel"
 theme_override_constants/icon_max_width = 16
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_ggk4c")
 text = "Add Block"
 icon = ExtResource("8_gs133")
 

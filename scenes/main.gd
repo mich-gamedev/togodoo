@@ -10,6 +10,7 @@ var items : Array[Dictionary]
 var curr_item: int
 
 const MENU_NEW_BLOCK = preload("res://scenes/menu_new_block.tscn")
+const DIALOG_DELETE_BLOCK = preload("res://scenes/dialog_delete_block.tscn")
 
 var curr_new_block_window: Window
 
@@ -176,7 +177,7 @@ func create_default_block(type: String, to_item: TreeItem = null) -> void:
 				to_item = tree_items[curr_item].get_parent()
 		else: to_item = tree.get_root()
 	var new_item = tree.create_item(to_item)
-	var i: int
+	var i: int = 0
 	var current := tree.get_root()
 	while current != new_item:
 		current = current.get_next_in_tree()
@@ -250,6 +251,8 @@ func _input(event: InputEvent) -> void:
 				tree_tween = create_tween()
 				tree_tween.tween_method(func(a): item.set_custom_bg_color(0, a, true), Color("#a5adcb00"), Color("#a5adcbFF"), 0.15)
 			last_hovered_item = item
+	elif event.is_action_pressed(&"ui_text_delete"):
+		_on_destroy_block_pressed()
 
 func _on_save_requested(path: String) -> void:
 	if path == "":
@@ -302,3 +305,22 @@ func _on_new_block_mouse_exited() -> void:
 	if new_block_tween: new_block_tween.kill()
 	new_block_tween = get_tree().create_tween().set_parallel()
 	new_block_tween.tween_method(func(v): to_item.set_custom_bg_color(0, v), Color("#24273aFF"), Color("#24273a00"), 0.2)
+
+func _on_destroy_block_pressed() -> void:
+	var dialog = DIALOG_DELETE_BLOCK.instantiate()
+	add_child(dialog)
+	dialog.show()
+	dialog.get_node(^"%Label").text %= items[curr_item].title
+	(dialog.get_node(^"%Accept") as Button).pressed.connect(remove_block.bind(curr_item))
+
+func remove_block(idx: int) -> void:
+	items[idx].display_node.queue_free()
+	items.remove_at(idx)
+	if idx == curr_item:
+		%TypeIcon.texture = load("res://resources/themes/x.svg")
+		%TypeLabel.text = "Nothing Selected"
+		for i in %PropertyList.get_children():
+			i.queue_free()
+		curr_item = 0
+	tree_items[idx].free()
+	tree_items = tree_items.filter(func(a): return is_instance_valid(a))

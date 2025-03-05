@@ -36,7 +36,7 @@ window/stretch/scale=1.5
 
 [editor]
 
-run/main_run_args="--project=res://project_templates/empty.togodoo"
+run/main_run_args="--project=C:\\Users\\bigol\\Downloads\\togodoo_changelogs\\25_04_03.togodoo"
 
 [editor_plugins]
 

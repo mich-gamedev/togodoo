@@ -112,6 +112,19 @@ func _on_tree_item_selected() -> void:
 				inst.display_value.call_deferred(current_dict.get_or_add(i, config.get_value("properties", i)))
 				break
 
+	var seperator = FileManager.usage_types["property_seperator"].instantiate() as PropertyBlock
+	%PropertyList.add_child(seperator)
+	seperator.size_flags_vertical = Control.SIZE_EXPAND | Control.SIZE_SHRINK_END
+
+	var title_inst := FileManager.usage_types["property_multiline"].instantiate() as PropertyBlock
+	%PropertyList.add_child(title_inst)
+	title_inst.name = "Title"
+	if title_inst.has_node("%PropertyName"): title_inst.get_node("%PropertyName").text = "title"
+	title_inst.index = curr_item
+	title_inst.responsible_property = "title"
+	title_inst.property_usage_tags = ["property_multiline"]
+	title_inst.display_value.call_deferred(current_dict.get_or_add("title", config.get_value("display", "display_name")))
+
 func _on_tree_item_edited() -> void:
 	var curr_item = tree.get_edited()
 	var curr_column = tree.get_edited_column()
@@ -152,6 +165,8 @@ func _on_property_changed(item: int, property: StringName, value: Variant, reset
 	if reset_property_list and item == curr_item:
 		var filtered_nodes = %PropertyList.get_children().filter(func(i: Node): return i.responsible_property == property)
 		if !filtered_nodes.is_empty(): filtered_nodes[0].display_value(value)
+	if !reset_property_list and property == "title":
+		tree_items[item].set_text(0, value)
 
 func _on_property_search_text_changed(new_text: String) -> void:
 	for i in %PropertyList.get_children():

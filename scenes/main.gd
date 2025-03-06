@@ -133,6 +133,7 @@ func _on_tree_item_edited() -> void:
 			true
 		)
 	if curr_column == 0:
+		curr_item.set_text(0, LineParser.format_title(curr_item.get_text(0)))
 		PropertyBus.property_changed.emit.call_deferred(
 			tree_items.find(curr_item),
 			"title",

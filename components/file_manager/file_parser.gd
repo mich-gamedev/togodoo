@@ -53,3 +53,49 @@ static func parse_dict(dict: Dictionary) -> String:
 		indents += " "
 
 	return indents + "[{type}{tags}] {title}".format({"type": dict.type, "tags": tags, "title": dict.title})
+
+static func format_title(title: String) -> String:
+	const replacements: Dictionary = {
+		"*": "×",
+		"/": "÷",
+		"+-": "±",
+		"-+": "∓",
+		"sqrt": "√",
+		"~=": "≅",
+		"alpha": "α",
+		"beta": "β",
+		"gamma": "γ", "Gamma": "Γ",
+		"delta": "δ", "Delta": "Δ",
+		"epsilon": "ε",
+		"varepsilon": "ɛ",
+		"zeta": "ζ",
+		"eta": "η",
+		"theta": "θ", "Theta": "Θ",
+		"vartheta": "ϑ",
+		"iota": "ι",
+		"kappa": "κ",
+		"lambda": "λ", "Lambda": "Λ",
+		"mu": "μ",
+		"nu": "ν",
+		"xi": "ξ", "Xi": "Ξ",
+		"pi": "π", "Pi": "Π",
+		"rho": "ρ",
+		"sigma": "σ", "Sigma": "Σ",
+		"tau": "τ",
+		"upsilon": "υ",
+		"phi": "ϕ", "Phi": "Φ",
+		"varphi": "φ",
+		"chi": "χ",
+		"psi": "ψ", "Psi": "Ψ",
+		"omega": "ω", "Omega": "Ω"
+	}
+	var result := title
+	for i in replacements:
+		result = result.replace(i, replacements[i])
+	#var superscripts : Array[int] = []
+	#var temp_result := result
+	#while temp_result.contains("^("):
+		#superscripts.append(temp_result.find("^("))
+		#temp_result = temp_result.substr(superscripts[-1] + 1)
+	#for i in superscripts:
+	return result

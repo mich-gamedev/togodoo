@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqhetaxt7l3e4"]
+
+[ext_resource type="Texture2D" uid="uid://crlv5perrmipm" path="res://blocks/controls/referral/referral.svg" id="1_bqucg"]
+[ext_resource type="Script" path="res://blocks/controls/referral/referral.gd" id="2_jqptg"]
+[ext_resource type="Script" path="res://components/blocks/block.gd" id="3_fpao1"]
+
+[node name="Button" type="Button"]
+offset_right = 239.0
+offset_bottom = 24.0
+theme_type_variation = &"ButtonWithPanel"
+text = "Project 
+"
+icon = ExtResource("1_bqucg")
+text_overrun_behavior = 3
+expand_icon = true
+script = ExtResource("2_jqptg")
+
+[node name="Block" type="Node" parent="."]
+script = ExtResource("3_fpao1")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

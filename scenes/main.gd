@@ -153,6 +153,9 @@ func _on_tree_item_edited() -> void:
 			curr_item.get_text(0),
 			true
 		)
+		var regex = RegEx.new()
+		regex.compile("\\[.*?\\]")
+		curr_item.set_text(0, regex.sub(curr_item.get_text(0), "", true))
 
 func _on_property_changed(item: int, property: StringName, value: Variant, reset_property_list := true) -> void:
 	items[item][property] = value
@@ -166,7 +169,9 @@ func _on_property_changed(item: int, property: StringName, value: Variant, reset
 		var filtered_nodes = %PropertyList.get_children().filter(func(i: Node): return i.responsible_property == property)
 		if !filtered_nodes.is_empty(): filtered_nodes[0].display_value(value)
 	if !reset_property_list and property == "title":
-		tree_items[item].set_text(0, value)
+		var regex = RegEx.new()
+		regex.compile("\\[.*?\\]")
+		tree_items[item].set_text(0, regex.sub(value, "", true))
 
 func _on_property_search_text_changed(new_text: String) -> void:
 	for i in %PropertyList.get_children():
@@ -327,6 +332,7 @@ func _on_save_requested(path: String) -> void:
 			add_child(dialog)
 			dialog.show()
 			return
+	FileManager.file_path = path
 	var file = FileAccess.open(path, FileAccess.WRITE)
 	for i in items:
 		file.store_line(LineParser.parse_dict(i))

@@ -43,11 +43,12 @@ static func parse_dict(dict: Dictionary) -> String:
 			if tags.is_empty(): tags = " "
 			match typeof(dict[i]):
 				TYPE_STRING:
-					tags += "%s=\"%s\"" % [i, dict[i]]
+					tags += "%s=\"%s\" " % [i, dict[i]]
 				TYPE_COLOR:
-					tags += "%s=Color(%.3f,%.3f,%.3f,%.3f)" % [i, dict[i].r, dict[i].g, dict[i].b, dict[i].a]
+					tags += "%s=Color(%.3f,%.3f,%.3f,%.3f) " % [i, dict[i].r, dict[i].g, dict[i].b, dict[i].a]
 				_:
-					tags += "%s=%s" % [i, dict[i]]
+					tags += "%s=%s " % [i, dict[i]]
+	tags = tags.trim_suffix(" ")
 	var indents: String = ""
 	for i in dict.indents:
 		indents += " "
@@ -57,7 +58,7 @@ static func parse_dict(dict: Dictionary) -> String:
 static func format_title(title: String) -> String:
 	const replacements: Dictionary = {
 		"*": "×",
-		"/": "÷",
+		":-": "÷",
 		"+-": "±",
 		"-+": "∓",
 		"sqrt": "√",

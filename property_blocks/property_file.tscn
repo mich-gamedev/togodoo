@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/themes/folder.svg" id="2_p6s60"]
 [ext_resource type="Script" path="res://property_blocks/property_file_dialog.gd" id="3_dmp1v"]
 
-[node name="HBoxContainer" type="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" node_paths=PackedStringArray("value_node")]
 offset_right = 256.0
 script = ExtResource("1_3s6wj")
+value_node = NodePath("LineEdit")
+value_property = &"text"
 
 [node name="PropertyName" type="Label" parent="."]
 unique_name_in_owner = true
@@ -16,6 +18,11 @@ text = "state"
 clip_text = true
 text_overrun_behavior = 3
 
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "..."
+
 [node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
@@ -24,12 +31,14 @@ expand_icon = true
 
 [node name="FileDialog" type="FileDialog" parent="."]
 title = "Open a File"
-size = Vector2i(214, 174)
+size = Vector2i(362, 174)
 ok_button_text = "Open"
 file_mode = 0
 access = 2
-filters = PackedStringArray("*.togodoo")
 use_native_dialog = true
 script = ExtResource("3_dmp1v")
 
 [connection signal="display_requested" from="." to="FileDialog" method="_on__display_requested"]
+[connection signal="text_submitted" from="LineEdit" to="." method="property_change_emit" unbinds=1]
+[connection signal="pressed" from="Button" to="FileDialog" method="_on_button_pressed"]
+[connection signal="file_selected" from="FileDialog" to="FileDialog" method="_on_file_selected"]

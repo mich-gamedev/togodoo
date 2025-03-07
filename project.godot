@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="Togodoo"
+config/version="1.0.0"
 run/main_scene="res://scenes/project_manager.tscn"
+config/auto_accept_quit=false
 config/features=PackedStringArray("4.3", "GL Compatibility")
 run/max_fps=60
 run/low_processor_mode=true
@@ -23,6 +25,7 @@ PropertyBus="*res://components/property_list/sngl_property_bus.gd"
 
 [debug]
 
+file_logging/enable_file_logging=true
 gdscript/warnings/unused_parameter=0
 gdscript/warnings/unused_signal=0
 

@@ -13,7 +13,6 @@ config_version=5
 config/name="Togodoo"
 config/version="1.0.0"
 run/main_scene="res://scenes/project_manager.tscn"
-config/auto_accept_quit=false
 config/features=PackedStringArray("4.3", "GL Compatibility")
 run/max_fps=60
 run/low_processor_mode=true

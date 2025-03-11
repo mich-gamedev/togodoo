@@ -356,7 +356,7 @@ func _on_new_block_mouse_entered() -> void:
 		to_item = tree_items[curr_item].get_parent()
 	if new_block_tween: new_block_tween.kill()
 	new_block_tween = get_tree().create_tween().set_parallel()
-	new_block_tween.tween_method(func(v): to_item.set_custom_bg_color(0, v), Color("#24273a00"), Color("#24273aFF"), 0.2)
+	new_block_tween.tween_method(func(v): if is_instance_valid(to_item): to_item.set_custom_bg_color(0, v), Color("#24273a00"), Color("#24273aFF"), 0.2)
 
 func _on_new_block_mouse_exited() -> void:
 	if items.is_empty(): return

@@ -1,5 +1,7 @@
 extends Control
 
+const PREF_WINDOW = preload("res://scenes/preferences.tscn")
+
 func _ready() -> void:
 	print("started with following arguments: ", OS.get_cmdline_args())
 	var args = OS.get_cmdline_args()
@@ -29,3 +31,7 @@ func _dialog_accepted(path: String) -> void:
 
 func _on_contribute_pressed() -> void:
 	OS.shell_open("https://github.com/mich-gamedev/togodoo")
+
+func _on_preferences_pressed() -> void:
+	var inst = PREF_WINDOW.instantiate()
+	add_child(inst)

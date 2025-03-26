@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cog3b6405du76"]
+
+[ext_resource type="Texture2D" uid="uid://dawgtx1byq5oa" path="res://resources/themes/star.svg" id="1_8dbya"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 68.0
+offset_bottom = 14.0
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Testing"
+
+[node name="Favorite" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+icon = ExtResource("1_8dbya")
+expand_icon = true

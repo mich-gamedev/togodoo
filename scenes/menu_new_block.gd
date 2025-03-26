@@ -7,6 +7,7 @@ var last_type: String
 var iterated_sections: Array[String]
 
 const SEPERATOR = preload("res://scenes/new_block_type_seperator.tscn")
+const BLOCK_TYPE = preload("res://scenes/new_block_type.tscn")
 
 func _ready() -> void:
 	for i: String in FileManager.block_types:
@@ -18,14 +19,14 @@ func _ready() -> void:
 			%BlockTypeContainer.add_child(separator)
 			separator.get_node(^"%TypeLabel").text = section.to_pascal_case()
 			iterated_sections.append(section)
-		var inst = Button.new()
+		var inst = BLOCK_TYPE.instantiate()
 		%BlockTypeContainer.add_child(inst)
-		inst.text = config.get_value("display", "display_name")
-		inst.icon = load(config.get_value("display", "icon"))
-		inst.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		inst.expand_icon = true
-		inst.custom_minimum_size.y = 24
-		inst.pressed.connect(_on_block_type_pressed.bind(i))
+		var button = inst.get_node(^"%Button")
+		button.text = config.get_value("display", "display_name")
+		button.icon = load(config.get_value("display", "icon"))
+		button.custom_minimum_size.y = 24
+		button.pressed.connect(_on_block_type_pressed.bind(i))
+		inst.get_node(^"%Favorite").pressed.connect(_on_favorite_pressed.bind(i))
 
 func _on_block_type_pressed(type: String) -> void:
 	var config = FileManager.get_block_config(FileManager.block_types[type])
@@ -34,6 +35,9 @@ func _on_block_type_pressed(type: String) -> void:
 	%Credits.text = config.get_value("display", "credit")
 	%Description.text = config.get_value("display", "description")
 	last_type = type
+
+func _on_favorite_pressed(type: String) -> void:
+	pass # TODO: add favorite behavior
 
 func _on_close_requested() -> void:
 	queue_free()

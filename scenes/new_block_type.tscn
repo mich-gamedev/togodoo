@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cog3b6405du76"]
+[gd_scene load_steps=3 format=3 uid="uid://cog3b6405du76"]
 
 [ext_resource type="Texture2D" uid="uid://dawgtx1byq5oa" path="res://resources/themes/star.svg" id="1_8dbya"]
+[ext_resource type="Texture2D" uid="uid://kiwb7c2bw1rh" path="res://resources/themes/star_selected.svg" id="1_mqhp4"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
 offset_right = 68.0
@@ -11,10 +12,13 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Testing"
+expand_icon = true
 
-[node name="Favorite" type="Button" parent="."]
+[node name="Favorite" type="CheckBox" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
-icon = ExtResource("1_8dbya")
+theme_override_constants/icon_max_width = 16
+theme_override_icons/checked = ExtResource("1_mqhp4")
+theme_override_icons/unchecked = ExtResource("1_8dbya")
 expand_icon = true

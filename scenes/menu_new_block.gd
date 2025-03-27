@@ -26,7 +26,7 @@ func _ready() -> void:
 		button.icon = load(config.get_value("display", "icon"))
 		button.custom_minimum_size.y = 24
 		button.pressed.connect(_on_block_type_pressed.bind(i))
-		inst.get_node(^"%Favorite").pressed.connect(_on_favorite_pressed.bind(i))
+		inst.get_node(^"%Favorite").toggled.connect(_on_favorite_toggled.bind(i))
 
 func _on_block_type_pressed(type: String) -> void:
 	var config = FileManager.get_block_config(FileManager.block_types[type])
@@ -36,8 +36,15 @@ func _on_block_type_pressed(type: String) -> void:
 	%Description.text = config.get_value("display", "description")
 	last_type = type
 
-func _on_favorite_pressed(type: String) -> void:
-	pass # TODO: add favorite behavior
+func _on_favorite_toggled(toggled_on: bool, type: String) -> void:
+	var array : Array = Array(Settings.get_setting("vanilla", "editor/favorite_blocks"))
+	if toggled_on:
+		array.append(type)
+	else:
+		array.erase(type)
+	Settings.set_setting("vanilla", "editor/favorite_blocks", array)
+	Settings.save_config("vanilla")
+	PropertyBus.favorite_block_changed.emit(array)
 
 func _on_close_requested() -> void:
 	queue_free()

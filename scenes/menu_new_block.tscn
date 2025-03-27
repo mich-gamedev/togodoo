@@ -27,7 +27,6 @@ title = "Create new block"
 initial_position = 2
 size = Vector2i(815, 420)
 wrap_controls = true
-force_native = true
 min_size = Vector2i(620, 150)
 keep_title_visible = true
 script = ExtResource("1_tunnl")
@@ -80,7 +79,7 @@ offset_bottom = 11.5
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
 theme_override_font_sizes/font_size = 14
-text = "block types"
+text = "nav"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -146,7 +145,7 @@ offset_bottom = 11.5
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
 theme_override_font_sizes/font_size = 14
-text = "block info"
+text = "info"
 horizontal_alignment = 1
 vertical_alignment = 1
 

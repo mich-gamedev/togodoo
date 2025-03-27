@@ -17,8 +17,11 @@ var curr_new_block_window: Window
 
 func _ready() -> void: #TODO: replace with selection later
 	node = self
+	Settings.initialize()
 	PropertyBus.save_requested.connect(_on_save_requested)
+	PropertyBus.favorite_block_changed.connect(change_favorite_list)
 	FileManager.load_mods()
+	change_favorite_list(Settings.get_setting("vanilla", "editor/favorite_blocks"))
 	var file = FileAccess.open(FileManager.file_path, FileAccess.READ)
 	print(error_string(FileAccess.get_open_error()))
 	PropertyBus.property_changed.connect(_on_property_changed)
@@ -36,42 +39,6 @@ func _ready() -> void: #TODO: replace with selection later
 		#item.set_expand_right(0, false)
 		tree_items.append(item)
 		setup_item(items[i], item)
-		#var config := FileManager.get_block_config(FileManager.block_types[items[i].type])
-		#if config.has_section("usage"): for arg in config.get_section_keys("usage"):
-			#if String(config.get_value("usage", arg)).replace(" ", "").split(",").has("title_checkbox"):
-				#item.set_cell_mode(1, TreeItem.CELL_MODE_CHECK)
-				#item.set_editable(1, true)
-				#item.set_checked(1, items[i].get(arg))
-				#item.set_expand_right(1, false)
-				#item.set_icon_max_width(1, 16)
-				#break
-		#print(config.get_value("display", "icon"))
-		#if ResourceLoader.exists(config.get_value("display", "icon")):
-			#item.set_cell_mode(0, TreeItem.CELL_MODE_CUSTOM)
-			#item.set_icon(0, load(config.get_value("display", "icon")))
-			#item.set_icon_modulate(0, Color("cdd6f4"))
-		#item.set_text(0, items[i].stripped_title)
-		#item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD_SMART)
-#
-		#item.set_expand_right(0, true)
-		##item.set_tooltip_text(0, "Type: %s" % config.get_value("display", "display_name"))
-		#previous_tree_items.append(item)
-#
-		#print(items[i].title, ": ", get_parent_from_item(i))
-		#print(items[i].indents)
-		#var block_inst = (load(config.get_value("logic", "scene")) as PackedScene).instantiate()
-		#block_inst.name = items[i].title
-		#items[i].display_node = block_inst
-		#if get_parent_from_item(i) != -1:
-			#items[get_parent_from_item(i)].display_node.get_node(^"%ChildContainer").add_child(block_inst, true)
-		#else:
-			#%BlockDisplay.add_child(block_inst, true)
-		#for block: Block in block_inst.find_children("*", "Block"):
-			#block.args = items[i]
-		#block_inst.propagate_call("_update_block")
-
-
-
 
 func get_parent_from_item(idx: int) -> int:
 	var back_idx := 0
@@ -388,3 +355,12 @@ func remove_block(idx: int) -> void:
 		curr_item = 0
 	tree_items[idx].free()
 	tree_items = tree_items.filter(func(a): return is_instance_valid(a))
+
+func change_favorite_list(array: Array) -> void:
+	for i in %FavoriteBlocks.get_children(): i.queue_free()
+	for i in array:
+		var inst = Button.new()
+		inst.expand_icon = true
+		inst.custom_minimum_size.x = 16
+		inst.icon = load(FileManager.get_block_config(FileManager.block_types[i]).get_value("display", "icon"))
+		%FavoriteBlocks.add_child(inst)

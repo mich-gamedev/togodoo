@@ -1,3 +1,4 @@
+@icon("res://resources/themes/cli.svg")
 class_name LineParser extends Object
 
 static func parse_line(line: String) -> Dictionary:

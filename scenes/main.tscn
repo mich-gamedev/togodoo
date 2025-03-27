@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bn2aqpvkqauvr"]
+[gd_scene load_steps=37 format=3 uid="uid://bn2aqpvkqauvr"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_6yeym"]
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_to3i3"]
@@ -30,6 +30,18 @@
 color = Color(0.141176, 0.152941, 0.227451, 1)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_ebf3d"]
+
+[sub_resource type="Resource" id="Resource_1qaia"]
+script = ExtResource("11_q3wb5")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_n83lp"]
+script = ExtResource("11_q3wb5")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_dk6e4"]
 color = Color(0.211765, 0.227451, 0.309804, 1)
@@ -289,6 +301,7 @@ popup/item_1/id = 1
 popup/item_2/id = 2
 
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/Control"]
+visible = false
 custom_minimum_size = Vector2(96, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -508,16 +521,37 @@ button_pressed = true
 unique_name_in_owner = true
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 0
 tooltip_text = "create new block"
 icon = ExtResource("19_0csjb")
 expand_icon = true
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+vertical_scroll_mode = 0
+script = ExtResource("10_viifr")
+wheel_scroll_damper = SubResource("Resource_1qaia")
+dragging_scroll_damper = SubResource("Resource_n83lp")
+
+[node name="FavoriteBlocks" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 
 [node name="NewBlock" type="Button" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 8
 tooltip_text = "create new block"
 icon = ExtResource("8_ac2rg")
 expand_icon = true

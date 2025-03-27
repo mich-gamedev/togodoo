@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bn2aqpvkqauvr"]
+[gd_scene load_steps=39 format=3 uid="uid://bn2aqpvkqauvr"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_6yeym"]
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_to3i3"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cfkcptx0bj2e4" path="res://resources/themes/bbcode.svg" id="8_2p2gg"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="8_ac2rg"]
 [ext_resource type="Texture2D" uid="uid://7mqamsoh1bka" path="res://resources/themes/search.svg" id="8_cugfj"]
+[ext_resource type="Script" path="res://scenes/edit.gd" id="9_1cs2v"]
 [ext_resource type="Texture2D" uid="uid://demawiqbabxvq" path="res://resources/themes/bbcode_off.svg" id="9_d2vxv"]
 [ext_resource type="Texture2D" uid="uid://bw60ho2s4y84t" path="res://resources/themes/wrench.svg" id="9_dkpn6"]
 [ext_resource type="Script" path="res://scenes/tree.gd" id="10_uy6d5"]
@@ -23,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://ddlsrj8v0qiuv" path="res://resources/themes/search_nomod.svg" id="11_hsppd"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="11_q3wb5"]
 [ext_resource type="Texture2D" uid="uid://cfx2ivv7ag1q0" path="res://resources/themes/github-mark-white.svg" id="12_5yor6"]
+[ext_resource type="Script" path="res://scenes/options.gd" id="13_pjm7k"]
 [ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="13_vq61s"]
 [ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/themes/garbage_can.svg" id="19_0csjb"]
 
@@ -249,6 +251,7 @@ popup/item_1/icon = ExtResource("7_62ttq")
 popup/item_1/id = 1
 popup/item_2/text = "reparent selection to"
 popup/item_2/id = 2
+script = ExtResource("9_1cs2v")
 
 [node name="Options" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(24, 18)
@@ -280,6 +283,7 @@ popup/item_5/id = 5
 popup/item_6/text = "manage mods"
 popup/item_6/icon = ExtResource("9_dkpn6")
 popup/item_6/id = 6
+script = ExtResource("13_pjm7k")
 
 [node name="Help" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(24, 18)
@@ -534,6 +538,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 vertical_scroll_mode = 0
 script = ExtResource("10_viifr")
+speed = 128.0
 wheel_scroll_damper = SubResource("Resource_1qaia")
 dragging_scroll_damper = SubResource("Resource_n83lp")
 

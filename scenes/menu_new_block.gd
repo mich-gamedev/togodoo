@@ -11,6 +11,7 @@ const BLOCK_TYPE = preload("res://scenes/new_block_type.tscn")
 
 func _ready() -> void:
 	for i: String in FileManager.block_types:
+		if (i in Settings.get_setting("vanilla", "editor/hidden_blocks")): continue
 		var config = FileManager.get_block_config(FileManager.block_types[i])
 		var section = FileManager.block_types[i].trim_prefix("res://").get_slice("/", 1)
 		if !(section in iterated_sections):
@@ -27,6 +28,9 @@ func _ready() -> void:
 		button.custom_minimum_size.y = 24
 		button.pressed.connect(_on_block_type_pressed.bind(i))
 		inst.get_node(^"%Favorite").toggled.connect(_on_favorite_toggled.bind(i))
+		(inst.get_node(^"%Favorite") as CheckBox).set_pressed_no_signal(
+			Array(Settings.get_setting("vanilla", "editor/favorite_blocks")).has(i)
+		)
 
 func _on_block_type_pressed(type: String) -> void:
 	var config = FileManager.get_block_config(FileManager.block_types[type])

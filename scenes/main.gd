@@ -359,8 +359,9 @@ func remove_block(idx: int) -> void:
 func change_favorite_list(array: Array) -> void:
 	for i in %FavoriteBlocks.get_children(): i.queue_free()
 	for i in array:
-		var inst = Button.new()
+		var inst := Button.new()
 		inst.expand_icon = true
 		inst.custom_minimum_size.x = 16
 		inst.icon = load(FileManager.get_block_config(FileManager.block_types[i]).get_value("display", "icon"))
 		%FavoriteBlocks.add_child(inst)
+		inst.pressed.connect(create_default_block.bind(i))

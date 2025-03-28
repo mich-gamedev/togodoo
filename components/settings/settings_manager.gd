@@ -11,10 +11,9 @@ static var configs := {}
 static func initialize() -> void:
 	DirAccess.make_dir_recursive_absolute(user_dir)
 	DirAccess.make_dir_recursive_absolute(get_seting_default("vanilla", "file_system/mod_folder"))
-	if !DirAccess.dir_exists_absolute(get_seting_default("vanilla", "file_system/mod_folder") + "vanilla/"):
-		DirAccess.make_dir_absolute(get_seting_default("vanilla", "file_system/mod_folder") + "vanilla/")
-		for i in DirAccess.get_files_at("res://vanilla/"):
-			DirAccess.copy_absolute("res://vanilla/" + i, get_seting_default("vanilla", "file_system/mod_folder") + "vanilla/" + i)
+	DirAccess.make_dir_absolute(get_seting_default("vanilla", "file_system/mod_folder") + "vanilla/")
+	for i in DirAccess.get_files_at("res://vanilla/"):
+		DirAccess.copy_absolute("res://vanilla/" + i, get_seting_default("vanilla", "file_system/mod_folder") + "vanilla/" + i)
 
 static func setup_mod(mod: String) -> Error:
 	var file = mod + ".cfg"

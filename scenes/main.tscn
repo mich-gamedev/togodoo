@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bn2aqpvkqauvr"]
+[gd_scene load_steps=31 format=3 uid="uid://bn2aqpvkqauvr"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_6yeym"]
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_to3i3"]
@@ -6,24 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://bf8gx4q036dm7" path="res://resources/themes/h_seperator_grabber.svg" id="3_c1k5k"]
 [ext_resource type="Texture2D" uid="uid://doy33hxmprcko" path="res://resources/themes/cursor.svg" id="3_p2csi"]
 [ext_resource type="Texture2D" uid="uid://bqqi662bw4vha" path="res://resources/themes/pencil.svg" id="4_1u5h2"]
-[ext_resource type="Texture2D" uid="uid://bd67ndox07uia" path="res://resources/themes/save.svg" id="4_eyves"]
 [ext_resource type="Texture2D" uid="uid://cali1huvlmf83" path="res://resources/themes/eye_open.svg" id="5_gafk2"]
-[ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/themes/folder.svg" id="5_twi5r"]
-[ext_resource type="Texture2D" uid="uid://c1i5cycfe2vlq" path="res://resources/themes/open_recent.svg" id="6_eafuf"]
-[ext_resource type="Texture2D" uid="uid://6uf2kxe7jqtl" path="res://resources/themes/tree_expand.svg" id="7_62ttq"]
 [ext_resource type="Script" path="res://scenes/file.gd" id="7_rl21x"]
-[ext_resource type="Texture2D" uid="uid://c2kr2kifcs4yc" path="res://resources/themes/settings.svg" id="7_yyf83"]
 [ext_resource type="Texture2D" uid="uid://cfkcptx0bj2e4" path="res://resources/themes/bbcode.svg" id="8_2p2gg"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="8_ac2rg"]
 [ext_resource type="Texture2D" uid="uid://7mqamsoh1bka" path="res://resources/themes/search.svg" id="8_cugfj"]
 [ext_resource type="Script" path="res://scenes/edit.gd" id="9_1cs2v"]
 [ext_resource type="Texture2D" uid="uid://demawiqbabxvq" path="res://resources/themes/bbcode_off.svg" id="9_d2vxv"]
-[ext_resource type="Texture2D" uid="uid://bw60ho2s4y84t" path="res://resources/themes/wrench.svg" id="9_dkpn6"]
 [ext_resource type="Script" path="res://scenes/tree.gd" id="10_uy6d5"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="10_viifr"]
-[ext_resource type="Texture2D" uid="uid://ddlsrj8v0qiuv" path="res://resources/themes/search_nomod.svg" id="11_hsppd"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="11_q3wb5"]
-[ext_resource type="Texture2D" uid="uid://cfx2ivv7ag1q0" path="res://resources/themes/github-mark-white.svg" id="12_5yor6"]
 [ext_resource type="Script" path="res://scenes/options.gd" id="13_pjm7k"]
 [ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="13_vq61s"]
 [ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/themes/garbage_can.svg" id="19_0csjb"]
@@ -211,23 +203,18 @@ popup/item_0/text = "open project manager"
 popup/item_1/id = 5
 popup/item_1/separator = true
 popup/item_2/text = "save as"
-popup/item_2/icon = ExtResource("4_eyves")
 popup/item_2/id = 8
 popup/item_3/text = "save"
-popup/item_3/icon = ExtResource("4_eyves")
 popup/item_3/id = 1
 popup/item_4/id = 4
 popup/item_4/separator = true
 popup/item_5/text = "open"
-popup/item_5/icon = ExtResource("5_twi5r")
 popup/item_5/id = 2
 popup/item_6/text = "open recent"
-popup/item_6/icon = ExtResource("6_eafuf")
 popup/item_6/id = 3
 popup/item_7/id = 6
 popup/item_7/separator = true
 popup/item_8/text = "show in filesystem"
-popup/item_8/icon = ExtResource("5_twi5r")
 popup/item_8/id = 4
 popup/item_9/text = "open in text editor"
 popup/item_9/id = 9
@@ -247,7 +234,6 @@ icon_alignment = 1
 item_count = 3
 popup/item_0/text = "find & replace in tree"
 popup/item_1/text = "fold current (recursive)"
-popup/item_1/icon = ExtResource("7_62ttq")
 popup/item_1/id = 1
 popup/item_2/text = "reparent selection to"
 popup/item_2/id = 2
@@ -266,11 +252,9 @@ text = "options"
 icon_alignment = 1
 item_count = 7
 popup/item_0/text = "preferences"
-popup/item_0/icon = ExtResource("7_yyf83")
 popup/item_1/id = 6
 popup/item_1/separator = true
 popup/item_2/text = "toggle docks"
-popup/item_2/icon = ExtResource("5_gafk2")
 popup/item_2/id = 2
 popup/item_3/text = "fullscreen"
 popup/item_3/checkable = 1
@@ -278,10 +262,8 @@ popup/item_3/id = 3
 popup/item_4/id = 4
 popup/item_4/separator = true
 popup/item_5/text = "open user data folder"
-popup/item_5/icon = ExtResource("5_twi5r")
 popup/item_5/id = 5
 popup/item_6/text = "manage mods"
-popup/item_6/icon = ExtResource("9_dkpn6")
 popup/item_6/id = 6
 script = ExtResource("13_pjm7k")
 
@@ -298,9 +280,7 @@ text = "help"
 icon_alignment = 1
 item_count = 3
 popup/item_0/text = "open docs"
-popup/item_0/icon = ExtResource("11_hsppd")
-popup/item_1/text = "contribute"
-popup/item_1/icon = ExtResource("12_5yor6")
+popup/item_1/text = "open github"
 popup/item_1/id = 1
 popup/item_2/id = 2
 

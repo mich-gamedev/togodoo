@@ -7,7 +7,7 @@
    viewBox="0 0 4.233333 4.233333"
    version="1.1"
    id="svg1"
-   inkscape:export-filename="star.png"
+   inkscape:export-filename="spinbox_arrow.svg"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    sodipodi:docname="star.svg"
@@ -66,22 +66,12 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       sodipodi:type="star"
-       style="fill:#2d0000;fill-opacity:0;stroke:#ffffff;stroke-width:0.29602496;stroke-dasharray:none"
-       id="path1"
-       inkscape:flatsided="false"
-       sodipodi:sides="5"
-       sodipodi:cx="0.50919574"
-       sodipodi:cy="0.5149821"
-       sodipodi:r1="1.9270958"
-       sodipodi:r2="0.92729872"
-       sodipodi:arg1="2.1959916"
-       sodipodi:arg2="2.7734436"
-       inkscape:rounded="0"
-       inkscape:randomized="0"
-       d="m -0.61864789,2.0775655 0.26267849,-1.22885867 -0.9694628,-0.92350294 1.24988614,-0.12991612 0.578723,-1.20739207 0.50979366,1.14856611 1.3271333,0.17729363 -0.9348164,0.839769 L 1.646778,2.07049 0.55923609,1.4409297 Z"
-       inkscape:transform-center-x="0.018665417"
-       inkscape:transform-center-y="-0.016377179"
-       transform="matrix(0.87347916,0,0,0.91456751,1.6723092,1.8403533)" />
+       id="rect1"
+       style="fill:#cdd6f4;stroke-width:0.256103;stroke-dasharray:none;fill-opacity:1"
+       d="M 2.1166666,0.79375 1.9295779,0.98083864 1.3683119,1.5421046 1.5554006,1.7291933 2.1166666,1.1679273 2.6779326,1.7291933 2.8650212,1.5421046 2.3037552,0.98083864 Z" />
+    <path
+       id="path2"
+       style="fill:#cdd6f4;stroke-width:0.256103;stroke-dasharray:none;fill-opacity:1"
+       d="M 2.1166665,3.4393572 2.3037552,3.2522685 2.8650212,2.6910026 2.6779325,2.5039139 2.1166665,3.0651799 1.5554005,2.5039139 1.3683119,2.6910026 1.9295779,3.2522685 Z" />
   </g>
 </svg>

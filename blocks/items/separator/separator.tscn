@@ -1,19 +1,30 @@
-[gd_scene format=3 uid="uid://cbydchtr2k4t4"]
+[gd_scene load_steps=3 format=3 uid="uid://cbydchtr2k4t4"]
+
+[ext_resource type="Script" path="res://blocks/items/separator/separator.gd" id="1_p81rw"]
+[ext_resource type="Script" path="res://components/blocks/block.gd" id="2_8nher"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 123.0
+offset_bottom = 14.0
+size_flags_horizontal = 3
+script = ExtResource("1_p81rw")
 
-[node name="HSeparator" type="HSeparator" parent="."]
+[node name="Left" type="HSeparator" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="TypeLabel" type="Label" parent="."]
-unique_name_in_owner = true
+[node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.431373, 0.45098, 0.552941, 1)
+theme_override_colors/default_color = Color(0.431373, 0.45098, 0.552941, 1)
+bbcode_enabled = true
 text = "Nothing Selected"
-vertical_alignment = 2
+fit_content = true
+autowrap_mode = 0
 
-[node name="HSeparator2" type="HSeparator" parent="."]
+[node name="Right" type="HSeparator" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Block" type="Node" parent="."]
+script = ExtResource("2_8nher")

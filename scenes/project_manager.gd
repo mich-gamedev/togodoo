@@ -15,6 +15,7 @@
 extends Control
 
 const PREF_WINDOW = preload("res://scenes/preferences.tscn")
+const MOD_MANAGER = preload("res://scenes/mod_manager.tscn")
 
 func _ready() -> void:
 	print("started with following arguments: ", OS.get_cmdline_args())
@@ -48,4 +49,8 @@ func _on_contribute_pressed() -> void:
 
 func _on_preferences_pressed() -> void:
 	var inst = PREF_WINDOW.instantiate()
+	add_child(inst)
+
+func _on_manage_mods_pressed() -> void:
+	var inst = MOD_MANAGER.instantiate()
 	add_child(inst)

@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://cfkcptx0bj2e4" path="res://resources/themes/bbcode.svg" id="8_2p2gg"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="8_ac2rg"]
 [ext_resource type="Texture2D" uid="uid://7mqamsoh1bka" path="res://resources/themes/search.svg" id="8_cugfj"]
-[ext_resource type="Script" path="res://scenes/edit.gd" id="9_1cs2v"]
 [ext_resource type="Texture2D" uid="uid://demawiqbabxvq" path="res://resources/themes/bbcode_off.svg" id="9_d2vxv"]
 [ext_resource type="Script" path="res://scenes/tree.gd" id="10_uy6d5"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="10_viifr"]
@@ -19,6 +18,9 @@
 [ext_resource type="Script" path="res://scenes/options.gd" id="13_pjm7k"]
 [ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="13_vq61s"]
 [ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/themes/garbage_can.svg" id="19_0csjb"]
+
+[sub_resource type="FontVariation" id="FontVariation_skyi7"]
+base_font = ExtResource("3_6sxgd")
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_0bw6x"]
 color = Color(0.141176, 0.152941, 0.227451, 1)
@@ -101,7 +103,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_to3i3")
 theme_override_colors/font_color = Color(0.211765, 0.227451, 0.309804, 1)
-theme_override_fonts/font = ExtResource("3_6sxgd")
+theme_override_fonts/font = SubResource("FontVariation_skyi7")
 theme_override_font_sizes/font_size = 14
 text = "   __                              ___
 __\\  \\__  _____   _____   _____   _\\  \\   _____   _____
@@ -186,7 +188,7 @@ theme_override_constants/margin_bottom = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2"]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 12
 
 [node name="File" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
 layout_mode = 2
@@ -199,13 +201,13 @@ theme_override_colors/icon_hover_pressed_color = Color(0.717647, 0.741176, 0.972
 text = "file"
 icon_alignment = 1
 item_count = 10
-popup/item_0/text = "open project manager"
+popup/item_0/text = "project manager"
 popup/item_1/id = 5
 popup/item_1/separator = true
-popup/item_2/text = "save as"
-popup/item_2/id = 8
-popup/item_3/text = "save"
-popup/item_3/id = 1
+popup/item_2/text = "save"
+popup/item_2/id = 1
+popup/item_3/text = "save as"
+popup/item_3/id = 8
 popup/item_4/id = 4
 popup/item_4/separator = true
 popup/item_5/text = "open"
@@ -220,8 +222,7 @@ popup/item_9/text = "open in text editor"
 popup/item_9/id = 9
 script = ExtResource("7_rl21x")
 
-[node name="Edit" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(24, 18)
+[node name="View" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.792157, 0.827451, 0.960784, 1)
 theme_override_colors/icon_normal_color = Color(0.647059, 0.678431, 0.796078, 1)
@@ -229,15 +230,17 @@ theme_override_colors/icon_focus_color = Color(0.647059, 0.678431, 0.796078, 1)
 theme_override_colors/icon_pressed_color = Color(0.717647, 0.741176, 0.972549, 1)
 theme_override_colors/icon_hover_color = Color(0.803922, 0.839216, 0.956863, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.717647, 0.741176, 0.972549, 1)
-text = "edit"
+text = "view"
 icon_alignment = 1
-item_count = 3
-popup/item_0/text = "find & replace in tree"
-popup/item_1/text = "fold current (recursive)"
+item_count = 4
+popup/item_0/text = "docks"
+popup/item_1/text = "hide all docks"
 popup/item_1/id = 1
-popup/item_2/text = "reparent selection to"
-popup/item_2/id = 2
-script = ExtResource("9_1cs2v")
+popup/item_2/id = 3
+popup/item_2/separator = true
+popup/item_3/text = "command pallete"
+popup/item_3/id = 2
+script = ExtResource("7_rl21x")
 
 [node name="Options" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(24, 18)
@@ -250,21 +253,16 @@ theme_override_colors/icon_hover_color = Color(0.803922, 0.839216, 0.956863, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.717647, 0.741176, 0.972549, 1)
 text = "options"
 icon_alignment = 1
-item_count = 7
+item_count = 5
 popup/item_0/text = "preferences"
 popup/item_1/id = 6
 popup/item_1/separator = true
-popup/item_2/text = "toggle docks"
-popup/item_2/id = 2
-popup/item_3/text = "fullscreen"
-popup/item_3/checkable = 1
-popup/item_3/id = 3
-popup/item_4/id = 4
-popup/item_4/separator = true
-popup/item_5/text = "open user data folder"
-popup/item_5/id = 5
-popup/item_6/text = "manage mods"
-popup/item_6/id = 6
+popup/item_2/id = 4
+popup/item_2/separator = true
+popup/item_3/text = "open user data folder"
+popup/item_3/id = 5
+popup/item_4/text = "manage mods"
+popup/item_4/id = 6
 script = ExtResource("13_pjm7k")
 
 [node name="Help" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]

@@ -30,7 +30,7 @@ auto_translate_mode = 1
 title = "Manage Mods"
 initial_position = 2
 size = Vector2i(640, 360)
-content_scale_factor = 1.25
+content_scale_factor = 1.5
 script = ExtResource("1_m2rmo")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

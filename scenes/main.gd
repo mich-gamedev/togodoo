@@ -17,7 +17,6 @@ var curr_new_block_window: Window
 
 func _ready() -> void: #TODO: replace with selection later
 	node = self
-	Settings.initialize()
 	PropertyBus.save_requested.connect(_on_save_requested)
 	PropertyBus.favorite_block_changed.connect(change_favorite_list)
 	FileManager.load_mods()
@@ -229,6 +228,7 @@ func _input(event: InputEvent) -> void:
 		tree.edit_selected()
 	elif event.is_action_pressed(&"save"):
 		PropertyBus.save_requested.emit("")
+		get_window().set_input_as_handled()
 	elif event is InputEventMouseMotion:
 		var item = tree.get_item_at_position(tree.get_local_mouse_position())
 		if item != last_hovered_item:

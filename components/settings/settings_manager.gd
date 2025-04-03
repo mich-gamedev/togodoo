@@ -15,6 +15,10 @@ static func initialize() -> void:
 	for i in DirAccess.get_files_at("res://vanilla/"):
 		DirAccess.copy_absolute("res://vanilla/" + i, get_seting_default("vanilla", "file_system/mod_folder") + "vanilla/" + i)
 
+static func find_mods() -> void:
+	for i in DirAccess.get_files_at(defaults_dir):
+		setup_mod(i.get_slice(".", 0))
+
 static func setup_mod(mod: String) -> Error:
 	var file = mod + ".cfg"
 	if !configs.has(mod):

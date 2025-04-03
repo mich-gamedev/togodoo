@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6jg6njwa37da"]
+[gd_scene load_steps=12 format=3 uid="uid://b6jg6njwa37da"]
 
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_rf8uy"]
 [ext_resource type="Script" path="res://scenes/project_manager.gd" id="1_rryq6"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/themes/folder.svg" id="4_csqmn"]
 [ext_resource type="Texture2D" uid="uid://c2kr2kifcs4yc" path="res://resources/themes/settings.svg" id="5_5tm0h"]
 [ext_resource type="Texture2D" uid="uid://bw60ho2s4y84t" path="res://resources/themes/wrench.svg" id="6_gca4t"]
-[ext_resource type="Texture2D" uid="uid://d3y5186u78brm" path="res://resources/themes/redo.svg" id="6_qiwro"]
 [ext_resource type="Texture2D" uid="uid://ddlsrj8v0qiuv" path="res://resources/themes/search_nomod.svg" id="7_218y8"]
 [ext_resource type="Texture2D" uid="uid://cfx2ivv7ag1q0" path="res://resources/themes/github-mark-white.svg" id="8_2w5n4"]
 [ext_resource type="FontFile" uid="uid://dqqjkq3x4dmnb" path="res://assets/fira-code-regular.ttf" id="10_hfjao"]
@@ -153,6 +152,7 @@ expand_icon = true
 layout_mode = 2
 
 [node name="Preferences" type="Button" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(91, 0)
 layout_mode = 2
 text = "preferences"
 icon = ExtResource("5_5tm0h")
@@ -162,13 +162,6 @@ expand_icon = true
 layout_mode = 2
 text = "manage mods"
 icon = ExtResource("6_gca4t")
-expand_icon = true
-
-[node name="CheckForUpdates" type="Button" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(148, 0)
-layout_mode = 2
-text = "check for updates"
-icon = ExtResource("6_qiwro")
 expand_icon = true
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
@@ -259,5 +252,6 @@ theme_override_styles/separator = SubResource("StyleBoxLine_e1eln")
 [connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/NewFile" to="." method="_on_new_file_pressed"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/OpenFile" to="." method="_on_open_file_pressed"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/Preferences" to="." method="_on_preferences_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/ManageMods" to="." method="_on_manage_mods_pressed"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/Contribute" to="." method="_on_contribute_pressed"]
 [connection signal="timeout" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2/Label/Timer" to="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2/Label" method="_on_timer_timeout"]

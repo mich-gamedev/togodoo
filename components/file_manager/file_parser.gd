@@ -17,16 +17,16 @@ static func parse_line(line: String) -> Dictionary:
 		if char == " " and in_quote:
 			char = "<SPACE>"
 		filtered_args += char
-	var tags := Array(filtered_args.split(" "))
+	var tags := Array(filtered_args.replace(r"\n", "\n").split(" "))
 	print("TAGS: ", tags)
 	args.type = tags.pop_front()
 	for i: String in tags:
 		var expression = Expression.new()
-		if expression.parse(i.trim_prefix(i.get_slice("=", 0) + "=").replace("<SPACE>", " ")):
-			print("TAGS error: ", i.trim_prefix(i.get_slice("=", 0) + "=").replace("<SPACE>", " "))
+		if expression.parse(i.trim_prefix(i.get_slice("=", 0) + "=").replace("<SPACE>", " ").replace(r"\\n", "\n")):
+			print("TAGS error: ", i.trim_prefix(i.get_slice("=", 0) + "=").replace("<SPACE>", " ").replace(r"\\n", "\n"))
 			push_error(expression.get_error_text())
 		args[i.get_slice("=", 0)] = expression.execute()
-	args.title = line.lstrip(" ").replace(line.substr(from, to - from + 1), "").lstrip(" ").rstrip(" ")
+	args.title = line.lstrip(" ").replace(line.substr(from, to - from + 1), "").replace(r"\n", "\n").lstrip(" ").rstrip(" ")
 	var regex = RegEx.new()
 	regex.compile("\\[.*?\\]") #strips bbcode tags
 	args.stripped_title = regex.sub(args.title, "", true)
@@ -49,12 +49,12 @@ static func parse_dict(dict: Dictionary) -> String:
 					tags += "%s=Color(%.3f,%.3f,%.3f,%.3f) " % [i, dict[i].r, dict[i].g, dict[i].b, dict[i].a]
 				_:
 					tags += "%s=%s " % [i, dict[i]]
-	tags = tags.trim_suffix(" ")
+	tags = tags.trim_suffix(" ").replace("\n", r"\n")
 	var indents: String = ""
 	for i in dict.indents:
 		indents += " "
 
-	return indents + "[{type}{tags}] {title}".format({"type": dict.type, "tags": tags, "title": dict.title})
+	return indents + "[{type}{tags}] {title}".format({"type": dict.type, "tags": tags, "title": dict.title.replace("\n", r"\n")})
 
 static func format_title(title: String) -> String:
 	const replacements: Dictionary = {

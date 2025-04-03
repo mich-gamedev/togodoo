@@ -3,6 +3,7 @@ extends Window
 @onready var nav_tree: Tree = %NavTree
 
 func _ready() -> void:
+	Settings.find_mods()
 	var root = nav_tree.create_item()
 	for mod: String in Settings.configs:
 		var mod_item = nav_tree.create_item(root)

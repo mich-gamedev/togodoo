@@ -3,6 +3,7 @@ extends Window
 @onready var nav_tree: Tree = %NavTree
 
 func _ready() -> void:
+	content_scale_factor = get_tree().root.content_scale_factor
 	Settings.find_mods()
 	var root = nav_tree.create_item()
 	for mod: String in Settings.configs:

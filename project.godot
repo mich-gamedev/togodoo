@@ -34,7 +34,11 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/subwindows/embed_subwindows=false
 window/stretch/aspect="expand"
-window/stretch/scale=1.5
+window/stretch/scale=1.25
+
+[editor]
+
+run/main_run_args="--project=res://project_templates/empty.togodoo"
 
 [editor_plugins]
 

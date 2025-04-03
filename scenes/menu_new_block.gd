@@ -10,6 +10,7 @@ const SEPERATOR = preload("res://scenes/new_block_type_seperator.tscn")
 const BLOCK_TYPE = preload("res://scenes/new_block_type.tscn")
 
 func _ready() -> void:
+	content_scale_factor = get_tree().root.content_scale_factor
 	for i: String in FileManager.block_types:
 		if (i in Settings.get_setting("vanilla", "editor/hidden_blocks")): continue
 		var config = FileManager.get_block_config(FileManager.block_types[i])

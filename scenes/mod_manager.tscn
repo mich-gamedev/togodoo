@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0xlphou0hs56"]
+[gd_scene load_steps=16 format=3 uid="uid://d0xlphou0hs56"]
 
 [ext_resource type="Script" path="res://scenes/mod_manager.gd" id="1_m2rmo"]
 [ext_resource type="Texture2D" uid="uid://c4gqmuvse8phy" path="res://icon.svg" id="2_5873c"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b2vkmquso6nbs" path="res://resources/themes/Discord-Symbol-White.svg" id="4_3u0wr"]
 [ext_resource type="Texture2D" uid="uid://x7tdi6mwpo4a" path="res://resources/themes/gitlab-logo-700.svg" id="5_b3f4m"]
 [ext_resource type="Texture2D" uid="uid://d0i3o6br684je" path="res://resources/themes/web.svg" id="8_2trou"]
+[ext_resource type="Texture2D" uid="uid://c2kr2kifcs4yc" path="res://resources/themes/settings.svg" id="10_fgot1"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_56sht"]
 color = Color(0.141176, 0.152941, 0.227451, 1)
@@ -20,6 +21,18 @@ minimum_velocity = 0.4
 rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_w4jn0"]
+script = ExtResource("3_t4iyi")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_u7ruj"]
+script = ExtResource("3_t4iyi")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_v4qjp"]
 script = ExtResource("3_t4iyi")
 friction = 4.0
 minimum_velocity = 0.4
@@ -94,122 +107,38 @@ theme_override_styles/separator = SubResource("StyleBoxLine_56sht")
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav"]
 layout_mode = 2
-theme_override_constants/margin_top = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 
-[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2"]
 layout_mode = 2
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 script = ExtResource("2_ti26n")
 speed = 500.0
 wheel_scroll_damper = SubResource("Resource_biqgv")
 dragging_scroll_damper = SubResource("Resource_w4jn0")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/SmoothScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/SmoothScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/VBoxContainer"]
 layout_mode = 2
-mouse_filter = 1
-text = "Vanilla"
-icon = ExtResource("2_5873c")
-expand_icon = true
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/SmoothScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 0.0
 mouse_filter = 1
-text = "Vanilla"
-icon = ExtResource("2_5873c")
-expand_icon = true
-
-[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/SmoothScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-mouse_filter = 1
-text = "Vanilla"
-icon = ExtResource("2_5873c")
-expand_icon = true
-
-[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/SmoothScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-mouse_filter = 1
-text = "Vanilla"
-icon = ExtResource("2_5873c")
-expand_icon = true
-
-[node name="Button5" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/SmoothScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-mouse_filter = 1
-text = "Vanilla"
-icon = ExtResource("2_5873c")
-expand_icon = true
-
-[node name="Button6" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/SmoothScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-mouse_filter = 1
-text = "Vanilla"
-icon = ExtResource("2_5873c")
-expand_icon = true
-
-[node name="Button7" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/SmoothScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-mouse_filter = 1
-text = "Vanilla"
-icon = ExtResource("2_5873c")
-expand_icon = true
-
-[node name="Button8" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/SmoothScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-mouse_filter = 1
-text = "Vanilla"
-icon = ExtResource("2_5873c")
-expand_icon = true
-
-[node name="Button9" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/SmoothScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-mouse_filter = 1
-text = "Vanilla"
-icon = ExtResource("2_5873c")
-expand_icon = true
-
-[node name="Button10" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/SmoothScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-mouse_filter = 1
-text = "Vanilla"
-icon = ExtResource("2_5873c")
-expand_icon = true
-
-[node name="Button11" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/SmoothScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-mouse_filter = 1
-text = "Vanilla"
-icon = ExtResource("2_5873c")
-expand_icon = true
-
-[node name="Button12" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/SmoothScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-mouse_filter = 1
-text = "Vanilla"
-icon = ExtResource("2_5873c")
-expand_icon = true
-
-[node name="Button13" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/SmoothScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-mouse_filter = 1
-text = "Vanilla"
-icon = ExtResource("2_5873c")
+theme_type_variation = &"ButtonWithPanel"
+icon = ExtResource("3_2j5pp")
 expand_icon = true
 
 [node name="Options" type="PanelContainer" parent="MarginContainer/VBoxContainer/HSplitContainer"]
@@ -253,10 +182,10 @@ theme_override_styles/separator = SubResource("StyleBoxLine_56sht")
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Options"]
 layout_mode = 2
-theme_override_constants/margin_left = 8
+theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2"]
 layout_mode = 2
@@ -311,37 +240,72 @@ layout_mode = 2
 icon = ExtResource("5_b3f4m")
 expand_icon = true
 
-[node name="Gitlab2" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer3"]
+[node name="Link" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 icon = ExtResource("8_2trou")
 expand_icon = true
 
-[node name="Description" type="Label" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer"]
-unique_name_in_owner = true
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("2_ti26n")
+speed = 250.0
+wheel_scroll_damper = SubResource("Resource_u7ruj")
+dragging_scroll_damper = SubResource("Resource_v4qjp")
+hide_scrollbar_over_time = true
+scrollbar_hide_time = 2.0
+
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
 theme_override_constants/line_spacing = 0
-text = "The base contents of the app."
+text = "The base contents of the app.
+The base contents of the app.
+The base contents of the app.
+The base contents of the app.
+The base contents of the app.
+The base contents of the app.
+The base contents of the app.
+The base contents of the app.
+The base contents of the app.
+The base contents of the app.
+The base contents of the app.
+The base contents of the app.
+The base contents of the app.
+The base contents of the app.
+The base contents of the app.
+The base contents of the app.
+The base contents of the app.
+The base contents of the app."
 autowrap_mode = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 2
+theme_type_variation = &"ButtonWithPanel"
+text = "Open Folder"
+icon = ExtResource("3_2j5pp")
+expand_icon = true
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_type_variation = &"ButtonWithPanel"
+text = "Manage Mod"
+icon = ExtResource("10_fgot1")
+expand_icon = true
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(124, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_stretch_ratio = 0.0
-theme_type_variation = &"ButtonWithPanel"
-text = "Open Mod Folder"
-icon = ExtResource("3_2j5pp")
-expand_icon = true
 
 [node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -350,5 +314,4 @@ theme_type_variation = &"ButtonWithPanel"
 text = "Close"
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_close_requested"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button2" to="." method="_on_close_requested"]

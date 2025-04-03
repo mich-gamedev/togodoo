@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="separator.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showgrid="true">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="0.5"
+       spacingy="0.5"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="2"
+       enabled="true"
+       visible="true" />
+    <inkscape:page
+       x="0"
+       y="0"
+       width="16"
+       height="16"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="m 10.252308,9.8215386 q 0,0.3938464 0.129231,0.5723074 0.12923,0.178462 0.4,0.258462 l -0.252308,0.726154 q -0.418462,-0.05539 -0.7323077,-0.264616 -0.3138462,-0.215384 -0.4553846,-0.646154 -0.3507693,0.449231 -0.88,0.683077 -0.523077,0.227693 -1.1507693,0.227693 -0.9723077,0 -1.5323077,-0.547693 -0.56,-0.547692 -0.56,-1.4523073 0,-1.0030769 0.7815385,-1.5384616 Q 6.7815387,7.3046155 8.2584617,7.3046155 H 9.2123079 V 6.7630771 q 0,-0.7015385 -0.4123077,-0.9907693 -0.4061539,-0.2953846 -1.1323077,-0.2953846 -0.32,0 -0.7507692,0.08 Q 6.486154,5.6307694 5.9815387,5.8092309 L 5.7107694,5.0276924 Q 6.3015387,4.806154 6.8246156,4.7138463 q 0.5292307,-0.092308 1.0030769,-0.092308 1.2061538,0 1.8153846,0.5661538 Q 10.252308,5.753846 10.252308,6.713846 Z M 7.5753848,10.590769 q 0.48,0 0.9107692,-0.24 0.4369231,-0.246153 0.7261539,-0.6769227 V 8.006154 H 8.2769233 q -1.0707693,0 -1.5138462,0.3692308 Q 6.326154,8.7446155 6.326154,9.366154 q 0,1.224615 1.2492308,1.224615 z"
+       id="text1"
+       style="font-family:'Fira Code';-inkscape-font-specification:'Fira Code';fill:#ffffff"
+       aria-label="a" />
+    <path
+       id="rect1"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.0895"
+       d="M 2,8 V 9 H 4.2675781 C 4.3143303,8.6497052 4.4238912,8.3090072 4.5898438,8 Z m 9.230469,0 V 9 H 14 V 8 Z M 8.234375,8.9921875 C 8.1804435,8.9934479 8.1311257,8.9967803 8.0820312,9 H 8.234375 Z" />
+  </g>
+</svg>

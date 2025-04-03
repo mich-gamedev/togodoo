@@ -95,6 +95,8 @@ script = ExtResource("4_k1rl2")
 speed = 500.0
 wheel_scroll_damper = SubResource("Resource_6xeye")
 dragging_scroll_damper = SubResource("Resource_1c5if")
+hide_scrollbar_over_time = true
+scrollbar_hide_time = 2.0
 
 [node name="ChildContainer" type="VBoxContainer" parent="Page/MarginContainer2/MarginContainer/SmoothScrollContainer"]
 unique_name_in_owner = true

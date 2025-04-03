@@ -487,6 +487,7 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="Button" type="CheckBox" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
@@ -519,6 +520,7 @@ script = ExtResource("10_viifr")
 speed = 128.0
 wheel_scroll_damper = SubResource("Resource_1qaia")
 dragging_scroll_damper = SubResource("Resource_n83lp")
+scrollbar_hide_time = 2.0
 
 [node name="FavoriteBlocks" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer/ScrollContainer"]
 unique_name_in_owner = true
@@ -551,6 +553,8 @@ script = ExtResource("10_viifr")
 speed = 500.0
 wheel_scroll_damper = SubResource("Resource_vafg3")
 dragging_scroll_damper = SubResource("Resource_41xyg")
+hide_scrollbar_over_time = true
+scrollbar_hide_time = 2.0
 
 [node name="Tree" type="Tree" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
 unique_name_in_owner = true
@@ -630,9 +634,12 @@ size_flags_stretch_ratio = 0.5
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("10_viifr")
+speed = 350.0
 wheel_scroll_damper = SubResource("Resource_x352f")
 dragging_scroll_damper = SubResource("Resource_a35te")
 allow_horizontal_scroll = false
+hide_scrollbar_over_time = true
+scrollbar_hide_time = 2.0
 
 [node name="BlockDisplay" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Visual/ScrollContainer"]
 unique_name_in_owner = true
@@ -743,6 +750,8 @@ size_flags_vertical = 3
 script = ExtResource("10_viifr")
 wheel_scroll_damper = SubResource("Resource_cuyag")
 dragging_scroll_damper = SubResource("Resource_pj40j")
+hide_scrollbar_over_time = true
+scrollbar_hide_time = 2.0
 
 [node name="PropertyList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
 unique_name_in_owner = true

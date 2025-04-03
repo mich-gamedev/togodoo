@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dya1ov540dl0n"]
+
+[ext_resource type="Texture2D" uid="uid://c4gqmuvse8phy" path="res://icon.svg" id="1_s008d"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 32.0
+
+[node name="Icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_s008d")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.211765, 0.227451, 0.309804, 1)
+theme_override_font_sizes/font_size = 24
+text = "Vanilla"

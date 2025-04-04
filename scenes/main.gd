@@ -76,6 +76,7 @@ func _on_tree_item_selected() -> void:
 				inst.property_usage_tags = usage_tags
 				print(i, "'s value: ", current_dict.get(i))
 				inst.display_value.call_deferred(current_dict.get_or_add(i, config.get_value("properties", i)))
+				inst.tooltip_text = config.get_value("hints", i, "")
 				break
 
 	var seperator = FileManager.usage_types["property_seperator"].instantiate() as PropertyBlock

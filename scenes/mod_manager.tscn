@@ -1,13 +1,13 @@
 [gd_scene load_steps=16 format=3 uid="uid://d0xlphou0hs56"]
 
 [ext_resource type="Script" path="res://scenes/mod_manager.gd" id="1_m2rmo"]
-[ext_resource type="Texture2D" uid="uid://c4gqmuvse8phy" path="res://icon.svg" id="2_5873c"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_ti26n"]
 [ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/themes/folder.svg" id="3_2j5pp"]
 [ext_resource type="Texture2D" uid="uid://cfx2ivv7ag1q0" path="res://resources/themes/github-mark-white.svg" id="3_juk12"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="3_t4iyi"]
 [ext_resource type="Texture2D" uid="uid://b2vkmquso6nbs" path="res://resources/themes/Discord-Symbol-White.svg" id="4_3u0wr"]
 [ext_resource type="Texture2D" uid="uid://x7tdi6mwpo4a" path="res://resources/themes/gitlab-logo-700.svg" id="5_b3f4m"]
+[ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="5_hw12a"]
 [ext_resource type="Texture2D" uid="uid://d0i3o6br684je" path="res://resources/themes/web.svg" id="8_2trou"]
 [ext_resource type="Texture2D" uid="uid://c2kr2kifcs4yc" path="res://resources/themes/settings.svg" id="10_fgot1"]
 
@@ -43,7 +43,6 @@ auto_translate_mode = 1
 title = "Manage Mods"
 initial_position = 2
 size = Vector2i(640, 360)
-content_scale_factor = 1.5
 script = ExtResource("1_m2rmo")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -123,7 +122,8 @@ speed = 500.0
 wheel_scroll_damper = SubResource("Resource_biqgv")
 dragging_scroll_damper = SubResource("Resource_w4jn0")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
+[node name="ModList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
@@ -131,15 +131,15 @@ theme_override_constants/separation = 0
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="OpenFolder" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_stretch_ratio = 0.0
 mouse_filter = 1
 theme_type_variation = &"ButtonWithPanel"
+theme_override_constants/icon_max_width = 16
 icon = ExtResource("3_2j5pp")
-expand_icon = true
 
 [node name="Options" type="PanelContainer" parent="MarginContainer/VBoxContainer/HSplitContainer"]
 layout_mode = 2
@@ -198,14 +198,17 @@ layout_mode = 2
 unique_name_in_owner = true
 modulate = Color(0.803922, 0.839216, 0.956863, 1)
 layout_mode = 2
-texture = ExtResource("2_5873c")
+texture = ExtResource("5_hw12a")
 expand_mode = 3
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Vanilla"
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Nothing Selected"
+fit_content = true
+autowrap_mode = 0
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -216,31 +219,34 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_colors/font_color = Color(0.431373, 0.45098, 0.552941, 1)
-text = "by _michdev v1.0.0"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer"]
 clip_contents = true
 layout_mode = 2
 
 [node name="Discord" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer3"]
+visible = false
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 icon = ExtResource("4_3u0wr")
 expand_icon = true
 
 [node name="Github" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer3"]
+visible = false
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 icon = ExtResource("3_juk12")
 expand_icon = true
 
 [node name="Gitlab" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer3"]
+visible = false
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 icon = ExtResource("5_b3f4m")
 expand_icon = true
 
 [node name="Link" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer3"]
+visible = false
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 icon = ExtResource("8_2trou")
@@ -263,45 +269,30 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 theme_override_constants/line_spacing = 0
-text = "The base contents of the app.
-The base contents of the app.
-The base contents of the app.
-The base contents of the app.
-The base contents of the app.
-The base contents of the app.
-The base contents of the app.
-The base contents of the app.
-The base contents of the app.
-The base contents of the app.
-The base contents of the app.
-The base contents of the app.
-The base contents of the app.
-The base contents of the app.
-The base contents of the app.
-The base contents of the app.
-The base contents of the app.
-The base contents of the app."
+text = "Select a mod on the right to manage it."
 autowrap_mode = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer2"]
+[node name="OpenModFolder" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(95, 0)
 layout_mode = 2
 theme_type_variation = &"ButtonWithPanel"
+theme_override_constants/icon_max_width = 16
+disabled = true
 text = "Open Folder"
 icon = ExtResource("3_2j5pp")
-expand_icon = true
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(90, 0)
+[node name="OpenSettings" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(138, 0)
 layout_mode = 2
 theme_type_variation = &"ButtonWithPanel"
-text = "Manage Mod"
+theme_override_constants/icon_max_width = 16
+disabled = true
+text = "Open Mod Settings"
 icon = ExtResource("10_fgot1")
-expand_icon = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -314,4 +305,5 @@ theme_type_variation = &"ButtonWithPanel"
 text = "Close"
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/VBoxContainer/HBoxContainer/OpenFolder" to="." method="_on_open_folder_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button2" to="." method="_on_close_requested"]

@@ -3,6 +3,7 @@ class_name Settings extends Object
 
 const user_dir := "user://settings/"
 const defaults_dir := "res://components/settings/defaults/"
+const mod_info_dir := "user://mods/%s/info.cfg"
 const USER := "user"
 const FALLBACK = "fallback"
 
@@ -82,3 +83,7 @@ static func set_setting(mod: String, key: String, value: Variant) -> void:
 
 static func save_config(mod: String) -> void:
 	(configs[mod][USER] as ConfigFile).save(user_dir + mod + ".cfg")
+
+static func get_mod_info(mod: String) -> ConfigFile:
+	var cfg = ConfigFile.new(); cfg.load(mod_info_dir % mod)
+	return cfg

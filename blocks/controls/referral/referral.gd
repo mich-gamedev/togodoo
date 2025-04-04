@@ -9,6 +9,9 @@ func _update_block() -> void:
 		icon = null
 	text = block.get_title()
 	disabled = !FileAccess.file_exists(block.get_arg("project"))
+	size_flags_horizontal = SIZE_EXPAND_FILL if block.get_arg("expand") else SIZE_SHRINK_BEGIN
+	size_flags_stretch_ratio = block.get_arg("expand_ratio")
+	custom_minimum_size.x = block.get_arg("min_size")
 
 func _on_pressed() -> void:
 	OS.create_process(OS.get_executable_path(), ["--project=%s" % block.get_arg("project")])

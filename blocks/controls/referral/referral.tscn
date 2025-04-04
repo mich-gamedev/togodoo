@@ -7,8 +7,8 @@
 offset_right = 86.0
 offset_bottom = 19.0
 theme_type_variation = &"ButtonWithPanel"
+theme_override_constants/icon_max_width = 16
 text = "New Referral"
-expand_icon = true
 script = ExtResource("1_pncrg")
 
 [node name="Block" type="Node" parent="."]

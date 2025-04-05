@@ -23,6 +23,14 @@ func get_arg(name: String) -> Variant:
 func get_idx() -> int:
 	return Main.node.items.find(args)
 
+func set_arg(name: String, value: Variant, reset_property_list: bool = true) -> void:
+	PropertyBus.property_changed.emit.call_deferred(
+		get_idx(),
+		name,
+		value,
+		reset_property_list
+	)
+
 func _ready() -> void:
 	PropertyBus.property_changed.connect(_on_property_changed)
 

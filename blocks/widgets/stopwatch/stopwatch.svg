@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="stopwatch"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showgrid="true">
+    <inkscape:grid
+       id="grid2"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="0.5"
+       spacingy="0.5"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.09411765"
+       empspacing="2"
+       enabled="true"
+       visible="true" />
+    <inkscape:grid
+       id="grid3"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="8"
+       spacingy="8"
+       empcolor="#ff6601"
+       empopacity="0.48627451"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="1"
+       enabled="true"
+       visible="true" />
+    <inkscape:page
+       x="0"
+       y="0"
+       width="16"
+       height="16"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path1"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.446402"
+       d="M 7,2 V 3.1132812 A 5,5 0 0 0 3,8 a 5,5 0 0 0 5,5 5,5 0 0 0 2,-0.423828 v -1.125 A 4,4 0 0 1 8,12 4,4 0 0 1 4,8 4,4 0 0 1 8,4 a 4,4 0 0 1 4,4 4,4 0 0 1 -1.373047,3 h 1.357422 A 5,5 0 0 0 13,8 5,5 0 0 0 9,3.1015625 V 2 Z" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.504426"
+       id="rect1"
+       width="1"
+       height="4"
+       x="7.5"
+       y="4.5" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.436846"
+       id="rect2"
+       width="3"
+       height="1"
+       x="7.5"
+       y="7.5" />
+    <path
+       id="rect4"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.5"
+       d="m 9,10 v 4 h 4 v -4 z m 1,1 h 2 v 2 h -2 z" />
+  </g>
+</svg>

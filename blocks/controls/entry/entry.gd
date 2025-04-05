@@ -10,9 +10,4 @@ func _update_block() -> void:
 	label.text = block.get_title()
 
 func _on_check_box_toggled(toggled_on: bool) -> void:
-	PropertyBus.property_changed.emit.call_deferred(
-		block.get_idx(),
-		"state",
-		toggled_on,
-		true
-	)
+	block.set_arg("state", toggled_on, true)

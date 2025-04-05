@@ -23,3 +23,6 @@ It's reccomended you set `docks/filesystem/textfile_extensions` to include `*.to
 
 go to Debug > Customize Run Instances, and add `--project=path_to_your_project.togodoo` to load a project directly and allow for using the debugger in that project.
 ![image](https://github.com/user-attachments/assets/3b39ef18-4be9-4592-8302-c268c37f24a5)
+
+# Links
+[Discord Server](https://discord.gg/V5ZXFJnD6v)

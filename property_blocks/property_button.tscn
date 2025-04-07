@@ -1,12 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2fx0dvoqsy14"]
+[gd_scene load_steps=3 format=3 uid="uid://b2fx0dvoqsy14"]
 
 [ext_resource type="Script" path="res://property_blocks/property_block.gd" id="1_mb66t"]
+[ext_resource type="Script" path="res://property_blocks/property_button.gd" id="2_ql6g7"]
 
-[node name="Button" type="Button" node_paths=PackedStringArray("value_node")]
+[node name="HBoxContainer" type="HBoxContainer" node_paths=PackedStringArray("value_node")]
 offset_right = 40.0
 offset_bottom = 40.0
+alignment = 1
 script = ExtResource("1_mb66t")
-value_node = NodePath(".")
-value_property = &"button_pressed"
+value_node = NodePath("Button")
+value_property = &"pressed"
 
-[connection signal="pressed" from="." to="." method="property_change_emit"]
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+script = ExtResource("2_ql6g7")
+
+[connection signal="display_requested" from="." to="Button" method="_on_display_requested"]
+[connection signal="pressed" from="Button" to="." method="property_change_emit"]

@@ -25,6 +25,8 @@ func _ready() -> void: #TODO: replace with selection later
 	print(error_string(FileAccess.get_open_error()))
 	PropertyBus.property_changed.connect(_on_property_changed)
 
+	get_window().title = "Togodoo - %s" % FileManager.file_path.split("/")[-1]
+
 	while file.get_position() < file.get_length():
 		var line = file.get_line()
 		var parsed = LineParser.parse_line(line)
@@ -139,6 +141,7 @@ func _on_property_changed(item: int, property: StringName, value: Variant, reset
 		var regex = RegEx.new()
 		regex.compile("\\[.*?\\]")
 		tree_items[item].set_text(0, regex.sub(value, "", true))
+	
 
 func _on_property_search_text_changed(new_text: String) -> void:
 	for i in %PropertyList.get_children():
@@ -308,6 +311,7 @@ func _on_save_requested(path: String) -> void:
 	%SaveIndicator.text = "Saving..."
 	var tween := create_tween()
 	tween.tween_property(%SaveIndicator, "modulate:a", 0.0, 3.0)
+	get_window().title = "Togodoo - %s" % FileManager.file_path.split("/")[-1]
 
 func _dialog_accepted(path: String) -> void:
 	PropertyBus.save_requested.emit(path)

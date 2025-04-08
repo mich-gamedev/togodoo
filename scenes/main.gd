@@ -287,6 +287,14 @@ func _input(event: InputEvent) -> void:
 		tree_items.insert(idx, new_item)
 		items.insert(idx, items[curr_item].duplicate())
 		setup_item(items[idx], new_item)
+	elif event.is_action_pressed(&"new_block"):
+		_on_new_block_pressed()
+	elif event is InputEventKey:
+		if event.keycode in range(KEY_1, KEY_9) and event.pressed:
+			var num = event.keycode - KEY_1
+			var favs : Array = Settings.get_setting("vanilla", "editor/favorite_blocks")
+			if favs.size() > num:
+				create_default_block(favs[num])
 
 func _on_save_requested(path: String) -> void:
 	if path == "":

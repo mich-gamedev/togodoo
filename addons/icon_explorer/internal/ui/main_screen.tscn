@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bbakco62s63pv"]
 
-[ext_resource type="Script" path="res://addons/icon_explorer/internal/ui/main_screen.gd" id="1_kc7a8"]
+[ext_resource type="Script" uid="uid://couxl56rfjkoj" path="res://addons/icon_explorer/internal/ui/main_screen.gd" id="1_kc7a8"]
 [ext_resource type="PackedScene" uid="uid://dnxwdqwt2eqfi" path="res://addons/icon_explorer/internal/ui/explorer/explorer.tscn" id="2_fdsb2"]
 
 [node name="main_screen" type="Control" node_paths=PackedStringArray("_explorer")]

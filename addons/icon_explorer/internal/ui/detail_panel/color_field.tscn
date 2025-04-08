@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cadjan8ev877o"]
 
-[ext_resource type="Script" path="res://addons/icon_explorer/internal/ui/detail_panel/color_field.gd" id="1_vl8db"]
+[ext_resource type="Script" uid="uid://b03s8vyt2eut4" path="res://addons/icon_explorer/internal/ui/detail_panel/color_field.gd" id="1_vl8db"]
 [ext_resource type="PackedScene" uid="uid://bonqki0uorlhq" path="res://addons/icon_explorer/internal/ui/detail_panel/field_title.tscn" id="2_2clk4"]
 
 [node name="color" type="VBoxContainer" node_paths=PackedStringArray("_color_rect", "_color_label", "_title")]

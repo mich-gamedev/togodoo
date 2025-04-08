@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://clp1bxutxd3de"]
 
-[ext_resource type="Script" path="res://property_blocks/property_block.gd" id="1_phhyl"]
+[ext_resource type="Script" uid="uid://caqtj05jw8now" path="res://property_blocks/property_block.gd" id="1_phhyl"]
 
 [node name="HBoxContainer" type="HBoxContainer" node_paths=PackedStringArray("value_node")]
 offset_right = 256.0

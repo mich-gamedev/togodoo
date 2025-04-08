@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b6jg6njwa37da"]
 
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_rf8uy"]
-[ext_resource type="Script" path="res://scenes/project_manager.gd" id="1_rryq6"]
+[ext_resource type="Script" uid="uid://cueix7yd2sy5s" path="res://scenes/project_manager.gd" id="1_rryq6"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="3_unyqo"]
 [ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/themes/folder.svg" id="4_csqmn"]
 [ext_resource type="Texture2D" uid="uid://c2kr2kifcs4yc" path="res://resources/themes/settings.svg" id="5_5tm0h"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ddlsrj8v0qiuv" path="res://resources/themes/search_nomod.svg" id="7_218y8"]
 [ext_resource type="Texture2D" uid="uid://cfx2ivv7ag1q0" path="res://resources/themes/github-mark-white.svg" id="8_2w5n4"]
 [ext_resource type="FontFile" uid="uid://dqqjkq3x4dmnb" path="res://assets/fira-code-regular.ttf" id="10_hfjao"]
-[ext_resource type="Script" path="res://scenes/logo_label.gd" id="11_tjm2u"]
+[ext_resource type="Script" uid="uid://dgcggcumkv7ro" path="res://scenes/logo_label.gd" id="11_tjm2u"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_e1eln"]
 color = Color(0.141176, 0.152941, 0.227451, 1)

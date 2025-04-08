@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbydchtr2k4t4"]
 
-[ext_resource type="Script" path="res://blocks/items/separator/separator.gd" id="1_p81rw"]
-[ext_resource type="Script" path="res://components/blocks/block.gd" id="2_8nher"]
+[ext_resource type="Script" uid="uid://bxs7fxuawq8b7" path="res://blocks/items/separator/separator.gd" id="1_p81rw"]
+[ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="2_8nher"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
 offset_right = 123.0

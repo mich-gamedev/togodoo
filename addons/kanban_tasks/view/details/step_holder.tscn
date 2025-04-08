@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwjg5vyxx4g48"]
 
-[ext_resource type="Script" path="res://addons/kanban_tasks/view/details/step_holder.gd" id="1_exd17"]
+[ext_resource type="Script" uid="uid://brwjdm8ba3di" path="res://addons/kanban_tasks/view/details/step_holder.gd" id="1_exd17"]
 
 [sub_resource type="Theme" id="Theme_1hs0w"]
 StepHolder/base_type = &"VBoxContainer"

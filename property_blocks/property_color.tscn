@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://crcl4vkglyd81"]
 
-[ext_resource type="Script" path="res://property_blocks/property_block.gd" id="1_oicwi"]
-[ext_resource type="Script" path="res://property_blocks/color_picker_button.gd" id="2_qfp5a"]
+[ext_resource type="Script" uid="uid://caqtj05jw8now" path="res://property_blocks/property_block.gd" id="1_oicwi"]
+[ext_resource type="Script" uid="uid://tny86t0241mn" path="res://property_blocks/color_picker_button.gd" id="2_qfp5a"]
 
 [node name="HBoxContainer" type="HBoxContainer" node_paths=PackedStringArray("value_node")]
 custom_minimum_size = Vector2(0, 24)

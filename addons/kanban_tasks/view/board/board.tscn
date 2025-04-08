@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5dk4lnyiag3w"]
 
-[ext_resource type="Script" path="res://addons/kanban_tasks/view/board/board.gd" id="1_p7lf4"]
+[ext_resource type="Script" uid="uid://d0woehwsi8g64" path="res://addons/kanban_tasks/view/board/board.gd" id="1_p7lf4"]
 [ext_resource type="PackedScene" uid="uid://dh1yunmhipirg" path="res://addons/kanban_tasks/view/settings/settings.tscn" id="2_by8mq"]
 
 [node name="BoardView" type="VBoxContainer"]

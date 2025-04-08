@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=3 uid="uid://d0xlphou0hs56"]
 
-[ext_resource type="Script" path="res://scenes/mod_manager.gd" id="1_m2rmo"]
-[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_ti26n"]
+[ext_resource type="Script" uid="uid://dxlxjsj4dd4xd" path="res://scenes/mod_manager.gd" id="1_m2rmo"]
+[ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_ti26n"]
 [ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/themes/folder.svg" id="3_2j5pp"]
 [ext_resource type="Texture2D" uid="uid://cfx2ivv7ag1q0" path="res://resources/themes/github-mark-white.svg" id="3_juk12"]
-[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="3_t4iyi"]
+[ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="3_t4iyi"]
 [ext_resource type="Texture2D" uid="uid://b2vkmquso6nbs" path="res://resources/themes/Discord-Symbol-White.svg" id="4_3u0wr"]
 [ext_resource type="Texture2D" uid="uid://x7tdi6mwpo4a" path="res://resources/themes/gitlab-logo-700.svg" id="5_b3f4m"]
 [ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="5_hw12a"]

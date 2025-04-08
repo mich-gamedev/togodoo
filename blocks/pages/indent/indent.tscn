@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwj7cuhskxfum"]
 
-[ext_resource type="Script" path="res://blocks/pages/indent/indent.gd" id="1_ed4t1"]
-[ext_resource type="Script" path="res://components/blocks/block.gd" id="2_visvv"]
+[ext_resource type="Script" uid="uid://dydxlnre6tlqx" path="res://blocks/pages/indent/indent.gd" id="1_ed4t1"]
+[ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="2_visvv"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_pha8j"]
 resource_local_to_scene = true

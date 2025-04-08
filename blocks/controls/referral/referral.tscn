@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqhetaxt7l3e4"]
 
-[ext_resource type="Script" path="res://blocks/controls/referral/referral.gd" id="1_pncrg"]
-[ext_resource type="Script" path="res://components/blocks/block.gd" id="2_yvg17"]
+[ext_resource type="Script" uid="uid://brs4whgiapc4c" path="res://blocks/controls/referral/referral.gd" id="1_pncrg"]
+[ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="2_yvg17"]
 
 [node name="Button" type="Button"]
 offset_right = 86.0

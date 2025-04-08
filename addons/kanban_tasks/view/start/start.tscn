@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bemcl1rqpeqty"]
 
-[ext_resource type="Script" path="res://addons/kanban_tasks/view/start/start.gd" id="1_fkeby"]
+[ext_resource type="Script" uid="uid://djn4miswf45kl" path="res://addons/kanban_tasks/view/start/start.gd" id="1_fkeby"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0i4nn"]
 font_size = 22

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bq821lexcvdre"]
 
-[ext_resource type="Script" path="res://scenes/preferences.gd" id="1_yybem"]
+[ext_resource type="Script" uid="uid://dnlm6kfy6076p" path="res://scenes/preferences.gd" id="1_yybem"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_56sht"]
 color = Color(0.141176, 0.152941, 0.227451, 1)

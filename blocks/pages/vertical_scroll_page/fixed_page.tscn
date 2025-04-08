@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://jlcccc7usfc5"]
 
 [ext_resource type="StyleBox" uid="uid://bpuoro8beqwxu" path="res://resources/styles/panel_local_to_scene.stylebox" id="1_wxuhs"]
-[ext_resource type="Script" path="res://blocks/pages/vertical_scroll_page/fixed_page.gd" id="2_ndjtg"]
-[ext_resource type="Script" path="res://components/blocks/block.gd" id="3_2wo26"]
-[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="4_k1rl2"]
-[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="5_g55tx"]
+[ext_resource type="Script" uid="uid://dweb3qqsj5oaj" path="res://blocks/pages/vertical_scroll_page/fixed_page.gd" id="2_ndjtg"]
+[ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="3_2wo26"]
+[ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="4_k1rl2"]
+[ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="5_g55tx"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_x8p5e"]
 color = Color(0.141176, 0.152941, 0.227451, 1)

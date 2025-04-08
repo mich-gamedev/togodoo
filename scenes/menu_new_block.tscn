@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://bb1vde2pnt0oq"]
 
-[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="1_t1llj"]
-[ext_resource type="Script" path="res://scenes/menu_new_block.gd" id="1_tunnl"]
-[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="2_licha"]
+[ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="1_t1llj"]
+[ext_resource type="Script" uid="uid://d3br8l84cn0vo" path="res://scenes/menu_new_block.gd" id="1_tunnl"]
+[ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="2_licha"]
 [ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="4_l45g7"]
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="5_43w16"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="8_gs133"]

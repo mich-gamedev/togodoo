@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwfyodsm203ha"]
 
-[ext_resource type="Script" path="res://blocks/widgets/stopwatch/stopwatch.gd" id="1_t7vt2"]
-[ext_resource type="Script" path="res://components/blocks/block.gd" id="2_s7ixa"]
+[ext_resource type="Script" uid="uid://cfx0puishvbcw" path="res://blocks/widgets/stopwatch/stopwatch.gd" id="1_t7vt2"]
+[ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="2_s7ixa"]
 
 [node name="HFlowContainer" type="HFlowContainer"]
 offset_right = 205.0

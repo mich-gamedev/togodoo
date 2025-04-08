@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bokx1hfy0buia"]
 
-[ext_resource type="Script" path="res://blocks/controls/entry/entry.gd" id="1_u5xpu"]
-[ext_resource type="Script" path="res://components/blocks/block.gd" id="2_05vk0"]
+[ext_resource type="Script" uid="uid://f3vwghb174fk" path="res://blocks/controls/entry/entry.gd" id="1_u5xpu"]
+[ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="2_05vk0"]
 
 [node name="HBoxContainer" type="HFlowContainer"]
 offset_right = 128.0

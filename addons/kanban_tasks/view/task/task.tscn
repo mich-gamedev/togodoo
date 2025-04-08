@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://ckqrwj5kxr6vl"]
 
-[ext_resource type="Script" path="res://addons/kanban_tasks/view/task/task.gd" id="1_dslv8"]
-[ext_resource type="Script" path="res://addons/kanban_tasks/edit_label/edit_label.gd" id="2_iitpi"]
-[ext_resource type="Script" path="res://addons/kanban_tasks/view/task/autosize_label.gd" id="3_1qkab"]
+[ext_resource type="Script" uid="uid://dxu2ql1shvrht" path="res://addons/kanban_tasks/view/task/task.gd" id="1_dslv8"]
+[ext_resource type="Script" uid="uid://c5e10o7i28k6k" path="res://addons/kanban_tasks/edit_label/edit_label.gd" id="2_iitpi"]
+[ext_resource type="Script" uid="uid://ckemrt0v377hs" path="res://addons/kanban_tasks/view/task/autosize_label.gd" id="3_1qkab"]
 [ext_resource type="PackedScene" uid="uid://bwi22eyrmeeet" path="res://addons/kanban_tasks/view/details/details.tscn" id="3_2ol5j"]
 [ext_resource type="PackedScene" uid="uid://dwjg5vyxx4g48" path="res://addons/kanban_tasks/view/details/step_holder.tscn" id="4_4e7a7"]
-[ext_resource type="Script" path="res://addons/kanban_tasks/expand_button/expand_button.gd" id="5_sgwao"]
+[ext_resource type="Script" uid="uid://2ysklhr7a6ua" path="res://addons/kanban_tasks/expand_button/expand_button.gd" id="5_sgwao"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3iasq"]
 bg_color = Color(0.1, 0.1, 0.1, 0.6)

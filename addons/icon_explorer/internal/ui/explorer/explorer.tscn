@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://dnxwdqwt2eqfi"]
 
-[ext_resource type="Script" path="res://addons/icon_explorer/internal/ui/explorer/explorer.gd" id="1_2oqmk"]
-[ext_resource type="Script" path="res://addons/icon_explorer/internal/ui/explorer/filter_options.gd" id="2_dkuya"]
+[ext_resource type="Script" uid="uid://cbw6hbcsklnek" path="res://addons/icon_explorer/internal/ui/explorer/explorer.gd" id="1_2oqmk"]
+[ext_resource type="Script" uid="uid://b6b3rop12obnw" path="res://addons/icon_explorer/internal/ui/explorer/filter_options.gd" id="2_dkuya"]
 [ext_resource type="PackedScene" uid="uid://c3s1t8hiu6xll" path="res://addons/icon_explorer/internal/ui/detail_panel/detail_panel.tscn" id="3_w4j77"]
-[ext_resource type="Script" path="res://addons/icon_explorer/internal/ui/explorer/option_popup.gd" id="4_03l1v"]
+[ext_resource type="Script" uid="uid://cnrsspsilhojh" path="res://addons/icon_explorer/internal/ui/explorer/option_popup.gd" id="4_03l1v"]
 [ext_resource type="PackedScene" uid="uid://bfmh2kaf2qbrx" path="res://addons/icon_explorer/internal/ui/options/options.tscn" id="5_wngaf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gnh63"]

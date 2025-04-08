@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://n7bryc6jh3r4"]
 
-[ext_resource type="Script" path="res://blocks/items/text/text.gd" id="1_6bj5u"]
-[ext_resource type="Script" path="res://components/blocks/block.gd" id="2_3kogx"]
+[ext_resource type="Script" uid="uid://jeeorggwjk38" path="res://blocks/items/text/text.gd" id="1_6bj5u"]
+[ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="2_3kogx"]
 
 [node name="Label" type="RichTextLabel"]
 clip_contents = false

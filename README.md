@@ -13,7 +13,7 @@ A tree-based note taking and to-do app, inspired by HTML and Godot's scene tree
 Currently there isnt any stable releases, so you should clone the repository locally to test.
 
 ## Prerequesites
-Godot v4.3.stable
+Godot v4.4.1
 
 ## Editor settings
 

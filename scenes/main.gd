@@ -141,7 +141,7 @@ func _on_property_changed(item: int, property: StringName, value: Variant, reset
 		var regex = RegEx.new()
 		regex.compile("\\[.*?\\]")
 		tree_items[item].set_text(0, regex.sub(value, "", true))
-	
+
 
 func _on_property_search_text_changed(new_text: String) -> void:
 	for i in %PropertyList.get_children():

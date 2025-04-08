@@ -10,9 +10,11 @@ alignment = 1
 script = ExtResource("1_mb66t")
 value_node = NodePath("Button")
 value_property = &"pressed"
+custom_function = &"set_pressed_no_signal"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
+theme_type_variation = &"ButtonWithPanel"
 script = ExtResource("2_ql6g7")
 
 [connection signal="display_requested" from="." to="Button" method="_on_display_requested"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bn2aqpvkqauvr"]
+[gd_scene load_steps=32 format=3 uid="uid://bn2aqpvkqauvr"]
 
 [ext_resource type="Script" uid="uid://dqpyws57c80o3" path="res://scenes/main.gd" id="1_6yeym"]
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_to3i3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://doy33hxmprcko" path="res://resources/themes/cursor.svg" id="3_p2csi"]
 [ext_resource type="Texture2D" uid="uid://bqqi662bw4vha" path="res://resources/themes/pencil.svg" id="4_1u5h2"]
 [ext_resource type="Texture2D" uid="uid://cali1huvlmf83" path="res://resources/themes/eye_open.svg" id="5_gafk2"]
+[ext_resource type="Script" uid="uid://crgds744cw8cx" path="res://scenes/help.gd" id="6_0ld40"]
 [ext_resource type="Script" uid="uid://b88vdrmopa5td" path="res://scenes/file.gd" id="7_rl21x"]
 [ext_resource type="Texture2D" uid="uid://cfkcptx0bj2e4" path="res://resources/themes/bbcode.svg" id="8_2p2gg"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="8_ac2rg"]
@@ -215,12 +216,15 @@ popup/item_5/text = "open"
 popup/item_5/id = 2
 popup/item_6/text = "open recent"
 popup/item_6/id = 3
+popup/item_6/disabled = true
 popup/item_7/id = 6
 popup/item_7/separator = true
 popup/item_8/text = "show in filesystem"
 popup/item_8/id = 4
+popup/item_8/disabled = true
 popup/item_9/text = "open in text editor"
 popup/item_9/id = 9
+popup/item_9/disabled = true
 script = ExtResource("7_rl21x")
 
 [node name="View" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
@@ -236,12 +240,15 @@ icon_alignment = 1
 item_count = 4
 popup/item_0/text = "docks"
 popup/item_0/id = 0
+popup/item_0/disabled = true
 popup/item_1/text = "hide all docks"
 popup/item_1/id = 1
+popup/item_1/disabled = true
 popup/item_2/id = 3
 popup/item_2/separator = true
 popup/item_3/text = "command pallete"
 popup/item_3/id = 2
+popup/item_3/disabled = true
 script = ExtResource("7_rl21x")
 
 [node name="Options" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
@@ -255,17 +262,15 @@ theme_override_colors/icon_normal_color = Color(0.647059, 0.678431, 0.796078, 1)
 theme_override_colors/font_color = Color(0.792157, 0.827451, 0.960784, 1)
 text = "options"
 icon_alignment = 1
-item_count = 5
+item_count = 4
 popup/item_0/text = "preferences"
 popup/item_0/id = 0
 popup/item_1/id = 6
 popup/item_1/separator = true
-popup/item_2/id = 4
-popup/item_2/separator = true
-popup/item_3/text = "open user data folder"
-popup/item_3/id = 5
-popup/item_4/text = "manage mods"
-popup/item_4/id = 6
+popup/item_2/text = "open user data folder"
+popup/item_2/id = 5
+popup/item_3/text = "manage mods"
+popup/item_3/id = 6
 script = ExtResource("13_pjm7k")
 
 [node name="Help" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
@@ -279,12 +284,12 @@ theme_override_colors/icon_normal_color = Color(0.647059, 0.678431, 0.796078, 1)
 theme_override_colors/font_color = Color(0.792157, 0.827451, 0.960784, 1)
 text = "help"
 icon_alignment = 1
-item_count = 3
+item_count = 2
 popup/item_0/text = "open docs"
 popup/item_0/id = 0
 popup/item_1/text = "open github"
 popup/item_1/id = 1
-popup/item_2/id = 2
+script = ExtResource("6_0ld40")
 
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/Control"]
 visible = false
@@ -541,7 +546,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 8
-tooltip_text = "create new block"
+tooltip_text = "create new block (Ctrl + N)"
 icon = ExtResource("8_ac2rg")
 expand_icon = true
 
@@ -568,6 +573,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 theme_override_constants/icon_max_width = 16
 columns = 2
+allow_rmb_select = true
 select_mode = 1
 scroll_horizontal_enabled = false
 scroll_vertical_enabled = false
@@ -767,6 +773,7 @@ size_flags_vertical = 3
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer/NewBlock" to="." method="_on_new_block_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer/NewBlock" to="." method="_on_new_block_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer/NewBlock" to="." method="_on_new_block_pressed"]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer/Tree" to="." method="_on_tree_gui_input"]
 [connection signal="item_edited" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer/Tree" to="." method="_on_tree_item_edited"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer/Tree" to="." method="_on_tree_item_selected"]
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer/PropertySearch" to="." method="_on_property_search_text_changed"]

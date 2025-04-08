@@ -374,10 +374,54 @@ func remove_block(idx: int) -> void:
 
 func change_favorite_list(array: Array) -> void:
 	for i in %FavoriteBlocks.get_children(): i.queue_free()
-	for i in array:
+	for i in array.size():
 		var inst := Button.new()
 		inst.expand_icon = true
 		inst.custom_minimum_size.x = 16
-		inst.icon = load(FileManager.get_block_config(FileManager.block_types[i]).get_value("display", "icon"))
+		inst.icon = load(FileManager.get_block_config(FileManager.block_types[array[i]]).get_value("display", "icon"))
+		inst.tooltip_text = "%s (%d)" % [array[i], i+1]
 		%FavoriteBlocks.add_child(inst)
-		inst.pressed.connect(create_default_block.bind(i))
+		inst.pressed.connect(create_default_block.bind(array[i]))
+
+const BLOCK_CONTEXT_MENU = preload("res://scenes/block_context_menu.tscn")
+
+func _on_tree_gui_input(event: InputEvent) -> void:
+	if !%Tree.get_item_at_position(%Tree.get_local_mouse_position()): return
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT and !event.pressed:
+			var inst = BLOCK_CONTEXT_MENU.instantiate()
+			add_child(inst)
+			inst.position = DisplayServer.mouse_get_position()
+			inst.visibility_changed.connect(inst.queue_free)
+			inst.index_pressed.connect(_on_block_context_pressed.bind(inst))
+
+func _on_block_context_pressed(id: int, menu: PopupMenu) -> void:
+	match menu.get_item_text(id):
+		"add child block":
+			_on_new_block_pressed()
+		"cut       (Ctrl + X)":
+			var dict = items[curr_item]; dict.erase("display_node")
+			DisplayServer.clipboard_set(var_to_str(dict))
+			remove_block(curr_item)
+		"copy      (Ctrl + C)":
+			var dict = items[curr_item]; dict.erase("display_node")
+			DisplayServer.clipboard_set(var_to_str(dict))
+		"paste     (Ctrl + V)":
+			var parent_config = FileManager.get_block_config(FileManager.block_types[items[curr_item].type])
+			var to_item: TreeItem
+			if parent_config.get_value("logic", "can_have_children", false):
+				to_item = tree_items[curr_item]
+			else:
+				to_item = tree_items[curr_item].get_parent()
+
+			var dict = str_to_var(DisplayServer.clipboard_get())
+			if dict:
+				var new_item = to_item.create_child()
+				var idx := 0
+				var current_block = tree.get_root()
+				while current_block != new_item:
+					current_block = current_block.get_next_in_tree()
+					idx += 1
+				tree_items.insert(idx, new_item)
+				items.insert(idx, dict)
+				setup_item(dict, new_item)

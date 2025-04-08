@@ -228,9 +228,9 @@ var tree_tween: Tween
 var last_hovered_item: TreeItem
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"rename"):
+	if event.is_action_pressed(&"rename", false, true):
 		tree.edit_selected()
-	elif event.is_action_pressed(&"save"):
+	elif event.is_action_pressed(&"save", false, true):
 		PropertyBus.save_requested.emit("")
 		get_window().set_input_as_handled()
 	elif event is InputEventMouseMotion:
@@ -245,14 +245,14 @@ func _input(event: InputEvent) -> void:
 				tree_tween = create_tween()
 				tree_tween.tween_method(func(a): item.set_custom_bg_color(0, a, true), Color("#a5adcb00"), Color("#a5adcbFF"), 0.15)
 			last_hovered_item = item
-	elif event.is_action_pressed(&"delete_skip_dialog"):
+	elif event.is_action_pressed(&"delete_skip_dialog", false, true):
 		remove_block(curr_item)
-	elif event.is_action_pressed(&"ui_text_delete"):
+	elif event.is_action_pressed(&"ui_text_delete", false, true):
 		_on_destroy_block_pressed()
-	elif event.is_action_pressed(&"ui_copy"):
+	elif event.is_action_pressed(&"ui_copy", false, true):
 		var dict = items[curr_item]; dict.erase("display_node")
 		DisplayServer.clipboard_set(var_to_str(dict))
-	elif event.is_action_pressed(&"ui_paste"):
+	elif event.is_action_pressed(&"ui_paste", false, true):
 		var parent_config = FileManager.get_block_config(FileManager.block_types[items[curr_item].type])
 		var to_item: TreeItem
 		if parent_config.get_value("logic", "can_have_children", false):
@@ -271,7 +271,7 @@ func _input(event: InputEvent) -> void:
 			tree_items.insert(idx, new_item)
 			items.insert(idx, dict)
 			setup_item(dict, new_item)
-	elif event.is_action_pressed(&"duplicate"):
+	elif event.is_action_pressed(&"duplicate", false, true):
 		var parent_config = FileManager.get_block_config(FileManager.block_types[items[curr_item].type])
 		var to_item: TreeItem
 		if parent_config.get_value("logic", "can_have_children", false):
@@ -287,14 +287,17 @@ func _input(event: InputEvent) -> void:
 		tree_items.insert(idx, new_item)
 		items.insert(idx, items[curr_item].duplicate())
 		setup_item(items[idx], new_item)
-	elif event.is_action_pressed(&"new_block"):
+	elif event.is_action_pressed(&"new_block", false, true):
 		_on_new_block_pressed()
-	elif event is InputEventKey:
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey:
 		if event.keycode in range(KEY_1, KEY_9) and event.pressed:
 			var num = event.keycode - KEY_1
 			var favs : Array = Settings.get_setting("vanilla", "editor/favorite_blocks")
 			if favs.size() > num:
 				create_default_block(favs[num])
+				get_viewport().set_input_as_handled()
 
 func _on_save_requested(path: String) -> void:
 	if path == "":

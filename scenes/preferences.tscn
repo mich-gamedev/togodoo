@@ -141,6 +141,7 @@ theme_override_constants/margin_bottom = 2
 unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("2_8u7so")
+speed = 640.0
 wheel_scroll_damper = SubResource("Resource_hmjd8")
 dragging_scroll_damper = SubResource("Resource_mqfbh")
 metadata/_custom_type_script = "uid://dfdtyckl77df4"

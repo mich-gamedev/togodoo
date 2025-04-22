@@ -8,6 +8,11 @@ const USER := &"user"
 const FALLBACK = &"fallback"
 
 static var configs := {}
+static var signals := Signals.new()
+
+class Signals:
+	signal setting_changed(mod: String, setting: String, value: Variant)
+	signal saved(mod: String)
 
 static func initialize() -> void:
 	DirAccess.make_dir_recursive_absolute(user_dir)
@@ -82,9 +87,11 @@ static func get_setting_info(mod: String, key: String) -> Dictionary:
 static func set_setting(mod: String, key: String, value: Variant) -> void:
 	if ! configs[mod].has(USER): configs[mod][USER] = ConfigFile.new()
 	(configs[mod][USER] as ConfigFile).set_value("properties", key, value)
+	signals.setting_changed.emit(mod, key, value)
 
 static func save_config(mod: String) -> void:
 	(configs[mod][USER] as ConfigFile).save(user_dir + mod + ".cfg")
+	signals.saved.emit(mod)
 
 static func get_mod_info(mod: String) -> ConfigFile:
 	var cfg = ConfigFile.new(); cfg.load(mod_info_dir % mod)

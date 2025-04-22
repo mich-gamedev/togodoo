@@ -30,9 +30,11 @@ func _ready() -> void:
 				section.set_text(0, setting.get_slice("/", 0))
 				used_sections.append(section.get_text(0))
 				var spacer_begin = Control.new(); spacer_begin.custom_minimum_size.y = 4; options.add_child(spacer_begin)
-				var label := Label.new()
-				label.text = setting.get_slice("/", 0)
-				label.add_theme_font_size_override(&"font_size", 16)
+				var label := RichTextLabel.new()
+				label.text = "[u][b]# " + setting.get_slice("/", 0).replace("_", " ")
+				label.fit_content = true
+				label.bbcode_enabled = true
+				label.theme_type_variation = &"Header"
 				options.add_child(label)
 				contents["mod:%s section:%s"] = label
 				tree_contents[section] = label

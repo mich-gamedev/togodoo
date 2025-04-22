@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 
 PropertyBus="*res://components/property_list/sngl_property_bus.gd"
 HistoryManager="*res://components/undoredo/history_manager.gd"
+PrefSetup="*res://components/pref_setup.gd"
 
 [debug]
 

@@ -4,19 +4,20 @@ class_name Settings extends Object
 const user_dir := "user://settings/"
 const defaults_dir := "res://components/settings/defaults/"
 const mod_info_dir := "user://mods/%s/info.cfg"
-const USER := "user"
-const FALLBACK = "fallback"
+const USER := &"user"
+const FALLBACK = &"fallback"
 
 static var configs := {}
 
 static func initialize() -> void:
 	DirAccess.make_dir_recursive_absolute(user_dir)
-	DirAccess.make_dir_recursive_absolute(get_seting_default("vanilla", "file_system/mod_folder"))
-	DirAccess.make_dir_absolute(get_seting_default("vanilla", "file_system/mod_folder") + "vanilla/")
+	DirAccess.make_dir_recursive_absolute(get_setting_default("vanilla", "file_system/mod_folder"))
+	DirAccess.make_dir_absolute(get_setting_default("vanilla", "file_system/mod_folder") + "vanilla/")
 	for i in DirAccess.get_files_at("res://vanilla/"):
-		DirAccess.copy_absolute("res://vanilla/" + i, get_seting_default("vanilla", "file_system/mod_folder") + "vanilla/" + i)
+		DirAccess.copy_absolute("res://vanilla/" + i, get_setting_default("vanilla", "file_system/mod_folder") + "vanilla/" + i)
 
 static func find_mods() -> void:
+	FileManager.load_mods()
 	for i in DirAccess.get_files_at(defaults_dir):
 		setup_mod(i.get_slice(".", 0))
 
@@ -34,7 +35,7 @@ static func setup_mod(mod: String) -> Error:
 		configs[mod] = dict
 	return OK
 
-static func get_seting_default(mod: String, key: String) -> Variant:
+static func get_setting_default(mod: String, key: String) -> Variant:
 	if !configs.has(mod):
 		var err = setup_mod(mod)
 		if err: return null
@@ -54,7 +55,8 @@ static func get_setting_usage(mod: String, key: String) -> PackedStringArray:
 	if !configs.has(mod):
 		var err = setup_mod(mod)
 		if err: return PackedStringArray()
-	return String((configs[mod][FALLBACK] as ConfigFile).get_value("usage", key)).split(",")
+	print("usage result: %s -> %s" % [mod + "/" + key, (configs[mod][FALLBACK] as ConfigFile).get_value("usage", key, "none").split(",")])
+	return String((configs[mod][FALLBACK] as ConfigFile).get_value("usage", key, "none")).split(",")
 
 static func get_setting_usage_string(mod: String, key: String) -> String:
 	if !configs.has(mod):
@@ -72,7 +74,7 @@ static func get_setting_info(mod: String, key: String) -> Dictionary:
 	dict.user_path = user_dir + mod + ".cfg"
 	dict.fallback_path = defaults_dir + mod + ".cfg"
 	dict.value = get_setting(mod, key)
-	dict.default_value = get_seting_default(mod, key)
+	dict.default_value = get_setting_default(mod, key)
 	dict.usage = get_setting_usage(mod, key)
 
 	return dict

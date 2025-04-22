@@ -7,6 +7,8 @@ class_name PropertyBlock extends Control
 var index: int
 var responsible_property: StringName
 var property_usage_tags: PackedStringArray
+var for_setting: bool ## NOTE: if true, only responsible_property and responsible_mod are relevant
+var responsible_mod: StringName
 
 signal display_requested(value: Variant)
 
@@ -21,9 +23,12 @@ func display_value(value: Variant) -> void:
 func property_change_emit() -> void:
 	if !is_node_ready(): return
 	print("emitting property change: %d, %s, %s" % [index, responsible_property, value_node[value_property]])
-	PropertyBus.property_changed.emit.call_deferred(
-		index,
-		responsible_property,
-		value_node[value_property],
-		false
-	)
+	if !for_setting:
+		PropertyBus.property_changed.emit.call_deferred(
+			index,
+			responsible_property,
+			value_node[value_property],
+			false
+		)
+	else:
+		Settings.set_setting(responsible_mod, responsible_property, value_node[value_property])

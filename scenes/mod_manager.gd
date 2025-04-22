@@ -18,7 +18,7 @@ func _on_close_requested() -> void:
 	queue_free()
 
 func _on_open_folder_pressed() -> void:
-	OS.shell_show_in_file_manager("user://mods/")
+	OS.shell_show_in_file_manager(ProjectSettings.globalize_path("user://mods/"))
 
 func _mod_pressed(mod: String) -> void:
 	var cfg := Settings.get_mod_info(mod)

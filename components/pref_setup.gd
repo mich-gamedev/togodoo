@@ -2,6 +2,7 @@ extends Node
 
 func _ready() -> void:
 	Settings.signals.setting_changed.connect(_setting_changed)
+	Settings.signals.pck_loaded.connect(_pck_loaded)
 	Settings.find_mods()
 	var config = Settings.configs.vanilla[Settings.FALLBACK]
 	for i in config.get_section_keys("properties"):
@@ -21,7 +22,6 @@ func _setting_changed(mod: String, key: String, value: Variant) -> void:
 			ThemeDB.get_project_theme().default_font = font
 		"interface/font_msdf":
 			ThemeDB.get_project_theme().default_font.multichannel_signed_distance_field = value
-		"editor/single_window_mode":
-			get_window().hide()
-			get_window().gui_embed_subwindows = value
-			get_window().show()
+
+func _pck_loaded(_path: String) -> void:
+	get_tree().root.propagate_call.call_deferred("queue_redraw")

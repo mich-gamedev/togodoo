@@ -16,7 +16,6 @@ func _ready() -> void:
 		var mod_item = nav_tree.create_item(root)
 		mod_item.set_text(0, mod)
 		var default_cfg := (Settings.configs[mod][Settings.FALLBACK] as ConfigFile)
-		var user_cfg := (Settings.configs[mod][Settings.USER] as ConfigFile)
 		var seperator = SEPERATOR.instantiate()
 		options.add_child(seperator)
 		contents["mod:%s" % mod] = seperator

@@ -19,7 +19,7 @@ func _ready() -> void: #TODO: replace with selection later
 	node = self
 	PropertyBus.save_requested.connect(_on_save_requested)
 	PropertyBus.favorite_block_changed.connect(change_favorite_list)
-	FileManager.load_mods()
+	Settings.find_mods()
 	change_favorite_list(Settings.get_setting("vanilla", "editor/favorite_blocks"))
 	var file = FileAccess.open(FileManager.file_path, FileAccess.READ)
 	print(error_string(FileAccess.get_open_error()))

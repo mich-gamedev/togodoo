@@ -4,6 +4,9 @@ class_name Settings extends Object
 const user_dir := "user://settings/"
 const defaults_dir := "res://components/settings/defaults/"
 const mod_info_dir := "user://mods/%s/info.cfg"
+const mod_pck_dir := "user://mods/%s/index.pck"
+const mod_fallback_dir := "user://mods/%s/fallback.cfg"
+const mods_dir := "user://mods/"
 const USER := &"user"
 const FALLBACK = &"fallback"
 
@@ -13,6 +16,7 @@ static var signals := Signals.new()
 class Signals:
 	signal setting_changed(mod: String, setting: String, value: Variant)
 	signal saved(mod: String)
+	signal pck_loaded(path: String)
 
 static func initialize() -> void:
 	DirAccess.make_dir_recursive_absolute(user_dir)
@@ -23,11 +27,13 @@ static func initialize() -> void:
 
 static func find_mods() -> void:
 	FileManager.load_mods()
-	for i in DirAccess.get_files_at(defaults_dir):
-		setup_mod(i.get_slice(".", 0))
+	for i in DirAccess.get_directories_at(mods_dir):
+		setup_mod(i)
 
 static func setup_mod(mod: String) -> Error:
 	var file = mod + ".cfg"
+	if !FileAccess.file_exists(defaults_dir + file):
+		DirAccess.copy_absolute(mod_fallback_dir % mod, defaults_dir + file)
 	if !configs.has(mod):
 		var dict := {}
 		if !FileAccess.file_exists(defaults_dir + file):
@@ -35,9 +41,18 @@ static func setup_mod(mod: String) -> Error:
 			return ERR_FILE_BAD_PATH
 		else: var cfg := ConfigFile.new() ; cfg.load(defaults_dir + file) ; dict.fallback = cfg
 
-		if !FileAccess.file_exists(user_dir + file): push_warning("user config file for the \'%s\' mod couldn't be found" % mod)
+		if !FileAccess.file_exists(user_dir + file):
+			push_warning("user config file for the \'%s\' mod couldn't be found" % mod)
+			dict.user = ConfigFile.new()
 		else: var cfg := ConfigFile.new() ; cfg.load(user_dir + file) ; dict.user = cfg
 		configs[mod] = dict
+		
+		if FileAccess.file_exists(mod_pck_dir % mod):
+			print("LOADING PCK %s" % mod_pck_dir % mod)
+			ProjectSettings.load_resource_pack(mod_pck_dir % mod)
+			signals.pck_loaded.emit(mod_pck_dir % mod)
+		else:
+			push_warning("no index.pck found for the \'%s\' mod at \'%s\'." % [mod, mod_pck_dir % mod])
 	return OK
 
 static func get_setting_default(mod: String, key: String) -> Variant:

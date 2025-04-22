@@ -5,6 +5,9 @@ extends Window
 
 const SEPERATOR = preload("res://scenes/new_block_type_seperator.tscn")
 
+var contents: Dictionary[String, Control] = {}
+var tree_contents: Dictionary[TreeItem, Control] = {}
+
 func _ready() -> void:
 	#content_scale_factor = get_tree().root.content_scale_factor
 	Settings.find_mods()
@@ -16,6 +19,8 @@ func _ready() -> void:
 		var user_cfg := (Settings.configs[mod][Settings.USER] as ConfigFile)
 		var seperator = SEPERATOR.instantiate()
 		options.add_child(seperator)
+		contents["mod:%s" % mod] = seperator
+		tree_contents[mod_item] = seperator
 		seperator.get_node(^"%TypeLabel").text = mod
 
 		var used_sections: Array[String]
@@ -29,6 +34,8 @@ func _ready() -> void:
 				label.text = setting.get_slice("/", 0)
 				label.add_theme_font_size_override(&"font_size", 16)
 				options.add_child(label)
+				contents["mod:%s section:%s"] = label
+				tree_contents[section] = label
 				var spacer_end = Control.new(); spacer_end.custom_minimum_size.y = 4; options.add_child(spacer_end)
 
 			for tag in Settings.get_setting_usage(mod, setting):
@@ -43,9 +50,23 @@ func _ready() -> void:
 					#inst.tooltip_text = config.get_value("hints", setting, "")
 					inst.for_setting = true
 					options.add_child(inst)
+					contents["mod:%s property:%s"] = inst
 					break
 
 func _on_close_requested() -> void:
 	for mod: String in Settings.configs:
 		Settings.save_config(mod)
 	queue_free()
+
+func jump_to(content: String) -> void:
+	if !(content in contents): return
+	var node = contents[content]
+	print(node.position.y)
+	%OptionsScroll.scroll_vertical = node.position.y
+
+func jump_to_node(node: Control) -> void:
+	print(node.position.y)
+	%OptionsScroll.scroll_vertical = node.position.y
+
+func _on_nav_tree_cell_selected() -> void:
+	jump_to_node(tree_contents[nav_tree.get_selected()])

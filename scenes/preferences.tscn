@@ -52,6 +52,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+allow_reselect = true
 hide_root = true
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav"]
@@ -136,14 +137,15 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2"]
+[node name="OptionsScroll" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("2_8u7so")
 wheel_scroll_damper = SubResource("Resource_hmjd8")
 dragging_scroll_damper = SubResource("Resource_mqfbh")
 metadata/_custom_type_script = "uid://dfdtyckl77df4"
 
-[node name="Options" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/SmoothScrollContainer"]
+[node name="Options" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/OptionsScroll"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -158,4 +160,5 @@ theme_type_variation = &"ButtonWithPanel"
 text = "Close"
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="cell_selected" from="MarginContainer/VBoxContainer/HSplitContainer/Nav/NavTree" to="." method="_on_nav_tree_cell_selected"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_close_requested"]

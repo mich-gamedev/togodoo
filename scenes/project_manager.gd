@@ -18,6 +18,11 @@ const PREF_WINDOW = preload("res://scenes/preferences.tscn")
 const MOD_MANAGER = preload("res://scenes/mod_manager.tscn")
 
 func _ready() -> void:
+	Settings.find_mods()
+	if Settings.get_setting("vanilla", "file_system/default_project_folder") == "_":
+		Settings.set_setting("vanilla", "file_system/default_project_folder", OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS))
+	if Settings.get_setting("vanilla", "file_system/default_image_folder") == "_":
+		Settings.set_setting("vanilla", "file_system/default_image_folder", OS.get_system_dir(OS.SYSTEM_DIR_PICTURES))
 	print("started with following arguments: ", OS.get_cmdline_args())
 	var args = OS.get_cmdline_args()
 	for i in args:

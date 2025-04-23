@@ -1,32 +1,17 @@
-[gd_scene load_steps=32 format=3 uid="uid://bn2aqpvkqauvr"]
+[gd_scene load_steps=22 format=3 uid="uid://bn2aqpvkqauvr"]
 
 [ext_resource type="Script" uid="uid://dqpyws57c80o3" path="res://scenes/main.gd" id="1_6yeym"]
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_to3i3"]
-[ext_resource type="FontFile" uid="uid://dqqjkq3x4dmnb" path="res://assets/fira-code-regular.ttf" id="3_6sxgd"]
-[ext_resource type="Texture2D" uid="uid://bf8gx4q036dm7" path="res://resources/themes/h_seperator_grabber.svg" id="3_c1k5k"]
-[ext_resource type="Texture2D" uid="uid://doy33hxmprcko" path="res://resources/themes/cursor.svg" id="3_p2csi"]
-[ext_resource type="Texture2D" uid="uid://bqqi662bw4vha" path="res://resources/themes/pencil.svg" id="4_1u5h2"]
-[ext_resource type="Texture2D" uid="uid://cali1huvlmf83" path="res://resources/themes/eye_open.svg" id="5_gafk2"]
 [ext_resource type="Script" uid="uid://crgds744cw8cx" path="res://scenes/help.gd" id="6_0ld40"]
 [ext_resource type="Script" uid="uid://b88vdrmopa5td" path="res://scenes/file.gd" id="7_rl21x"]
-[ext_resource type="Texture2D" uid="uid://cfkcptx0bj2e4" path="res://resources/themes/bbcode.svg" id="8_2p2gg"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="8_ac2rg"]
 [ext_resource type="Texture2D" uid="uid://7mqamsoh1bka" path="res://resources/themes/search.svg" id="8_cugfj"]
-[ext_resource type="Texture2D" uid="uid://demawiqbabxvq" path="res://resources/themes/bbcode_off.svg" id="9_d2vxv"]
 [ext_resource type="Script" uid="uid://b2omivdyerg22" path="res://scenes/tree.gd" id="10_uy6d5"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="10_viifr"]
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="11_q3wb5"]
 [ext_resource type="Script" uid="uid://c87cuwvf2dpa7" path="res://scenes/options.gd" id="13_pjm7k"]
 [ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="13_vq61s"]
 [ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/themes/garbage_can.svg" id="19_0csjb"]
-
-[sub_resource type="FontVariation" id="FontVariation_skyi7"]
-base_font = ExtResource("3_6sxgd")
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_0bw6x"]
-color = Color(0.141176, 0.152941, 0.227451, 1)
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_ebf3d"]
 
 [sub_resource type="Resource" id="Resource_1qaia"]
 script = ExtResource("11_q3wb5")
@@ -103,9 +88,7 @@ offset_bottom = 61.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_to3i3")
-theme_override_colors/font_color = Color(0.211765, 0.227451, 0.309804, 1)
-theme_override_fonts/font = SubResource("FontVariation_skyi7")
-theme_override_font_sizes/font_size = 14
+theme_type_variation = &"LogoLabel"
 text = "   __                              ___
 __\\  \\__  _____   _____   _____   _\\  \\   _____   _____
 \\__   __\\(  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\
@@ -161,8 +144,7 @@ offset_top = -11.5
 offset_right = 24.0
 offset_bottom = 11.5
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_font_sizes/font_size = 12
+theme_type_variation = &"PanelLabel"
 text = "nav"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -178,7 +160,7 @@ offset_top = -3.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_0bw6x")
+theme_type_variation = &"PanelLabelBG"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control/PanelContainer"]
 layout_mode = 2
@@ -193,12 +175,6 @@ theme_override_constants/separation = 12
 
 [node name="File" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/icon_hover_pressed_color = Color(0.717647, 0.741176, 0.972549, 1)
-theme_override_colors/icon_hover_color = Color(0.803922, 0.839216, 0.956863, 1)
-theme_override_colors/icon_pressed_color = Color(0.717647, 0.741176, 0.972549, 1)
-theme_override_colors/icon_focus_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_colors/icon_normal_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_colors/font_color = Color(0.792157, 0.827451, 0.960784, 1)
 text = "file"
 icon_alignment = 1
 item_count = 10
@@ -229,12 +205,6 @@ script = ExtResource("7_rl21x")
 
 [node name="View" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/icon_hover_pressed_color = Color(0.717647, 0.741176, 0.972549, 1)
-theme_override_colors/icon_hover_color = Color(0.803922, 0.839216, 0.956863, 1)
-theme_override_colors/icon_pressed_color = Color(0.717647, 0.741176, 0.972549, 1)
-theme_override_colors/icon_focus_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_colors/icon_normal_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_colors/font_color = Color(0.792157, 0.827451, 0.960784, 1)
 text = "view"
 icon_alignment = 1
 item_count = 4
@@ -254,12 +224,6 @@ script = ExtResource("7_rl21x")
 [node name="Options" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(24, 18)
 layout_mode = 2
-theme_override_colors/icon_hover_pressed_color = Color(0.717647, 0.741176, 0.972549, 1)
-theme_override_colors/icon_hover_color = Color(0.803922, 0.839216, 0.956863, 1)
-theme_override_colors/icon_pressed_color = Color(0.717647, 0.741176, 0.972549, 1)
-theme_override_colors/icon_focus_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_colors/icon_normal_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_colors/font_color = Color(0.792157, 0.827451, 0.960784, 1)
 text = "options"
 icon_alignment = 1
 item_count = 4
@@ -276,12 +240,6 @@ script = ExtResource("13_pjm7k")
 [node name="Help" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(24, 18)
 layout_mode = 2
-theme_override_colors/icon_hover_pressed_color = Color(0.717647, 0.741176, 0.972549, 1)
-theme_override_colors/icon_hover_color = Color(0.803922, 0.839216, 0.956863, 1)
-theme_override_colors/icon_pressed_color = Color(0.717647, 0.741176, 0.972549, 1)
-theme_override_colors/icon_focus_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_colors/icon_normal_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_colors/font_color = Color(0.792157, 0.827451, 0.960784, 1)
 text = "help"
 icon_alignment = 1
 item_count = 2
@@ -290,119 +248,6 @@ popup/item_0/id = 0
 popup/item_1/text = "open github"
 popup/item_1/id = 1
 script = ExtResource("6_0ld40")
-
-[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/Control"]
-visible = false
-custom_minimum_size = Vector2(96, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -14.0
-offset_right = 48.0
-offset_bottom = 14.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control/PanelContainer2"]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Control/PanelContainer2/MarginContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Control/PanelContainer2/MarginContainer/Control"]
-z_index = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -19.5
-offset_top = -11.5
-offset_right = 19.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_font_sizes/font_size = 12
-text = "tools"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Control/PanelContainer2/MarginContainer/Control/Label"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -3.0
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_0bw6x")
-
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control/PanelContainer2"]
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control/PanelContainer2/MarginContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 4
-alignment = 1
-
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/Control/PanelContainer2/MarginContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(16, 0)
-layout_mode = 2
-theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(0.431373, 0.45098, 0.552941, 1)
-theme_override_colors/icon_pressed_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_colors/icon_normal_color = Color(0.211765, 0.227451, 0.309804, 1)
-toggle_mode = true
-button_pressed = true
-button_group = SubResource("ButtonGroup_ebf3d")
-icon = ExtResource("3_p2csi")
-expand_icon = true
-
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Control/PanelContainer2/MarginContainer2/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/Control/PanelContainer2/MarginContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(16, 0)
-layout_mode = 2
-theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(0.431373, 0.45098, 0.552941, 1)
-theme_override_colors/icon_pressed_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_colors/icon_normal_color = Color(0.211765, 0.227451, 0.309804, 1)
-toggle_mode = true
-button_group = SubResource("ButtonGroup_ebf3d")
-icon = ExtResource("4_1u5h2")
-expand_icon = true
-
-[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/Control/PanelContainer2/MarginContainer2/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Control/PanelContainer2/MarginContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(16, 0)
-layout_mode = 2
-theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(0.431373, 0.45098, 0.552941, 1)
-theme_override_colors/icon_pressed_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_colors/icon_normal_color = Color(0.211765, 0.227451, 0.309804, 1)
-toggle_mode = true
-button_group = SubResource("ButtonGroup_ebf3d")
-icon = ExtResource("5_gafk2")
-expand_icon = true
 
 [node name="SaveIndicator" type="Label" parent="MarginContainer/VBoxContainer/Control"]
 unique_name_in_owner = true
@@ -433,8 +278,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_icons/grabber = ExtResource("3_c1k5k")
-theme_override_icons/h_grabber = ExtResource("3_c1k5k")
 split_offset = 1028
 
 [node name="HSplitContainer2" type="HSplitContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer"]
@@ -466,8 +309,7 @@ offset_top = -11.5
 offset_right = 31.0
 offset_bottom = 11.5
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_font_sizes/font_size = 12
+theme_type_variation = &"PanelLabel"
 text = "tree"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -483,7 +325,7 @@ offset_top = -3.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_0bw6x")
+theme_type_variation = &"PanelLabelBG"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree"]
 layout_mode = 2
@@ -498,16 +340,6 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-
-[node name="Button" type="CheckBox" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 4
-tooltip_text = "display bbcode tags in block titles"
-theme_override_constants/icon_max_width = 16
-theme_override_icons/checked = ExtResource("8_2p2gg")
-theme_override_icons/unchecked = ExtResource("9_d2vxv")
-button_pressed = true
 
 [node name="DestroyBlock" type="Button" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -571,7 +403,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
-theme_override_constants/icon_max_width = 16
 columns = 2
 allow_rmb_select = true
 select_mode = 1
@@ -601,8 +432,7 @@ offset_top = -11.5
 offset_right = 31.0
 offset_bottom = 11.5
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_font_sizes/font_size = 14
+theme_type_variation = &"PanelLabel"
 text = "file sys"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -618,7 +448,7 @@ offset_top = -3.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_0bw6x")
+theme_type_variation = &"PanelLabelBG"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/FileSys"]
 layout_mode = 2
@@ -691,8 +521,7 @@ offset_top = -11.5
 offset_bottom = 11.5
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_font_sizes/font_size = 12
+theme_type_variation = &"PanelLabel"
 text = "properties"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -708,7 +537,7 @@ offset_top = -3.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_0bw6x")
+theme_type_variation = &"PanelLabelBG"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties"]
 layout_mode = 2
@@ -746,7 +575,7 @@ expand_mode = 1
 [node name="TypeLabel" type="Label" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.431373, 0.45098, 0.552941, 1)
+theme_type_variation = &"LabelHeader"
 text = "Nothing Selected"
 vertical_alignment = 2
 

@@ -1,14 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://crh3s4lj868ag"]
+[gd_scene load_steps=2 format=3 uid="uid://crh3s4lj868ag"]
 
 [ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="2_8phxc"]
-
-[sub_resource type="Resource" id="Resource_qibvh"]
-metadata/__load_path__ = "res://blocks/controls/prefab/prefab.gd"
 
 [node name="VBoxContainer" type="VBoxContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
-script = SubResource("Resource_qibvh")
 
 [node name="Block" type="Node" parent="."]
 script = ExtResource("2_8phxc")

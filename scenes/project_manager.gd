@@ -31,8 +31,12 @@ func _ready() -> void:
 			get_tree().change_scene_to_file.call_deferred("res://scenes/main.tscn")
 
 func _on_new_file_pressed() -> void:
-	OS.create_process(OS.get_executable_path(), ["--project=res://project_templates/empty.togodoo"], true)
-	get_tree().quit()
+	if Settings.get_setting("vanilla", "editor/open_projects_in_new_window"):
+		OS.create_process(OS.get_executable_path(), ["--project=%s" % Settings.get_setting("vanilla", "editor/default_new_project_template")], true)
+		get_tree().quit()
+	else:
+		FileManager.file_path = Settings.get_setting("vanilla", "editor/default_new_project_template")
+		get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 func _on_open_file_pressed() -> void:
 	var dialog = FileDialog.new()

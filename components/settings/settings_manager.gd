@@ -13,6 +13,19 @@ const FALLBACK = &"fallback"
 static var configs := {}
 static var signals := Signals.new()
 
+
+static var settings_formatting : Dictionary[String, String] = {
+	"SYSTEM_DIR_DESKTOP": OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP),
+	"SYSTEM_DIR_DCIM": OS.get_system_dir(OS.SYSTEM_DIR_DCIM),
+	"SYSTEM_DIR_DOCUMENTS": OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS),
+	"SYSTEM_DIR_DOWNLOADS": OS.get_system_dir(OS.SYSTEM_DIR_DOWNLOADS),
+	"SYSTEM_DIR_MOVIES": OS.get_system_dir(OS.SYSTEM_DIR_MOVIES),
+	"SYSTEM_DIR_MUSIC": OS.get_system_dir(OS.SYSTEM_DIR_MUSIC),
+	"SYSTEM_DIR_PICTURES": OS.get_system_dir(OS.SYSTEM_DIR_PICTURES),
+	"SYSTEM_DIR_RINGTONES": OS.get_system_dir(OS.SYSTEM_DIR_RINGTONES),
+	"FILE_PROJECTS":
+}
+
 class Signals:
 	signal setting_changed(mod: String, setting: String, value: Variant)
 	signal saved(mod: String)
@@ -59,30 +72,41 @@ static func get_setting_default(mod: String, key: String) -> Variant:
 	if !configs.has(mod):
 		var err = setup_mod(mod)
 		if err: return null
-	return (configs[mod][FALLBACK] as ConfigFile).get_value("properties", key)
+
+	var result = (configs[mod][FALLBACK] as ConfigFile).get_value("properties", key)
+	if typeof(result) == TYPE_STRING:
+		result = format(result)
+	return result
 
 static func get_setting(mod: String, key: String) -> Variant:
 	if !configs.has(mod):
 		var err = setup_mod(mod)
 		if err: return null
 	print(configs[mod])
+	var result
 	if !configs[mod].has(USER):
 		print((configs[mod][FALLBACK] as ConfigFile).get_sections())
-		return (configs[mod][FALLBACK] as ConfigFile).get_value("properties", key)
-	return (configs[mod][USER] as ConfigFile).get_value("properties", key, (configs[mod][FALLBACK] as ConfigFile).get_value("properties", key))
+		result = (configs[mod][FALLBACK] as ConfigFile).get_value("properties", key)
+		if typeof(result) == TYPE_STRING:
+			result = format(result)
+		return result
+	result = (configs[mod][USER] as ConfigFile).get_value("properties", key, (configs[mod][FALLBACK] as ConfigFile).get_value("properties", key))
+	if typeof(result) == TYPE_STRING:
+		result = format(result)
+	return result
 
 static func get_setting_usage(mod: String, key: String) -> PackedStringArray:
 	if !configs.has(mod):
 		var err = setup_mod(mod)
 		if err: return PackedStringArray()
 	print("usage result: %s -> %s" % [mod + "/" + key, (configs[mod][FALLBACK] as ConfigFile).get_value("usage", key, "none").split(",")])
-	return String((configs[mod][FALLBACK] as ConfigFile).get_value("usage", key, "none")).split(",")
+	return format((configs[mod][FALLBACK] as ConfigFile).get_value("usage", key, "none")).split(",")
 
 static func get_setting_usage_string(mod: String, key: String) -> String:
 	if !configs.has(mod):
 		var err = setup_mod(mod)
 		if err: return ""
-	return String((configs[mod][FALLBACK] as ConfigFile).get_value("usage", key))
+	return format((configs[mod][FALLBACK] as ConfigFile).get_value("usage", key))
 
 static func get_setting_info(mod: String, key: String) -> Dictionary:
 	if !configs.has(mod):
@@ -111,3 +135,6 @@ static func save_config(mod: String) -> void:
 static func get_mod_info(mod: String) -> ConfigFile:
 	var cfg = ConfigFile.new(); cfg.load(mod_info_dir % mod)
 	return cfg
+
+static func format(str: String) -> String:
+	return str.format(settings_formatting)

@@ -273,21 +273,21 @@ dragging_scroll_damper = SubResource("Resource_v4qjp")
 hide_scrollbar_over_time = true
 scrollbar_hide_time = 2.0
 
-[node name="Description" type="Label" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
+[node name="Description" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
-theme_override_constants/line_spacing = 0
+bbcode_enabled = true
 text = "Select a mod on the right to manage it."
-autowrap_mode = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="OpenModFolder" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(95, 0)
 layout_mode = 2
 theme_type_variation = &"ButtonWithPanel"
@@ -297,6 +297,7 @@ text = "Open Folder"
 icon = ExtResource("3_2j5pp")
 
 [node name="OpenSettings" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(138, 0)
 layout_mode = 2
 theme_type_variation = &"ButtonWithPanel"
@@ -317,4 +318,6 @@ text = "Close"
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/VBoxContainer/HBoxContainer/OpenFolder" to="." method="_on_open_folder_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer2/OpenModFolder" to="." method="_on_open_mod_folder_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer2/OpenSettings" to="." method="_on_open_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button2" to="." method="_on_close_requested"]

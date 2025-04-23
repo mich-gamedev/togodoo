@@ -1,5 +1,9 @@
 extends Window
 
+var current_mod: String
+
+const PREFERENCES = preload("res://scenes/preferences.tscn")
+
 func _ready() -> void:
 	#content_scale_factor = get_tree().root.content_scale_factor
 	Settings.find_mods()
@@ -26,3 +30,14 @@ func _mod_pressed(mod: String) -> void:
 	%Title.text = "%s v%s" % [cfg.get_value("display", "display_name"), cfg.get_value("display", "version")]
 	%Credits.text = "by %s" % cfg.get_value("display", "author")
 	%Description.text = cfg.get_value("display", "description")
+	%OpenModFolder.disabled = false
+	%OpenSettings.disabled = false
+	current_mod = mod
+
+func _on_open_mod_folder_pressed() -> void:
+	OS.shell_show_in_file_manager(ProjectSettings.globalize_path("%s/%s" % [Settings.mods_dir, current_mod]))
+
+func _on_open_settings_pressed() -> void:
+	var pref = PREFERENCES.instantiate()
+	get_tree().current_scene.add_child(pref)
+	pref.jump_to("mod: %s" % current_mod)

@@ -23,12 +23,12 @@ static var settings_formatting : Dictionary[String, String] = {
 	"SYSTEM_DIR_MUSIC": OS.get_system_dir(OS.SYSTEM_DIR_MUSIC),
 	"SYSTEM_DIR_PICTURES": OS.get_system_dir(OS.SYSTEM_DIR_PICTURES),
 	"SYSTEM_DIR_RINGTONES": OS.get_system_dir(OS.SYSTEM_DIR_RINGTONES),
-	"FILE_PROJECTS":
 }
 
 class Signals:
 	signal setting_changed(mod: String, setting: String, value: Variant)
 	signal saved(mod: String)
+	signal mod_loaded(mod: String)
 	signal pck_loaded(path: String)
 
 static func initialize() -> void:
@@ -66,6 +66,7 @@ static func setup_mod(mod: String) -> Error:
 			signals.pck_loaded.emit(mod_pck_dir % mod)
 		else:
 			push_warning("no index.pck found for the \'%s\' mod at \'%s\'." % [mod, mod_pck_dir % mod])
+		signals.mod_loaded.emit(mod)
 	return OK
 
 static func get_setting_default(mod: String, key: String) -> Variant:

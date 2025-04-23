@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwj7cuhskxfum"]
+[gd_scene load_steps=4 format=3 uid="uid://dwj7cuhskxfum"]
 
+[ext_resource type="StyleBox" uid="uid://davctn2b2v4bq" path="res://resources/styles/indent_line.stylebox" id="1_16nfc"]
 [ext_resource type="Script" uid="uid://dydxlnre6tlqx" path="res://blocks/pages/indent/indent.gd" id="1_ed4t1"]
 [ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="2_visvv"]
 
@@ -13,7 +14,7 @@ layout_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="."]
 layout_mode = 2
-theme_type_variation = &"Indent"
+theme_override_styles/separator = ExtResource("1_16nfc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

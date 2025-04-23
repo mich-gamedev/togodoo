@@ -46,7 +46,7 @@ static func setup_mod(mod: String) -> Error:
 			dict.user = ConfigFile.new()
 		else: var cfg := ConfigFile.new() ; cfg.load(user_dir + file) ; dict.user = cfg
 		configs[mod] = dict
-		
+
 		if FileAccess.file_exists(mod_pck_dir % mod):
 			print("LOADING PCK %s" % mod_pck_dir % mod)
 			ProjectSettings.load_resource_pack(mod_pck_dir % mod)

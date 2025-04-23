@@ -1,13 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwj7cuhskxfum"]
+[gd_scene load_steps=3 format=3 uid="uid://dwj7cuhskxfum"]
 
 [ext_resource type="Script" uid="uid://dydxlnre6tlqx" path="res://blocks/pages/indent/indent.gd" id="1_ed4t1"]
 [ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="2_visvv"]
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_pha8j"]
-resource_local_to_scene = true
-color = Color(0.541176, 0.678431, 0.956863, 1)
-thickness = 2
-vertical = true
 
 [node name="HBoxContainer" type="HBoxContainer"]
 offset_right = 40.0
@@ -19,8 +13,7 @@ layout_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 0
-theme_override_styles/separator = SubResource("StyleBoxLine_pha8j")
+theme_type_variation = &"Indent"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

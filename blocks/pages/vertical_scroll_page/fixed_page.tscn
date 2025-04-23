@@ -1,13 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://jlcccc7usfc5"]
+[gd_scene load_steps=7 format=3 uid="uid://jlcccc7usfc5"]
 
-[ext_resource type="StyleBox" uid="uid://bpuoro8beqwxu" path="res://resources/styles/panel_local_to_scene.stylebox" id="1_wxuhs"]
 [ext_resource type="Script" uid="uid://dweb3qqsj5oaj" path="res://blocks/pages/vertical_scroll_page/fixed_page.gd" id="2_ndjtg"]
 [ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="3_2wo26"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="4_k1rl2"]
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="5_g55tx"]
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_x8p5e"]
-color = Color(0.141176, 0.152941, 0.227451, 1)
 
 [sub_resource type="Resource" id="Resource_6xeye"]
 script = ExtResource("5_g55tx")
@@ -33,7 +29,7 @@ layout_mode = 2
 [node name="Page" type="PanelContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = ExtResource("1_wxuhs")
+theme_type_variation = &"LocalToScenePanel"
 script = ExtResource("2_ndjtg")
 
 [node name="MarginContainer" type="MarginContainer" parent="Page"]
@@ -54,8 +50,7 @@ offset_top = -11.5
 offset_right = 31.0
 offset_bottom = 11.5
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_font_sizes/font_size = 11
+theme_type_variation = &"PanelLabel"
 text = "tree"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -71,7 +66,7 @@ offset_top = -3.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_x8p5e")
+theme_type_variation = &"PanelLabelBG"
 
 [node name="Block" type="Node" parent="Page"]
 script = ExtResource("3_2wo26")

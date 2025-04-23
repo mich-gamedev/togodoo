@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6jg6njwa37da"]
+[gd_scene load_steps=11 format=3 uid="uid://b6jg6njwa37da"]
 
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_rf8uy"]
 [ext_resource type="Script" uid="uid://cueix7yd2sy5s" path="res://scenes/project_manager.gd" id="1_rryq6"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bw60ho2s4y84t" path="res://resources/themes/wrench.svg" id="6_gca4t"]
 [ext_resource type="Texture2D" uid="uid://ddlsrj8v0qiuv" path="res://resources/themes/search_nomod.svg" id="7_218y8"]
 [ext_resource type="Texture2D" uid="uid://cfx2ivv7ag1q0" path="res://resources/themes/github-mark-white.svg" id="8_2w5n4"]
-[ext_resource type="FontFile" uid="uid://dqqjkq3x4dmnb" path="res://assets/fira-code-regular.ttf" id="10_hfjao"]
 [ext_resource type="Script" uid="uid://dgcggcumkv7ro" path="res://scenes/logo_label.gd" id="11_tjm2u"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_e1eln"]
@@ -59,8 +58,7 @@ offset_top = -11.5
 offset_right = 31.0
 offset_bottom = 11.5
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_font_sizes/font_size = 14
+theme_type_variation = &"PanelLabel"
 text = "recent files"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -98,12 +96,11 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -11.5
-offset_right = 31.0
-offset_bottom = 11.5
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 12.0
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_font_sizes/font_size = 14
+theme_type_variation = &"PanelLabel"
 text = "nav"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -119,7 +116,7 @@ offset_top = -3.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_e1eln")
+theme_type_variation = &"PanelLabelBG"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer"]
 layout_mode = 2
@@ -187,8 +184,6 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 theme = ExtResource("1_rf8uy")
-theme_override_colors/font_color = Color(0.803922, 0.839216, 0.956863, 1)
-theme_override_fonts/font = ExtResource("10_hfjao")
 theme_override_font_sizes/font_size = 12
 text = "   __                              ___
 __\\  \\__  _____   _____   _____   _\\  \\   _____   _____
@@ -230,8 +225,7 @@ offset_top = -11.5
 offset_right = 31.0
 offset_bottom = 11.5
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_font_sizes/font_size = 14
+theme_type_variation = &"PanelLabel"
 text = "templates"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -247,7 +241,7 @@ offset_top = -3.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_e1eln")
+theme_type_variation = &"PanelLabelBG"
 
 [connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/NewFile" to="." method="_on_new_file_pressed"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/OpenFile" to="." method="_on_open_file_pressed"]

@@ -16,7 +16,7 @@ size_flags_vertical = 4
 
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 2
-theme_override_colors/default_color = Color(0.431373, 0.45098, 0.552941, 1)
+theme_type_variation = &"RTLHeader"
 bbcode_enabled = true
 text = "Nothing Selected"
 fit_content = true

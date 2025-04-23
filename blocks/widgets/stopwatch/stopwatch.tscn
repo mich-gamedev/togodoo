@@ -11,7 +11,6 @@ script = ExtResource("1_t7vt2")
 [node name="CheckBox" type="CheckBox" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/icon_max_width = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -25,8 +24,7 @@ text = "Some task name"
 [node name="Time" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.356863, 0.376471, 0.470588, 1)
-theme_override_font_sizes/font_size = 6
+theme_type_variation = &"LabelSubtext"
 text = "00:00:00"
 
 [node name="Block" type="Node" parent="."]

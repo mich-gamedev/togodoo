@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://clp1bxutxd3de"]
+[gd_scene load_steps=3 format=3 uid="uid://clp1bxutxd3de"]
 
 [ext_resource type="Script" uid="uid://caqtj05jw8now" path="res://property_blocks/property_block.gd" id="1_phhyl"]
+[ext_resource type="Texture2D" uid="uid://d3y5186u78brm" path="res://resources/themes/redo.svg" id="2_nmstr"]
 
-[node name="HBoxContainer" type="HBoxContainer" node_paths=PackedStringArray("value_node")]
+[node name="HBoxContainer" type="HBoxContainer" node_paths=PackedStringArray("value_node", "reset_button")]
 offset_right = 256.0
 script = ExtResource("1_phhyl")
 value_node = NodePath("LineEdit")
 value_property = &"text"
+reset_button = NodePath("Reset")
 
 [node name="PropertyName" type="Label" parent="."]
 unique_name_in_owner = true
@@ -15,6 +17,10 @@ size_flags_horizontal = 3
 text = "state"
 clip_text = true
 text_overrun_behavior = 3
+
+[node name="Reset" type="Button" parent="."]
+layout_mode = 2
+icon = ExtResource("2_nmstr")
 
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 2

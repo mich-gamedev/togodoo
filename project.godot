@@ -40,6 +40,10 @@ window/subwindows/embed_subwindows=false
 window/stretch/aspect="expand"
 window/stretch/scale=1.5
 
+[editor]
+
+run/main_run_args="--project=res://project_templates/empty.togodoo"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/SmoothScroll/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/dictionary_inspector/plugin.cfg", "res://addons/icon_explorer/plugin.cfg", "res://addons/inspector_extender/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg")

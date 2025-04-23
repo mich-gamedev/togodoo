@@ -1,15 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvofwlktvbcts"]
+[gd_scene load_steps=3 format=3 uid="uid://dvofwlktvbcts"]
 
 [ext_resource type="Script" uid="uid://caqtj05jw8now" path="res://property_blocks/property_block.gd" id="1_mvx66"]
+[ext_resource type="Texture2D" uid="uid://d3y5186u78brm" path="res://resources/themes/redo.svg" id="2_llt7q"]
 
-[node name="VBoxContainer" type="VBoxContainer" node_paths=PackedStringArray("value_node")]
+[node name="VBoxContainer" type="VBoxContainer" node_paths=PackedStringArray("value_node", "reset_button")]
 offset_right = 256.0
 offset_bottom = 13.0
 script = ExtResource("1_mvx66")
 value_node = NodePath("TextEdit")
 value_property = &"text"
+reset_button = NodePath("HBoxContainer/Reset")
 
-[node name="PropertyName" type="Label" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PropertyName" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
@@ -18,6 +23,10 @@ text = "state"
 vertical_alignment = 1
 clip_text = true
 text_overrun_behavior = 3
+
+[node name="Reset" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_llt7q")
 
 [node name="TextEdit" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(0, 90)

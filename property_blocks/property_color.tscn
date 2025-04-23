@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://crcl4vkglyd81"]
+[gd_scene load_steps=4 format=3 uid="uid://crcl4vkglyd81"]
 
 [ext_resource type="Script" uid="uid://caqtj05jw8now" path="res://property_blocks/property_block.gd" id="1_oicwi"]
+[ext_resource type="Texture2D" uid="uid://d3y5186u78brm" path="res://resources/themes/redo.svg" id="2_a8qmt"]
 [ext_resource type="Script" uid="uid://tny86t0241mn" path="res://property_blocks/color_picker_button.gd" id="2_qfp5a"]
 
-[node name="HBoxContainer" type="HBoxContainer" node_paths=PackedStringArray("value_node")]
+[node name="HBoxContainer" type="HBoxContainer" node_paths=PackedStringArray("value_node", "reset_button")]
 custom_minimum_size = Vector2(0, 24)
 offset_right = 256.0
 script = ExtResource("1_oicwi")
 value_node = NodePath("PanelContainer/MarginContainer/ColorPickerButton")
 value_property = &"color"
+reset_button = NodePath("Reset")
 
 [node name="PropertyName" type="Label" parent="."]
 unique_name_in_owner = true
@@ -17,6 +19,10 @@ size_flags_horizontal = 3
 text = "state"
 clip_text = true
 text_overrun_behavior = 3
+
+[node name="Reset" type="Button" parent="."]
+layout_mode = 2
+icon = ExtResource("2_a8qmt")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(24, 13)

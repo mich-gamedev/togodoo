@@ -3,10 +3,12 @@ class_name PropertyBlock extends Control
 @export var value_node: Node
 @export var value_property: StringName
 @export var custom_function: StringName ## if set, value_property is ignored for changing it's value
+@export var reset_button: Button
 
 var index: int
 var responsible_property: StringName
 var property_usage_tags: PackedStringArray
+var default_value: Variant
 var for_setting: bool ## NOTE: if true, only responsible_property and responsible_mod are relevant
 var responsible_mod: StringName
 
@@ -18,10 +20,13 @@ func display_value(value: Variant) -> void:
 	elif value_node and value_property in value_node:
 		value_node.set(value_property, value)
 		print("set property value: ", value_node[value_property])
+
+	if reset_button: reset_button.visible = value_node[value_property] != default_value
 	display_requested.emit(value)
 
 func property_change_emit() -> void:
 	if !is_node_ready(): return
+	if reset_button: reset_button.visible = value_node[value_property] != default_value
 	print("emitting property change: %d, %s, %s" % [index, responsible_property, value_node[value_property]])
 	if !for_setting:
 		PropertyBus.property_changed.emit.call_deferred(

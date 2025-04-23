@@ -76,6 +76,7 @@ func _on_tree_item_selected() -> void:
 				inst.index = curr_item
 				inst.responsible_property = i
 				inst.property_usage_tags = usage_tags
+				inst.default_value = config.get_value("properties", i)
 				print(i, "'s value: ", current_dict.get(i))
 				inst.display_value.call_deferred(current_dict.get_or_add(i, config.get_value("properties", i)))
 				inst.tooltip_text = config.get_value("hints", i, "")

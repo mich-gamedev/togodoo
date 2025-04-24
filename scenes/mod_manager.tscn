@@ -128,6 +128,7 @@ layout_mode = 2
 [node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Nav/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
 script = ExtResource("2_ti26n")
 speed = 500.0
 wheel_scroll_damper = SubResource("Resource_biqgv")

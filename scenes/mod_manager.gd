@@ -12,6 +12,8 @@ func _ready() -> void:
 		var inst = Button.new()
 		inst.icon = load(cfg.get_value("display", "icon", "res://resources/themes/x.svg"))
 		inst.text = cfg.get_value("display", "display_name", "Untitled")
+		inst.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		inst.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 		inst.add_theme_constant_override("icon_max_width", 32)
 		inst.add_theme_font_size_override("font_size", 16)
 		inst.custom_minimum_size.y = 32

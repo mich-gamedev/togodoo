@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6jg6njwa37da"]
+[gd_scene load_steps=15 format=3 uid="uid://b6jg6njwa37da"]
 
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_rf8uy"]
 [ext_resource type="Script" uid="uid://cueix7yd2sy5s" path="res://scenes/project_manager.gd" id="1_rryq6"]
@@ -8,10 +8,24 @@
 [ext_resource type="Texture2D" uid="uid://bw60ho2s4y84t" path="res://resources/themes/wrench.svg" id="6_gca4t"]
 [ext_resource type="Texture2D" uid="uid://ddlsrj8v0qiuv" path="res://resources/themes/search_nomod.svg" id="7_218y8"]
 [ext_resource type="Texture2D" uid="uid://cfx2ivv7ag1q0" path="res://resources/themes/github-mark-white.svg" id="8_2w5n4"]
+[ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="10_3lsco"]
+[ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="11_bgcx4"]
 [ext_resource type="Script" uid="uid://dgcggcumkv7ro" path="res://scenes/logo_label.gd" id="11_tjm2u"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_e1eln"]
 color = Color(0.141176, 0.152941, 0.227451, 1)
+
+[sub_resource type="Resource" id="Resource_1j3kf"]
+script = ExtResource("11_bgcx4")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_qyt5q"]
+script = ExtResource("11_bgcx4")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -242,6 +256,24 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"PanelLabelBG"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2/MarginContainer2"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+script = ExtResource("10_3lsco")
+speed = 360.0
+wheel_scroll_damper = SubResource("Resource_1j3kf")
+dragging_scroll_damper = SubResource("Resource_qyt5q")
+metadata/_custom_type_script = "uid://dfdtyckl77df4"
+
+[node name="TemplatesContainer" type="HFlowContainer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2/MarginContainer2/SmoothScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 
 [connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/NewFile" to="." method="_on_new_file_pressed"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/OpenFile" to="." method="_on_open_file_pressed"]

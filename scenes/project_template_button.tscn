@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://ly802qkejukd"]
+
+[ext_resource type="Script" uid="uid://dtl3s1r5js3im" path="res://scenes/project_template_button.gd" id="1_pd6gk"]
+[ext_resource type="Texture2D" uid="uid://c4gqmuvse8phy" path="res://icon.svg" id="1_wx8ar"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(120, 120)
+script = ExtResource("1_pd6gk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(96, 120)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -60.0
+offset_right = 48.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_wx8ar")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "empty.togodoo"

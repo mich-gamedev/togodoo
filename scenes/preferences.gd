@@ -47,8 +47,10 @@ func _ready() -> void:
 					if inst.has_node("%PropertyName"): inst.get_node("%PropertyName").text = setting.get_slice("/", 1).replace("_", " ")
 					inst.responsible_mod = mod
 					inst.responsible_property = setting
+					inst.default_value = Settings.get_setting_default(mod, setting)
 					inst.property_usage_tags = Settings.get_setting_usage(mod, setting)
 					inst.display_value.call_deferred(Settings.get_setting(mod, setting))
+				
 					#inst.tooltip_text = config.get_value("hints", setting, "")
 					inst.for_setting = true
 					options.add_child(inst)

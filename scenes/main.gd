@@ -93,6 +93,7 @@ func _on_tree_item_selected() -> void:
 	title_inst.index = curr_item
 	title_inst.responsible_property = "title"
 	title_inst.property_usage_tags = ["property_multiline"]
+	title_inst.default_value = ""
 	title_inst.display_value.call_deferred(current_dict.get_or_add("title", config.get_value("display", "display_name")))
 
 func _on_tree_item_edited() -> void:

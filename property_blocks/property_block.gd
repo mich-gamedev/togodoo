@@ -14,6 +14,10 @@ var responsible_mod: StringName
 
 signal display_requested(value: Variant)
 
+func _ready() -> void:
+	if reset_button:
+		reset_button.pressed.connect(_reset_value)
+
 func display_value(value: Variant) -> void:
 	if value_node and custom_function and (custom_function in value_node):
 		value_node.call(custom_function, value)
@@ -37,3 +41,7 @@ func property_change_emit() -> void:
 		)
 	else:
 		Settings.set_setting(responsible_mod, responsible_property, value_node[value_property])
+
+func _reset_value() -> void:
+	display_value(default_value)
+	property_change_emit()

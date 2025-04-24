@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6jg6njwa37da"]
+[gd_scene load_steps=17 format=3 uid="uid://b6jg6njwa37da"]
 
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_rf8uy"]
 [ext_resource type="Script" uid="uid://cueix7yd2sy5s" path="res://scenes/project_manager.gd" id="1_rryq6"]
@@ -14,6 +14,18 @@
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_e1eln"]
 color = Color(0.141176, 0.152941, 0.227451, 1)
+
+[sub_resource type="Resource" id="Resource_3lsco"]
+script = ExtResource("11_bgcx4")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_bgcx4"]
+script = ExtResource("11_bgcx4")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_1j3kf"]
 script = ExtResource("11_bgcx4")
@@ -50,9 +62,10 @@ theme_override_constants/margin_bottom = 16
 
 [node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer"]
 layout_mode = 2
+split_offset = 160
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HSplitContainer"]
-custom_minimum_size = Vector2(128, 0)
+custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer/PanelContainer"]
@@ -92,14 +105,27 @@ theme_override_styles/separator = SubResource("StyleBoxLine_e1eln")
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HSplitContainer/PanelContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/PanelContainer/MarginContainer2"]
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/HSplitContainer/PanelContainer/MarginContainer2"]
 layout_mode = 2
+horizontal_scroll_mode = 0
+script = ExtResource("10_3lsco")
+speed = 480.0
+wheel_scroll_damper = SubResource("Resource_3lsco")
+dragging_scroll_damper = SubResource("Resource_bgcx4")
+hide_scrollbar_over_time = true
+scrollbar_hide_time = 2.0
+metadata/_custom_type_script = "uid://dfdtyckl77df4"
 
-[node name="Button" type="Button" parent="MarginContainer/HSplitContainer/PanelContainer/MarginContainer2/VBoxContainer"]
+[node name="Recents" type="VBoxContainer" parent="MarginContainer/HSplitContainer/PanelContainer/MarginContainer2/SmoothScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "empty.togodoo"
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
 
 [node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/HSplitContainer"]
 layout_mode = 2

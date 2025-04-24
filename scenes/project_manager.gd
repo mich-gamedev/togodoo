@@ -35,6 +35,13 @@ func _ready() -> void:
 		inst.template_path = "res://project_templates/%s" % i
 		inst.get_node(^"%Label").text = i.trim_suffix(".togodoo")
 		%TemplatesContainer.add_child(inst)
+	for i: String in Settings.get_setting("vanilla", "editor/recent_projects"):
+		var inst := Button.new()
+		inst.text = i.split("/")[-1].trim_suffix(".togodoo")
+		inst.pressed.connect(_dialog_accepted.bind(i))
+		inst.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		inst.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		%Recents.add_child(inst)
 
 func _on_new_file_pressed() -> void:
 	if Settings.get_setting("vanilla", "editor/open_projects_in_new_window"):

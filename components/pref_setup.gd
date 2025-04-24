@@ -32,3 +32,12 @@ func _mod_loaded(mod: String) -> void:
 		Settings.settings_formatting["FILE_PROJECTS"] = Settings.get_setting("vanilla", "file_system/valid_project_extensions")
 		Settings.settings_formatting["DIR_PROJECTS"] = Settings.get_setting("vanilla", "file_system/default_project_folder")
 		Settings.settings_formatting["DIR_IMAGES"] = Settings.get_setting("vanilla", "file_system/default_image_folder")
+
+		var recents : Array = Array(Settings.get_setting("vanilla", "editor/recent_projects"))
+		recents.reduce(
+			func(accum: Array, i):
+				if !(i in accum): accum.append(i)
+				return accum,
+			[]
+		)
+		Settings.set_setting("vanilla", "editor/recent_projects", recents)

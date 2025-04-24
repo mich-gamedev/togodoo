@@ -2,6 +2,7 @@
 class_name LineParser extends Object
 
 static func parse_line(line: String) -> Dictionary:
+	if line.begins_with("//"): return {}
 	var args = {}
 	args.raw = line
 	args.indents = line.get_slice("[", 0).length()

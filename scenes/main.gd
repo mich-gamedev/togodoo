@@ -21,6 +21,13 @@ func _ready() -> void: #TODO: replace with selection later
 	PropertyBus.favorite_block_changed.connect(change_favorite_list)
 	Settings.find_mods()
 	change_favorite_list(Settings.get_setting("vanilla", "editor/favorite_blocks"))
+	var recent_projects := Array(Settings.get_setting("vanilla", "editor/recent_projects"))
+	recent_projects.push_back(FileManager.file_path)
+	Settings.set_setting(
+		"vanilla", 
+		"editor/recent_projects", 
+		recent_projects
+	)
 	var file = FileAccess.open(FileManager.file_path, FileAccess.READ)
 	print(error_string(FileAccess.get_open_error()))
 	PropertyBus.property_changed.connect(_on_property_changed)
@@ -30,7 +37,8 @@ func _ready() -> void: #TODO: replace with selection later
 	while file.get_position() < file.get_length():
 		var line = file.get_line()
 		var parsed = LineParser.parse_line(line)
-		items.append(parsed)
+		if !parsed.is_empty():
+			items.append(parsed)
 	tree.set_column_expand(1, false)
 	#tree.set_column_expand(0, false)
 	for i in items.size():
@@ -302,6 +310,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				get_viewport().set_input_as_handled()
 
 func _on_save_requested(path: String) -> void:
+	Settings.save_config("vanilla")
 	if path == "":
 		if !FileManager.file_path.begins_with("res://"):
 			path = FileManager.file_path

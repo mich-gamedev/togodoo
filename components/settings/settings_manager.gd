@@ -133,6 +133,10 @@ static func save_config(mod: String) -> void:
 	(configs[mod][USER] as ConfigFile).save(user_dir + mod + ".cfg")
 	signals.saved.emit(mod)
 
+static func save_all_configs() -> void:
+	for i in configs:
+		save_config(i)
+
 static func get_mod_info(mod: String) -> ConfigFile:
 	var cfg = ConfigFile.new(); cfg.load(mod_info_dir % mod)
 	return cfg

@@ -58,8 +58,7 @@ func _ready() -> void:
 					break
 
 func _on_close_requested() -> void:
-	for mod: String in Settings.configs:
-		Settings.save_config(mod)
+	Settings.save_all_configs()
 	queue_free()
 
 func jump_to(content: String) -> void:

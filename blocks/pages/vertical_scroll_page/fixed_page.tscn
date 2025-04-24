@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://jlcccc7usfc5"]
+[gd_scene load_steps=8 format=3 uid="uid://jlcccc7usfc5"]
 
+[ext_resource type="StyleBox" uid="uid://bpuoro8beqwxu" path="res://resources/styles/panel_local_to_scene.stylebox" id="1_lpkgh"]
 [ext_resource type="Script" uid="uid://dweb3qqsj5oaj" path="res://blocks/pages/vertical_scroll_page/fixed_page.gd" id="2_ndjtg"]
 [ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="3_2wo26"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="4_k1rl2"]
@@ -29,7 +30,7 @@ layout_mode = 2
 [node name="Page" type="PanelContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = &"LocalToScenePanel"
+theme_override_styles/panel = ExtResource("1_lpkgh")
 script = ExtResource("2_ndjtg")
 
 [node name="MarginContainer" type="MarginContainer" parent="Page"]

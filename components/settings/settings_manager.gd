@@ -32,16 +32,20 @@ class Signals:
 	signal pck_loaded(path: String)
 
 static func initialize() -> void:
+	print("initializing")
 	DirAccess.make_dir_recursive_absolute(user_dir)
 	DirAccess.make_dir_recursive_absolute(get_setting_default("vanilla", "file_system/mod_folder"))
 	DirAccess.make_dir_absolute(get_setting_default("vanilla", "file_system/mod_folder") + "vanilla/")
 	for i in DirAccess.get_files_at("res://vanilla/"):
+		print("copying files to mod folder")
 		DirAccess.copy_absolute("res://vanilla/" + i, get_setting_default("vanilla", "file_system/mod_folder") + "vanilla/" + i)
 
 static func find_mods() -> void:
-	FileManager.load_mods()
+	if !DirAccess.dir_exists_absolute(user_dir):
+		initialize()
 	for i in DirAccess.get_directories_at(mods_dir):
 		setup_mod(i)
+	FileManager.load_mods()
 
 static func setup_mod(mod: String) -> Error:
 	var file = mod + ".cfg"

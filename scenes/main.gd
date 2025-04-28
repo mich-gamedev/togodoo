@@ -24,8 +24,8 @@ func _ready() -> void: #TODO: replace with selection later
 	var recent_projects := Array(Settings.get_setting("vanilla", "editor/recent_projects"))
 	recent_projects.push_back(FileManager.file_path)
 	Settings.set_setting(
-		"vanilla", 
-		"editor/recent_projects", 
+		"vanilla",
+		"editor/recent_projects",
 		recent_projects
 	)
 	var file = FileAccess.open(FileManager.file_path, FileAccess.READ)

@@ -17,19 +17,16 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 run/max_fps=60
 run/low_processor_mode=true
 boot_splash/bg_color=Color(0.0941176, 0.0980392, 0.14902, 1)
-<<<<<<< HEAD
 boot_splash/image="uid://k21ota82yu8u"
-config/icon="uid://w0sij2ca5j3n"
-=======
 config/icon="res://icon.svg"
-boot_splash/image="uid://k21ota82yu8u"
->>>>>>> 1336c26dc8a98ca904d2f0b34982637f8cb6d642
+<<<<<<<HEADboot_splash/image="uid://k21ota82yu8u"
+">>>>>>>1336c26dc8a98ca904d2f0b34982637f8cb6d642[autoload]PropertyBus"="*res://components/property_list/sngl_property_bus.gd"
+History="*res://components/undoredo/history_manager.gd"
+PrefSetup="*res://components/pref_setup.gd"
 
 [autoload]
 
 PropertyBus="*res://components/property_list/sngl_property_bus.gd"
-History="*res://components/undoredo/history_manager.gd"
-PrefSetup="*res://components/pref_setup.gd"
 
 [debug]
 

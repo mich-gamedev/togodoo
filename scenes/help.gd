@@ -9,3 +9,5 @@ func _index_pressed(index) -> void:
 			OS.shell_open("https://github.com/mich-gamedev/togodoo/wiki")
 		"open github":
 			OS.shell_open("https://github.com/mich-gamedev/togodoo")
+		"join discord server":
+			OS.shell_open("https://discord.gg/V5ZXFJnD6v")

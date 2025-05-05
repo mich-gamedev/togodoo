@@ -1,0 +1,6 @@
+[Page] v1.0.0-rc2 Changelog
+ [Page use_preset_color=false color=Color(0.929,0.529,0.588,1.000) title_color=Color(0.929,0.529,0.588,1.000)] Visual
+  [Point point_color=Color(0.976,0.886,0.686,1.000)] Made many panels have a larger margin around their tiles, and standardized it. (~6px -> 10px)
+ [Page use_preset_color=false color=Color(0.961,0.663,0.498,1.000) title_color=Color(0.961,0.663,0.498,1.000)] Logic
+  [Point point_color=Color(0.933,0.831,0.624,1.000)] Column blocks are now Row blocks, to better fit their actual usecase.
+  [Point point_color=Color(0.933,0.831,0.624,1.000)] App will try to prevent you from adding a block as the root node if it cannot have children

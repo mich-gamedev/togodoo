@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="15.999999"
+   viewBox="0 0 4.2333332 4.233333"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="true">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="0.13229166"
+       spacingy="0.13229166"
+       empcolor="#0099e5"
+       empopacity="0.36862745"
+       color="#0099e5"
+       opacity="0.13333333"
+       empspacing="2"
+       enabled="true"
+       visible="true" />
+    <inkscape:page
+       x="0"
+       y="0"
+       width="4.2333331"
+       height="4.2333331"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect1"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.132152"
+       d="m 0.79375,0.79375 v 0.2645833 h 0.2645833 0.2268596 0.037724 V 0.79375 Z m 0.79375,0 V 1.0583333 H 2.1166667 V 0.79375 Z m 0.79375,0 V 1.0583333 H 2.9104167 V 0.79375 Z m 0.79375,0 v 0.2645833 0.2526978 0.011886 H 3.4395833 V 0.79375 Z M 0.79375,1.3229167 V 1.8520833 H 1.0583333 V 1.3229167 Z M 3.175,1.5875 V 2.1166667 H 3.4395833 V 1.5875 Z M 0.79375,2.1166667 V 2.6458333 H 1.0583333 V 2.1166667 Z M 3.175,2.38125 V 2.9104167 H 3.4395833 V 2.38125 Z M 0.79375,2.9104167 V 3.4395833 H 1.0583333 V 3.175 3.0633789 2.9104167 Z M 1.3229167,3.175 V 3.4395833 H 1.8520833 V 3.175 Z m 0.79375,0 V 3.4395833 H 2.6458333 V 3.175 Z m 0.79375,0 V 3.4395833 H 3.4395833 V 3.175 H 3.175 2.9615763 Z" />
+  </g>
+</svg>

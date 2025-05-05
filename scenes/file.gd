@@ -5,7 +5,7 @@ func _ready() -> void:
 
 func _index_pressed(index) -> void:
 	match get_popup().get_item_text(index):
-		"open project manager":
+		"project manager":
 			OS.create_process(OS.get_executable_path(), [])
 		"save as":
 			var dialog = FileDialog.new()

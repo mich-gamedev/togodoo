@@ -20,7 +20,6 @@ func _ready() -> void: #TODO: replace with selection later
 	PropertyBus.save_requested.connect(_on_save_requested)
 	PropertyBus.favorite_block_changed.connect(change_favorite_list)
 	Settings.find_mods()
-	change_favorite_list(Settings.get_setting("vanilla", "editor/favorite_blocks"))
 	var recent_projects := Array(Settings.get_setting("vanilla", "editor/recent_projects"))
 	recent_projects.push_back(FileManager.file_path)
 	Settings.set_setting(
@@ -48,6 +47,7 @@ func _ready() -> void: #TODO: replace with selection later
 		#item.set_expand_right(0, false)
 		tree_items.append(item)
 		setup_item(items[i], item)
+	change_favorite_list(Settings.get_setting("vanilla", "editor/favorite_blocks"))
 
 func get_parent_from_item(idx: int) -> int:
 	var back_idx := 0

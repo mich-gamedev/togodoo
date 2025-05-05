@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://pv3fsg4uvrxr"]
+
+[ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="1_1opkt"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ChildContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Block" type="Node" parent="."]
+script = ExtResource("1_1opkt")
+metadata/_custom_type_script = "uid://y2yuj6soyb6y"

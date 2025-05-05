@@ -33,7 +33,7 @@ func _ready() -> void:
 	for i in DirAccess.get_files_at("res://project_templates/"):
 		var inst = BTN_TEMPLATE.instantiate()
 		inst.template_path = "res://project_templates/%s" % i
-		inst.get_node(^"%Label").text = i.trim_suffix(".togodoo")
+		inst.get_node(^"%Label").text = i.trim_suffix(".togodoo").replace("_", " ")
 		%TemplatesContainer.add_child(inst)
 	for i: String in Settings.get_setting("vanilla", "editor/recent_projects"):
 		var inst := Button.new()

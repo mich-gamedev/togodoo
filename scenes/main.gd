@@ -184,6 +184,8 @@ func create_default_block(type: String, to_item: TreeItem = null) -> void:
 	while current != new_item:
 		current = current.get_next_in_tree()
 		i += 1
+	for block in %FavoriteBlocks.get_children():
+		block.disabled = false
 	parsed.index = i
 	tree_items.insert(parsed.index, new_item)
 	items.insert(parsed.index, parsed)
@@ -391,6 +393,7 @@ func change_favorite_list(array: Array) -> void:
 		inst.custom_minimum_size.x = 16
 		inst.icon = load(FileManager.get_block_config(FileManager.block_types[array[i]]).get_value("display", "icon"))
 		inst.tooltip_text = "%s (%d)" % [array[i], i+1]
+		inst.disabled = !can_block_spawn(array[i])
 		%FavoriteBlocks.add_child(inst)
 		inst.pressed.connect(create_default_block.bind(array[i]))
 
@@ -436,3 +439,7 @@ func _on_block_context_pressed(id: int, menu: PopupMenu) -> void:
 				tree_items.insert(idx, new_item)
 				items.insert(idx, dict)
 				setup_item(dict, new_item)
+
+static func can_block_spawn(type: String) -> bool:
+	if !node.items.is_empty(): return true
+	return FileManager.get_block_config(FileManager.block_types[type]).get_value("logic", "can_have_children", false)

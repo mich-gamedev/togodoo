@@ -28,6 +28,7 @@ func _ready() -> void:
 		button.icon = load(config.get_value("display", "icon"))
 		button.custom_minimum_size.y = 24
 		button.pressed.connect(_on_block_type_pressed.bind(i))
+		button.disabled = !Main.can_block_spawn(i)
 		inst.get_node(^"%Favorite").toggled.connect(_on_favorite_toggled.bind(i))
 		(inst.get_node(^"%Favorite") as CheckBox).set_pressed_no_signal(
 			Array(Settings.get_setting("vanilla", "editor/favorite_blocks")).has(i)

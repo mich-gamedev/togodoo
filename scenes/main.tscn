@@ -165,7 +165,7 @@ theme_type_variation = &"PanelLabelBG"
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
+theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
@@ -249,6 +249,9 @@ popup/item_1/text = "open github"
 popup/item_1/id = 1
 script = ExtResource("6_0ld40")
 
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+
 [node name="SaveIndicator" type="Label" parent="MarginContainer/VBoxContainer/Control"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
@@ -330,7 +333,7 @@ theme_type_variation = &"PanelLabelBG"
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 8
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
@@ -544,7 +547,7 @@ theme_type_variation = &"PanelLabelBG"
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 8
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 

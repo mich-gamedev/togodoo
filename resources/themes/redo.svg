@@ -10,7 +10,8 @@
    inkscape:export-filename="new_block.svg"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
-   sodipodi:docname="page.svg"
+   sodipodi:docname="redo.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +27,16 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="px"
      showgrid="true"
-     showguides="true">
+     showguides="true"
+     inkscape:zoom="18.109375"
+     inkscape:cx="17.201035"
+     inkscape:cy="6.9301122"
+     inkscape:window-width="3440"
+     inkscape:window-height="1363"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
     <inkscape:grid
        id="grid1"
        units="px"
@@ -74,10 +84,10 @@
     <path
        id="path34"
        style="fill:#ffffff;fill-opacity:1;stroke:#6e738d;stroke-width:0"
-       d="m 8,3 a 5,5 0 0 0 -5,5 5,5 0 0 0 5,5 5,5 0 0 0 3.527344,-1.472656 L 10.828125,10.828125 A 4,4 0 0 1 8,12 4,4 0 0 1 4,8 4,4 0 0 1 8,4 4,4 0 0 1 12,8 h 1 A 5,5 0 0 0 8,3 Z" />
+       d="M 8,1 A 5,5 0 0 0 3,6 5,5 0 0 0 8,11 5,5 0 0 0 11.527344,9.527344 L 10.828125,8.828125 A 4,4 0 0 1 8,10 4,4 0 0 1 4,6 4,4 0 0 1 8,2 4,4 0 0 1 12,6 h 1 A 5,5 0 0 0 8,1 Z" />
     <path
        style="fill:#ffffff;fill-opacity:1;stroke:#6e738d;stroke-width:0"
-       d="m 12.5,10 -2,-2 h 4 z"
+       d="m 12.5,8 -2,-2 h 4 z"
        id="path35" />
   </g>
 </svg>

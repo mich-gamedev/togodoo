@@ -16,6 +16,7 @@ var curr_new_block_window: Window
 
 
 func _ready() -> void: #TODO: replace with selection later
+	get_tree().root.close_requested.connect(_close_requested)
 	node = self
 	PropertyBus.save_requested.connect(_on_save_requested)
 	PropertyBus.favorite_block_changed.connect(change_favorite_list)
@@ -335,6 +336,7 @@ func _on_save_requested(path: String) -> void:
 	%SaveIndicator.text = "Saving..."
 	var tween := create_tween()
 	tween.tween_property(%SaveIndicator, "modulate:a", 0.0, 3.0)
+	PropertyBus.save_successful.emit()
 	get_window().title = "Togodoo - %s" % FileManager.file_path.split("/")[-1]
 
 func _dialog_accepted(path: String) -> void:
@@ -443,3 +445,7 @@ func _on_block_context_pressed(id: int, menu: PopupMenu) -> void:
 static func can_block_spawn(type: String) -> bool:
 	if !node.items.is_empty(): return true
 	return FileManager.get_block_config(FileManager.block_types[type]).get_value("logic", "can_have_children", false)
+
+const UNSAVED = preload("res://scenes/unsaved.tscn")
+func _close_requested() -> void:
+	add_child(UNSAVED.instantiate())

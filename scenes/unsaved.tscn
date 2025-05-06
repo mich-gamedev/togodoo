@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkf73gv58npop"]
+
+[ext_resource type="Script" uid="uid://bn6vus32dr1f5" path="res://scenes/unsaved.gd" id="1_v7deh"]
+
+[node name="Window" type="Window"]
+title = "Save any changes?"
+initial_position = 2
+size = Vector2i(320, 90)
+transient = true
+script = ExtResource("1_v7deh")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+bbcode_enabled = true
+text = "[center]Save any changes before closing?
+[color=#6e738d](currently app can't detect changes, sorry! expected for v1.1.0)"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Discard" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ButtonWithPanel"
+text = "Don't save"
+
+[node name="Save" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"ButtonWithPanel"
+text = "Save"
+
+[node name="Cancel" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"ButtonWithPanel"
+text = "Cancel"
+
+[connection signal="close_requested" from="." to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Discard" to="." method="_on_discard_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]

@@ -42,6 +42,10 @@ func _ready() -> void:
 		inst.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 		inst.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		%Recents.add_child(inst)
+	get_tree().root.close_requested.connect(quit)
+
+func quit() -> void:
+	get_tree().quit()
 
 func _on_new_file_pressed() -> void:
 	if Settings.get_setting("vanilla", "editor/open_projects_in_new_window"):

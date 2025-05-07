@@ -159,6 +159,8 @@ func _on_property_search_text_changed(new_text: String) -> void:
 		if new_text.is_empty():
 			i.show()
 		elif i is PropertyBlock:
+			if !i.has_node(^"%PropertyName"):
+				continue
 			var similar_value = max((i.get_node(^"%PropertyName") as Label).text.similarity(new_text), i.responsible_property.similarity(new_text))
 			i.visible = similar_value > 0.4
 

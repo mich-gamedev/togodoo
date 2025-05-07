@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6jg6njwa37da"]
+[gd_scene load_steps=18 format=3 uid="uid://b6jg6njwa37da"]
 
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_rf8uy"]
 [ext_resource type="Script" uid="uid://cueix7yd2sy5s" path="res://scenes/project_manager.gd" id="1_rryq6"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="3_unyqo"]
+[ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/themes/garbage_can.svg" id="4_bgcx4"]
 [ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/themes/folder.svg" id="4_csqmn"]
 [ext_resource type="Texture2D" uid="uid://c2kr2kifcs4yc" path="res://resources/themes/settings.svg" id="5_5tm0h"]
 [ext_resource type="Texture2D" uid="uid://bw60ho2s4y84t" path="res://resources/themes/wrench.svg" id="6_gca4t"]
@@ -110,8 +111,12 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/HSplitContainer/PanelContainer/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/PanelContainer/MarginContainer2"]
 layout_mode = 2
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/HSplitContainer/PanelContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 horizontal_scroll_mode = 0
 script = ExtResource("10_3lsco")
 speed = 480.0
@@ -121,11 +126,18 @@ hide_scrollbar_over_time = true
 scrollbar_hide_time = 2.0
 metadata/_custom_type_script = "uid://dfdtyckl77df4"
 
-[node name="Recents" type="VBoxContainer" parent="MarginContainer/HSplitContainer/PanelContainer/MarginContainer2/SmoothScrollContainer"]
+[node name="Recents" type="VBoxContainer" parent="MarginContainer/HSplitContainer/PanelContainer/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 6
+
+[node name="ClearRecents" type="Button" parent="MarginContainer/HSplitContainer/PanelContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"ButtonWithPanel"
+text = "clear list"
+icon = ExtResource("4_bgcx4")
 
 [node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/HSplitContainer"]
 layout_mode = 2
@@ -319,6 +331,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
+[connection signal="pressed" from="MarginContainer/HSplitContainer/PanelContainer/MarginContainer2/VBoxContainer/ClearRecents" to="." method="_on_clear_recents_pressed"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/NewFile" to="." method="_on_new_file_pressed"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/OpenFile" to="." method="_on_open_file_pressed"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer/Preferences" to="." method="_on_preferences_pressed"]

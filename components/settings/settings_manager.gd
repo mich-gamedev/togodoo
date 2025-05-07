@@ -87,10 +87,8 @@ static func get_setting(mod: String, key: String) -> Variant:
 	if !configs.has(mod):
 		var err = setup_mod(mod)
 		if err: return null
-	print(configs[mod])
 	var result
 	if !configs[mod].has(USER):
-		print((configs[mod][FALLBACK] as ConfigFile).get_sections())
 		result = (configs[mod][FALLBACK] as ConfigFile).get_value("properties", key)
 		if typeof(result) == TYPE_STRING:
 			result = format(result)

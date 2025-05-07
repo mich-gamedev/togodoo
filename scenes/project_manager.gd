@@ -35,6 +35,12 @@ func _ready() -> void:
 		inst.template_path = "res://project_templates/%s" % i
 		inst.get_node(^"%Label").text = i.trim_suffix(".togodoo").replace("_", " ")
 		%TemplatesContainer.add_child(inst)
+	update_recents_list()
+	get_tree().root.close_requested.connect(quit)
+
+func update_recents_list() -> void:
+	for i in %Recents.get_children():
+		i.queue_free()
 	for i: String in Settings.get_setting("vanilla", "editor/recent_projects"):
 		var inst := Button.new()
 		inst.text = i.split("/")[-1].trim_suffix(".togodoo")
@@ -42,7 +48,6 @@ func _ready() -> void:
 		inst.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 		inst.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		%Recents.add_child(inst)
-	get_tree().root.close_requested.connect(quit)
 
 func quit() -> void:
 	get_tree().quit()
@@ -80,3 +85,9 @@ func _on_preferences_pressed() -> void:
 func _on_manage_mods_pressed() -> void:
 	var inst = MOD_MANAGER.instantiate()
 	add_child(inst)
+
+func _on_clear_recents_pressed() -> void:
+	print("clearing recent list")
+	Settings.set_setting("vanilla", "editor/recent_projects", [])
+	Settings.save_config("vanilla")
+	update_recents_list.call_deferred()

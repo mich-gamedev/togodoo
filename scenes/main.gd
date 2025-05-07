@@ -22,7 +22,7 @@ func _ready() -> void: #TODO: replace with selection later
 	PropertyBus.favorite_block_changed.connect(change_favorite_list)
 	Settings.find_mods()
 	var recent_projects := Array(Settings.get_setting("vanilla", "editor/recent_projects"))
-	recent_projects.push_back(FileManager.file_path)
+	recent_projects.push_front(FileManager.file_path)
 	Settings.set_setting(
 		"vanilla",
 		"editor/recent_projects",

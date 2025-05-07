@@ -166,9 +166,10 @@ func _on_new_block_pressed() -> void:
 	curr_new_block_window = MENU_NEW_BLOCK.instantiate()
 	curr_new_block_window.show()
 	add_child(curr_new_block_window)
-	curr_new_block_window.block_create_pressed.connect(create_default_block)
+	print("select: ", Settings.get_setting("vanilla", "editor/auto_select_new_block"))
+	curr_new_block_window.block_create_pressed.connect(create_default_block.bind(null, Settings.get_setting("vanilla", "editor/auto_select_new_block")))
 
-func create_default_block(type: String, to_item: TreeItem = null) -> void:
+func create_default_block(type: String, to_item: TreeItem = null, select: bool = false) -> void:
 	var config = FileManager.get_block_config(FileManager.block_types[type])
 	var parsed = LineParser.parse_line("[{Type}] New {Display Name}".format({"Type": type, "Display Name": config.get_value("display", "display_name")}))
 	if !to_item:
@@ -200,6 +201,9 @@ func create_default_block(type: String, to_item: TreeItem = null) -> void:
 		parsed.indents += 1
 	setup_item(parsed, new_item)
 	tree.scroll_to_item(new_item)
+	if select:
+		tree.grab_focus.call_deferred()
+		tree.set_selected(new_item, 0)
 
 func setup_item(info: Dictionary, item: TreeItem) -> void:
 	var config := FileManager.get_block_config(FileManager.block_types[info.type])
@@ -397,7 +401,7 @@ func change_favorite_list(array: Array) -> void:
 		inst.tooltip_text = "%s (%d)" % [array[i], i+1]
 		inst.disabled = !can_block_spawn(array[i])
 		%FavoriteBlocks.add_child(inst)
-		inst.pressed.connect(create_default_block.bind(array[i]))
+		inst.pressed.connect(create_default_block.bind(array[i], null, Settings.get_setting("vanilla", "editor/auto_select_new_block")))
 
 const BLOCK_CONTEXT_MENU = preload("res://scenes/block_context_menu.tscn")
 

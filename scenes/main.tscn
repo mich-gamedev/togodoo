@@ -476,6 +476,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Visual"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("10_viifr")

@@ -143,8 +143,6 @@ func _on_property_changed(item: int, property: StringName, value: Variant, reset
 	var usage_tags = config.get_value("usage", property, "none").replace(" ", "").split(",")
 	if "title_checkbox" in usage_tags:
 		tree_items[item].set_checked(1, value)
-	#if "tree_bg_color" in usage_tags:
-		#tree_items[item].call_recursive("set_custom_bg_color", 0, Color(value).lerp(Color("#1e2030"), 0.8))
 	if reset_property_list and item == curr_item:
 		var filtered_nodes = %PropertyList.get_children().filter(func(i: Node): return i.responsible_property == property)
 		if !filtered_nodes.is_empty(): filtered_nodes[0].display_value(value)
@@ -408,6 +406,7 @@ func change_favorite_list(array: Array) -> void:
 const BLOCK_CONTEXT_MENU = preload("res://scenes/block_context_menu.tscn")
 
 func _on_tree_gui_input(event: InputEvent) -> void:
+	return #TODO: fix tree context menu
 	if !%Tree.get_item_at_position(%Tree.get_local_mouse_position()): return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT and !event.pressed:

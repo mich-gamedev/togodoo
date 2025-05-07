@@ -4,8 +4,8 @@
 
 # project-specific ignores
 
-/_builds/
-/addons/script-ide
-/addons/inspector_tabs
-/addons/dictionary_inspector
-/addons/Todo_Manager
+_builds/
+addons/script-ide
+addons/inspector_tabs
+addons/dictionary_inspector
+addons/Todo_Manager

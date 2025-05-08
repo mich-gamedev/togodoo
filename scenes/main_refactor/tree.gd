@@ -7,7 +7,6 @@ var tree_items: Dictionary[int, TreeItem]
 func _ready() -> void:
 	set_column_expand(1, false)
 	TreeManager.signals.block_added.connect(_block_added)
-	TreeManager.load_file(FileManager.file_path if FileManager.file_path else "res://project_templates/notes.togodoo")
 
 func _block_added(dict: Dictionary, idx: int) -> void:
 	var tree_item: TreeItem

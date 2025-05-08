@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://bhbm0n3du7i3x"]
+[gd_scene load_steps=23 format=3 uid="uid://bhbm0n3du7i3x"]
 
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_id72n"]
+[ext_resource type="Script" uid="uid://bf4n7yn75rnlm" path="res://scenes/main_refactor/main.gd" id="2_hwhah"]
 [ext_resource type="Script" uid="uid://b88vdrmopa5td" path="res://scenes/file.gd" id="3_loyev"]
 [ext_resource type="Script" uid="uid://c87cuwvf2dpa7" path="res://scenes/options.gd" id="4_p58oo"]
 [ext_resource type="Script" uid="uid://crgds744cw8cx" path="res://scenes/help.gd" id="5_01a8x"]
@@ -72,6 +73,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_id72n")
+script = ExtResource("2_hwhah")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

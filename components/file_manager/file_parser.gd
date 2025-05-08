@@ -6,6 +6,7 @@ static func parse_line(line: String) -> Dictionary:
 	var args = {}
 	args.raw = line
 	args.indents = line.get_slice("[", 0).length()
+	args.children = []
 
 	var from = line.find("[")
 	var to = line.find("]")

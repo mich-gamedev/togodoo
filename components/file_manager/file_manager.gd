@@ -39,3 +39,6 @@ static func get_block_config(path: String) -> ConfigFile:
 	var config = ConfigFile.new()
 	config.load(path.rstrip("/") + "/meta.cfg")
 	return config
+
+static func get_block_config_by_type(type: String) -> ConfigFile:
+	return get_block_config(block_types[type])

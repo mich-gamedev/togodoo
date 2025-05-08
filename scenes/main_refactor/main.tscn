@@ -1,0 +1,598 @@
+[gd_scene load_steps=22 format=3 uid="uid://bhbm0n3du7i3x"]
+
+[ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_id72n"]
+[ext_resource type="Script" uid="uid://b88vdrmopa5td" path="res://scenes/file.gd" id="3_loyev"]
+[ext_resource type="Script" uid="uid://c87cuwvf2dpa7" path="res://scenes/options.gd" id="4_p58oo"]
+[ext_resource type="Script" uid="uid://crgds744cw8cx" path="res://scenes/help.gd" id="5_01a8x"]
+[ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/themes/garbage_can.svg" id="6_5g2ds"]
+[ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="7_wxjdr"]
+[ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="8_c5x5u"]
+[ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="9_hlpmk"]
+[ext_resource type="Script" uid="uid://cc5rx6ikarprc" path="res://scenes/main_refactor/tree.gd" id="9_hwhah"]
+[ext_resource type="Script" uid="uid://bbt4lmrvjp5vv" path="res://scenes/main_refactor/block_display.gd" id="10_id72n"]
+[ext_resource type="Texture2D" uid="uid://7mqamsoh1bka" path="res://resources/themes/search.svg" id="11_m0l54"]
+[ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="12_ra7wm"]
+
+[sub_resource type="Resource" id="Resource_1qaia"]
+script = ExtResource("8_c5x5u")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_n83lp"]
+script = ExtResource("8_c5x5u")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_dk6e4"]
+color = Color(0.211765, 0.227451, 0.309804, 1)
+
+[sub_resource type="Resource" id="Resource_vafg3"]
+script = ExtResource("8_c5x5u")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_41xyg"]
+script = ExtResource("8_c5x5u")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_x352f"]
+script = ExtResource("8_c5x5u")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_a35te"]
+script = ExtResource("8_c5x5u")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_cuyag"]
+script = ExtResource("8_c5x5u")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_pj40j"]
+script = ExtResource("8_c5x5u")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_id72n")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.0
+offset_top = -61.5
+offset_right = 239.0
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_id72n")
+theme_type_variation = &"LogoLabel"
+text = "   __                              ___
+__\\  \\__  _____   _____   _____   _\\  \\   _____   _____
+\\__   __\\(  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\
+  _\\  \\   \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\
+  \\____)   \\_____) \\___  \\ \\_____) \\_____) \\_____) \\_____) (_)
+__  __  __  __  __    _\\  \\
+\\_\\ \\√\\ \\√\\ \\_\\ \\√\\  \\_____) A tree-based todo app
+
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Control"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 12.0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 24.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_type_variation = &"PanelLabel"
+text = "nav"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelLabelBG"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="File" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+text = "file"
+icon_alignment = 1
+item_count = 10
+popup/item_0/text = "project manager"
+popup/item_0/id = 0
+popup/item_1/id = 5
+popup/item_1/separator = true
+popup/item_2/text = "save"
+popup/item_2/id = 1
+popup/item_3/text = "save as"
+popup/item_3/id = 8
+popup/item_4/id = 4
+popup/item_4/separator = true
+popup/item_5/text = "open"
+popup/item_5/id = 2
+popup/item_6/text = "open recent"
+popup/item_6/id = 3
+popup/item_6/disabled = true
+popup/item_7/id = 6
+popup/item_7/separator = true
+popup/item_8/text = "show in filesystem"
+popup/item_8/id = 4
+popup/item_8/disabled = true
+popup/item_9/text = "open in text editor"
+popup/item_9/id = 9
+popup/item_9/disabled = true
+script = ExtResource("3_loyev")
+
+[node name="View" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "view"
+icon_alignment = 1
+item_count = 4
+popup/item_0/text = "docks"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_1/text = "hide all docks"
+popup/item_1/id = 1
+popup/item_1/disabled = true
+popup/item_2/id = 3
+popup/item_2/separator = true
+popup/item_3/text = "command pallete"
+popup/item_3/id = 2
+popup/item_3/disabled = true
+script = ExtResource("3_loyev")
+
+[node name="Options" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(24, 18)
+layout_mode = 2
+text = "options"
+icon_alignment = 1
+item_count = 4
+popup/item_0/text = "preferences"
+popup/item_0/id = 0
+popup/item_1/id = 6
+popup/item_1/separator = true
+popup/item_2/text = "open user data folder"
+popup/item_2/id = 5
+popup/item_3/text = "manage mods"
+popup/item_3/id = 6
+script = ExtResource("4_p58oo")
+
+[node name="Help" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(24, 18)
+layout_mode = 2
+text = "help"
+icon_alignment = 1
+item_count = 3
+popup/item_0/text = "open docs"
+popup/item_0/id = 0
+popup/item_1/text = "open github"
+popup/item_1/id = 1
+popup/item_2/text = "join discord server"
+popup/item_2/id = 2
+script = ExtResource("5_01a8x")
+
+[node name="SaveIndicator" type="Label" parent="MarginContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -8.375
+offset_bottom = 8.375
+grow_horizontal = 0
+grow_vertical = 2
+text = "Saving..."
+horizontal_alignment = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/VBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+split_offset = 1028
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer"]
+layout_mode = 2
+split_offset = 240
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2"]
+layout_mode = 2
+split_offset = 240
+
+[node name="Tree" type="PanelContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_type_variation = &"PanelLabel"
+text = "tree"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelLabelBG"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="DestroyBlock" type="Button" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("6_5g2ds")
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+script = ExtResource("7_wxjdr")
+speed = 128.0
+wheel_scroll_damper = SubResource("Resource_1qaia")
+dragging_scroll_damper = SubResource("Resource_n83lp")
+scrollbar_hide_time = 2.0
+
+[node name="FavoriteBlocks" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="NewBlock" type="Button" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("9_hlpmk")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_dk6e4")
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+script = ExtResource("7_wxjdr")
+speed = 500.0
+wheel_scroll_damper = SubResource("Resource_vafg3")
+dragging_scroll_damper = SubResource("Resource_41xyg")
+drag_with_mouse = false
+hide_scrollbar_over_time = true
+scrollbar_hide_time = 2.0
+
+[node name="Tree" type="Tree" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+columns = 2
+allow_rmb_select = true
+select_mode = 1
+scroll_horizontal_enabled = false
+scroll_vertical_enabled = false
+script = ExtResource("9_hwhah")
+
+[node name="FileSys" type="PanelContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer"]
+visible = false
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/FileSys"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/FileSys/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/FileSys/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_type_variation = &"PanelLabel"
+text = "file sys"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/FileSys/MarginContainer/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelLabelBG"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/FileSys"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/FileSys/MarginContainer2"]
+layout_mode = 2
+
+[node name="Visual" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Visual"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Visual"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("7_wxjdr")
+speed = 350.0
+wheel_scroll_damper = SubResource("Resource_x352f")
+dragging_scroll_damper = SubResource("Resource_a35te")
+allow_horizontal_scroll = false
+hide_scrollbar_over_time = true
+scrollbar_hide_time = 2.0
+
+[node name="BlockDisplay" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Visual/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("10_id72n")
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Visual/ScrollContainer/BlockDisplay"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Visual"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Properties" type="PanelContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer"]
+custom_minimum_size = Vector2(128, 96)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_type_variation = &"PanelLabel"
+text = "properties"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelLabelBG"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2"]
+layout_mode = 2
+
+[node name="PropertySearch" type="LineEdit" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "search here..."
+clear_button_enabled = true
+right_icon = ExtResource("11_m0l54")
+caret_blink = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="TypeIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.431373, 0.45098, 0.552941, 1)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("12_ra7wm")
+expand_mode = 1
+
+[node name="TypeLabel" type="Label" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"LabelHeader"
+text = "Nothing Selected"
+vertical_alignment = 2
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("7_wxjdr")
+wheel_scroll_damper = SubResource("Resource_cuyag")
+dragging_scroll_damper = SubResource("Resource_pj40j")
+hide_scrollbar_over_time = true
+scrollbar_hide_time = 2.0
+
+[node name="PropertyList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

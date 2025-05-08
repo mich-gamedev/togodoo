@@ -50,7 +50,7 @@ static func set_property(idx: int, property: String, value: Variant, reset_prope
 	PropertyBus.property_changed.emit(idx, property, value, reset_property_list)
 
 static func get_property(idx: int, property: String) -> Variant:
-	return items[idx][property]
+	return items[idx].get(property, FileManager.get_block_config_by_type(items[idx].type).get_value("properties", property))
 
 static func get_idx_by_child(parent: int, child_idx: int) -> int:
 	return items[parent].children[child_idx]

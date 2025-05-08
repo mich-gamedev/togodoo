@@ -3,7 +3,7 @@ class_name FileManager extends Object
 
 static var block_types: Dictionary
 
-static var usage_types: Dictionary
+static var usage_types: Dictionary[String, PackedScene]
 
 static var file_path: String
 
@@ -33,7 +33,8 @@ static func load_mods() -> void:
 	print(block_types)
 
 	for i in ResourceLoader.list_directory("res://property_blocks"):
-		if ResourceLoader.exists("res://property_blocks/" + i, "PackedScene"): usage_types[i.get_basename()] = load("res://property_blocks/" + i)
+		if ResourceLoader.exists("res://property_blocks/" + i, "PackedScene") and i.ends_with("scn"):
+			usage_types[i.get_basename()] = load("res://property_blocks/" + i)
 
 static func get_block_config(path: String) -> ConfigFile:
 	var config = ConfigFile.new()

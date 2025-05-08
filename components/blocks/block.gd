@@ -21,7 +21,9 @@ func get_arg(name: String) -> Variant:
 	return args.get(name, FileManager.get_block_config(FileManager.block_types[get_type()]).get_value("properties", name))
 
 func get_idx() -> int:
-	return Main.node.items.find(args)
+	if Main.node:
+		return Main.node.items.find(args)
+	return TreeManager.items.find(args)
 
 func set_arg(name: String, value: Variant, reset_property_list: bool = true) -> void:
 	PropertyBus.property_changed.emit.call_deferred(

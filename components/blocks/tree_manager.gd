@@ -3,12 +3,15 @@ class_name TreeManager extends Object
 class Signals:
 	signal block_added(dict: Dictionary, idx: int)
 	signal pre_block_removed(dict: Dictionary, idx: int)
-static var signals = Signals.new()
+static var signals = Signals.new() ## an object that holds signals for the [TreeManager] singleton. see [TreeManager.Signals]
+## stores the info of all currently loaded blocks, can be used for more advanced things not covered by methods if needed.[br]
+## [color=yellow]Warning:[/color] the order of blocks is unstable and can be out of order from the tree. [br]
 static var items: Array[Dictionary]
+static var _root: int = -1 ## the index of the root node, or [code]-1[/code] if no root was yet created.
 
 #region PUBLIC FUNCS
 
-static func load_file(path: String) -> void:
+static func load_file(path: String) -> void: ## adds all the blocks from a project file at [param path]
 	assert(FileAccess.file_exists(path), "File at path \'%s\' couldn't be found." % path)
 	var file = FileAccess.open(path, FileAccess.READ)
 	print(error_string(FileAccess.get_open_error()))
@@ -27,7 +30,14 @@ static func load_file(path: String) -> void:
 			create_block_from_dict(parsed, -1)
 		i += 1
 
-static func create_default_block(type: String, parent_idx: int) -> Dictionary:
+static func save_file(path: String) -> Error: ## formats all the blocks into project syntax and saves them to the file
+	var file = FileAccess.open(path, FileAccess.WRITE)
+	if FileAccess.get_open_error(): return FileAccess.get_open_error()
+	for i in get_sorted_blocks():
+		file.store_line(LineParser.parse_dict(items[i]))
+	return OK
+
+static func create_default_block(type: String, parent_idx: int) -> Dictionary: ## creates a new block of type [param type] to the block at index [param parent_idx]
 	assert(
 		FileManager.block_types.has(type),
 		"No type found for block of type %s" % type
@@ -41,35 +51,57 @@ static func create_default_block(type: String, parent_idx: int) -> Dictionary:
 	_add_block(dict)
 	return dict
 
-static func create_block_from_dict(dict: Dictionary, parent_idx: int) -> void:
+static func create_block_from_dict(dict: Dictionary, parent_idx: int) -> void: ## creates a new block based on [param dict] to the block at index [param parent_idx]
 	dict.parent = parent_idx
 	_add_block(dict)
 
-static func set_property(idx: int, property: String, value: Variant, reset_property_list := true) -> void:
+static func set_property(idx: int, property: String, value: Variant, reset_property_list := true) -> void: ## sets [param property] of block at [param idx] to [param value]. [param reset_property_list] is used to prevent recursion by the property list, and shouldn't normally be used otherwise.
 	items[idx][property] = value
 	PropertyBus.property_changed.emit(idx, property, value, reset_property_list)
 
-static func get_property(idx: int, property: String) -> Variant:
+static func get_property(idx: int, property: String) -> Variant: ## returns the value of [param property] of block at [param idx]
 	return items[idx].get(property, FileManager.get_block_config_by_type(items[idx].type).get_value("properties", property))
 
-static func get_idx_by_child(parent: int, child_idx: int) -> int:
+static func get_title(idx: int) -> String:
+	return items[idx].title
+
+static func get_indents(idx: int) -> String:
+	return items[idx].indents
+
+static func get_type(idx: int) -> String:
+	return items[idx].type
+
+static func get_bbcode_stripped_title(idx: int) -> String:
+	return items[idx].stripped_title
+
+static func get_idx_by_child(parent: int, child_idx: int) -> int: ## returns the global index of the block based on it's index within it's parent
 	return items[parent].children[child_idx]
 
-static func remove_block(idx: int) -> void:
+static func remove_block(idx: int) -> void: ## removes the block at [param idx]
 	var dict = items[idx]
 	signals.pre_block_removed.emit(dict, idx)
 	items[dict.parent].children.erase(idx)
+	for i in dict.children:
+		remove_block(i)
 	items.remove_at(idx)
 
-static func get_valid_parent(parent_idx: int) -> int:
+static func get_valid_parent(parent_idx: int) -> int: ## utility function that returns [param parent_idx] if the block at that index can have children, otherwise it's parent's index.
 	var cfg = FileManager.get_block_config_by_type(items[parent_idx].type)
 	if !cfg.get_value("logic", "can_have_children", false):
 		return items[parent_idx].parent
 	return parent_idx
+
+static func get_sorted_blocks() -> Array[int]:
+	if items.is_empty(): return []
+	var arr: Array[int] = []
+	_add_i_and_children(arr, _root)
+	return arr
+
+static func get_root() -> int:
+	return _root
 #endregion
 
 #region PRIVATE FUNCS
-
 static func _get_block_parse_line(type: String) -> String:
 	var cfg = FileManager.get_block_config_by_type(type)
 	return "[{type}] New {name}".format({"type": type, "name": cfg.get_value("display", "display_name")})
@@ -80,5 +112,12 @@ static func _add_block(dict: Dictionary) -> void:
 	var idx = items.size() - 1
 	if dict.parent != -1:
 		items[dict.parent].children.append(idx)
+	else:
+		_root = idx
 	signals.block_added.emit(dict, idx)
+
+static func _add_i_and_children(arr: Array[int], i: int) -> void:
+	arr.append(i)
+	for j in items[i].get(&"children", []):
+		_add_i_and_children(arr, j)
 #endregion

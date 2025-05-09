@@ -104,3 +104,34 @@ static func format_title(title: String) -> String:
 		#temp_result = temp_result.substr(superscripts[-1] + 1)
 	#for i in superscripts:
 	return result
+
+static func format_file_name(file_name: String) -> String:
+	var time = Time.get_datetime_dict_from_system()
+	var timezone = Time.get_time_zone_from_system()
+	print("DATETIME DICT: ", time)
+	@warning_ignore("integer_division")
+	var dict = {
+		"Root": TreeManager.get_property(TreeManager.get_root(), "title"),
+		"RootAsSnake": String(TreeManager.get_property(TreeManager.get_root(), "title")).to_snake_case(),
+		"RootAsPascal": String(TreeManager.get_property(TreeManager.get_root(), "title")).to_pascal_case(),
+		"dd": str(time.day),
+		"MM": str(time.month),
+		"MMM": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Nov", "Dec"][time.month],
+		"MMMM": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "November", "December"][time.month],
+		"yy": str(time.year).substr(2),
+		"yyyy": str(time.year),
+		"H": str(time.hour),
+		"HH": "%02f" % time.hour,
+		"h": str(wrapi(time.hour, 1, 12)),
+		"m": str(time.minute),
+		"mm": "%02f" % time.minute,
+		"s": str(time.second),
+		"ss": "%02f" % time.second,
+		"AP": ["AM", "PM"][int(time.hour) / 12],
+		"ap": ["am", "pm"][int(time.hour) / 12],
+		"t": timezone.name,
+		"tt": Time.get_offset_string_from_offset_minutes(timezone.bias).replace(":", ""),
+		"ttt": Time.get_offset_string_from_offset_minutes(timezone.bias),
+		"UnixTime": Time.get_unix_time_from_datetime_dict(time)
+	}
+	return file_name.format(dict)

@@ -16,6 +16,8 @@ func _block_added(dict: Dictionary, idx: int) -> void:
 	else:
 		tree_item = create_item(tree_items[dict.parent])
 	tree_item.set_text(0, dict.stripped_title)
+	tree_item.set_icon(0, load(FileManager.get_block_config_by_type(dict.type).get_value("display", "icon")))
+	tree_item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD_SMART)
 	tree_items[idx] = tree_item
 
 func _item_selected() -> void:

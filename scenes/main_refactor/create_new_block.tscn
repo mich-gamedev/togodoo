@@ -229,6 +229,7 @@ theme_override_constants/icon_max_width = 16
 text = "Cancel"
 
 [node name="Create" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10

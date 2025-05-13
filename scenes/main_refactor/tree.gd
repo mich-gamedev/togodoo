@@ -23,3 +23,9 @@ func _block_added(dict: Dictionary, idx: int) -> void:
 
 func _item_selected() -> void:
 	block_selected.emit(tree_items.find_key(get_selected()))
+
+func add_block_to_selected(type: String) -> void:
+	TreeManager.create_default_block(
+		type, 
+		TreeManager.get_valid_parent(tree_items.find_key(get_selected()))
+	)

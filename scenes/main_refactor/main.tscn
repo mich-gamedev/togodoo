@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bhbm0n3du7i3x"]
+[gd_scene load_steps=26 format=3 uid="uid://bhbm0n3du7i3x"]
 
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_id72n"]
 [ext_resource type="Script" uid="uid://bf4n7yn75rnlm" path="res://scenes/main_refactor/main.gd" id="2_hwhah"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c87cuwvf2dpa7" path="res://scenes/options.gd" id="4_p58oo"]
 [ext_resource type="Script" uid="uid://crgds744cw8cx" path="res://scenes/help.gd" id="5_01a8x"]
 [ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/themes/garbage_can.svg" id="6_5g2ds"]
+[ext_resource type="Script" uid="uid://bb10i8o51uhk6" path="res://scenes/main_refactor/destroy_block.gd" id="7_01a8x"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="7_wxjdr"]
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="8_c5x5u"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="9_hlpmk"]
@@ -351,6 +352,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 icon = ExtResource("6_5g2ds")
+script = ExtResource("7_01a8x")
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2

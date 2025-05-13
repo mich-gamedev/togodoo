@@ -91,6 +91,10 @@ static func get_valid_parent(parent_idx: int) -> int: ## utility function that r
 		return items[parent_idx].parent
 	return parent_idx
 
+static func can_spawn(type: String) -> bool:
+	if !items.is_empty(): return true
+	return FileManager.get_block_config(FileManager.block_types[type]).get_value("logic", "can_have_children", false)
+
 static func get_sorted_blocks() -> Array[int]:
 	if items.is_empty(): return []
 	var arr: Array[int] = []

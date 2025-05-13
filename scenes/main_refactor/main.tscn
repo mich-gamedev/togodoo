@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bhbm0n3du7i3x"]
+[gd_scene load_steps=25 format=3 uid="uid://bhbm0n3du7i3x"]
 
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/menu.theme" id="1_id72n"]
 [ext_resource type="Script" uid="uid://bf4n7yn75rnlm" path="res://scenes/main_refactor/main.gd" id="2_hwhah"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="9_hlpmk"]
 [ext_resource type="Script" uid="uid://cc5rx6ikarprc" path="res://scenes/main_refactor/tree.gd" id="9_hwhah"]
 [ext_resource type="Script" uid="uid://bbt4lmrvjp5vv" path="res://scenes/main_refactor/block_display.gd" id="10_id72n"]
+[ext_resource type="Script" uid="uid://c4h0sw7eorpoo" path="res://scenes/main_refactor/new_block.gd" id="10_p58oo"]
 [ext_resource type="Texture2D" uid="uid://7mqamsoh1bka" path="res://resources/themes/search.svg" id="11_m0l54"]
 [ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="12_ra7wm"]
 [ext_resource type="Script" uid="uid://bcvxare0clepk" path="res://scenes/main_refactor/property_list.gd" id="14_loyev"]
@@ -379,6 +380,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 icon = ExtResource("9_hlpmk")
+script = ExtResource("10_p58oo")
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer"]
 layout_mode = 2

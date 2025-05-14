@@ -4,6 +4,7 @@ var blocks: Dictionary[int, Node]
 
 func _ready() -> void:
 	TreeManager.signals.block_added.connect(_block_added)
+	TreeManager.signals.pre_block_removed.connect(_block_removed)
 
 func _block_added(dict: Dictionary, idx: int) -> void:
 	var cfg = FileManager.get_block_config_by_type(dict.type)
@@ -17,3 +18,8 @@ func _block_added(dict: Dictionary, idx: int) -> void:
 	for block: Block in inst.find_children("*", "Block"):
 		block.args = dict
 	inst.propagate_call("_update_block")
+
+func _block_removed(dict: Dictionary, idx: int) -> void:
+	var block = blocks[idx]
+	blocks.erase(idx)
+	block.queue_free()

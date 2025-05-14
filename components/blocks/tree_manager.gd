@@ -6,8 +6,9 @@ class Signals:
 static var signals = Signals.new() ## an object that holds signals for the [TreeManager] singleton. see [TreeManager.Signals]
 ## stores the info of all currently loaded blocks, can be used for more advanced things not covered by methods if needed.[br]
 ## [color=yellow]Warning:[/color] the order of blocks is unstable and can be out of order from the tree. [br]
-static var items: Array[Dictionary]
+static var items: Dictionary[int, Dictionary]
 static var _root: int = -1 ## the index of the root node, or [code]-1[/code] if no root was yet created.
+static var _itr: int = 0
 
 #region PUBLIC FUNCS
 
@@ -78,12 +79,14 @@ static func get_idx_by_child(parent: int, child_idx: int) -> int: ## returns the
 	return items[parent].children[child_idx]
 
 static func remove_block(idx: int) -> void: ## removes the block at [param idx]
+	print("deleting ", items[idx].title)
 	var dict = items[idx]
+	var stack_items = items
 	signals.pre_block_removed.emit(dict, idx)
 	items[dict.parent].children.erase(idx)
 	for i in dict.children:
 		remove_block(i)
-	items.remove_at(idx)
+	items.erase(idx)
 
 static func get_valid_parent(parent_idx: int) -> int: ## utility function that returns [param parent_idx] if the block at that index can have children, otherwise it's parent's index.
 	var cfg = FileManager.get_block_config_by_type(items[parent_idx].type)
@@ -112,13 +115,14 @@ static func _get_block_parse_line(type: String) -> String:
 
 static func _add_block(dict: Dictionary) -> void:
 	dict.indents = (items[dict.parent].indents + 1) if dict.parent != -1 else 0
-	items.append(dict)
-	var idx = items.size() - 1
+	items[_itr] = dict
+	var idx = _itr
 	if dict.parent != -1:
 		items[dict.parent].children.append(idx)
 	else:
 		_root = idx
 	signals.block_added.emit(dict, idx)
+	_itr += 1
 
 static func _add_i_and_children(arr: Array[int], i: int) -> void:
 	arr.append(i)

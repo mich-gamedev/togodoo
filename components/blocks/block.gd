@@ -23,7 +23,7 @@ func get_arg(name: String) -> Variant:
 func get_idx() -> int:
 	if Main.node:
 		return Main.node.items.find(args)
-	return TreeManager.items.find(args)
+	return TreeManager.items.find_key(args)
 
 func set_arg(name: String, value: Variant, reset_property_list: bool = true) -> void:
 	PropertyBus.property_changed.emit.call_deferred(

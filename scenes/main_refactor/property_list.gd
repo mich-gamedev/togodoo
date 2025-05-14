@@ -7,6 +7,7 @@ func _ready() -> void:
 
 func _block_selected(idx: int) -> void:
 	for i in get_children(): i.queue_free()
+	var stack_items = TreeManager.items
 	var cfg : ConfigFile = FileManager.get_block_config_by_type(TreeManager.items[idx].type)
 	for key in cfg.get_section_keys("properties"):
 		var tags = String(cfg.get_value("usage", key, "none")).split(",")

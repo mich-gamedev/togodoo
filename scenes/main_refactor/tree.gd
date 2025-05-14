@@ -10,6 +10,7 @@ func _ready() -> void:
 	set_column_expand(1, false)
 	TreeManager.signals.block_added.connect(_block_added)
 	TreeManager.signals.pre_block_removed.connect(_block_removed)
+	PropertyBus.property_changed.connect(_property_changed)
 	item_selected.connect(_item_selected)
 	item_edited.connect(_item_edited)
 
@@ -25,6 +26,12 @@ func _block_added(dict: Dictionary, idx: int) -> void:
 	tree_item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD_SMART)
 	tree_items[idx] = tree_item
 
+	var cfg = FileManager.get_block_config_by_type(dict.type)
+	for i in cfg.get_section_keys("properties"):
+		var value = TreeManager.get_property(idx, i)
+		if String(cfg.get_value("usage", i)).contains("tree_bg_color") and value != cfg.get_value("properties", i):
+			tree_item.set_icon_modulate(0, value)
+
 func _block_removed(dict: Dictionary, idx: int) -> void:
 	var item : TreeItem = tree_items[idx]
 	tree_items.erase(idx)
@@ -34,6 +41,12 @@ func _item_selected() -> void:
 	block_selected.emit(tree_items.find_key(get_selected()))
 	if last_selected: last_selected.set_editable(0, false)
 	get_selected().set_editable.call_deferred(0, true)
+	last_selected = get_selected()
+
+func _property_changed(idx: int, property: StringName, value: Variant, reset_property_list: bool) -> void:
+	var cfg = FileManager.get_block_config_by_type(TreeManager.items[idx].type)
+	if String(cfg.get_value("usage", property)).contains("tree_bg_color") and value != cfg.get_value("properties", property):
+		tree_items[idx].set_icon_modulate(0, value)
 
 func add_block_to_selected(type: String) -> void:
 	TreeManager.create_default_block(

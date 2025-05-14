@@ -256,6 +256,16 @@ popup/item_2/text = "join discord server"
 popup/item_2/id = 2
 script = ExtResource("5_01a8x")
 
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("9_hlpmk")
+
 [node name="SaveIndicator" type="Label" parent="MarginContainer/VBoxContainer/Control"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)

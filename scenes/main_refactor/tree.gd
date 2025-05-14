@@ -25,6 +25,7 @@ func _block_added(dict: Dictionary, idx: int) -> void:
 	tree_item.set_icon_modulate(0, Color("cdd6f4"))
 	tree_item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD_SMART)
 	tree_items[idx] = tree_item
+	if !get_selected(): set_selected(tree_item, 0)
 
 	var cfg = FileManager.get_block_config_by_type(dict.type)
 	for i in cfg.get_section_keys("properties"):

@@ -7,6 +7,7 @@
 offset_right = 1.0
 offset_bottom = 20.0
 size_flags_horizontal = 3
+mouse_filter = 0
 script = ExtResource("1_k258f")
 
 [node name="BulletPoint" type="Label" parent="."]
@@ -15,6 +16,7 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 bbcode_enabled = true
 fit_content = true
 

@@ -58,13 +58,14 @@ theme_type_variation = &"PanelLabelBG"
 [node name="Block" type="Node" parent="Page"]
 script = ExtResource("2_uefg2")
 
-[node name="MarginContainer2" type="MarginContainer" parent="Page"]
+[node name="HoverRect" type="MarginContainer" parent="Page"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="ChildContainer" type="VBoxContainer" parent="Page/MarginContainer2"]
+[node name="ChildContainer" type="VBoxContainer" parent="Page/HoverRect"]
 unique_name_in_owner = true
 layout_mode = 2

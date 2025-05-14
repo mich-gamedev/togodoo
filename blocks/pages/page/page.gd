@@ -2,7 +2,7 @@ extends PanelContainer
 
 @onready var block: Block = $Block
 @onready var title: Control = $MarginContainer/Control
-@onready var margin: MarginContainer = $MarginContainer2
+@onready var margin: MarginContainer = %HoverRect
 
 func _update_block() -> void:
 	print("Page updated")

@@ -2,14 +2,24 @@ extends VBoxContainer
 
 var blocks: Dictionary[int, Node]
 
+@onready var tree: BlockTree = %Tree
+
 func _ready() -> void:
 	TreeManager.signals.block_added.connect(_block_added)
 	TreeManager.signals.pre_block_removed.connect(_block_removed)
 
 func _block_added(dict: Dictionary, idx: int) -> void:
 	var cfg = FileManager.get_block_config_by_type(dict.type)
-	var inst : Node = load(cfg.get_value("logic", "scene")).instantiate()
+	var inst : Control = load(cfg.get_value("logic", "scene")).instantiate()
 	inst.name = String(dict.title).to_pascal_case()
+	if inst.has_node(^"%HoverRect"):
+		inst.get_node(^"%HoverRect").mouse_entered.connect(_mouse_entered.bind(idx))
+		inst.get_node(^"%HoverRect").mouse_exited.connect(_mouse_exited.bind(idx))
+		inst.get_node(^"%HoverRect").gui_input.connect(_display_input.bind(idx))
+	else:
+		inst.mouse_entered.connect(_mouse_entered.bind(idx))
+		inst.mouse_exited.connect(_mouse_exited.bind(idx))
+		inst.gui_input.connect(_display_input.bind(idx))
 	blocks[idx] = inst
 	if dict.parent == -1:
 		add_child(inst)
@@ -23,3 +33,23 @@ func _block_removed(dict: Dictionary, idx: int) -> void:
 	var block = blocks[idx]
 	blocks.erase(idx)
 	block.queue_free()
+
+var twn: Tween
+
+func _mouse_entered(idx: int) -> void:
+	if twn: twn.kill()
+	twn = create_tween()
+	twn.tween_method(
+		func(clr): tree.tree_items[idx].set_custom_bg_color(0, clr, true),
+		Color("#1e2030"), Color("#363a4f"),
+		0.1
+	)
+
+func _mouse_exited(idx: int) -> void:
+	if twn: twn.kill()
+	tree.tree_items[idx].clear_custom_bg_color(0)
+
+func _display_input(event: InputEvent, idx: int) -> void:
+	if event is InputEventMouseButton: if event.button_index == MOUSE_BUTTON_LEFT:
+		tree.set_selected(tree.tree_items[idx], 0)
+		tree.grab_focus.call_deferred()

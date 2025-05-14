@@ -4,11 +4,14 @@ var tree_items: Dictionary[int, TreeItem]
 
 signal block_selected(idx: int)
 
+var last_selected: TreeItem
+
 func _ready() -> void:
 	set_column_expand(1, false)
 	TreeManager.signals.block_added.connect(_block_added)
 	TreeManager.signals.pre_block_removed.connect(_block_removed)
 	item_selected.connect(_item_selected)
+	item_edited.connect(_item_edited)
 
 func _block_added(dict: Dictionary, idx: int) -> void:
 	var tree_item: TreeItem
@@ -29,6 +32,8 @@ func _block_removed(dict: Dictionary, idx: int) -> void:
 
 func _item_selected() -> void:
 	block_selected.emit(tree_items.find_key(get_selected()))
+	if last_selected: last_selected.set_editable(0, false)
+	get_selected().set_editable.call_deferred(0, true)
 
 func add_block_to_selected(type: String) -> void:
 	TreeManager.create_default_block(
@@ -38,3 +43,6 @@ func add_block_to_selected(type: String) -> void:
 
 func destroy_selected() -> void:
 	TreeManager.remove_block(tree_items.find_key(get_selected()))
+
+func _item_edited() -> void:
+	TreeManager.set_property(tree_items.find_key(get_selected()), "title", get_selected().get_text(0))

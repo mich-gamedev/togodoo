@@ -17,11 +17,13 @@ var twn: Tween
 
 func _mouse_entered() -> void:
 	var idx = tree.tree_items.find_key(tree.get_selected())
+	var item = tree.tree_items[TreeManager.get_valid_parent(idx)]
+	if item.is_selected(0): return
 	if twn: twn.kill()
 	twn = create_tween()
 	twn.tween_method(
-		func(clr): tree.tree_items[TreeManager.get_valid_parent(idx)].set_custom_bg_color(0, clr),
-		Color("#1e2030"), Color("#363a4f"),
+		func(clr): item.set_custom_bg_color(0, clr),
+		Color("#1e2030"), Color("#24273a"),
 		0.2
 	)
 

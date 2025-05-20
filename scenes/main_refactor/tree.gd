@@ -10,6 +10,7 @@ func _ready() -> void:
 	set_column_expand(1, false)
 	TreeManager.signals.block_added.connect(_block_added)
 	TreeManager.signals.pre_block_removed.connect(_block_removed)
+	TreeManager.signals.block_moved.connect(_block_moved)
 	PropertyBus.property_changed.connect(_property_changed)
 	item_selected.connect(_item_selected)
 	item_edited.connect(_item_edited)
@@ -46,7 +47,7 @@ func _item_selected() -> void:
 
 func _property_changed(idx: int, property: StringName, value: Variant, reset_property_list: bool) -> void:
 	var cfg = FileManager.get_block_config_by_type(TreeManager.items[idx].type)
-	if String(cfg.get_value("usage", property)).contains("tree_bg_color") and value != cfg.get_value("properties", property):
+	if cfg.has_section_key("usage", property) and String(cfg.get_value("usage", property)).contains("tree_bg_color") and value != cfg.get_value("properties", property):
 		tree_items[idx].set_icon_modulate(0, value)
 
 func add_block_to_selected(type: String) -> void:
@@ -60,3 +61,20 @@ func destroy_selected() -> void:
 
 func _item_edited() -> void:
 	TreeManager.set_property(tree_items.find_key(get_selected()), "title", get_selected().get_text(0))
+
+func _get_drag_data(at_position: Vector2) -> Variant:
+	return get_item_at_position(get_local_mouse_position())
+
+func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+	if !(data is TreeItem): return false
+	drop_mode_flags = DROP_MODE_INBETWEEN
+	return !get_drop_section_at_position(at_position) == -100
+
+func _drop_data(at_position: Vector2, data: Variant) -> void:
+	if data is TreeItem:
+		var section = get_drop_section_at_position(at_position)
+		TreeManager.move_block(tree_items.find_key(data), tree_items.find_key(get_item_at_position(at_position)) + section)
+
+func _block_moved(dict: Dictionary, idx: int, from: int, to: int) -> void:
+	tree_items[from].remove_child(tree_items[idx])
+	tree_items[to].add_child(tree_items[idx])

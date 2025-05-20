@@ -3,6 +3,7 @@ class_name TreeManager extends Object
 class Signals:
 	signal block_added(dict: Dictionary, idx: int)
 	signal pre_block_removed(dict: Dictionary, idx: int)
+	signal block_moved(dict: Dictionary, idx: int, from: int, to: int)
 static var signals = Signals.new() ## an object that holds signals for the [TreeManager] singleton. see [TreeManager.Signals]
 ## stores the info of all currently loaded blocks, can be used for more advanced things not covered by methods if needed.[br]
 ## [color=yellow]Warning:[/color] the order of blocks is unstable and can be out of order from the tree. [br]
@@ -96,6 +97,13 @@ static func get_valid_parent(parent_idx: int) -> int: ## utility function that r
 	if !cfg.get_value("logic", "can_have_children", false):
 		return items[parent_idx].parent
 	return parent_idx
+
+static func move_block(idx: int, to: int) -> void:
+	var from: int = items[idx].parent
+	items[idx].parent = to
+	items[from].children.erase(idx)
+	items[to].children.append(idx)
+	signals.block_moved.emit(items[idx], idx, from, to)
 
 static func can_spawn(type: String) -> bool:
 	if !items.is_empty(): return true

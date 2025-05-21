@@ -32,3 +32,4 @@ fit_content = true
 script = ExtResource("2_05vk0")
 
 [connection signal="toggled" from="Control/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="meta_clicked" from="RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]

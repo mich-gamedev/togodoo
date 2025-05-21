@@ -15,3 +15,5 @@ script = ExtResource("1_6bj5u")
 
 [node name="Block" type="Node" parent="."]
 script = ExtResource("2_3kogx")
+
+[connection signal="meta_clicked" from="." to="." method="_on_meta_clicked"]

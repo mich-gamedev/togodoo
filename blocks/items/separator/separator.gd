@@ -15,3 +15,6 @@ func _update_block() -> void:
 	else:
 		title.show()
 		right.show()
+
+func _on_title_meta_clicked(meta: Variant) -> void:
+	OS.shell_open(meta)

@@ -22,3 +22,5 @@ fit_content = true
 
 [node name="Block" type="Node" parent="."]
 script = ExtResource("2_6wqrc")
+
+[connection signal="meta_clicked" from="RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]

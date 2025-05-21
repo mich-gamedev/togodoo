@@ -11,3 +11,6 @@ func _update_block() -> void:
 
 func _on_check_box_toggled(toggled_on: bool) -> void:
 	block.set_arg("state", toggled_on, true)
+
+func _on_rich_text_label_meta_clicked(meta: Variant) -> void:
+	OS.shell_open(meta)

@@ -12,3 +12,6 @@ func _update_block() -> void:
 		text = "[symbol_coloring]%s" % block.get_title()
 	else:
 		text = block.get_title()
+
+func _on_meta_clicked(meta: Variant) -> void:
+	OS.shell_open(meta)

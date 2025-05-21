@@ -28,3 +28,5 @@ size_flags_horizontal = 3
 
 [node name="Block" type="Node" parent="."]
 script = ExtResource("2_8nher")
+
+[connection signal="meta_clicked" from="Title" to="." method="_on_title_meta_clicked"]

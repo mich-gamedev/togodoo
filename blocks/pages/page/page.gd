@@ -5,7 +5,6 @@ extends PanelContainer
 @onready var margin: MarginContainer = %HoverRect
 
 func _update_block() -> void:
-	print("Page updated")
 	%TitleLabel.text = block.get_title()
 	%ChildContainer.add_theme_constant_override(&"separation", block.get_arg("vertical_spacing"))
 	title.visible = block.get_arg("show_title")

@@ -10,4 +10,6 @@ func _paste(caret_index: int) -> void:
 	)
 	print("PASTE RESULT: ", result)
 	insert_text_at_caret(result)
-	set_caret_column(get_caret_column() - 6)
+	var search = regex.search(copy)
+	if search and search.get_string() == copy:
+		set_caret_column(get_caret_column() - 6)

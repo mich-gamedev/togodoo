@@ -9,8 +9,10 @@ custom_minimum_size = Vector2(0, 18)
 offset_right = 1.0
 offset_bottom = 18.0
 size_flags_horizontal = 3
+focus_mode = 2
 bbcode_enabled = true
 fit_content = true
+selection_enabled = true
 script = ExtResource("1_6bj5u")
 
 [node name="Block" type="Node" parent="."]

@@ -20,7 +20,6 @@ static func parse_line(line: String) -> Dictionary:
 			char = "<SPACE>"
 		filtered_args += char
 	var tags := Array(filtered_args.replace(r"\n", "\n").split(" "))
-	print("TAGS: ", tags)
 	args.type = tags.pop_front()
 	for i: String in tags:
 		var expression = Expression.new()
@@ -33,7 +32,7 @@ static func parse_line(line: String) -> Dictionary:
 	regex.compile("\\[.*?\\]") #strips bbcode tags
 	args.stripped_title = regex.sub(args.title, "", true)
 
-	print(args)
+	print("	".repeat(args.indents), args.title, " =>  ", args)
 
 	return args
 

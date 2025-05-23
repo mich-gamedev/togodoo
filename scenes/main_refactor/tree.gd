@@ -63,18 +63,43 @@ func _item_edited() -> void:
 	TreeManager.set_property(tree_items.find_key(get_selected()), "title", get_selected().get_text(0))
 
 func _get_drag_data(at_position: Vector2) -> Variant:
-	return get_item_at_position(get_local_mouse_position())
+	var item = get_item_at_position(at_position)
+	if item == get_root(): return null
+	if get_drop_section_at_position(at_position) == -100: return null
+	return get_item_at_position(at_position)
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	if !(data is TreeItem): return false
-	drop_mode_flags = DROP_MODE_INBETWEEN
-	return !get_drop_section_at_position(at_position) == -100
+	if !tree_items.values().has(data): return false
+	drop_mode_flags = DROP_MODE_INBETWEEN | DROP_MODE_ON_ITEM
+	var section = get_drop_section_at_position(at_position)
+	match section:
+		-1: return get_root() != data
+		0:  return TreeManager.get_config(tree_items.find_key(get_item_at_position(at_position))).get_value("logic", "can_have_children", false)
+		1:  return true
+	return false # won't be reached
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
 	if data is TreeItem:
 		var section = get_drop_section_at_position(at_position)
-		TreeManager.move_block(tree_items.find_key(data), tree_items.find_key(get_item_at_position(at_position)) + section)
+		match section:
+			-1, 1: # between
+				var to_item = get_item_at_position(at_position)
+				var to_idx = tree_items.find_key(to_item)
+				var idx  = tree_items.find_key(data)
+				var parent = TreeManager.get_parent(to_idx)
+				var at = TreeManager.get_children(parent).find(to_idx) #+ (0 if section == -1 else 1)#section
+				print("PRE MOVE CHILDREN:", TreeManager.get_children(parent).map(func(i): return TreeManager.get_title(i)))
+				print("PLACING: %s, %d, at = %d" % [TreeManager.get_title(to_idx), section, at])
+				TreeManager.move_block(idx, parent, at)
+			0: # onto
+				var to_item = get_item_at_position(at_position)
+				var to_idx = tree_items.find_key(to_item)
+				var idx  = tree_items.find_key(data)
+				TreeManager.move_block(idx, to_idx)
 
-func _block_moved(dict: Dictionary, idx: int, from: int, to: int) -> void:
+func _block_moved(dict: Dictionary, idx: int, from: int, to: int, at: int) -> void:
 	tree_items[from].remove_child(tree_items[idx])
 	tree_items[to].add_child(tree_items[idx])
+	if at != -1:
+		tree_items[idx].move_after(tree_items[TreeManager.get_children(to)[at - 1]])

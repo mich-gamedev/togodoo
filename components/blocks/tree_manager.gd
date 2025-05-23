@@ -3,7 +3,7 @@ class_name TreeManager extends Object
 class Signals:
 	signal block_added(dict: Dictionary, idx: int)
 	signal pre_block_removed(dict: Dictionary, idx: int)
-	signal block_moved(dict: Dictionary, idx: int, from: int, to: int)
+	signal block_moved(dict: Dictionary, idx: int, from: int, to: int, at: int)
 static var signals = Signals.new() ## an object that holds signals for the [TreeManager] singleton. see [TreeManager.Signals]
 ## stores the info of all currently loaded blocks, can be used for more advanced things not covered by methods if needed.[br]
 ## [color=yellow]Warning:[/color] the order of blocks is unstable and can be out of order from the tree. [br]
@@ -16,7 +16,7 @@ static var _itr: int = 0
 static func load_file(path: String) -> void: ## adds all the blocks from a project file at [param path]
 	assert(FileAccess.file_exists(path), "File at path \'%s\' couldn't be found." % path)
 	var file = FileAccess.open(path, FileAccess.READ)
-	print(error_string(FileAccess.get_open_error()))
+	print("PROJECT LOAD ERROR: ", error_string(FileAccess.get_open_error()))
 	var i: int
 	while file.get_position() < file.get_length():
 		var line = file.get_line()
@@ -67,11 +67,17 @@ static func get_property(idx: int, property: String) -> Variant: ## returns the 
 static func get_title(idx: int) -> String:
 	return items[idx].title
 
-static func get_indents(idx: int) -> String:
+static func get_indents(idx: int) -> int:
 	return items[idx].indents
 
 static func get_type(idx: int) -> String:
 	return items[idx].type
+
+static func get_parent(idx: int) -> int:
+	return items[idx].parent
+
+static func get_children(idx: int) -> Array:
+	return items[idx].get(&"children", [])
 
 static func get_bbcode_stripped_title(idx: int) -> String:
 	return items[idx].stripped_title
@@ -98,12 +104,22 @@ static func get_valid_parent(parent_idx: int) -> int: ## utility function that r
 		return items[parent_idx].parent
 	return parent_idx
 
-static func move_block(idx: int, to: int) -> void:
+static func get_config(idx: int) -> ConfigFile:
+	return FileManager.get_block_config_by_type(items[idx].type)
+
+static func move_block(idx: int, to_parent: int, at: int = -1) -> void:
 	var from: int = items[idx].parent
-	items[idx].parent = to
+	items[idx].parent = to_parent
 	items[from].children.erase(idx)
-	items[to].children.append(idx)
-	signals.block_moved.emit(items[idx], idx, from, to)
+	items[idx].indents = get_indents(to_parent) + 1
+	print("NEW PARENT: ", get_title(to_parent))
+	if at == -1:
+		Array(items[to_parent].children).append(idx)
+	else:
+		Array(items[to_parent].children).insert(at, idx)
+	_fix_child_indents(idx)
+	print("└─NEW CHILDREN: ", get_children(to_parent).map(func(i): return get_title(i)))
+	signals.block_moved.emit(items[idx], idx, from, to_parent, at)
 
 static func can_spawn(type: String) -> bool:
 	if !items.is_empty(): return true
@@ -139,4 +155,8 @@ static func _add_i_and_children(arr: Array[int], i: int) -> void:
 	arr.append(i)
 	for j in items[i].get(&"children", []):
 		_add_i_and_children(arr, j)
+
+static func _fix_child_indents(idx: int) -> void:
+	for i in get_children(idx):
+		items[i].indents = items[idx].indents + 1
 #endregion

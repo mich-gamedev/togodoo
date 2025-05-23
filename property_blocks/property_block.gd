@@ -23,7 +23,6 @@ func display_value(value: Variant) -> void:
 		value_node.call(custom_function, value)
 	elif value_node and value_property in value_node:
 		value_node.set(value_property, value)
-		print("set property value: ", value_node[value_property])
 
 	if reset_button: reset_button.visible = value_node[value_property] != default_value
 	display_requested.emit(value)

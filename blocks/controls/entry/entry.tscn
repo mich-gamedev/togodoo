@@ -24,9 +24,11 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
+focus_mode = 2
 bbcode_enabled = true
 text = "adgadgadg"
 fit_content = true
+selection_enabled = true
 
 [node name="Block" type="Node" parent="."]
 script = ExtResource("2_05vk0")

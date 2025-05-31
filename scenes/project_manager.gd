@@ -29,7 +29,7 @@ func _ready() -> void:
 	for i in args:
 		if i.get_slice("=", 0) == "--project":
 			FileManager.file_path = i.get_slice("=", 1)
-			get_tree().change_scene_to_file.call_deferred("res://scenes/main_refactor/main.tscn")
+			get_tree().change_scene_to_file.call_deferred("res://scenes/main.tscn")
 	for i in DirAccess.get_files_at("res://project_templates/"):
 		var inst = BTN_TEMPLATE.instantiate()
 		inst.template_path = "res://project_templates/%s" % i

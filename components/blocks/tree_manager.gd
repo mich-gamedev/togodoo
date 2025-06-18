@@ -16,7 +16,7 @@ static var _itr: int = 0
 static func load_file(path: String) -> void: ## adds all the blocks from a project file at [param path]
 	assert(FileAccess.file_exists(path), "File at path \'%s\' couldn't be found." % path)
 	var file = FileAccess.open(path, FileAccess.READ)
-	print("PROJECT LOAD ERROR: ", error_string(FileAccess.get_open_error()))
+	print("PROJECT LOAD STATUS: ", error_string(FileAccess.get_open_error()))
 	var i: int
 	while file.get_position() < file.get_length():
 		var line = file.get_line()

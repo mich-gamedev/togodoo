@@ -32,7 +32,7 @@ static func parse_line(line: String) -> Dictionary:
 	regex.compile("\\[.*?\\]") #strips bbcode tags
 	args.stripped_title = regex.sub(args.title, "", true)
 
-	print("	".repeat(args.indents), args.title, " =>  ", args)
+	print_rich("	".repeat(args.indents), args.title, "[color=#FFFFFF6F] =>  ", args)
 
 	return args
 

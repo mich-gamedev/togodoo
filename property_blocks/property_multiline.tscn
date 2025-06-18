@@ -1,8 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvofwlktvbcts"]
+[gd_scene load_steps=8 format=3 uid="uid://dvofwlktvbcts"]
 
 [ext_resource type="Script" uid="uid://caqtj05jw8now" path="res://property_blocks/property_block.gd" id="1_mvx66"]
 [ext_resource type="Texture2D" uid="uid://d3y5186u78brm" path="res://resources/themes/redo.svg" id="2_llt7q"]
 [ext_resource type="Script" uid="uid://2rp8m8jko3xo" path="res://property_blocks/text_edit.gd" id="3_qbbyf"]
+[ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="4_omguc"]
+[ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="5_g8fbg"]
+
+[sub_resource type="Resource" id="Resource_2n2f0"]
+script = ExtResource("5_g8fbg")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_lojyk"]
+script = ExtResource("5_g8fbg")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
 
 [node name="VBoxContainer" type="VBoxContainer" node_paths=PackedStringArray("value_node", "reset_button")]
 offset_right = 256.0
@@ -39,4 +53,84 @@ scroll_smooth = true
 draw_tabs = true
 script = ExtResource("3_qbbyf")
 
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+vertical_scroll_mode = 0
+script = ExtResource("4_omguc")
+wheel_scroll_damper = SubResource("Resource_2n2f0")
+dragging_scroll_damper = SubResource("Resource_lojyk")
+metadata/_custom_type_script = "uid://dfdtyckl77df4"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SmoothScrollContainer"]
+layout_mode = 2
+
+[node name="Bold" type="Button" parent="SmoothScrollContainer/HBoxContainer2"]
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ButtonWithPanel"
+text = " "
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SmoothScrollContainer/HBoxContainer2/Bold"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 42.0
+offset_bottom = 42.0
+mouse_filter = 1
+bbcode_enabled = true
+text = "[b]b"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Italics" type="Button" parent="SmoothScrollContainer/HBoxContainer2"]
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ButtonWithPanel"
+text = " "
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SmoothScrollContainer/HBoxContainer2/Italics"]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 42.0
+offset_bottom = 42.0
+mouse_filter = 1
+bbcode_enabled = true
+text = "[i]i"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Underline" type="Button" parent="SmoothScrollContainer/HBoxContainer2"]
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ButtonWithPanel"
+text = " "
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SmoothScrollContainer/HBoxContainer2/Underline"]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 42.0
+offset_bottom = 42.0
+mouse_filter = 1
+bbcode_enabled = true
+text = "[u]u"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Center" type="Button" parent="SmoothScrollContainer/HBoxContainer2"]
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ButtonWithPanel"
+text = "center"
+
+[node name="Color" type="Button" parent="SmoothScrollContainer/HBoxContainer2"]
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ButtonWithPanel"
+text = "color"
+
 [connection signal="text_changed" from="TextEdit" to="." method="property_change_emit"]
+[connection signal="pressed" from="SmoothScrollContainer/HBoxContainer2/Bold" to="TextEdit" method="_on_bold_pressed"]
+[connection signal="pressed" from="SmoothScrollContainer/HBoxContainer2/Italics" to="TextEdit" method="_on_italics_pressed"]
+[connection signal="pressed" from="SmoothScrollContainer/HBoxContainer2/Underline" to="TextEdit" method="_on_underline_pressed"]
+[connection signal="pressed" from="SmoothScrollContainer/HBoxContainer2/Center" to="TextEdit" method="_on_center_pressed"]
+[connection signal="pressed" from="SmoothScrollContainer/HBoxContainer2/Color" to="TextEdit" method="_on_color_pressed"]

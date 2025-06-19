@@ -4,6 +4,7 @@ class Signals:
 	signal block_added(dict: Dictionary, idx: int)
 	signal pre_block_removed(dict: Dictionary, idx: int)
 	signal block_moved(dict: Dictionary, idx: int, from: int, to: int, at: int)
+	signal tree_changed
 static var signals = Signals.new() ## an object that holds signals for the [TreeManager] singleton. see [TreeManager.Signals]
 ## stores the info of all currently loaded blocks, can be used for more advanced things not covered by methods if needed.[br]
 ## [color=yellow]Warning:[/color] the order of blocks is unstable and can be out of order from the tree. [br]
@@ -97,6 +98,7 @@ static func remove_block(idx: int) -> void: ## removes the block at [param idx]
 	for i in dict.children:
 		remove_block(i)
 	items.erase(idx)
+	signals.tree_changed.emit()
 
 static func get_valid_parent(parent_idx: int) -> int: ## utility function that returns [param parent_idx] if the block at that index can have children, otherwise it's parent's index.
 	var cfg = FileManager.get_block_config_by_type(items[parent_idx].type)
@@ -120,6 +122,12 @@ static func move_block(idx: int, to_parent: int, at: int = -1) -> void:
 	_fix_child_indents(idx)
 	print("└─NEW CHILDREN: ", get_children(to_parent).map(func(i): return get_title(i)))
 	signals.block_moved.emit(items[idx], idx, from, to_parent, at)
+	signals.tree_changed.emit()
+	print("--- New Tree ---")
+	for i in get_sorted_blocks():
+		var item = items[i]
+		print_rich("	".repeat(item.indents), item.title)
+	print("---")
 
 static func can_spawn(type: String) -> bool:
 	if !items.is_empty(): return true
@@ -149,6 +157,7 @@ static func _add_block(dict: Dictionary) -> void:
 	else:
 		_root = idx
 	signals.block_added.emit(dict, idx)
+	signals.tree_changed.emit()
 	_itr += 1
 
 static func _add_i_and_children(arr: Array[int], i: int) -> void:

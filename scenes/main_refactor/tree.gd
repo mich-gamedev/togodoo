@@ -8,9 +8,10 @@ var last_selected: TreeItem
 
 func _ready() -> void:
 	set_column_expand(1, false)
-	TreeManager.signals.block_added.connect(_block_added)
-	TreeManager.signals.pre_block_removed.connect(_block_removed)
-	TreeManager.signals.block_moved.connect(_block_moved)
+	#TreeManager.signals.block_added.connect(_block_added)
+	#TreeManager.signals.pre_block_removed.connect(_block_removed)
+	#TreeManager.signals.block_moved.connect(_block_moved)
+	TreeManager.signals.tree_changed.connect(reset_tree)
 	PropertyBus.property_changed.connect(_property_changed)
 	item_selected.connect(_item_selected)
 	item_edited.connect(_item_edited)
@@ -88,7 +89,7 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 				var to_idx = tree_items.find_key(to_item)
 				var idx  = tree_items.find_key(data)
 				var parent = TreeManager.get_parent(to_idx)
-				var at = TreeManager.get_children(parent).find(to_idx) #+ (0 if section == -1 else 1)#section
+				var at = TreeManager.get_children(parent).find(to_idx) + (0 if section == -1 else 1)#section
 				print("PRE MOVE CHILDREN:", TreeManager.get_children(parent).map(func(i): return TreeManager.get_title(i)))
 				print("PLACING: %s, %d, at = %d" % [TreeManager.get_title(to_idx), section, at])
 				TreeManager.move_block(idx, parent, at)
@@ -101,5 +102,25 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 func _block_moved(dict: Dictionary, idx: int, from: int, to: int, at: int) -> void:
 	tree_items[from].remove_child(tree_items[idx])
 	tree_items[to].add_child(tree_items[idx])
+	print("TREE RECIEVED BLOCK MOVE:", at)
 	if at != -1:
 		tree_items[idx].move_after(tree_items[TreeManager.get_children(to)[at - 1]])
+
+func reset_tree(keep_selected: bool = true) -> void:
+	var selected : int = tree_items.find_key(get_selected()) if tree_items.find_key(get_selected()) else -1
+	if get_root(): get_root().call_recursive(&"free")
+	tree_items.clear()
+
+	for i in TreeManager.get_sorted_blocks():
+		var dict = TreeManager.items[i]
+		var tree_item: TreeItem
+		if dict.parent == -1:
+			tree_item = create_item()
+		else:
+			tree_item = create_item(tree_items[dict.parent])
+		tree_item.set_text(0, dict.stripped_title)
+		tree_item.set_icon(0, load(FileManager.get_block_config_by_type(dict.type).get_value("display", "icon")))
+		tree_item.set_icon_modulate(0, Color("cdd6f4"))
+		tree_item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD_SMART)
+		tree_items[i] = tree_item
+	if keep_selected and selected != -1: tree_items[selected].select(0)

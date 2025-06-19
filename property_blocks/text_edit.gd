@@ -19,20 +19,25 @@ func _paste(caret_index: int) -> void:
 
 func _on_bold_pressed() -> void:
 	insert_text_at_caret("[b][/b]")
+	grab_focus.call_deferred()
 	set_caret_column(get_caret_column() - 4)
 
 func _on_italics_pressed() -> void:
 	insert_text_at_caret("[i][/i]")
+	grab_focus.call_deferred()
 	set_caret_column(get_caret_column() - 4)
 
 func _on_underline_pressed() -> void:
 	insert_text_at_caret("[u][/u]")
+	grab_focus.call_deferred()
 	set_caret_column(get_caret_column() - 4)
 
 func _on_center_pressed() -> void:
 	insert_text_at_caret("[center][/center]")
+	grab_focus.call_deferred()
 	set_caret_column(get_caret_column() - 9)
 
 func _on_color_pressed() -> void:
 	insert_text_at_caret("[color=][/color]")
+	grab_focus.call_deferred()
 	set_caret_column(get_caret_column() - 9)

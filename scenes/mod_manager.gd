@@ -5,7 +5,7 @@ var current_mod: String
 const PREFERENCES = preload("res://scenes/preferences.tscn")
 
 func _ready() -> void:
-	#content_scale_factor = get_tree().root.content_scale_factor
+	content_scale_factor = Settings.get_setting("vanilla", "interface/ui_scale")
 	Settings.find_mods()
 	for i in Settings.configs:
 		var cfg := Settings.get_mod_info(i)

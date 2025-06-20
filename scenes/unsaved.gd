@@ -1,5 +1,8 @@
 extends Window
 
+func _ready() -> void:
+	content_scale_factor = Settings.get_setting("vanilla", "interface/ui_scale")
+
 func _on_save_pressed() -> void:
 	PropertyBus.save_requested.emit("")
 	await PropertyBus.save_successful

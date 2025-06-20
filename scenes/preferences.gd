@@ -9,7 +9,7 @@ var contents: Dictionary[String, Control] = {}
 var tree_contents: Dictionary[TreeItem, Control] = {}
 
 func _ready() -> void:
-	#content_scale_factor = get_tree().root.content_scale_factor
+	content_scale_factor = Settings.get_setting("vanilla", "interface/ui_scale")
 	Settings.find_mods()
 	var root = nav_tree.create_item()
 	for mod: String in Settings.configs:

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bn6vus32dr1f5" path="res://scenes/unsaved.gd" id="1_v7deh"]
 
 [node name="Window" type="Window"]
+oversampling_override = 1.0
 title = "Save any changes?"
 initial_position = 2
 size = Vector2i(320, 90)

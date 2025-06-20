@@ -11,6 +11,7 @@ var last_type: String
 signal block_selected(type: String)
 
 func _ready() -> void:
+	content_scale_factor = Settings.get_setting("vanilla", "interface/ui_scale")
 	close_requested.connect(queue_free)
 	btn_create.pressed.connect(_on_create_pressed)
 	for i in FileManager.block_types:

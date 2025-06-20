@@ -89,6 +89,7 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 				var to_idx = tree_items.find_key(to_item)
 				var idx  = tree_items.find_key(data)
 				var parent = TreeManager.get_parent(to_idx)
+				parent = parent if !TreeManager.get_config(to_idx).get_value("logic", "can_have_children", false) else to_idx
 				var at = TreeManager.get_children(parent).find(to_idx) + (0 if section == -1 else 1)#section
 				print("PRE MOVE CHILDREN:", TreeManager.get_children(parent).map(func(i): return TreeManager.get_title(i)))
 				print("PLACING: %s, %d, at = %d" % [TreeManager.get_title(to_idx), section, at])
@@ -107,9 +108,9 @@ func _block_moved(dict: Dictionary, idx: int, from: int, to: int, at: int) -> vo
 		tree_items[idx].move_after(tree_items[TreeManager.get_children(to)[at - 1]])
 
 func reset_tree(keep_selected: bool = true) -> void:
-	var selected : int = tree_items.find_key(get_selected()) if tree_items.find_key(get_selected()) else -1
-	if get_root(): get_root().call_recursive(&"free")
-	tree_items.clear()
+	#var selected : int = tree_items.find_key(get_selected()) if tree_items.find_key(get_selected()) else -1
+	if get_root(): get_root().free()
+	tree_items = {}
 
 	for i in TreeManager.get_sorted_blocks():
 		var dict = TreeManager.items[i]
@@ -123,4 +124,4 @@ func reset_tree(keep_selected: bool = true) -> void:
 		tree_item.set_icon_modulate(0, Color("cdd6f4"))
 		tree_item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD_SMART)
 		tree_items[i] = tree_item
-	if keep_selected and selected != -1: tree_items[selected].select(0)
+	#if keep_selected and tree_items.has(selected): tree_items[selected].select(0)

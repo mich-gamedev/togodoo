@@ -14,7 +14,7 @@ config/name="Togodoo"
 config/version="1.0.0"
 run/main_scene="res://scenes/project_manager.tscn"
 config/auto_accept_quit=false
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 run/max_fps=60
 run/low_processor_mode=true
 boot_splash/bg_color=Color(0.0941176, 0.0980392, 0.14902, 1)
@@ -70,9 +70,9 @@ folder_colors={
 
 [gui]
 
-theme/custom="res://resources/themes/main.theme"
 theme/default_font_antialiasing=2
 theme/default_font_multichannel_signed_distance_field=true
+theme/custom="res://resources/themes/main.theme"
 
 [input]
 

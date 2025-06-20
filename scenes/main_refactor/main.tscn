@@ -20,54 +20,30 @@
 
 [sub_resource type="Resource" id="Resource_1qaia"]
 script = ExtResource("8_c5x5u")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_n83lp"]
 script = ExtResource("8_c5x5u")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_dk6e4"]
 color = Color(0.211765, 0.227451, 0.309804, 1)
 
 [sub_resource type="Resource" id="Resource_vafg3"]
 script = ExtResource("8_c5x5u")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_41xyg"]
 script = ExtResource("8_c5x5u")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_x352f"]
 script = ExtResource("8_c5x5u")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_a35te"]
 script = ExtResource("8_c5x5u")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_cuyag"]
 script = ExtResource("8_c5x5u")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_pj40j"]
 script = ExtResource("8_c5x5u")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [node name="Main" type="Control"]
 layout_mode = 3

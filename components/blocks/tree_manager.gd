@@ -94,7 +94,7 @@ static func remove_block(idx: int) -> void: ## removes the block at [param idx]
 	var dict = items[idx]
 	var stack_items = items
 	signals.pre_block_removed.emit(dict, idx)
-	items[dict.parent].children.erase(idx)
+	if dict.parent != -1: items[dict.parent].children.erase(idx)
 	for i in dict.children:
 		remove_block(i)
 	items.erase(idx)

@@ -10,4 +10,6 @@ func _update_block() -> void:
 	label.text = block.get_title()
 
 func _on_rich_text_label_meta_clicked(meta: Variant) -> void:
+	if meta is String: if meta.begins_with("#"):
+		pass
 	OS.shell_open(meta)

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dduap0pcs7fuw"]
+
+[ext_resource type="Script" uid="uid://7hxcck4rye6p" path="res://blocks/controls/header/header.gd" id="1_4g1sy"]
+[ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="1_5wmc3"]
+[ext_resource type="Texture2D" uid="uid://bfxdcohsjvdb0" path="res://resources/themes/link.svg" id="2_4g1sy"]
+
+[node name="HFlowContainer" type="HBoxContainer"]
+offset_right = 138.0
+offset_bottom = 14.0
+size_flags_horizontal = 3
+mouse_filter = 0
+script = ExtResource("1_4g1sy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "# [u]Testing Headers"
+fit_content = true
+selection_enabled = true
+
+[node name="Block" type="Node" parent="."]
+script = ExtResource("1_5wmc3")
+
+[node name="LinkIcon" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+icon = ExtResource("2_4g1sy")
+expand_icon = true
+
+[connection signal="mouse_entered" from="." to="." method="_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_mouse_exited"]
+[connection signal="meta_clicked" from="RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]

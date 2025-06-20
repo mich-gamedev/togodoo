@@ -70,7 +70,7 @@ folder_colors={
 
 [gui]
 
-theme/custom="res://resources/themes/menu.theme"
+theme/custom="res://resources/themes/main.theme"
 theme/default_font_antialiasing=2
 theme/default_font_multichannel_signed_distance_field=true
 

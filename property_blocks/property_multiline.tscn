@@ -44,16 +44,23 @@ layout_mode = 2
 icon = ExtResource("2_llt7q")
 
 [node name="TextEdit" type="TextEdit" parent="."]
+clip_contents = false
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 size_flags_vertical = 3
+theme_type_variation = &"PropertyMultiline"
 placeholder_text = "..."
 wrap_mode = 1
 scroll_smooth = true
 draw_tabs = true
 script = ExtResource("3_qbbyf")
 
-[node name="SmoothScrollContainer" type="ScrollContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer"]
 layout_mode = 2
 vertical_scroll_mode = 0
 script = ExtResource("4_omguc")
@@ -61,78 +68,78 @@ wheel_scroll_damper = SubResource("Resource_2n2f0")
 dragging_scroll_damper = SubResource("Resource_lojyk")
 metadata/_custom_type_script = "uid://dfdtyckl77df4"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="SmoothScrollContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/SmoothScrollContainer"]
 layout_mode = 2
 
-[node name="Bold" type="Button" parent="SmoothScrollContainer/HBoxContainer2"]
+[node name="Bold" type="Button" parent="MarginContainer/SmoothScrollContainer/HBoxContainer2"]
 layout_mode = 2
 mouse_filter = 1
 theme_type_variation = &"ButtonWithPanel"
 text = " "
 
-[node name="RichTextLabel" type="RichTextLabel" parent="SmoothScrollContainer/HBoxContainer2/Bold"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/SmoothScrollContainer/HBoxContainer2/Bold"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
-offset_right = 42.0
-offset_bottom = 42.0
+offset_right = 10.0
+offset_bottom = 17.0
 mouse_filter = 1
 bbcode_enabled = true
 text = "[b]b"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Italics" type="Button" parent="SmoothScrollContainer/HBoxContainer2"]
+[node name="Italics" type="Button" parent="MarginContainer/SmoothScrollContainer/HBoxContainer2"]
 layout_mode = 2
 mouse_filter = 1
 theme_type_variation = &"ButtonWithPanel"
 text = " "
 
-[node name="RichTextLabel" type="RichTextLabel" parent="SmoothScrollContainer/HBoxContainer2/Italics"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/SmoothScrollContainer/HBoxContainer2/Italics"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
-offset_right = 42.0
-offset_bottom = 42.0
+offset_right = 10.0
+offset_bottom = 17.0
 mouse_filter = 1
 bbcode_enabled = true
 text = "[i]i"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Underline" type="Button" parent="SmoothScrollContainer/HBoxContainer2"]
+[node name="Underline" type="Button" parent="MarginContainer/SmoothScrollContainer/HBoxContainer2"]
 layout_mode = 2
 mouse_filter = 1
 theme_type_variation = &"ButtonWithPanel"
 text = " "
 
-[node name="RichTextLabel" type="RichTextLabel" parent="SmoothScrollContainer/HBoxContainer2/Underline"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/SmoothScrollContainer/HBoxContainer2/Underline"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
-offset_right = 42.0
-offset_bottom = 42.0
+offset_right = 10.0
+offset_bottom = 17.0
 mouse_filter = 1
 bbcode_enabled = true
 text = "[u]u"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Center" type="Button" parent="SmoothScrollContainer/HBoxContainer2"]
+[node name="Center" type="Button" parent="MarginContainer/SmoothScrollContainer/HBoxContainer2"]
 layout_mode = 2
 mouse_filter = 1
 theme_type_variation = &"ButtonWithPanel"
 text = "center"
 
-[node name="Color" type="Button" parent="SmoothScrollContainer/HBoxContainer2"]
+[node name="Color" type="Button" parent="MarginContainer/SmoothScrollContainer/HBoxContainer2"]
 layout_mode = 2
 mouse_filter = 1
 theme_type_variation = &"ButtonWithPanel"
 text = "color"
 
 [connection signal="text_changed" from="TextEdit" to="." method="property_change_emit"]
-[connection signal="pressed" from="SmoothScrollContainer/HBoxContainer2/Bold" to="TextEdit" method="_on_bold_pressed"]
-[connection signal="pressed" from="SmoothScrollContainer/HBoxContainer2/Italics" to="TextEdit" method="_on_italics_pressed"]
-[connection signal="pressed" from="SmoothScrollContainer/HBoxContainer2/Underline" to="TextEdit" method="_on_underline_pressed"]
-[connection signal="pressed" from="SmoothScrollContainer/HBoxContainer2/Center" to="TextEdit" method="_on_center_pressed"]
-[connection signal="pressed" from="SmoothScrollContainer/HBoxContainer2/Color" to="TextEdit" method="_on_color_pressed"]
+[connection signal="pressed" from="MarginContainer/SmoothScrollContainer/HBoxContainer2/Bold" to="TextEdit" method="_on_bold_pressed"]
+[connection signal="pressed" from="MarginContainer/SmoothScrollContainer/HBoxContainer2/Italics" to="TextEdit" method="_on_italics_pressed"]
+[connection signal="pressed" from="MarginContainer/SmoothScrollContainer/HBoxContainer2/Underline" to="TextEdit" method="_on_underline_pressed"]
+[connection signal="pressed" from="MarginContainer/SmoothScrollContainer/HBoxContainer2/Center" to="TextEdit" method="_on_center_pressed"]
+[connection signal="pressed" from="MarginContainer/SmoothScrollContainer/HBoxContainer2/Color" to="TextEdit" method="_on_color_pressed"]

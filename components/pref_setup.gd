@@ -23,6 +23,8 @@ func _setting_changed(mod: String, key: String, value: Variant) -> void:
 			ThemeDB.get_project_theme().default_font = font
 		"interface/font_msdf":
 			ThemeDB.get_project_theme().default_font.multichannel_signed_distance_field = value
+		"interface/svg_oversampling":
+			get_viewport().oversampling = value
 
 func _pck_loaded(_path: String) -> void:
 	get_tree().root.propagate_call.call_deferred("queue_redraw")

@@ -17,6 +17,7 @@ var twn: Tween
 
 func _mouse_entered() -> void:
 	var idx = tree.tree_items.find_key(tree.get_selected())
+	idx = idx if idx != null else TreeManager.get_root()
 	var item = tree.tree_items[TreeManager.get_valid_parent(idx)]
 	if item.is_selected(0): return
 	if twn: twn.kill()
@@ -29,5 +30,6 @@ func _mouse_entered() -> void:
 
 func _mouse_exited() -> void:
 	var idx = tree.tree_items.find_key(tree.get_selected())
+	idx = idx if idx != null else TreeManager.get_root()
 	if twn: twn.kill()
 	tree.tree_items[TreeManager.get_valid_parent(idx)].clear_custom_bg_color(0)

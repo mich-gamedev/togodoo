@@ -18,27 +18,15 @@ color = Color(0.141176, 0.152941, 0.227451, 1)
 
 [sub_resource type="Resource" id="Resource_3lsco"]
 script = ExtResource("11_bgcx4")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_bgcx4"]
 script = ExtResource("11_bgcx4")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_1j3kf"]
 script = ExtResource("11_bgcx4")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_qyt5q"]
 script = ExtResource("11_bgcx4")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [node name="Control" type="Control"]
 layout_mode = 3

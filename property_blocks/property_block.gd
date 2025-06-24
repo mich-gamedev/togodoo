@@ -13,6 +13,8 @@ var for_setting: bool ## NOTE: if true, only responsible_property and responsibl
 var show_reset: bool = true
 var responsible_mod: StringName
 
+var testing_push
+
 signal display_requested(value: Variant)
 
 func _ready() -> void:

@@ -6,6 +6,8 @@ signal block_selected(idx: int)
 
 var last_selected: TreeItem
 
+@onready var scroll: SmoothScrollContainer = $".."
+
 func _ready() -> void:
 	set_column_expand(1, false)
 	#TreeManager.signals.block_added.connect(_block_added)
@@ -125,3 +127,7 @@ func reset_tree(keep_selected: bool = true) -> void:
 		tree_item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD_SMART)
 		tree_items[i] = tree_item
 	#if keep_selected and tree_items.has(selected): tree_items[selected].select(0)
+
+func scroll_to(item: int) -> void:
+	tree_items[item].select(0)
+	scroll.scroll_y_to(get_item_area_rect(tree_items[item]).position.y)

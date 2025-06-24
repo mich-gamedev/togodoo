@@ -17,18 +17,18 @@ func get_raw() -> String: ## returns the raw line of the block as a string
 func get_raw_args() -> String:
 	return args.raw_args
 
-func get_arg(name: String) -> Variant:
-	return args.get(name, FileManager.get_block_config(FileManager.block_types[get_type()]).get_value("properties", name))
+func get_arg(arg: String) -> Variant:
+	return args.get(arg, FileManager.get_block_config(FileManager.block_types[get_type()]).get_value("properties", arg))
 
 func get_idx() -> int:
 	if Main.node:
 		return Main.node.items.find(args)
 	return TreeManager.items.find_key(args)
 
-func set_arg(name: String, value: Variant, reset_property_list: bool = true) -> void:
+func set_arg(arg: String, value: Variant, reset_property_list: bool = true) -> void:
 	PropertyBus.property_changed.emit.call_deferred(
 		get_idx(),
-		name,
+		arg,
 		value,
 		reset_property_list
 	)

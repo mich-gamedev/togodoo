@@ -14,8 +14,8 @@ func _setting_changed(mod: String, key: String, value: Variant) -> void:
 	match key:
 		"interface/ui_scale": get_window().content_scale_factor = value
 		"interface/font":
-			if !ResourceLoader.exists(value, "FontFile"):
-				push_warning("Font path is invalid! %s" % value)
+			if !ResourceLoader.exists(value):
+				push_warning("path is invalid! %s" % value)
 				return
 			var font = FontFile.new()
 			font.load_dynamic_font(value)

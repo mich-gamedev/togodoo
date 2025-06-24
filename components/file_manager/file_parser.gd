@@ -11,14 +11,14 @@ static func parse_line(line: String) -> Dictionary:
 	var from = line.find("[")
 	var to = line.find("]")
 	args.raw_args =line.substr(from + 1, to - from - 1)
-	var filtered_args: String
+	var filtered_args: String = ""
 	var in_quote := false
-	for char in args.raw_args:
-		if char == "\"":
+	for character in args.raw_args:
+		if character == "\"":
 			in_quote = !in_quote
-		if char == " " and in_quote:
-			char = "<SPACE>"
-		filtered_args += char
+		if character == " " and in_quote:
+			character = "<SPACE>"
+		filtered_args += character
 	var tags := Array(filtered_args.replace(r"\n", "\n").split(" "))
 	args.type = tags.pop_front()
 	for i: String in tags:

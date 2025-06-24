@@ -3,11 +3,10 @@
 
 <svg
    width="16"
-   height="16"
-   viewBox="0 0 16 16"
+   height="8"
+   viewBox="0 0 4.2333332 2.1166667"
    version="1.1"
    id="svg1"
-   sodipodi:docname="header.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -21,27 +20,27 @@
      inkscape:pageopacity="0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
-     inkscape:document-units="px"
+     inkscape:document-units="mm"
      showgrid="true">
     <inkscape:grid
        id="grid1"
        units="px"
        originx="0"
        originy="0"
-       spacingx="0.5"
-       spacingy="0.5"
+       spacingx="0.13229167"
+       spacingy="0.13229167"
        empcolor="#0099e5"
        empopacity="0.30196078"
        color="#0099e5"
-       opacity="0.05882353"
+       opacity="0.07058824"
        empspacing="2"
        enabled="true"
        visible="true" />
     <inkscape:page
        x="0"
        y="0"
-       width="16"
-       height="16"
+       width="4.2333331"
+       height="2.1166668"
        id="page2"
        margin="0"
        bleed="0" />
@@ -52,35 +51,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke-width:0.494821"
-       id="rect2"
-       width="1"
-       height="10"
-       x="5"
-       y="3" />
-    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke-width:0.498199"
-       id="rect3"
-       width="1"
-       height="10"
-       x="10"
-       y="3" />
-    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke-width:0.494821"
-       id="rect2-3"
-       width="1"
-       height="10"
-       x="5"
-       y="-13"
-       transform="rotate(90)" />
-    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke-width:0.498199"
-       id="rect3-5"
-       width="1"
-       height="10"
-       x="10"
-       y="-13"
-       transform="rotate(90)" />
+    <path
+       id="rect1"
+       style="fill:#ffffff;stroke-width:0.128251"
+       d="M 0.89416667,0.54076148 1.9297447,1.5758165 2.1168334,1.7629052 2.3039221,1.5758165 3.3391667,0.54076148 l -0.187,-0.187 L 2.1168334,1.3887279 1.0811667,0.35376148 Z"
+       sodipodi:nodetypes="ccccccccc" />
   </g>
 </svg>

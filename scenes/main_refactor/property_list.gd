@@ -24,9 +24,13 @@ func _block_selected(idx: int) -> void:
 				inst.default_value = cfg.get_value("properties", key)
 				inst.display_value.call_deferred(TreeManager.get_property(idx, key))
 				inst.tooltip_text = cfg.get_value("hints", key, "")
+	var sep = HSeparator.new()
+	sep.size_flags_vertical = Control.SIZE_EXPAND | Control.SIZE_SHRINK_END
+	add_child(sep)
 	var title_inst = PROPERTY_MULTILINE.instantiate()
-	title_inst.size_flags_vertical = Control.SIZE_EXPAND | Control.SIZE_SHRINK_END
+	title_inst.show_reset = false
 	add_child(title_inst)
+	if title_inst.has_node("%PropertyName"): title_inst.get_node("%PropertyName").text = "title"
 	title_inst.index = idx
 	title_inst.responsible_property = "title"
 	title_inst.default_value = "new %s" % cfg.get_value("display", "display_name")

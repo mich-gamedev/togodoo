@@ -16,33 +16,22 @@ color = Color(0.141176, 0.152941, 0.227451, 1)
 
 [sub_resource type="Resource" id="Resource_biqgv"]
 script = ExtResource("3_t4iyi")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_w4jn0"]
 script = ExtResource("3_t4iyi")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_u7ruj"]
 script = ExtResource("3_t4iyi")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_v4qjp"]
 script = ExtResource("3_t4iyi")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [node name="ModManager" type="Window"]
 auto_translate_mode = 1
+oversampling_override = 1.0
 title = "Manage Mods"
 initial_position = 2
-size = Vector2i(640, 360)
+size = Vector2i(960, 540)
 script = ExtResource("1_m2rmo")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -96,8 +85,7 @@ offset_top = -11.5
 offset_right = 26.0
 offset_bottom = 11.5
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_font_sizes/font_size = 14
+theme_type_variation = &"PanelLabel"
 text = "nav"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -173,8 +161,7 @@ offset_top = -11.5
 offset_right = 31.0
 offset_bottom = 11.5
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
-theme_override_font_sizes/font_size = 14
+theme_type_variation = &"PanelLabel"
 text = "options"
 horizontal_alignment = 1
 vertical_alignment = 1

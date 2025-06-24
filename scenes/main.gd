@@ -106,11 +106,11 @@ func _on_tree_item_selected() -> void:
 	title_inst.display_value.call_deferred(current_dict.get_or_add("title", config.get_value("display", "display_name")))
 
 func _on_tree_item_edited() -> void:
-	var curr_item = tree.get_edited()
+	var edited_item = tree.get_edited()
 	var curr_column = tree.get_edited_column()
 	var config = FileManager.get_block_config(FileManager.block_types[items[tree_items.find(curr_item)].type])
 	var curr_property: String
-	print("edited item: ", curr_item.get_text(0), "; with index: ", tree_items.find(curr_item))
+	print("edited item: ", edited_item.get_text(0), "; with index: ", tree_items.find(curr_item))
 	print("edited item type: ", items[tree_items.find(curr_item)].type)
 	if config.has_section("properties"): for i in config.get_section_keys("properties"):
 		var usage_tags = config.get_value("usage", i, "none").replace(" ", "").split(",")
@@ -118,24 +118,24 @@ func _on_tree_item_edited() -> void:
 			if tag == "title_checkbox":
 				curr_property = i
 				break
-	if curr_property and curr_item.get_cell_mode(curr_column) == TreeItem.CELL_MODE_CHECK:
+	if curr_property and edited_item.get_cell_mode(curr_column) == TreeItem.CELL_MODE_CHECK:
 		PropertyBus.property_changed.emit.call_deferred(
 			tree_items.find(curr_item),
 			curr_property,
-			curr_item.is_checked(curr_column),
+			edited_item.is_checked(curr_column),
 			true
 		)
 	if curr_column == 0:
-		curr_item.set_text(0, LineParser.format_title(curr_item.get_text(0)))
+		edited_item.set_text(0, LineParser.format_title(edited_item.get_text(0)))
 		PropertyBus.property_changed.emit.call_deferred(
 			tree_items.find(curr_item),
 			"title",
-			curr_item.get_text(0),
+			edited_item.get_text(0),
 			true
 		)
 		var regex = RegEx.new()
 		regex.compile("\\[.*?\\]")
-		curr_item.set_text(0, regex.sub(curr_item.get_text(0), "", true))
+		edited_item.set_text(0, regex.sub(edited_item.get_text(0), "", true))
 
 func _on_property_changed(item: int, property: StringName, value: Variant, reset_property_list := true) -> void:
 	items[item][property] = value

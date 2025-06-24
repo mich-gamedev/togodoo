@@ -143,5 +143,5 @@ static func get_mod_info(mod: String) -> ConfigFile:
 	var cfg = ConfigFile.new(); cfg.load(mod_info_dir % mod)
 	return cfg
 
-static func format(str: String) -> String:
-	return str.format(settings_formatting)
+static func format(string: String) -> String:
+	return string.format(settings_formatting)

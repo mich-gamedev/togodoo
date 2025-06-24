@@ -1,12 +1,16 @@
-extends VBoxContainer
+class_name BlockDisplay extends VBoxContainer
 
 var blocks: Dictionary[int, Node]
+static var headers: Dictionary[String, int]
+static var node: BlockDisplay
 
 @onready var tree: BlockTree = %Tree
+@onready var scroll: SmoothScrollContainer = $"../../../VSplitContainer/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer"
 
 func _ready() -> void:
 	TreeManager.signals.block_added.connect(_block_added)
 	TreeManager.signals.pre_block_removed.connect(_block_removed)
+	node = self
 
 func _block_added(dict: Dictionary, idx: int) -> void:
 	var cfg = FileManager.get_block_config_by_type(dict.type)
@@ -53,3 +57,12 @@ func _display_input(event: InputEvent, idx: int) -> void:
 	if event is InputEventMouseButton: if event.button_index == MOUSE_BUTTON_LEFT:
 		tree.set_selected(tree.tree_items[idx], 0)
 		tree.grab_focus.call_deferred()
+
+static func scroll_to_header(header: String) -> void:
+	header = header.trim_prefix("#")
+	if !header.is_valid_int(): return
+	var to_int = header.to_int()
+	for i in TreeManager.items:
+		if i == to_int:
+			node.scroll.scroll_y_to.call_deferred(node.blocks[i].position)
+			node.tree.scroll_to.call_deferred(i)

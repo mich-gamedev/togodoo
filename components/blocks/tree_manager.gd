@@ -18,7 +18,7 @@ static func load_file(path: String) -> void: ## adds all the blocks from a proje
 	assert(FileAccess.file_exists(path), "File at path \'%s\' couldn't be found." % path)
 	var file = FileAccess.open(path, FileAccess.READ)
 	print("PROJECT LOAD STATUS: ", error_string(FileAccess.get_open_error()))
-	var i: int
+	var i: int = 0
 	while file.get_position() < file.get_length():
 		var line = file.get_line()
 		var parsed = LineParser.parse_line(line)
@@ -92,7 +92,6 @@ static func get_idx_by_dict(dict: Dictionary) -> int:
 static func remove_block(idx: int) -> void: ## removes the block at [param idx]
 	print("deleting ", items[idx].title)
 	var dict = items[idx]
-	var stack_items = items
 	signals.pre_block_removed.emit(dict, idx)
 	if dict.parent != -1: items[dict.parent].children.erase(idx)
 	for i in dict.children:

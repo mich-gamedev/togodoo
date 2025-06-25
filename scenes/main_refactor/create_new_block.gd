@@ -6,6 +6,7 @@ const BLOCK_TYPE = preload("res://scenes/new_block_type.tscn")
 var iterated_sections: PackedStringArray
 var last_type: String
 
+@onready var btn_cancel: Button = %Cancel
 @onready var btn_create: Button = %Create
 
 signal block_selected(type: String)
@@ -14,6 +15,7 @@ func _ready() -> void:
 	content_scale_factor = Settings.get_setting("vanilla", "interface/ui_scale")
 	close_requested.connect(queue_free)
 	btn_create.pressed.connect(_on_create_pressed)
+	btn_cancel.pressed.connect(queue_free)
 	for i in FileManager.block_types:
 		if i in Settings.get_setting("vanilla", "editor/hidden_blocks"): continue
 		var cfg = FileManager.get_block_config_by_type(i)

@@ -5,7 +5,7 @@ class Signals:
 	signal pre_block_removed(dict: Dictionary, idx: int)
 	signal block_moved(dict: Dictionary, idx: int, from: int, to: int, at: int)
 	signal tree_changed
-static var signals = Signals.new() ## an object that holds signals for the [TreeManager] singleton. see [TreeManager.Signals]
+static var signals := Signals.new() ## an object that holds signals for the [TreeManager] singleton. see [TreeManager.Signals]
 ## stores the info of all currently loaded blocks, can be used for more advanced things not covered by methods if needed.[br]
 ## [color=yellow]Warning:[/color] the order of blocks is unstable and can be out of order from the tree. [br]
 static var items: Dictionary[int, Dictionary]

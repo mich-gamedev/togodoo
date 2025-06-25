@@ -10,6 +10,7 @@ static var node: BlockDisplay
 func _ready() -> void:
 	TreeManager.signals.block_added.connect(_block_added)
 	TreeManager.signals.pre_block_removed.connect(_block_removed)
+	TreeManager.signals.block_moved.connect(_block_moved)
 	node = self
 
 func _block_added(dict: Dictionary, idx: int) -> void:
@@ -37,6 +38,10 @@ func _block_removed(dict: Dictionary, idx: int) -> void:
 	var block = blocks[idx]
 	blocks.erase(idx)
 	block.queue_free()
+
+func _block_moved(_dict: Dictionary, idx: int, _from: int, to: int, at: int) -> void:
+	blocks[idx].reparent(blocks[to].get_node(^"%ChildContainer"))
+	blocks[to].move_child(blocks[idx], at)
 
 var twn: Tween
 

@@ -459,7 +459,7 @@ mouse_filter = 2
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Visual"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.5
+size_flags_stretch_ratio = 0.3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Visual"]
 clip_contents = false
@@ -487,7 +487,7 @@ mouse_filter = 1
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/Visual"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.5
+size_flags_stretch_ratio = 0.3
 
 [node name="Properties" type="PanelContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer"]
 custom_minimum_size = Vector2(128, 96)

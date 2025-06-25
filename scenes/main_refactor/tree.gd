@@ -92,7 +92,7 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 				var to_idx = tree_items.find_key(to_item)
 				var idx  = tree_items.find_key(data)
 				var parent = TreeManager.get_parent(to_idx)
-				parent = parent if !TreeManager.get_config(to_idx).get_value("logic", "can_have_children", false) else to_idx
+				parent = parent if (!TreeManager.get_config(to_idx).get_value("logic", "can_have_children", false)) or (tree_items[to_idx].is_any_collapsed()) else to_idx
 				var at = TreeManager.get_children(parent).find(to_idx) + (0 if section == -1 else 1)#section
 				print("PRE MOVE CHILDREN:", TreeManager.get_children(parent).map(func(i): return TreeManager.get_title(i)))
 				print("PLACING: %s, %d, at = %d" % [TreeManager.get_title(to_idx), section, at])

@@ -26,7 +26,7 @@ PrefSetup="*res://components/pref_setup.gd"
 [autoload]
 
 PropertyBus="*res://components/property_list/sngl_property_bus.gd"
-PrefSetup="*res://components/pref_setup.gd"
+PrefSetup="*res://components/settings/pref_setup.gd"
 HistoryManager="*res://components/undoredo/history_manager.gd"
 CommandPallete="*res://components/cmd_pallete/cmd_pallete.gd"
 

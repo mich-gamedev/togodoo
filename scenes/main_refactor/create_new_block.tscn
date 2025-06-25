@@ -215,6 +215,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="Cancel" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 21)
 layout_mode = 2
 size_flags_horizontal = 8

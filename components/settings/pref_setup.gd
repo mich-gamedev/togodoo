@@ -12,7 +12,10 @@ func _ready() -> void:
 func _setting_changed(mod: String, key: String, value: Variant) -> void:
 	if mod != "vanilla": return
 	match key:
-		"interface/ui_scale": get_window().content_scale_factor = value
+		"interface/ui_scale":
+			get_tree().root.content_scale_factor = value
+			for i: Window in get_tree().root.find_children("*", "Window", true, false):
+				i.content_scale_factor = value
 		"interface/font":
 			if !ResourceLoader.exists(value):
 				push_warning("path is invalid! %s" % value)

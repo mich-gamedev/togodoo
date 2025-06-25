@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bybo1iwoichj"]
+
+[ext_resource type="Script" uid="uid://buwr5ihsjnoq2" path="res://blocks/pages/dropdown/dropdown.gd" id="1_ii7vq"]
+[ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="2_tomdm"]
+
+[node name="DropDown" type="FoldableContainer"]
+offset_right = 313.0
+offset_bottom = 18.0
+title = "state"
+title_text_overrun_behavior = 3
+script = ExtResource("1_ii7vq")
+
+[node name="HoverRect" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="ChildContainer" type="VBoxContainer" parent="HoverRect"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Block" type="Node" parent="."]
+script = ExtResource("2_tomdm")
+metadata/_custom_type_script = "uid://y2yuj6soyb6y"

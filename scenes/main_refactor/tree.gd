@@ -18,6 +18,7 @@ func _ready() -> void:
 	item_selected.connect(_item_selected)
 	item_edited.connect(_item_edited)
 
+
 func _block_added(dict: Dictionary, idx: int) -> void:
 	var tree_item: TreeItem
 	if dict.parent == -1:
@@ -53,7 +54,7 @@ func _property_changed(idx: int, property: StringName, value: Variant, reset_pro
 	if cfg.has_section_key("usage", property) and String(cfg.get_value("usage", property)).contains("tree_bg_color") and value != cfg.get_value("properties", property):
 		tree_items[idx].set_icon_modulate(0, value)
 
-func add_block_to_selected(type: String) -> void:
+func add_block_to_selected(type: String, select_new: bool = true) -> void:
 	TreeManager.create_default_block(
 		type,
 		TreeManager.get_valid_parent(tree_items.find_key(get_selected()))

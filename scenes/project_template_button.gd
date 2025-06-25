@@ -8,4 +8,4 @@ func _pressed() -> void:
 		get_tree().quit()
 	else:
 		FileManager.file_path = template_path
-		get_tree().change_scene_to_file("res://scenes/main.tscn")
+		get_tree().change_scene_to_file(Settings.get_setting("vanilla", "editor/main_path"))

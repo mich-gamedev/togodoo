@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c0bka4me4oefp"]
+
+[ext_resource type="Texture2D" uid="uid://bd67ndox07uia" path="res://resources/themes/save.svg" id="1_hbhg4"]
+[ext_resource type="Script" uid="uid://f2w17es7v7bi" path="res://components/cmd_pallete/commands/save.gd" id="2_hbhg4"]
+
+[resource]
+script = ExtResource("2_hbhg4")
+text = "save"
+icon = ExtResource("1_hbhg4")
+id = &"save"

@@ -7,8 +7,9 @@ static func _static_init() -> void:
 
 static func update_commands() -> void:
 	for i in ResourceLoader.list_directory("res://components/cmd_pallete/commands/"):
-		var cmd : Command = load(i)
-		_cmds[cmd.id] = cmd
+		var resource = load(i)
+		if resource is Command:
+			_cmds[resource.id] = resource
 
 static func is_command_valid(id: StringName) -> bool:
 	if !id in _cmds:

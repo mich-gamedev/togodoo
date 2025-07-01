@@ -1,3 +1,4 @@
+@icon("res://resources/themes/cli.svg")
 abstract class_name Command extends Resource
 
 @export_group("Display")

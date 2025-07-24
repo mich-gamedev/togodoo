@@ -15,10 +15,12 @@ func _update_block() -> void:
 	margin.add_theme_constant_override(&"margin_bottom", block.get_arg("margin"))
 
 	if block.get_arg("use_preset_color"):
-		var style := get_theme_stylebox(&"panel")
-		if style is StyleBoxFlat:
-			style.border_color = Utils.COLORS[wrapi(block.get_indents() + Utils.ColorTags.OVERLAY_0, Utils.ColorTags.OVERLAY_0, Utils.ColorTags.TEXT)]
-			%TitleLabel.add_theme_color_override(&"font_color", Utils.COLORS[clampi(block.get_indents() + Utils.ColorTags.SUBTEXT_0, Utils.ColorTags.OVERLAY_0, Utils.ColorTags.TEXT)])
+		theme_type_variation = &"Panel%s" % wrapi(block.get_indents(), 0, 6)
+		%TitleLabel.theme_type_variation = &"PanelLabel%s" % wrapi(block.get_indents(), 0, 6)
+		#var style := get_theme_stylebox(&"panel")
+		#if style is StyleBoxFlat:
+			#style.border_color = Utils.COLORS[wrapi(block.get_indents() + Utils.ColorTags.OVERLAY_0, Utils.ColorTags.OVERLAY_0, Utils.ColorTags.TEXT)]
+			#%TitleLabel.add_theme_color_override(&"font_color", Utils.COLORS[clampi(block.get_indents() + Utils.ColorTags.SUBTEXT_0, Utils.ColorTags.OVERLAY_0, Utils.ColorTags.TEXT)])
 	else:
 		var style := get_theme_stylebox(&"panel")
 		if style is StyleBoxFlat:

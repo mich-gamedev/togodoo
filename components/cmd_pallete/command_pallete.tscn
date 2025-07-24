@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsw3tiak6c7mt"]
+
+[ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="1_0wcip"]
+[ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="2_hhfex"]
+[ext_resource type="Texture2D" uid="uid://bd67ndox07uia" path="res://resources/themes/save.svg" id="3_e3xba"]
+[ext_resource type="Script" uid="uid://bvd0mrnh02v7w" path="res://components/convenience/modulate_texture_rect.gd" id="4_vufa0"]
+
+[sub_resource type="Resource" id="Resource_srju3"]
+script = ExtResource("2_hhfex")
+
+[sub_resource type="Resource" id="Resource_vormk"]
+script = ExtResource("2_hhfex")
+
+[node name="CommandPallete" type="Popup"]
+oversampling_override = 1.0
+size = Vector2i(320, 360)
+visible = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Control/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "run/search for commands here."
+
+[node name="HSeparator" type="HSeparator" parent="Control/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="Control/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_0wcip")
+wheel_scroll_damper = SubResource("Resource_srju3")
+dragging_scroll_damper = SubResource("Resource_vormk")
+metadata/_custom_type_script = "uid://dfdtyckl77df4"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/MarginContainer/VBoxContainer/SmoothScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/MarginContainer/VBoxContainer/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel/MarginContainer/VBoxContainer/SmoothScrollContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0.64705884, 0.6784314, 0.79607844, 1)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_type_variation = &"ModulateTextureRect"
+texture = ExtResource("3_e3xba")
+expand_mode = 1
+script = ExtResource("4_vufa0")
+
+[node name="Label" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer/SmoothScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Save"

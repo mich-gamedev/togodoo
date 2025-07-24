@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bhbm0n3du7i3x"]
+[gd_scene load_steps=28 format=3 uid="uid://bhbm0n3du7i3x"]
 
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/main.theme" id="1_id72n"]
 [ext_resource type="Script" uid="uid://bf4n7yn75rnlm" path="res://scenes/main_refactor/main.gd" id="2_hwhah"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://7mqamsoh1bka" path="res://resources/themes/search.svg" id="11_m0l54"]
 [ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="12_ra7wm"]
 [ext_resource type="Script" uid="uid://bcvxare0clepk" path="res://scenes/main_refactor/property_list.gd" id="14_loyev"]
+[ext_resource type="Script" uid="uid://bvd0mrnh02v7w" path="res://components/convenience/modulate_texture_rect.gd" id="17_wxjdr"]
 
 [sub_resource type="Resource" id="Resource_1qaia"]
 script = ExtResource("8_c5x5u")
@@ -234,12 +235,15 @@ popup/item_2/id = 2
 script = ExtResource("5_01a8x")
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]
+visible = false
 layout_mode = 2
 icon = ExtResource("9_hlpmk")
 
@@ -560,11 +564,13 @@ size_flags_vertical = 4
 
 [node name="TypeIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-modulate = Color(0.431373, 0.45098, 0.552941, 1)
+modulate = Color(0.43137255, 0.4509804, 0.5529412, 1)
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
+theme_type_variation = &"DimIcon"
 texture = ExtResource("12_ra7wm")
 expand_mode = 1
+script = ExtResource("17_wxjdr")
 
 [node name="TypeLabel" type="Label" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true

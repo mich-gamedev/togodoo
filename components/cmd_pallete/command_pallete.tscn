@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsw3tiak6c7mt"]
+[gd_scene load_steps=6 format=3 uid="uid://dsw3tiak6c7mt"]
 
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="1_0wcip"]
+[ext_resource type="Script" uid="uid://bsa8dfmcpo334" path="res://components/cmd_pallete/pallete_window.gd" id="1_ciaxr"]
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="2_hhfex"]
-[ext_resource type="Texture2D" uid="uid://bd67ndox07uia" path="res://resources/themes/save.svg" id="3_e3xba"]
-[ext_resource type="Script" uid="uid://bvd0mrnh02v7w" path="res://components/convenience/modulate_texture_rect.gd" id="4_vufa0"]
 
 [sub_resource type="Resource" id="Resource_srju3"]
 script = ExtResource("2_hhfex")
@@ -15,6 +14,7 @@ script = ExtResource("2_hhfex")
 oversampling_override = 1.0
 size = Vector2i(320, 360)
 visible = true
+script = ExtResource("1_ciaxr")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -66,19 +66,4 @@ metadata/_custom_type_script = "uid://dfdtyckl77df4"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/MarginContainer/VBoxContainer/SmoothScrollContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Control/Panel/MarginContainer/VBoxContainer/SmoothScrollContainer/VBoxContainer/HBoxContainer"]
-modulate = Color(0.64705884, 0.6784314, 0.79607844, 1)
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_type_variation = &"ModulateTextureRect"
-texture = ExtResource("3_e3xba")
-expand_mode = 1
-script = ExtResource("4_vufa0")
-
-[node name="Label" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer/SmoothScrollContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-mouse_filter = 1
-text = "Save"
+[connection signal="text_submitted" from="Control/Panel/MarginContainer/VBoxContainer/LineEdit" to="." method="_line_edit_text_submitted"]

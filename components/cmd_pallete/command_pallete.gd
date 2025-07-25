@@ -7,7 +7,7 @@ static func _static_init() -> void:
 
 static func update_commands() -> void:
 	for i in ResourceLoader.list_directory("res://components/cmd_pallete/commands/"):
-		var resource = load(i)
+		var resource = load("res://components/cmd_pallete/commands/" + i)
 		if resource is Command:
 			_cmds[resource.id] = resource
 
@@ -18,3 +18,6 @@ static func is_command_valid(id: StringName) -> bool:
 
 static func run_command(id: StringName) -> void:
 	_cmds[id].run()
+
+static func get_commands() -> Dictionary[StringName, Command]:
+	return _cmds.duplicate()

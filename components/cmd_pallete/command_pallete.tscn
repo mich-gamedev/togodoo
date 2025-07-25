@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsw3tiak6c7mt"]
+[gd_scene load_steps=9 format=3 uid="uid://dsw3tiak6c7mt"]
 
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="1_0wcip"]
 [ext_resource type="Script" uid="uid://bsa8dfmcpo334" path="res://components/cmd_pallete/pallete_window.gd" id="1_ciaxr"]
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="2_hhfex"]
+[ext_resource type="Texture2D" uid="uid://bd67ndox07uia" path="res://resources/themes/save.svg" id="4_e3xba"]
+[ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/themes/folder.svg" id="5_vufa0"]
+[ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="6_srju3"]
 
 [sub_resource type="Resource" id="Resource_srju3"]
 script = ExtResource("2_hhfex")
@@ -49,7 +52,7 @@ layout_mode = 2
 
 [node name="LineEdit" type="LineEdit" parent="Control/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-placeholder_text = "run/search for commands here."
+placeholder_text = ">"
 
 [node name="HSeparator" type="HSeparator" parent="Control/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -62,8 +65,20 @@ wheel_scroll_damper = SubResource("Resource_srju3")
 dragging_scroll_damper = SubResource("Resource_vormk")
 metadata/_custom_type_script = "uid://dfdtyckl77df4"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/MarginContainer/VBoxContainer/SmoothScrollContainer"]
+[node name="Cmds" type="ItemList" parent="Control/Panel/MarginContainer/VBoxContainer/SmoothScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
+auto_height = true
+item_count = 3
+fixed_icon_size = Vector2i(16, 16)
+item_0/text = "save"
+item_0/icon = ExtResource("4_e3xba")
+item_1/text = "open"
+item_1/icon = ExtResource("5_vufa0")
+item_2/text = "add node"
+item_2/icon = ExtResource("6_srju3")
 
+[connection signal="text_changed" from="Control/Panel/MarginContainer/VBoxContainer/LineEdit" to="." method="_line_edit_text_changed"]
 [connection signal="text_submitted" from="Control/Panel/MarginContainer/VBoxContainer/LineEdit" to="." method="_line_edit_text_submitted"]

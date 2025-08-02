@@ -8,3 +8,4 @@ script = ExtResource("2_k6p47")
 text = "save as"
 icon = ExtResource("1_k6p47")
 id = &"save_as"
+include_in_history = false

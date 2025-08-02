@@ -8,3 +8,4 @@ script = ExtResource("2_hbhg4")
 text = "save"
 icon = ExtResource("1_hbhg4")
 id = &"save"
+include_in_history = false

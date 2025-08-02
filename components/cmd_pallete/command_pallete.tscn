@@ -82,3 +82,4 @@ item_2/icon = ExtResource("6_srju3")
 
 [connection signal="text_changed" from="Control/Panel/MarginContainer/VBoxContainer/LineEdit" to="." method="_line_edit_text_changed"]
 [connection signal="text_submitted" from="Control/Panel/MarginContainer/VBoxContainer/LineEdit" to="." method="_line_edit_text_submitted"]
+[connection signal="item_activated" from="Control/Panel/MarginContainer/VBoxContainer/SmoothScrollContainer/Cmds" to="." method="_cmds_item_activated"]

@@ -6,6 +6,7 @@ abstract class_name Command extends Resource
 @export var icon: Texture2D
 @export_group("Logic")
 @export var id: StringName
+@export var include_in_history: bool = true
 
 abstract func _run() -> void
 abstract func _is_valid() -> bool

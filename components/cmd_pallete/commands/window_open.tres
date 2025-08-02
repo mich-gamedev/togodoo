@@ -8,3 +8,4 @@ script = ExtResource("2_1dpvb")
 text = "open"
 icon = ExtResource("1_a826e")
 id = &"window_open"
+include_in_history = false

@@ -19,6 +19,16 @@ func _ready() -> void:
 	if reset_button:
 		reset_button.visible = show_reset
 		reset_button.pressed.connect(_reset_value)
+	for tag in property_usage_tags:
+		if tag.begins_with("show_if;"):
+			var wanted_property = tag.trim_prefix("show_if;").get_slice("=", 0)
+			var wanted_value = tag.trim_prefix("show_if;").get_slice("=", 1)
+			if !for_setting:
+				PropertyBus.property_changed.connect(_property_update.bind(wanted_property, wanted_value))
+				_property_update(index, wanted_property, TreeManager.get_property(index, wanted_property), false, wanted_property, wanted_value)
+			else:
+				Settings.signals.setting_changed.connect(_setting_update.bind(wanted_property, wanted_value))
+				_setting_update(responsible_mod, wanted_property, Settings.get_setting(responsible_mod, wanted_property), wanted_property, wanted_value)
 
 func display_value(value: Variant) -> void:
 	if value_node and custom_function and (value_node.has_method(custom_function)):
@@ -46,3 +56,11 @@ func property_change_emit() -> void:
 func _reset_value() -> void:
 	display_value(default_value)
 	property_change_emit()
+
+func _property_update(item: int, property: StringName, value: Variant, reset_property_list: bool, wanted_property: StringName, wanted_value: Variant) -> void:
+	if item == index and property == wanted_property:
+		visible = value == wanted_value
+
+func _setting_update(mod: String, setting: String, value: Variant, wanted_setting: StringName, wanted_value: Variant) -> void:
+	if setting == wanted_setting:
+		visible = value == str_to_var(wanted_value)

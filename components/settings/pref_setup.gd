@@ -27,7 +27,11 @@ func _setting_changed(mod: String, key: String, value: Variant) -> void:
 			get_theme().default_font.multichannel_signed_distance_field = value
 		"interface/svg_oversampling":
 			get_viewport().oversampling = value
+		"interface/theme":
+			if value == 6: return
+			get_tree().root.theme = load("res://resources/themes/%s/main.theme" % [])
 		"interface/custom_theme":
+			if Settings.get_setting("vanilla", "interface/theme") != 6: return
 			var theme := load(value)
 			if theme is Theme:
 				get_tree().root.theme = theme

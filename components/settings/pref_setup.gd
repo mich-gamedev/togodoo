@@ -17,17 +17,20 @@ func _setting_changed(mod: String, key: String, value: Variant) -> void:
 			for i: Window in get_tree().root.find_children("*", "Window", true, false):
 				i.content_scale_factor = value
 		"interface/font":
-			if !ResourceLoader.exists(value):
-				push_warning("path is invalid! %s" % value)
-				return
 			var font = FontFile.new()
-			font.load_dynamic_font(value)
+			var err = font.load_dynamic_font(value)
+			if err:
+				push_error("Error on loading 'interface/font':", error_string(err))
 			font.multichannel_signed_distance_field = Settings.get_setting("vanilla", "interface/font_msdf")
-			ThemeDB.get_project_theme().default_font = font
+			get_theme().default_font = font
 		"interface/font_msdf":
-			ThemeDB.get_project_theme().default_font.multichannel_signed_distance_field = value
+			get_theme().default_font.multichannel_signed_distance_field = value
 		"interface/svg_oversampling":
 			get_viewport().oversampling = value
+		"interface/theme":
+			var theme := load(value)
+			if theme is Theme:
+				get_tree().root.theme = theme
 
 func _pck_loaded(_path: String) -> void:
 	get_tree().root.propagate_call.call_deferred("queue_redraw")
@@ -46,3 +49,6 @@ func _mod_loaded(mod: String) -> void:
 			[]
 		)
 		Settings.set_setting("vanilla", "editor/recent_projects", recents)
+
+func get_theme() -> Theme:
+	return get_tree().root.theme if get_tree().root.theme else ThemeDB.get_project_theme()

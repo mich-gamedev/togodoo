@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cugew26ef38mm"]
+
+[ext_resource type="Script" uid="uid://caqtj05jw8now" path="res://property_blocks/property_block.gd" id="1_au6vq"]
+[ext_resource type="Texture2D" uid="uid://d3y5186u78brm" path="res://resources/themes/redo.svg" id="2_gc6b7"]
+[ext_resource type="Script" uid="uid://btkwcub7d8sa8" path="res://property_blocks/option_button.gd" id="3_gc6b7"]
+
+[node name="HBoxContainer" type="HBoxContainer" node_paths=PackedStringArray("value_node", "reset_button")]
+offset_right = 256.0
+script = ExtResource("1_au6vq")
+value_node = NodePath("OptionButton")
+value_property = &"selected"
+reset_button = NodePath("Reset")
+
+[node name="PropertyName" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "state"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Reset" type="Button" parent="."]
+layout_mode = 2
+icon = ExtResource("2_gc6b7")
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "test"
+popup/item_0/id = 0
+popup/item_1/id = 1
+script = ExtResource("3_gc6b7")

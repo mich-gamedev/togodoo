@@ -21,7 +21,7 @@ func _ready() -> void:
 		reset_button.pressed.connect(_reset_value)
 
 func display_value(value: Variant) -> void:
-	if value_node and custom_function and (custom_function in value_node):
+	if value_node and custom_function and (value_node.has_method(custom_function)):
 		value_node.call(custom_function, value)
 	elif value_node and value_property in value_node:
 		value_node.set(value_property, value)

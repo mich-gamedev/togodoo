@@ -405,6 +405,16 @@ scroll_horizontal_enabled = false
 scroll_vertical_enabled = false
 script = ExtResource("9_hwhah")
 
+[node name="BlockHoverIndicator" type="Panel" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer/Tree"]
+unique_name_in_owner = true
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme_type_variation = &"BlockHoverIndicator"
+
 [node name="FileSys" type="PanelContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer"]
 visible = false
 custom_minimum_size = Vector2(128, 0)

@@ -6,6 +6,7 @@ static var node: BlockDisplay
 
 @onready var tree: BlockTree = %Tree
 @onready var scroll: SmoothScrollContainer = $"../../../VSplitContainer/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer"
+@onready var block_hover_indicator: Panel = %BlockHoverIndicator
 
 func _ready() -> void:
 	TreeManager.signals.block_added.connect(_block_added)
@@ -22,8 +23,8 @@ func _block_added(dict: Dictionary, idx: int) -> void:
 		inst.get_node(^"%HoverRect").mouse_exited.connect(_mouse_exited.bind(idx))
 		inst.get_node(^"%HoverRect").gui_input.connect(_display_input.bind(idx))
 	else:
-		#inst.mouse_entered.connect(_mouse_entered.bind(idx))
-		#inst.mouse_exited.connect(_mouse_exited.bind(idx))
+		inst.mouse_entered.connect(_mouse_entered.bind(idx))
+		inst.mouse_exited.connect(_mouse_exited.bind(idx))
 		inst.gui_input.connect(_display_input.bind(idx))
 	blocks[idx] = inst
 	if dict.parent == -1:
@@ -46,17 +47,24 @@ func _block_moved(_dict: Dictionary, idx: int, _from: int, to: int, at: int) -> 
 var twn: Tween
 
 func _mouse_entered(idx: int) -> void:
+	#if twn: twn.kill()
+	#twn = create_tween()
+	#twn.tween_method(
+		#func(clr): tree.tree_items[idx].set_custom_bg_color(0, clr, true),
+		#Color("#1e2030"), Color("#363a4f"),
+		#0.1
+	#)
+	block_hover_indicator.show()
+	block_hover_indicator.modulate.a = 0
 	if twn: twn.kill()
 	twn = create_tween()
-	twn.tween_method(
-		func(clr): tree.tree_items[idx].set_custom_bg_color(0, clr, true),
-		Color("#1e2030"), Color("#363a4f"),
-		0.1
-	)
+	twn.tween_property(block_hover_indicator, ^"modulate:a", 1, 0.1)
+	var rect = tree.get_item_area_rect(tree.tree_items[idx])
+	block_hover_indicator.position = rect.position
+	block_hover_indicator.size = rect.size
 
 func _mouse_exited(idx: int) -> void:
-	if twn: twn.kill()
-	tree.tree_items[idx].clear_custom_bg_color(0)
+	block_hover_indicator.hide()
 
 func _display_input(event: InputEvent, idx: int) -> void:
 	if event is InputEventMouseButton: if event.button_index == MOUSE_BUTTON_LEFT:

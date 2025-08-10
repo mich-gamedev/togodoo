@@ -71,7 +71,7 @@ folder_colors={
 
 theme/default_font_antialiasing=2
 theme/default_font_multichannel_signed_distance_field=true
-theme/custom="res://resources/themes/main.theme"
+theme/custom="uid://cc203wnbg77sb"
 
 [input]
 

@@ -60,6 +60,10 @@ static func create_block_from_dict(dict: Dictionary, parent_idx: int) -> void: #
 
 static func set_property(idx: int, property: String, value: Variant, reset_property_list := true) -> void: ## sets [param property] of block at [param idx] to [param value]. [param reset_property_list] is used to prevent recursion by the property list, and shouldn't normally be used otherwise.
 	items[idx][property] = value
+	if property == "title":
+		var regex = RegEx.new()
+		regex.compile("\\[.*?\\]") #strips bbcode tags
+		items[idx].stripped_title = regex.sub(value, "", true)
 	PropertyBus.property_changed.emit(idx, property, value, reset_property_list)
 
 static func get_property(idx: int, property: String) -> Variant: ## returns the value of [param property] of block at [param idx]

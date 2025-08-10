@@ -22,8 +22,8 @@ func _block_added(dict: Dictionary, idx: int) -> void:
 		inst.get_node(^"%HoverRect").mouse_exited.connect(_mouse_exited.bind(idx))
 		inst.get_node(^"%HoverRect").gui_input.connect(_display_input.bind(idx))
 	else:
-		inst.mouse_entered.connect(_mouse_entered.bind(idx))
-		inst.mouse_exited.connect(_mouse_exited.bind(idx))
+		#inst.mouse_entered.connect(_mouse_entered.bind(idx))
+		#inst.mouse_exited.connect(_mouse_exited.bind(idx))
 		inst.gui_input.connect(_display_input.bind(idx))
 	blocks[idx] = inst
 	if dict.parent == -1:
@@ -41,7 +41,7 @@ func _block_removed(dict: Dictionary, idx: int) -> void:
 
 func _block_moved(_dict: Dictionary, idx: int, _from: int, to: int, at: int) -> void:
 	blocks[idx].reparent(blocks[to].get_node(^"%ChildContainer"))
-	blocks[to].move_child(blocks[idx], at)
+	blocks[to].get_node(^"%ChildContainer").move_child(blocks[idx], at)
 
 var twn: Tween
 

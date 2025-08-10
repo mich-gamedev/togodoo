@@ -13,7 +13,7 @@ func _ready() -> void:
 	#TreeManager.signals.block_added.connect(_block_added)
 	#TreeManager.signals.pre_block_removed.connect(_block_removed)
 	#TreeManager.signals.block_moved.connect(_block_moved)
-	TreeManager.signals.tree_changed.connect(reset_tree)
+	TreeManager.signals.tree_changed.connect(reset_tree, CONNECT_DEFERRED)
 	PropertyBus.property_changed.connect(_property_changed)
 	item_selected.connect(_item_selected)
 	item_edited.connect(_item_edited)
@@ -87,21 +87,35 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	if data is TreeItem:
 		var section = get_drop_section_at_position(at_position)
 		match section:
-			-1, 1: # between
+			#-1, 1: # between
+				#var to_item = get_item_at_position(at_position)
+				#var to_idx = tree_items.find_key(to_item)
+				#var idx  = tree_items.find_key(data)
+				#var parent = TreeManager.get_parent(to_idx)
+				#parent = parent if (!TreeManager.get_config(to_idx).get_value("logic", "can_have_children", false)) or (tree_items[to_idx].is_any_collapsed()) else to_idx
+				#var at = TreeManager.get_children(parent).find(to_idx) + (0 if section == -1 else 1)#section
+				#print("PRE MOVE CHILDREN:", TreeManager.get_children(parent).map(func(i): return TreeManager.get_title(i)))
+				#print("PLACING: %s, %d, at = %d" % [TreeManager.get_title(to_idx), section, at])
+				#TreeManager.move_block(idx, parent, at)
+			-1: # above
 				var to_item = get_item_at_position(at_position)
 				var to_idx = tree_items.find_key(to_item)
 				var idx  = tree_items.find_key(data)
 				var parent = TreeManager.get_parent(to_idx)
-				parent = parent if (!TreeManager.get_config(to_idx).get_value("logic", "can_have_children", false)) or (tree_items[to_idx].is_any_collapsed()) else to_idx
-				var at = TreeManager.get_children(parent).find(to_idx) + (0 if section == -1 else 1)#section
-				print("PRE MOVE CHILDREN:", TreeManager.get_children(parent).map(func(i): return TreeManager.get_title(i)))
-				print("PLACING: %s, %d, at = %d" % [TreeManager.get_title(to_idx), section, at])
-				TreeManager.move_block(idx, parent, at)
+				TreeManager.move_block(idx, parent, TreeManager.get_children(parent).find(to_idx))
 			0: # onto
 				var to_item = get_item_at_position(at_position)
 				var to_idx = tree_items.find_key(to_item)
 				var idx  = tree_items.find_key(data)
 				TreeManager.move_block(idx, to_idx)
+			1: # below
+				var to_item = get_item_at_position(at_position)
+				var to_idx = tree_items.find_key(to_item)
+				var idx  = tree_items.find_key(data)
+				var parent = TreeManager.get_parent(to_idx)
+				parent = parent if (!TreeManager.get_config(to_idx).get_value("logic", "can_have_children", false)) or (tree_items[to_idx].is_any_collapsed()) else to_idx
+				var at = TreeManager.get_children(parent).find(to_idx) + 1
+				TreeManager.move_block(idx, parent, at)
 
 func _block_moved(dict: Dictionary, idx: int, from: int, to: int, at: int) -> void:
 	tree_items[from].remove_child(tree_items[idx])

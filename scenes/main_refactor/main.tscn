@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bhbm0n3du7i3x"]
+[gd_scene load_steps=28 format=3 uid="uid://bhbm0n3du7i3x"]
 
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/catppuccin_macchiato/main.theme" id="1_id72n"]
 [ext_resource type="Script" uid="uid://bf4n7yn75rnlm" path="res://scenes/main_refactor/main.gd" id="2_hwhah"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://has1hb1yqvjw" path="res://scenes/main_refactor/favorite_blocks.gd" id="11_5g2ds"]
 [ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="12_ra7wm"]
 [ext_resource type="Script" uid="uid://bcvxare0clepk" path="res://scenes/main_refactor/property_list.gd" id="14_loyev"]
+[ext_resource type="Script" uid="uid://o831vl0fn3rq" path="res://scenes/main_refactor/property_search.gd" id="15_wxjdr"]
 [ext_resource type="Script" uid="uid://bvd0mrnh02v7w" path="res://components/convenience/modulate_texture_rect.gd" id="17_wxjdr"]
 
 [sub_resource type="Resource" id="Resource_1qaia"]
@@ -561,6 +562,7 @@ layout_mode = 2
 placeholder_text = "search here..."
 clear_button_enabled = true
 caret_blink = true
+script = ExtResource("15_wxjdr")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer"]
 layout_mode = 2

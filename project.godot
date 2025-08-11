@@ -15,7 +15,6 @@ config/version="1.0.0"
 run/main_scene="res://scenes/project_manager.tscn"
 config/auto_accept_quit=false
 config/features=PackedStringArray("4.5", "GL Compatibility")
-run/max_fps=60
 run/low_processor_mode=true
 boot_splash/bg_color=Color(0.0941176, 0.0980392, 0.14902, 1)
 boot_splash/image="uid://k21ota82yu8u"
@@ -37,8 +36,6 @@ gdscript/warnings/unused_signal=0
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
 window/subwindows/embed_subwindows=false
 window/stretch/aspect="expand"
 window/stretch/scale=1.5

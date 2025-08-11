@@ -183,10 +183,10 @@ layout_mode = 2
 theme_type_variation = &"MultilineSeparator"
 
 [node name="TextEdit" type="TextEdit" parent="."]
-clip_contents = false
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 size_flags_vertical = 3
+mouse_force_pass_scroll_events = false
 theme_type_variation = &"PropertyMultiline"
 placeholder_text = "..."
 wrap_mode = 1

@@ -6,6 +6,7 @@ func _ready() -> void:
 	TreeManager.load_file.call_deferred(FileManager.file_path if FileManager.file_path else "res://project_templates/notes.togodoo")
 	get_window().close_requested.connect(get_tree().quit)
 
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"save"):
 		request_save()

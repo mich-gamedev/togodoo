@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bhbm0n3du7i3x"]
+[gd_scene load_steps=27 format=3 uid="uid://bhbm0n3du7i3x"]
 
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/catppuccin_macchiato/main.theme" id="1_id72n"]
 [ext_resource type="Script" uid="uid://bf4n7yn75rnlm" path="res://scenes/main_refactor/main.gd" id="2_hwhah"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" uid="uid://bbt4lmrvjp5vv" path="res://scenes/main_refactor/block_display.gd" id="10_id72n"]
 [ext_resource type="Script" uid="uid://c4h0sw7eorpoo" path="res://scenes/main_refactor/new_block.gd" id="10_p58oo"]
 [ext_resource type="Script" uid="uid://has1hb1yqvjw" path="res://scenes/main_refactor/favorite_blocks.gd" id="11_5g2ds"]
-[ext_resource type="Texture2D" uid="uid://7mqamsoh1bka" path="res://resources/themes/search.svg" id="11_m0l54"]
 [ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="12_ra7wm"]
 [ext_resource type="Script" uid="uid://bcvxare0clepk" path="res://scenes/main_refactor/property_list.gd" id="14_loyev"]
 [ext_resource type="Script" uid="uid://bvd0mrnh02v7w" path="res://components/convenience/modulate_texture_rect.gd" id="17_wxjdr"]
@@ -126,7 +125,7 @@ offset_top = -11.5
 offset_right = 24.0
 offset_bottom = 11.5
 grow_vertical = 2
-theme_type_variation = &"PanelLabel"
+theme_type_variation = &"PanelLabel0"
 text = "nav"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -307,7 +306,7 @@ offset_top = -11.5
 offset_right = 31.0
 offset_bottom = 11.5
 grow_vertical = 2
-theme_type_variation = &"PanelLabel"
+theme_type_variation = &"PanelLabel0"
 text = "tree"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -528,7 +527,7 @@ offset_top = -11.5
 offset_bottom = 11.5
 grow_horizontal = 0
 grow_vertical = 2
-theme_type_variation = &"PanelLabel"
+theme_type_variation = &"PanelLabel0"
 text = "properties"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -561,7 +560,6 @@ unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "search here..."
 clear_button_enabled = true
-right_icon = ExtResource("11_m0l54")
 caret_blink = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer"]

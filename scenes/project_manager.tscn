@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/themes/folder.svg" id="4_csqmn"]
 [ext_resource type="Texture2D" uid="uid://c2kr2kifcs4yc" path="res://resources/themes/settings.svg" id="5_5tm0h"]
 [ext_resource type="Texture2D" uid="uid://bw60ho2s4y84t" path="res://resources/themes/wrench.svg" id="6_gca4t"]
-[ext_resource type="Texture2D" uid="uid://ddlsrj8v0qiuv" path="res://resources/themes/search_nomod.svg" id="7_218y8"]
+[ext_resource type="Texture2D" uid="uid://ddlsrj8v0qiuv" path="res://resources/themes/search.svg" id="7_218y8"]
 [ext_resource type="Texture2D" uid="uid://cfx2ivv7ag1q0" path="res://resources/themes/github-mark-white.svg" id="8_2w5n4"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="10_3lsco"]
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="11_bgcx4"]
@@ -74,7 +74,7 @@ offset_top = -11.5
 offset_right = 31.0
 offset_bottom = 11.5
 grow_vertical = 2
-theme_type_variation = &"PanelLabel"
+theme_type_variation = &"PanelLabel0"
 text = "recent files"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -151,7 +151,7 @@ offset_top = -11.0
 offset_right = 21.0
 offset_bottom = 12.0
 grow_vertical = 2
-theme_type_variation = &"PanelLabel"
+theme_type_variation = &"PanelLabel0"
 text = "nav"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -283,7 +283,7 @@ offset_top = -11.5
 offset_right = 31.0
 offset_bottom = 11.5
 grow_vertical = 2
-theme_type_variation = &"PanelLabel"
+theme_type_variation = &"PanelLabel0"
 text = "templates"
 horizontal_alignment = 1
 vertical_alignment = 1

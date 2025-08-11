@@ -6,6 +6,7 @@
 color = Color(0.141176, 0.152941, 0.227451, 1)
 
 [node name="Window" type="Window"]
+oversampling_override = 1.0
 title = "Tool bar options"
 initial_position = 1
 size = Vector2i(640, 360)
@@ -38,6 +39,7 @@ split_offset = 240
 layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/Panel"]
+layout_mode = 0
 offset_right = 8.0
 size_flags_vertical = 0
 theme_override_constants/margin_left = 8
@@ -54,6 +56,7 @@ offset_top = -11.5
 offset_right = 31.0
 offset_bottom = 11.5
 grow_vertical = 2
+theme_type_variation = &"PanelLabel0"
 theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
 theme_override_font_sizes/font_size = 14
 text = "displayed"
@@ -111,6 +114,7 @@ text_overrun_behavior = 3
 layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/Panel2"]
+layout_mode = 0
 offset_right = 8.0
 size_flags_vertical = 0
 theme_override_constants/margin_left = 8
@@ -127,6 +131,7 @@ offset_top = -11.5
 offset_right = 31.0
 offset_bottom = 11.5
 grow_vertical = 2
+theme_type_variation = &"PanelLabel0"
 theme_override_colors/font_color = Color(0.647059, 0.678431, 0.796078, 1)
 theme_override_font_sizes/font_size = 14
 text = "options"

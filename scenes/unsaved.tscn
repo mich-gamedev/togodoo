@@ -6,22 +6,30 @@
 oversampling_override = 1.0
 title = "Save any changes?"
 initial_position = 2
-size = Vector2i(320, 90)
+size = Vector2i(320, 80)
 transient = true
+exclusive = true
+popup_window = true
 script = ExtResource("1_v7deh")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 bbcode_enabled = true
@@ -29,29 +37,29 @@ text = "[center]Save any changes before closing?
 [color=#6e738d](currently app can't detect changes, sorry! expected for v1.1.0)"
 fit_content = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="Discard" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Discard" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"ButtonWithPanel"
 text = "Don't save"
 
-[node name="Save" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Save" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"ButtonWithPanel"
 text = "Save"
 
-[node name="Cancel" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Cancel" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"ButtonWithPanel"
 text = "Cancel"
 
 [connection signal="close_requested" from="." to="." method="_on_cancel_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Discard" to="." method="_on_discard_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Discard" to="." method="_on_discard_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]

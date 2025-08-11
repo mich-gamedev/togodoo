@@ -2,7 +2,7 @@
 
 importer="svg"
 type="SVGTexture"
-uid="uid://7mqamsoh1bka"
+uid="uid://ddlsrj8v0qiuv"
 path="res://.godot/imported/search.svg-15e2eebaa420b65a1f56413bafe161f3.svgtex"
 
 [deps]
@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/search.svg-15e2eebaa420b65a1f56413bafe161f3.s
 
 [params]
 
-base_scale=1.0
+base_scale=4.0
 saturation=1.0
 color_map={}
 compress=true

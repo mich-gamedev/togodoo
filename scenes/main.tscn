@@ -1,11 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://bn2aqpvkqauvr"]
+[gd_scene load_steps=21 format=3 uid="uid://bn2aqpvkqauvr"]
 
 [ext_resource type="Script" uid="uid://dqpyws57c80o3" path="res://scenes/main.gd" id="1_6yeym"]
 [ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/catppuccin_macchiato/main.theme" id="1_to3i3"]
 [ext_resource type="Script" uid="uid://crgds744cw8cx" path="res://scenes/help.gd" id="6_0ld40"]
 [ext_resource type="Script" uid="uid://b88vdrmopa5td" path="res://scenes/file.gd" id="7_rl21x"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="8_ac2rg"]
-[ext_resource type="Texture2D" uid="uid://7mqamsoh1bka" path="res://resources/themes/search.svg" id="8_cugfj"]
 [ext_resource type="Script" uid="uid://b2omivdyerg22" path="res://scenes/tree.gd" id="10_uy6d5"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="10_viifr"]
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="11_q3wb5"]
@@ -15,54 +14,30 @@
 
 [sub_resource type="Resource" id="Resource_1qaia"]
 script = ExtResource("11_q3wb5")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_n83lp"]
 script = ExtResource("11_q3wb5")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_dk6e4"]
 color = Color(0.211765, 0.227451, 0.309804, 1)
 
 [sub_resource type="Resource" id="Resource_vafg3"]
 script = ExtResource("11_q3wb5")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_41xyg"]
 script = ExtResource("11_q3wb5")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_x352f"]
 script = ExtResource("11_q3wb5")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_a35te"]
 script = ExtResource("11_q3wb5")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_cuyag"]
 script = ExtResource("11_q3wb5")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [sub_resource type="Resource" id="Resource_pj40j"]
 script = ExtResource("11_q3wb5")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -559,7 +534,6 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "search here..."
-right_icon = ExtResource("8_cugfj")
 caret_blink = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/Properties/MarginContainer2/VBoxContainer"]

@@ -1,6 +1,5 @@
-[gd_scene load_steps=18 format=3 uid="uid://b6jg6njwa37da"]
+[gd_scene load_steps=17 format=3 uid="uid://b6jg6njwa37da"]
 
-[ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/catppuccin_macchiato/main.theme" id="1_rf8uy"]
 [ext_resource type="Script" uid="uid://cueix7yd2sy5s" path="res://scenes/project_manager.gd" id="1_rryq6"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="3_unyqo"]
 [ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/themes/garbage_can.svg" id="4_bgcx4"]
@@ -240,7 +239,6 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-theme = ExtResource("1_rf8uy")
 theme_override_font_sizes/font_size = 12
 text = "   __                              ___
 __\\  \\__  _____   _____   _____   _\\  \\   _____   _____

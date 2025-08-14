@@ -1,7 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://bn2aqpvkqauvr"]
+[gd_scene load_steps=20 format=3 uid="uid://bn2aqpvkqauvr"]
 
 [ext_resource type="Script" uid="uid://dqpyws57c80o3" path="res://scenes/main.gd" id="1_6yeym"]
-[ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/catppuccin_macchiato/main.theme" id="1_to3i3"]
 [ext_resource type="Script" uid="uid://crgds744cw8cx" path="res://scenes/help.gd" id="6_0ld40"]
 [ext_resource type="Script" uid="uid://b88vdrmopa5td" path="res://scenes/file.gd" id="7_rl21x"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="8_ac2rg"]
@@ -46,7 +45,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_to3i3")
 script = ExtResource("1_6yeym")
 
 [node name="Label" type="Label" parent="."]
@@ -62,7 +60,6 @@ offset_right = 239.0
 offset_bottom = 61.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_to3i3")
 theme_type_variation = &"LogoLabel"
 text = "   __                              ___
 __\\  \\__  _____   _____   _____   _\\  \\   _____   _____

@@ -145,3 +145,10 @@ static func get_mod_info(mod: String) -> ConfigFile:
 
 static func format(string: String) -> String:
 	return string.format(settings_formatting)
+
+static func get_option_string(mod: String, key: String, value: int) -> String:
+	for i in get_setting_usage(mod, key):
+		if i.begins_with("options"):
+			var options := i.trim_prefix("options=").split(";")
+			return options[value] if options.size() < value else ""
+	return ""

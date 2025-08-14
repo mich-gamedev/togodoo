@@ -1,6 +1,5 @@
-[gd_scene load_steps=29 format=3 uid="uid://bhbm0n3du7i3x"]
+[gd_scene load_steps=27 format=3 uid="uid://bhbm0n3du7i3x"]
 
-[ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/catppuccin_macchiato/main.theme" id="1_id72n"]
 [ext_resource type="Script" uid="uid://bf4n7yn75rnlm" path="res://scenes/main_refactor/main.gd" id="2_hwhah"]
 [ext_resource type="Script" uid="uid://g15qn6il8mg1" path="res://scenes/main_refactor/ascii_bg.gd" id="3_c5x5u"]
 [ext_resource type="Script" uid="uid://b88vdrmopa5td" path="res://scenes/file.gd" id="3_loyev"]
@@ -26,9 +25,6 @@ script = ExtResource("8_c5x5u")
 [sub_resource type="Resource" id="Resource_n83lp"]
 script = ExtResource("8_c5x5u")
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_dk6e4"]
-color = Color(0.211765, 0.227451, 0.309804, 1)
-
 [sub_resource type="Resource" id="Resource_vafg3"]
 script = ExtResource("8_c5x5u")
 
@@ -52,25 +48,34 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_id72n")
 script = ExtResource("2_hwhah")
 
-[node name="AsciiBG" type="Label" parent="."]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelBG"
+
+[node name="AsciiBG" type="Label" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -239.0
-offset_top = -61.5
-offset_right = 239.0
-offset_bottom = 61.5
+offset_left = -267.5
+offset_top = -70.25
+offset_right = 267.5
+offset_bottom = 70.25
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_id72n")
 theme_type_variation = &"LogoLabel"
 text = "   __                              ___
 __\\  \\__  _____   _____   _____   _\\  \\   _____   _____
@@ -378,7 +383,7 @@ script = ExtResource("10_p58oo")
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_dk6e4")
+theme_type_variation = &"HSeparatorDim"
 
 [node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer"]
 layout_mode = 2

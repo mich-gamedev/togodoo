@@ -4,7 +4,8 @@ extends Button
 
 func _update_block() -> void:
 	if ResourceLoader.exists(block.get_arg("icon")):
-		icon = ImageTexture.create_from_image(Image.load_from_file(block.get_arg("icon")))
+		var tex = load(block.get_arg("icon"))
+		icon = tex if tex else ImageTexture.create_from_image(Image.load_from_file(block.get_arg("icon")))
 	else:
 		icon = null
 	text = block.get_title()

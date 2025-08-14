@@ -13,9 +13,9 @@ func _setting_changed(mod: String, key: String, value: Variant) -> void:
 	if mod != "vanilla": return
 	match key:
 		"interface/ui_scale":
-			get_tree().root.content_scale_factor = value
+			get_tree().root.content_scale_factor = value if !is_zero_approx(value) else DisplayServer.screen_get_scale(DisplayServer.window_get_current_screen())
 			for i: Window in get_tree().root.find_children("*", "Window", true, false):
-				i.content_scale_factor = value
+				i.content_scale_factor = get_tree().root.content_scale_factor
 		"interface/font":
 			var font = FontFile.new()
 			var err = font.load_dynamic_font(value)

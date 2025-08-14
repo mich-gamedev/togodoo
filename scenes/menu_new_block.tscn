@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bb1vde2pnt0oq"]
+[gd_scene load_steps=9 format=3 uid="uid://bb1vde2pnt0oq"]
 
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="1_t1llj"]
 [ext_resource type="Script" uid="uid://d3br8l84cn0vo" path="res://scenes/menu_new_block.gd" id="1_tunnl"]
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="2_licha"]
 [ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="4_l45g7"]
-[ext_resource type="Theme" uid="uid://cc203wnbg77sb" path="res://resources/themes/catppuccin_macchiato/main.theme" id="5_43w16"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="8_gs133"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_vwsas"]
@@ -26,16 +25,7 @@ min_size = Vector2i(620, 150)
 keep_title_visible = true
 script = ExtResource("1_tunnl")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.141176, 0.152941, 0.227451, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
-layout_mode = 1
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -46,24 +36,24 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="HSplitContainer" type="HSplitContainer" parent="ColorRect/MarginContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer"]
 layout_mode = 2
 split_offset = -405
 
-[node name="Panel" type="Panel" parent="ColorRect/MarginContainer/HSplitContainer"]
+[node name="Panel" type="Panel" parent="MarginContainer/HSplitContainer"]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer/Panel"]
 layout_mode = 0
 size_flags_vertical = 0
 theme_override_constants/margin_left = 8
 
-[node name="Control" type="Control" parent="ColorRect/MarginContainer/HSplitContainer/Panel/MarginContainer"]
+[node name="Control" type="Control" parent="MarginContainer/HSplitContainer/Panel/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/Panel/MarginContainer/Control"]
+[node name="Label" type="Label" parent="MarginContainer/HSplitContainer/Panel/MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -77,7 +67,7 @@ text = "nav"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/HSplitContainer/Panel/MarginContainer/Control/Label"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HSplitContainer/Panel/MarginContainer/Control/Label"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 14
@@ -90,7 +80,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_vwsas")
 
-[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/Panel"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HSplitContainer/Panel"]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -103,33 +93,33 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="SmoothScrollContainer" type="ScrollContainer" parent="ColorRect/MarginContainer/HSplitContainer/Panel/MarginContainer2"]
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/HSplitContainer/Panel/MarginContainer2"]
 layout_mode = 2
 script = ExtResource("1_t1llj")
 speed = 500.0
 wheel_scroll_damper = SubResource("Resource_ip8e0")
 dragging_scroll_damper = SubResource("Resource_qlm2l")
 
-[node name="BlockTypeContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/HSplitContainer/Panel/MarginContainer2/SmoothScrollContainer"]
+[node name="BlockTypeContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/Panel/MarginContainer2/SmoothScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 2
 
-[node name="Panel2" type="Panel" parent="ColorRect/MarginContainer/HSplitContainer"]
+[node name="Panel2" type="Panel" parent="MarginContainer/HSplitContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/Panel2"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer/Panel2"]
 layout_mode = 0
 size_flags_vertical = 0
 theme_override_constants/margin_left = 8
 
-[node name="Control" type="Control" parent="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer"]
+[node name="Control" type="Control" parent="MarginContainer/HSplitContainer/Panel2/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer/Control"]
+[node name="Label" type="Label" parent="MarginContainer/HSplitContainer/Panel2/MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -143,7 +133,7 @@ text = "info"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer/Control/Label"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HSplitContainer/Panel2/MarginContainer/Control/Label"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 14
@@ -156,7 +146,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_vwsas")
 
-[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/MarginContainer/HSplitContainer/Panel2"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HSplitContainer/Panel2"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -169,37 +159,37 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/Panel2/MarginContainer2"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer"]
 clip_contents = true
 layout_mode = 2
 
-[node name="Icon" type="TextureRect" parent="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="Icon" type="TextureRect" parent="MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 modulate = Color(0.803922, 0.839216, 0.956863, 1)
 layout_mode = 2
 texture = ExtResource("4_l45g7")
 expand_mode = 3
 
-[node name="Title" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Nothing Selected"
 
-[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Credits" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="Credits" type="Label" parent="MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_colors/font_color = Color(0.431373, 0.45098, 0.552941, 1)
 
-[node name="Description" type="Label" parent="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer"]
+[node name="Description" type="Label" parent="MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -207,11 +197,11 @@ theme_override_constants/line_spacing = 0
 text = "Select a block type in the left dock."
 autowrap_mode = 3
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Cancel" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer2"]
+[node name="Cancel" type="Button" parent="MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(0, 21)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -220,16 +210,15 @@ theme_type_variation = &"ButtonWithPanel"
 theme_override_constants/icon_max_width = 16
 text = "Cancel"
 
-[node name="Create" type="Button" parent="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer2"]
+[node name="Create" type="Button" parent="MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
-theme = ExtResource("5_43w16")
 theme_type_variation = &"ButtonWithPanel"
 theme_override_constants/icon_max_width = 16
 text = "Add Block"
 icon = ExtResource("8_gs133")
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
-[connection signal="pressed" from="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer2/Cancel" to="." method="_on_close_requested"]
-[connection signal="pressed" from="ColorRect/MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer2/Create" to="." method="_on_create_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer2/Cancel" to="." method="_on_close_requested"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/Panel2/MarginContainer2/VBoxContainer/HBoxContainer2/Create" to="." method="_on_create_pressed"]

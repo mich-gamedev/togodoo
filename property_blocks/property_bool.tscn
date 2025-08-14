@@ -26,5 +26,6 @@ icon = ExtResource("2_nrf5v")
 [node name="ValueBool" type="CheckBox" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 
 [connection signal="toggled" from="ValueBool" to="." method="property_change_emit" unbinds=1]

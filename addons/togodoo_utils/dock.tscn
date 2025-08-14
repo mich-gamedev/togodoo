@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://ybfwl6ch82j"]
+
+[ext_resource type="Script" uid="uid://p5f1ampnedq8" path="res://color_format.gd" id="1_rb3rq"]
+[ext_resource type="Texture2D" uid="uid://d3b2e8jo8kl68" path="res://addons/togodoo_utils/copy.svg" id="2_nqgeu"]
+[ext_resource type="Script" uid="uid://m64l5aigdert" path="res://addons/togodoo_utils/theme_setup.gd" id="3_nqgeu"]
+
+[node name="Utilities" type="ScrollContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Utilities" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FoldableContainer" type="FoldableContainer" parent="Utilities"]
+layout_mode = 2
+title = "Color Formatting"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Utilities/FoldableContainer"]
+layout_mode = 2
+script = ExtResource("1_rb3rq")
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Utilities/FoldableContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Utilities/FoldableContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_nqgeu")
+
+[node name="LineEdit" type="LineEdit" parent="Utilities/FoldableContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "Color(0, 0, 0, 1)"
+placeholder_text = "Color(r, g, b, a)"
+
+[node name="FoldableContainer2" type="FoldableContainer" parent="Utilities"]
+layout_mode = 2
+title = "Theme Setup"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Utilities/FoldableContainer2"]
+layout_mode = 2
+script = ExtResource("3_nqgeu")
+
+[connection signal="color_changed" from="Utilities/FoldableContainer/HBoxContainer/ColorPickerButton" to="Utilities/FoldableContainer/HBoxContainer" method="_color_picker_button_color_changed"]
+[connection signal="pressed" from="Utilities/FoldableContainer/HBoxContainer/Button" to="Utilities/FoldableContainer/HBoxContainer" method="_button_pressed"]
+[connection signal="text_submitted" from="Utilities/FoldableContainer/HBoxContainer/LineEdit" to="Utilities/FoldableContainer/HBoxContainer" method="_line_edit_text_submitted"]

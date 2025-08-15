@@ -24,6 +24,7 @@ func _block_selected(idx: int) -> void:
 				inst.default_value = cfg.get_value("properties", key)
 				inst.display_value.call_deferred(TreeManager.get_property(idx, key))
 				inst.tooltip_text = cfg.get_value("hints", key, "")
+
 	var sep = HSeparator.new()
 	sep.size_flags_vertical = Control.SIZE_EXPAND | Control.SIZE_SHRINK_END
 	add_child(sep)

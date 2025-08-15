@@ -10,6 +10,14 @@ size = Vector2i(270, 90)
 content_scale_aspect = 4
 script = ExtResource("1_to0l2")
 
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelBG"
+
 [node name="Control" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0

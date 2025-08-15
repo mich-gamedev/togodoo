@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0xlphou0hs56"]
+[gd_scene load_steps=17 format=3 uid="uid://d0xlphou0hs56"]
 
 [ext_resource type="Script" uid="uid://dxlxjsj4dd4xd" path="res://scenes/mod_manager.gd" id="1_m2rmo"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_ti26n"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b2vkmquso6nbs" path="res://resources/themes/Discord-Symbol-White.svg" id="4_3u0wr"]
 [ext_resource type="Texture2D" uid="uid://x7tdi6mwpo4a" path="res://resources/themes/gitlab-logo-700.svg" id="5_b3f4m"]
 [ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="5_hw12a"]
+[ext_resource type="Script" uid="uid://bvd0mrnh02v7w" path="res://components/convenience/modulate_texture_rect.gd" id="6_iaotw"]
 [ext_resource type="Texture2D" uid="uid://d0i3o6br684je" path="res://resources/themes/web.svg" id="8_2trou"]
 [ext_resource type="Texture2D" uid="uid://c2kr2kifcs4yc" path="res://resources/themes/settings.svg" id="10_fgot1"]
 
@@ -33,6 +34,14 @@ title = "Manage Mods"
 initial_position = 2
 size = Vector2i(960, 540)
 script = ExtResource("1_m2rmo")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelBG"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -195,10 +204,13 @@ layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-modulate = Color(0.803922, 0.839216, 0.956863, 1)
+modulate = Color(0.64705884, 0.6784314, 0.79607844, 1)
 layout_mode = 2
+theme_type_variation = &"ModulateTextureRect"
 texture = ExtResource("5_hw12a")
 expand_mode = 3
+script = ExtResource("6_iaotw")
+metadata/_custom_type_script = "uid://bvd0mrnh02v7w"
 
 [node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -217,7 +229,7 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_colors/font_color = Color(0.431373, 0.45098, 0.552941, 1)
+theme_type_variation = &"LabelHeader"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/Options/MarginContainer2/VBoxContainer"]
 clip_contents = true

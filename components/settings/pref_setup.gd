@@ -17,12 +17,12 @@ func _setting_changed(mod: String, key: String, value: Variant) -> void:
 			for i: Window in get_tree().root.find_children("*", "Window", true, false):
 				i.content_scale_factor = get_tree().root.content_scale_factor
 		"interface/font":
-			var font = FontFile.new()
-			var err = font.load_dynamic_font(value)
-			if err:
-				push_error("Error on loading 'interface/font':", error_string(err))
-			font.multichannel_signed_distance_field = Settings.get_setting("vanilla", "interface/font_msdf")
-			get_theme().default_font = font
+				var font = FontFile.new()
+				var err = font.load_dynamic_font(value)
+				if err:
+					push_error("Error on loading 'interface/font':", error_string(err))
+				font.multichannel_signed_distance_field = Settings.get_setting("vanilla", "interface/font_msdf")
+				get_theme().default_font = font
 		"interface/font_msdf":
 			get_theme().default_font.multichannel_signed_distance_field = value
 		"interface/svg_oversampling":

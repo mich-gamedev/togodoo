@@ -18,8 +18,8 @@ func _update_block() -> void:
 
 	if block.get_arg("use_preset_color"):
 		remove_theme_stylebox_override(&"panel")
-		theme_type_variation = &"Panel%s" % wrapi(block.get_indents(), 0, 6)
-		%TitleLabel.theme_type_variation = &"PanelLabel%s" % wrapi(block.get_indents(), 0, 6)
+		theme_type_variation = &"Panel%s" % clampi(block.get_indents(), 0, 5)
+		%TitleLabel.theme_type_variation = &"PanelLabel%s" % clampi(block.get_indents(), 0, 5)
 		#var style := get_theme_stylebox(&"panel")
 		#if style is StyleBoxFlat:
 			#style.border_color = Utils.COLORS[wrapi(block.get_indents() + Utils.ColorTags.OVERLAY_0, Utils.ColorTags.OVERLAY_0, Utils.ColorTags.TEXT)]

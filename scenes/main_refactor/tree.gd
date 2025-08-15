@@ -138,7 +138,7 @@ func reset_tree(keep_selected: bool = true) -> void:
 			tree_item = create_item(tree_items[dict.parent])
 		tree_item.set_text(0, dict.stripped_title)
 		tree_item.set_icon(0, load(FileManager.get_block_config_by_type(dict.type).get_value("display", "icon")))
-		tree_item.set_icon_modulate(0, Color("cdd6f4"))
+		tree_item.set_icon_modulate(0, get_theme_color(&"icon_color"))
 		tree_item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD_SMART)
 		tree_items[i] = tree_item
 	#if keep_selected and tree_items.has(selected): tree_items[selected].select(0)

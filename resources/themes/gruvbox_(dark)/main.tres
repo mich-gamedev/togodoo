@@ -79,12 +79,12 @@ border_width_right = 1
 border_width_bottom = 2
 border_color = Color(0.4, 0.36078432, 0.32941177, 1)
 
-[sub_resource type="Texture2D" id="Texture2D_nle8c"]
+[sub_resource type="Texture2D" id="Texture2D_fiyf6"]
 resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_j308f")
 origin = ExtResource("2_krar2")
-modulate = Color(0.8039216, 0.8392157, 0.95686275, 1)
+modulate = Color(0.5568628, 0.7529412, 0.4862745, 1)
 metadata/_custom_type_script = "uid://5tj7k3j8v80b"
 
 [sub_resource type="Texture2D" id="Texture2D_mw8ca"]
@@ -92,7 +92,7 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_j308f")
 origin = ExtResource("4_fiyf6")
-modulate = Color(0.43137255, 0.4509804, 0.5529412, 1)
+modulate = Color(0.7411765, 0.68235296, 0.5764706, 1)
 metadata/_custom_type_script = "uid://5tj7k3j8v80b"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngs6s"]
@@ -514,31 +514,31 @@ border_color = Color(0.7176471, 0.7411765, 0.972549, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_itjbw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvfrw"]
-bg_color = Color(0.14117648, 0.15294118, 0.22745098, 1)
+bg_color = Color(0.19607843, 0.1882353, 0.18431373, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86eqw"]
-bg_color = Color(0.14117648, 0.15294118, 0.22745098, 1)
+bg_color = Color(0.19607843, 0.1882353, 0.18431373, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0ia6"]
 content_margin_left = 2.0
 content_margin_right = 2.0
-bg_color = Color(0.25490198, 0.27058825, 0.34901962, 1)
+bg_color = Color(0.23529412, 0.21960784, 0.21176471, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.43137255, 0.4509804, 0.5529412, 1)
+border_color = Color(0.5568628, 0.7529412, 0.4862745, 1)
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imtj6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_542k7"]
 content_margin_left = 2.0
 content_margin_right = 2.0
-bg_color = Color(0.25490198, 0.27058825, 0.34901962, 1)
+bg_color = Color(0.23529412, 0.21960784, 0.21176471, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.43137255, 0.4509804, 0.5529412, 1)
+border_color = Color(0.5568628, 0.7529412, 0.4862745, 1)
 anti_aliasing = false
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_66o4i"]
@@ -642,7 +642,7 @@ ButtonWithPanel/styles/hover_pressed = SubResource("StyleBoxFlat_lubjy")
 ButtonWithPanel/styles/normal = SubResource("StyleBoxFlat_ggk4c")
 ButtonWithPanel/styles/pressed = SubResource("StyleBoxFlat_lubjy")
 CheckBox/constants/icon_max_width = 16
-CheckBox/icons/checked = SubResource("Texture2D_nle8c")
+CheckBox/icons/checked = SubResource("Texture2D_fiyf6")
 CheckBox/icons/unchecked = SubResource("Texture2D_mw8ca")
 ColorPicker/constants/margin = 8
 ColorPicker/constants/sv_height = 200
@@ -845,6 +845,7 @@ Tree/colors/font_hovered_color = Color(0.9843137, 0.94509804, 0.78039217, 1)
 Tree/colors/font_hovered_dimmed_color = Color(0.9843137, 0.94509804, 0.78039217, 1)
 Tree/colors/font_hovered_selected_color = Color(0.9843137, 0.94509804, 0.78039217, 1)
 Tree/colors/font_selected_color = Color(0.9843137, 0.94509804, 0.78039217, 1)
+Tree/colors/icon_color = Color(0.5568628, 0.7529412, 0.4862745, 1)
 Tree/colors/parent_hl_line_color = Color(0.4862745, 0.43529412, 0.39215687, 1)
 Tree/colors/relationship_line_color = Color(0.23529412, 0.21960784, 0.21176471, 1)
 Tree/constants/draw_guides = 0
@@ -860,7 +861,7 @@ Tree/styles/focus = SubResource("StyleBoxEmpty_itjbw")
 Tree/styles/hovered = SubResource("StyleBoxFlat_dvfrw")
 Tree/styles/hovered_dimmed = SubResource("StyleBoxFlat_86eqw")
 Tree/styles/hovered_selected = SubResource("StyleBoxFlat_i0ia6")
-Tree/styles/hovered_selected_focus = SubResource("StyleBoxFlat_imtj6")
+Tree/styles/hovered_selected_focus = SubResource("StyleBoxFlat_542k7")
 Tree/styles/panel = SubResource("StyleBoxEmpty_66o4i")
 Tree/styles/selected = ExtResource("7_jrdif")
 Tree/styles/selected_focus = ExtResource("1_542k7")

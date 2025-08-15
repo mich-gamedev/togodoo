@@ -822,6 +822,7 @@ TextEdit/styles/normal = ExtResource("13_7beb0")
 TooltipPanel/styles/panel = SubResource("StyleBoxFlat_iqw2v")
 Tree/colors/children_hl_line_color = Color(0.28627452, 0.3019608, 0.39215687, 1)
 Tree/colors/font_color = Color(0.64705884, 0.6784314, 0.79607844, 1)
+Tree/colors/icon_color = Color(0.7921569, 0.827451, 0.9607843, 1)
 Tree/colors/parent_hl_line_color = Color(0.64705884, 0.6784314, 0.79607844, 1)
 Tree/colors/relationship_line_color = Color(0.21176471, 0.22745098, 0.30980393, 1)
 Tree/constants/draw_guides = 0

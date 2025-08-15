@@ -269,7 +269,7 @@ anti_aliasing = false
 bg_color = Color(0.11372549, 0.1254902, 0.12941177, 1)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_x8p5e"]
-color = Color(0.11764706, 0.1254902, 0.1882353, 1)
+color = Color(0.15686275, 0.15686275, 0.15686275, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4068"]
 content_margin_left = 2.0
@@ -710,7 +710,7 @@ PopupPanel/styles/panel = ExtResource("15_vn6m1")
 PropertyMultiline/base_type = &"TextEdit"
 PropertyMultiline/styles/normal = SubResource("StyleBoxFlat_mwjwb")
 RTLHeader/base_type = &"RichTextLabel"
-RTLHeader/colors/default_color = Color(0.43137255, 0.4509804, 0.5529412, 1)
+RTLHeader/colors/default_color = Color(0.3137255, 0.28627452, 0.27058825, 1)
 RichTextLabel/colors/default_color = Color(0.9843137, 0.94509804, 0.78039217, 1)
 RichTextLabel/colors/font_selected_color = Color(0.11372549, 0.1254902, 0.12941177, 1)
 RichTextLabel/colors/selection_color = Color(0.5568628, 0.7529412, 0.4862745, 1)

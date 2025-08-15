@@ -10,9 +10,6 @@ var last_selected: TreeItem
 
 func _ready() -> void:
 	set_column_expand(1, false)
-	#TreeManager.signals.block_added.connect(_block_added)
-	#TreeManager.signals.pre_block_removed.connect(_block_removed)
-	#TreeManager.signals.block_moved.connect(_block_moved)
 	TreeManager.signals.tree_changed.connect(reset_tree, CONNECT_DEFERRED)
 	PropertyBus.property_changed.connect(_property_changed)
 	item_selected.connect(_item_selected)
@@ -51,6 +48,8 @@ func _item_selected() -> void:
 
 func _property_changed(idx: int, property: StringName, value: Variant, reset_property_list: bool) -> void:
 	var cfg = FileManager.get_block_config_by_type(TreeManager.items[idx].type)
+	if property == &"title":
+		tree_items[idx].set_text(0, TreeManager.get_bbcode_stripped_title(idx))
 	if cfg.has_section_key("usage", property) and String(cfg.get_value("usage", property)).contains("tree_bg_color") and value != cfg.get_value("properties", property):
 		tree_items[idx].set_icon_modulate(0, value)
 

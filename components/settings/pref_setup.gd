@@ -6,8 +6,12 @@ func _ready() -> void:
 	Settings.signals.mod_loaded.connect(_mod_loaded)
 	Settings.find_mods()
 	var config = Settings.configs.vanilla[Settings.FALLBACK]
-	for i in config.get_section_keys("properties"):
+	update_custom_theme()
+	for i: String in config.get_section_keys("properties"):
+		if i.begins_with("theme/") and !(i in ["theme/theme", "theme/custom_theme"]): continue
 		_setting_changed("vanilla", i, Settings.get_setting("vanilla", i))
+
+var custom := Theme.new()
 
 func _setting_changed(mod: String, key: String, value: Variant) -> void:
 	if mod != "vanilla": return
@@ -42,6 +46,8 @@ func _setting_changed(mod: String, key: String, value: Variant) -> void:
 			var theme := load(value)
 			if theme is Theme:
 				get_tree().root.theme = theme
+		_ when key.begins_with("theme/"):
+			pass
 
 func _pck_loaded(_path: String) -> void:
 	get_tree().root.propagate_call.call_deferred("queue_redraw")
@@ -63,3 +69,12 @@ func _mod_loaded(mod: String) -> void:
 
 func get_theme() -> Theme:
 	return get_tree().root.theme if get_tree().root.theme else ThemeDB.get_project_theme()
+
+func get_color(key: String) -> Color:
+	return Settings.get_setting("vanilla", "theme/%s" % key)
+
+func update_custom_theme() -> void:
+	# NOTE: `if true` is to keep separated namespaces
+	if true: # background panel
+		var bg = StyleBoxFlat.new()
+		bg.bg_color = get_color("background")

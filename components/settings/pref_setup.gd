@@ -27,9 +27,9 @@ func _setting_changed(mod: String, key: String, value: Variant) -> void:
 			get_theme().default_font.multichannel_signed_distance_field = value
 		"interface/svg_oversampling":
 			get_viewport().oversampling = value
-		"interface/theme":
+		"theme/theme":
 			var options: PackedStringArray
-			for tag in Settings.get_setting_usage("vanilla", "interface/theme"):
+			for tag in Settings.get_setting_usage("vanilla", "theme/theme"):
 				if tag.begins_with("options="):
 					options = tag.trim_prefix("options=").split(";")
 					break
@@ -37,8 +37,8 @@ func _setting_changed(mod: String, key: String, value: Variant) -> void:
 			if ResourceLoader.exists("res://resources/themes/%s/main.tres" % options[value]):
 				var theme = load("res://resources/themes/%s/main.tres" % options[value])
 				get_tree().root.theme = theme
-		"interface/custom_theme":
-			if Settings.get_setting("vanilla", "interface/theme") != 6: return
+		"theme/custom_theme":
+			if Settings.get_setting("vanilla", "theme/theme") != 6: return
 			var theme := load(value)
 			if theme is Theme:
 				get_tree().root.theme = theme

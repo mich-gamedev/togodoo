@@ -852,6 +852,7 @@ Tree/colors/relationship_line_color = Color(0.21176471, 0.22745098, 0.30980393, 
 Tree/constants/draw_guides = 0
 Tree/constants/draw_relationship_lines = 1
 Tree/constants/icon_max_width = 16
+Tree/constants/item_margin = 14
 Tree/icons/arrow = ExtResource("5_gnfd0")
 Tree/icons/arrow_collapsed = ExtResource("6_7vhy3")
 Tree/icons/checked = ExtResource("17_g23lu")

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=99 format=3 uid="uid://dn11g6an1ynwr"]
+[gd_resource type="Theme" load_steps=100 format=3 uid="uid://dn11g6an1ynwr"]
 
 [ext_resource type="StyleBox" uid="uid://bigm786rt6fyn" path="res://resources/themes/catppuccin_macchiato/styles/focus.stylebox" id="1_piy81"]
 [ext_resource type="Texture2D" uid="uid://b6pcbppw7epev" path="res://resources/themes/checkbox_on.svg" id="2_5cfww"]
@@ -348,6 +348,11 @@ anti_aliasing = false
 color = Color(0.43137255, 0.4509804, 0.5529412, 1)
 grow_begin = -4.0
 grow_end = -4.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_piy81"]
+color = Color(0.7921569, 0.827451, 0.9607843, 1)
+grow_begin = 0.0
+grow_end = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwjwb"]
 bg_color = Color(0.09411765, 0.09803922, 0.14901961, 1)
@@ -767,6 +772,8 @@ PopupMenu/styles/labeled_separator_right = ExtResource("9_0w1l0")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_y4068")
 PopupMenu/styles/separator = SubResource("StyleBoxLine_mkgvt")
 PopupPanel/styles/panel = ExtResource("15_rou2j")
+PreviewLine/base_type = &"HSeparator"
+PreviewLine/styles/separator = SubResource("StyleBoxLine_piy81")
 PropertyMultiline/base_type = &"TextEdit"
 PropertyMultiline/styles/normal = SubResource("StyleBoxFlat_mwjwb")
 RTLHeader/base_type = &"RichTextLabel"

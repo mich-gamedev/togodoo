@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dtetmuph36std"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 29.0
+offset_bottom = 4.0
+theme_override_constants/separation = 4
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Control"]
+layout_mode = 0
+offset_right = 3.0
+offset_bottom = 4.0
+size_flags_horizontal = 0
+theme_type_variation = &"PreviewLine"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PreviewLine"

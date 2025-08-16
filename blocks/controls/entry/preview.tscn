@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ecnoqa0y2n0k"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 29.0
+offset_bottom = 4.0
+theme_override_constants/separation = 2
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="."]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_type_variation = &"PreviewLine"

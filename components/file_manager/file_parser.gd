@@ -36,6 +36,15 @@ static func parse_line(line: String) -> Dictionary:
 
 	return args
 
+static func get_type(line: String) -> String:
+	if line.is_empty(): return ""
+	if !line.begins_with("[") or !line.contains("]"):
+		push_error("Type parse failed for line '%s'. Returning empty string." % line)
+		return ""
+	var from = line.find("[")
+	var to = min(line.find("]"), line.find(" "))
+	return line.substr(from + 1, to - from - 1)
+
 static func parse_dict(dict: Dictionary) -> String:
 	var config = FileManager.get_block_config(FileManager.block_types[dict.type])
 

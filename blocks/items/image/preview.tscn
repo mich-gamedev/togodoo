@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bvem0jc5tdhy6"]
+
+[node name="Panel" type="Panel"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 12.0
+theme_type_variation = &"BlockHoverIndicator"

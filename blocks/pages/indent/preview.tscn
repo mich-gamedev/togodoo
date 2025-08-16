@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dqohxqacdscqi"]
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 6
+
+[node name="ChildContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2

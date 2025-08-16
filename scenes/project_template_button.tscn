@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ly802qkejukd"]
+[gd_scene load_steps=2 format=3 uid="uid://ly802qkejukd"]
 
 [ext_resource type="Script" uid="uid://dtl3s1r5js3im" path="res://scenes/project_template_button.gd" id="1_pd6gk"]
-[ext_resource type="Texture2D" uid="uid://c4gqmuvse8phy" path="res://icon.svg" id="1_wx8ar"]
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(120, 120)
@@ -22,14 +21,12 @@ offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer"]
+[node name="PreviewContainer" type="VBoxContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(96, 96)
+clip_contents = true
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("1_wx8ar")
-expand_mode = 1
-stretch_mode = 4
+size_flags_vertical = 3
+alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true

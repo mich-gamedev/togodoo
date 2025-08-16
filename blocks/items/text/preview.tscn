@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bjcrnl3x8q5vc"]
+
+[node name="HSeparator" type="HSeparator"]
+offset_right = 40.0
+offset_bottom = 4.0
+theme_type_variation = &"PreviewLine"

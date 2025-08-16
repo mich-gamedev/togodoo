@@ -16,7 +16,6 @@ func get_raw() -> String: ## returns the raw line of the block as a string
 
 func get_raw_args() -> String:
 	return args.raw_args
-
 func get_arg(arg: String) -> Variant:
 	return args.get(arg, FileManager.get_block_config(FileManager.block_types[get_type()]).get_value("properties", arg))
 

@@ -15,31 +15,6 @@ func _ready() -> void:
 	item_selected.connect(_item_selected)
 	item_edited.connect(_item_edited)
 
-
-func _block_added(dict: Dictionary, idx: int) -> void:
-	var tree_item: TreeItem
-	if dict.parent == -1:
-		tree_item = create_item()
-	else:
-		tree_item = create_item(tree_items[dict.parent])
-	tree_item.set_text(0, dict.stripped_title)
-	tree_item.set_icon(0, load(FileManager.get_block_config_by_type(dict.type).get_value("display", "icon")))
-	tree_item.set_icon_modulate(0, Color("cdd6f4"))
-	tree_item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD_SMART)
-	tree_items[idx] = tree_item
-	if !get_selected(): set_selected(tree_item, 0)
-
-	var cfg = FileManager.get_block_config_by_type(dict.type)
-	for i in cfg.get_section_keys("properties"):
-		var value = TreeManager.get_property(idx, i)
-		if String(cfg.get_value("usage", i)).contains("tree_bg_color") and value != cfg.get_value("properties", i):
-			tree_item.set_icon_modulate(0, value)
-
-func _block_removed(dict: Dictionary, idx: int) -> void:
-	var item : TreeItem = tree_items[idx]
-	tree_items.erase(idx)
-	if is_instance_valid(item): item.free()
-
 func _item_selected() -> void:
 	block_selected.emit(tree_items.find_key(get_selected()))
 	if last_selected: last_selected.set_editable(0, false)
@@ -50,13 +25,13 @@ func _property_changed(idx: int, property: StringName, value: Variant, reset_pro
 	var cfg = FileManager.get_block_config_by_type(TreeManager.items[idx].type)
 	if property == &"title":
 		tree_items[idx].set_text(0, TreeManager.get_bbcode_stripped_title(idx))
-	if cfg.has_section_key("usage", property) and String(cfg.get_value("usage", property)).contains("tree_bg_color") and value != cfg.get_value("properties", property):
+	elif cfg.has_section_key("usage", property) and String(cfg.get_value("usage", property)).contains("tree_bg_color") and value != cfg.get_value("properties", property):
 		tree_items[idx].set_icon_modulate(0, value)
 
 func add_block_to_selected(type: String, select_new: bool = true) -> void:
 	TreeManager.create_default_block(
 		type,
-		TreeManager.get_valid_parent(tree_items.find_key(get_selected()))
+		TreeManager.get_valid_parent(tree_items.find_key(get_selected())) if get_selected() else TreeManager.get_root()
 	)
 
 func destroy_selected() -> void:
@@ -145,3 +120,31 @@ func reset_tree(keep_selected: bool = true) -> void:
 func scroll_to(item: int) -> void:
 	tree_items[item].select(0)
 	scroll.scroll_y_to(get_item_area_rect(tree_items[item]).position.y)
+
+const DIALOG_SHIFT_DEL = preload("uid://db42p5udd76l6") # res://scenes/shift_del_confirmation.tscn
+
+func _unhandled_input(event: InputEvent) -> void:
+	if has_focus():
+		if event.is_action_pressed(&"delete_skip_dialog"):
+			if !Settings.get_setting("vanilla", "editor/shown_shift_to_skip"):
+				var inst = DIALOG_SHIFT_DEL.instantiate()
+				add_child(inst)
+				inst.get_node(^"%Continue").pressed.connect(func():
+					Settings.set_setting("vanilla", "editor/shown_shift_to_skip", true)
+					destroy_selected()
+					inst.queue_free()
+				)
+				inst.get_node(^"%Cancel").pressed.connect(inst.queue_free)
+			else:
+				destroy_selected()
+		elif event.is_action_pressed(&"delete_block"):
+			create_delete_popup()
+
+
+const DIALOG_DELETE_BLOCK = preload("res://scenes/dialog_delete_block.tscn")
+func create_delete_popup() -> Window:
+	var inst = DIALOG_DELETE_BLOCK.instantiate()
+	add_child(inst)
+	inst.get_node(^"%Accept").pressed.connect(destroy_selected)
+	inst.get_node(^"%Label").text %= TreeManager.get_title(tree_items.find_key(get_selected()))
+	return inst

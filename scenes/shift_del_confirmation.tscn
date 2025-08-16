@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://db42p5udd76l6"]
+
+[ext_resource type="Script" uid="uid://nglaxaqbdk3o" path="res://scenes/shift_del_confirmation.gd" id="1_ev8sa"]
+
+[node name="Window" type="Window"]
+oversampling_override = 1.0
+title = "Warning!"
+initial_position = 2
+size = Vector2i(480, 180)
+script = ExtResource("1_ev8sa")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelBG"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 6
+text = "Warning: Pressing shift alongside a hotkey will skip confirmation for important actions like deleting. 
+(Warning only shown once if you press Continue)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Continue" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ButtonWithPanel"
+text = "Continue"
+
+[node name="Cancel" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ButtonWithPanel"
+text = "Cancel"

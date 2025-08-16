@@ -6,7 +6,7 @@
 oversampling_override = 1.0
 title = "Delete block"
 initial_position = 2
-size = Vector2i(270, 90)
+size = Vector2i(480, 180)
 content_scale_aspect = 4
 script = ExtResource("1_to0l2")
 
@@ -34,17 +34,23 @@ theme_override_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/VBoxContainer"]
+[node name="PanelContainer" type="Panel" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CenterContainer" type="CenterContainer" parent="Control/VBoxContainer/PanelContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Control/VBoxContainer/PanelContainer/CenterContainer"]
+[node name="Label" type="RichTextLabel" parent="Control/VBoxContainer/PanelContainer"]
 unique_name_in_owner = true
-layout_mode = 2
-text = "Delete \"%s\"?"
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Delete \"%s\" and it's children?"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
@@ -55,7 +61,7 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"ButtonWithPanel"
-text = "Accept"
+text = "Continue"
 
 [node name="Cancel" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true

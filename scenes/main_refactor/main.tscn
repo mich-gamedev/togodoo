@@ -343,12 +343,17 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="DestroyBlock" type="Button" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 icon = ExtResource("6_5g2ds")
 script = ExtResource("7_01a8x")
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -373,6 +378,10 @@ alignment = 2
 script = ExtResource("11_5g2ds")
 
 [node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 
 [node name="NewBlock" type="Button" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/HBoxContainer"]

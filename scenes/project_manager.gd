@@ -36,6 +36,7 @@ func _ready() -> void:
 		inst.get_node(^"%Label").text = i.trim_suffix(".togodoo").replace("_", " ")
 		%TemplatesContainer.add_child(inst)
 	update_recents_list()
+	get_tree().root.close_requested.connect(Settings.save_all_configs)
 	get_tree().root.close_requested.connect(quit)
 
 func update_recents_list() -> void:

@@ -46,11 +46,11 @@ static func create_default_block(type: String, parent_idx: int) -> Dictionary: #
 		"No type found for block of type %s" % type
 	)
 	assert(
-		FileManager.get_block_config_by_type(items[parent_idx].type).get_value("logic", "can_have_children", false),
+		items.is_empty() or FileManager.get_block_config_by_type(items[parent_idx].type).get_value("logic", "can_have_children", false),
 		"Provided parent of index [%s] cannot have children." % parent_idx
 	)
 	var dict = LineParser.parse_line(_get_block_parse_line(type))
-	dict.parent = parent_idx
+	dict.parent = parent_idx if !items.is_empty() else -1
 	_add_block(dict)
 	return dict
 

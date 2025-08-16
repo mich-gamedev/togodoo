@@ -15,7 +15,7 @@ layout_mode = 0
 offset_right = 3.0
 offset_bottom = 4.0
 size_flags_horizontal = 0
-theme_type_variation = &"PreviewLine"
+theme_type_variation = &"PreviewLineAccent"
 
 [node name="HSeparator" type="HSeparator" parent="."]
 layout_mode = 2

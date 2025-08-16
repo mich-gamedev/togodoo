@@ -8,6 +8,7 @@ theme_override_constants/separation = 2
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
+theme_type_variation = &"PreviewPanelAccent"
 
 [node name="HSeparator" type="HSeparator" parent="."]
 custom_minimum_size = Vector2(0, 5)

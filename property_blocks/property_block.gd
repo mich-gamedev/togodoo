@@ -14,6 +14,7 @@ var show_reset: bool = true
 var responsible_mod: StringName
 
 signal display_requested(value: Variant)
+signal usage_changed
 
 func _ready() -> void:
 	if reset_button:

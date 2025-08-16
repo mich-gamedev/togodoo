@@ -28,7 +28,15 @@ func _setting_changed(mod: String, key: String, value: Variant) -> void:
 		"interface/svg_oversampling":
 			get_viewport().oversampling = value
 		"interface/theme":
-			if value == 6: return
+			var options: PackedStringArray
+			for tag in Settings.get_setting_usage("vanilla", "interface/theme"):
+				if tag.begins_with("options="):
+					options = tag.trim_prefix("options=").split(";")
+					break
+			if options[value] == "custom": return
+			if ResourceLoader.exists("res://resources/themes/%s/main.tres" % options[value]):
+				var theme = load("res://resources/themes/%s/main.tres" % options[value])
+				get_tree().root.theme = theme
 		"interface/custom_theme":
 			if Settings.get_setting("vanilla", "interface/theme") != 6: return
 			var theme := load(value)

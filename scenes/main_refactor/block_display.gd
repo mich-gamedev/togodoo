@@ -34,6 +34,8 @@ func _block_added(dict: Dictionary, idx: int) -> void:
 	for block: Block in inst.find_children("*", "Block"):
 		block.args = dict
 	inst.propagate_call("_update_block")
+	inst.owner = self
+	set_editable_instance(inst, true)
 
 func _block_removed(dict: Dictionary, idx: int) -> void:
 	var block = blocks[idx]

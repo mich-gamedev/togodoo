@@ -164,7 +164,7 @@ theme_override_constants/separation = 12
 layout_mode = 2
 text = "file"
 icon_alignment = 1
-item_count = 10
+item_count = 11
 popup/item_0/text = "project manager"
 popup/item_0/id = 0
 popup/item_1/id = 5
@@ -188,6 +188,8 @@ popup/item_8/disabled = true
 popup/item_9/text = "open in text editor"
 popup/item_9/id = 9
 popup/item_9/disabled = true
+popup/item_10/text = "save project as godot scene"
+popup/item_10/id = 10
 script = ExtResource("3_loyev")
 
 [node name="View" type="MenuButton" parent="MarginContainer/VBoxContainer/Control/PanelContainer/MarginContainer2/HBoxContainer"]

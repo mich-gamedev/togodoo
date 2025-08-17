@@ -11,7 +11,7 @@ func _ready() -> void:
 		if i.begins_with("theme/") and !(i in ["theme/theme", "theme/custom_theme"]): continue
 		_setting_changed("vanilla", i, Settings.get_setting("vanilla", i))
 
-var custom := Theme.new()
+var custom : Theme = preload("uid://dn11g6an1ynwr").duplicate(true) # "res://resources/themes/catppuccin_macchiato/main.tres"
 
 func _setting_changed(mod: String, key: String, value: Variant) -> void:
 	if mod != "vanilla": return
@@ -37,7 +37,9 @@ func _setting_changed(mod: String, key: String, value: Variant) -> void:
 				if tag.begins_with("options="):
 					options = tag.trim_prefix("options=").split(";")
 					break
-			if options[value] == "custom": return
+			if options[value] == "custom":
+				get_tree().root.theme = custom
+				return
 			if ResourceLoader.exists("res://resources/themes/%s/main.tres" % options[value]):
 				var theme = load("res://resources/themes/%s/main.tres" % options[value])
 				get_tree().root.theme = theme
@@ -47,7 +49,7 @@ func _setting_changed(mod: String, key: String, value: Variant) -> void:
 			if theme is Theme:
 				get_tree().root.theme = theme
 		_ when key.begins_with("theme/"):
-			pass
+			update_custom_theme()
 
 func _pck_loaded(_path: String) -> void:
 	get_tree().root.propagate_call.call_deferred("queue_redraw")
@@ -74,7 +76,62 @@ func get_color(key: String) -> Color:
 	return Settings.get_setting("vanilla", "theme/%s" % key)
 
 func update_custom_theme() -> void:
+	var dim := get_color("dim_text")
+	var text := get_color("text")
+	var highlight := get_color("text")
+	var accent := get_color("accent")
+
+	var focus := StyleBoxFlat.new()
+	focus.bg_color = get_color("focus_background")
+	focus.set_border_width_all(1)
+	focus.border_color = get_color("focus_border")
+
+	var focus_no_inside := focus.duplicate()
+	focus_no_inside.bg_color = Color.TRANSPARENT
+
+	var panel := StyleBoxFlat.new()
+	panel.bg_color = get_color("panel_background")
+	panel.set_border_width_all(1)
+	panel.border_color = get_color("panel_border_1")
+
+	var separator := StyleBoxLine.new()
+	separator.color = dim
+	separator.grow_begin = 0 ; separator.grow_end = 0
+
+	var textbox := StyleBoxFlat.new()
+	textbox.bg_color = get_color("textbox_background")
+	textbox.set_border_width_all(1)
+	textbox.border_color = get_color("textbox_border")
+
+
 	# NOTE: `if true` is to keep separated namespaces
 	if true: # background panel
-		var bg = StyleBoxFlat.new()
+		var bg := StyleBoxFlat.new()
 		bg.bg_color = get_color("background")
+		custom.set_stylebox(&"panel", &"PanelBG", bg)
+	if true: # panels
+		custom.set_stylebox(&"panel", &"Panel", panel)
+		custom.set_stylebox(&"panel", &"PanelContainer", panel)
+		print("Applying panels")
+		for i in 6:
+			var tmp := panel.duplicate()
+			tmp.border_color = get_color("panel_border_%s" % (i + 1))
+			custom.set_stylebox(&"panel", &"Panel%s" % i, tmp)
+			custom.set_color(&"font_color", &"PanelLabel%s" % i, get_color("panel_border_%s" % (i + 1)))
+		var back := StyleBoxLine.new()
+		back.color = panel.bg_color
+		custom.set_stylebox(&"separator", &"PanelLabelBG", back)
+	if true: # generics
+		custom.set_color(&"font_color", &"Button", text)
+		custom.set_color(&"icon_normal_color", &"Button", text)
+		custom.set_color(&"font_color", &"FoldableContainer", text)
+		custom.set_color(&"font_color", &"ItemList", text)
+		custom.set_color(&"font_color", &"Label", text)
+		custom.set_color(&"font_color", &"LineEdit", text)
+		custom.set_color(&"tint", &"ModulateTextureRect", text)
+		custom.set_color(&"font_color", &"PopupMenu", text)
+		custom.set_color(&"font_separator_color", &"PopupMenu", text)
+		custom.set_color(&"default_color", &"RichTextLabel", text)
+		custom.set_color(&"font_color", &"TextEdit", text)
+		custom.set_color(&"font_color", &"Tree", text)
+		custom.set_color(&"title_color", &"Window", text)

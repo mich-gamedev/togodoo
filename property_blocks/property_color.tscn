@@ -43,5 +43,4 @@ layout_mode = 2
 color = Color(1, 0, 0.522977, 1)
 script = ExtResource("2_qfp5a")
 
-[connection signal="color_changed" from="PanelContainer/MarginContainer/ColorPickerButton" to="." method="property_change_emit" unbinds=1]
 [connection signal="picker_created" from="PanelContainer/MarginContainer/ColorPickerButton" to="PanelContainer/MarginContainer/ColorPickerButton" method="_on_picker_created"]

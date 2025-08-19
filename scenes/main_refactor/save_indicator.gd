@@ -25,4 +25,4 @@ func _file_err(path: String, err: Error) -> void:
 	label.text = "ERROR: %s" % error_string(err)
 	if twn: twn.kill()
 	twn = create_tween()
-	twn.tween_property(self, ^"modulate:a", 0., 3.).from(1.)
+	twn.tween_property(self, ^"modulate:a", 0., 2.).from(1.)

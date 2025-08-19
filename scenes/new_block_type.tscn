@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cog3b6405du76"]
 
-[ext_resource type="Texture2D" uid="uid://dawgtx1byq5oa" path="res://resources/themes/star.svg" id="1_8dbya"]
-[ext_resource type="Texture2D" uid="uid://kiwb7c2bw1rh" path="res://resources/themes/star_selected.svg" id="1_mqhp4"]
+[ext_resource type="Texture2D" uid="uid://dawgtx1byq5oa" path="res://resources/icons/star.svg" id="1_8dbya"]
+[ext_resource type="Texture2D" uid="uid://kiwb7c2bw1rh" path="res://resources/icons/star_selected.svg" id="1_mqhp4"]
 [ext_resource type="Script" uid="uid://bgcnwt1n5fp4d" path="res://scenes/favorite.gd" id="3_xogeu"]
 
 [node name="HBoxContainer" type="HBoxContainer"]

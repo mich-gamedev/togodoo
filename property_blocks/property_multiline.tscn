@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dvofwlktvbcts"]
 
 [ext_resource type="Script" uid="uid://caqtj05jw8now" path="res://property_blocks/property_block.gd" id="1_mvx66"]
-[ext_resource type="Texture2D" uid="uid://d3y5186u78brm" path="res://resources/themes/redo.svg" id="2_llt7q"]
+[ext_resource type="Texture2D" uid="uid://d3y5186u78brm" path="res://resources/icons/redo.svg" id="2_llt7q"]
 [ext_resource type="Script" uid="uid://2rp8m8jko3xo" path="res://property_blocks/text_edit.gd" id="3_qbbyf"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="4_omguc"]
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="5_g8fbg"]

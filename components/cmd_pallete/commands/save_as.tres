@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://c0ur4ubkasd8s"]
 
-[ext_resource type="Texture2D" uid="uid://bd67ndox07uia" path="res://resources/themes/save.svg" id="1_k6p47"]
+[ext_resource type="Texture2D" uid="uid://bd67ndox07uia" path="res://resources/icons/save.svg" id="1_k6p47"]
 [ext_resource type="Script" uid="uid://cq78rsomv37gl" path="res://components/cmd_pallete/commands/save_as.gd" id="2_k6p47"]
 
 [resource]

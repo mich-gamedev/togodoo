@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://dqpyws57c80o3" path="res://scenes/main.gd" id="1_6yeym"]
 [ext_resource type="Script" uid="uid://crgds744cw8cx" path="res://scenes/help.gd" id="6_0ld40"]
 [ext_resource type="Script" uid="uid://b88vdrmopa5td" path="res://scenes/file.gd" id="7_rl21x"]
-[ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="8_ac2rg"]
+[ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/icons/plus.svg" id="8_ac2rg"]
 [ext_resource type="Script" uid="uid://b2omivdyerg22" path="res://scenes/tree.gd" id="10_uy6d5"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="10_viifr"]
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="11_q3wb5"]
 [ext_resource type="Script" uid="uid://c87cuwvf2dpa7" path="res://scenes/options.gd" id="13_pjm7k"]
-[ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="13_vq61s"]
-[ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/themes/garbage_can.svg" id="19_0csjb"]
+[ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/icons/x.svg" id="13_vq61s"]
+[ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/icons/garbage_can.svg" id="19_0csjb"]
 
 [sub_resource type="Resource" id="Resource_1qaia"]
 script = ExtResource("11_q3wb5")

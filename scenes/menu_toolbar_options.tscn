@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ifr0wlayw0ts"]
 
-[ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="1_bliuy"]
+[ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/icons/plus.svg" id="1_bliuy"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_rsda2"]
 color = Color(0.141176, 0.152941, 0.227451, 1)

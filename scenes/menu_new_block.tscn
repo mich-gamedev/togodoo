@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="1_t1llj"]
 [ext_resource type="Script" uid="uid://d3br8l84cn0vo" path="res://scenes/menu_new_block.gd" id="1_tunnl"]
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="2_licha"]
-[ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="4_l45g7"]
-[ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="8_gs133"]
+[ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/icons/x.svg" id="4_l45g7"]
+[ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/icons/plus.svg" id="8_gs133"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_vwsas"]
 color = Color(0.141176, 0.152941, 0.227451, 1)

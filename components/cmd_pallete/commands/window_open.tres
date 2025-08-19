@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://cb0yt4xgpnno"]
 
-[ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/themes/folder.svg" id="1_a826e"]
+[ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/icons/folder.svg" id="1_a826e"]
 [ext_resource type="Script" uid="uid://db17jysbb4q8i" path="res://components/cmd_pallete/commands/window_open.gd" id="2_1dpvb"]
 
 [resource]

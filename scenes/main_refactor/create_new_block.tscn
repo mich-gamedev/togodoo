@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://c4wnux7bbmn23" path="res://scenes/main_refactor/create_new_block.gd" id="1_76ee0"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="1_2105g"]
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="2_76ee0"]
-[ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/themes/x.svg" id="3_uhnxu"]
-[ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="5_iuku4"]
+[ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/icons/x.svg" id="3_uhnxu"]
+[ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/icons/plus.svg" id="5_iuku4"]
 
 [sub_resource type="Resource" id="Resource_ip8e0"]
 script = ExtResource("2_76ee0")

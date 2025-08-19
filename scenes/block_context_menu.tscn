@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://gg8jslnbgs05"]
 
-[ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="1_xikna"]
-[ext_resource type="Texture2D" uid="uid://ct5hsdxvt1t75" path="res://resources/themes/copy.svg" id="2_qgyh0"]
-[ext_resource type="Texture2D" uid="uid://dqgmdk725lut4" path="res://resources/themes/paste.svg" id="3_pyvsn"]
-[ext_resource type="Texture2D" uid="uid://bqqi662bw4vha" path="res://resources/themes/pencil.svg" id="4_s50jy"]
-[ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/themes/garbage_can.svg" id="5_vna8r"]
+[ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/icons/plus.svg" id="1_xikna"]
+[ext_resource type="Texture2D" uid="uid://ct5hsdxvt1t75" path="res://resources/icons/copy.svg" id="2_qgyh0"]
+[ext_resource type="Texture2D" uid="uid://dqgmdk725lut4" path="res://resources/icons/paste.svg" id="3_pyvsn"]
+[ext_resource type="Texture2D" uid="uid://bqqi662bw4vha" path="res://resources/icons/pencil.svg" id="4_s50jy"]
+[ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/icons/garbage_can.svg" id="5_vna8r"]
 
 [node name="PopupMenu" type="PopupMenu"]
 oversampling_override = 1.0

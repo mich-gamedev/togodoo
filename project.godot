@@ -16,8 +16,9 @@ run/main_scene="res://scenes/project_manager.tscn"
 config/auto_accept_quit=false
 config/features=PackedStringArray("4.5", "GL Compatibility")
 run/low_processor_mode=true
-boot_splash/bg_color=Color(0.0941176, 0.0980392, 0.14902, 1)
-boot_splash/image="uid://k21ota82yu8u"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://immdnvi5rxf5"
 config/icon="res://icon.svg"
 History="*res://components/undoredo/history_manager.gd"
 PrefSetup="*res://components/pref_setup.gd"
@@ -39,6 +40,7 @@ gdscript/warnings/unused_signal=0
 window/subwindows/embed_subwindows=false
 window/stretch/aspect="expand"
 window/stretch/scale=1.5
+window/vsync/vsync_mode=0
 
 [editor]
 

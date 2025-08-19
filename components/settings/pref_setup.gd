@@ -76,6 +76,8 @@ func get_color(key: String) -> Color:
 	return Settings.get_setting("vanilla", "theme/%s" % key)
 
 func update_custom_theme() -> void:
+	var bg := get_color("background")
+	var light_bg := get_color("light_background")
 	var dim := get_color("dim_text")
 	var text := get_color("text")
 	var highlight := get_color("text")
@@ -106,9 +108,9 @@ func update_custom_theme() -> void:
 
 	# NOTE: `if true` is to keep separated namespaces
 	if true: # background panel
-		var bg := StyleBoxFlat.new()
-		bg.bg_color = get_color("background")
-		custom.set_stylebox(&"panel", &"PanelBG", bg)
+		var tmp := StyleBoxFlat.new()
+		tmp.bg_color = bg
+		custom.set_stylebox(&"panel", &"PanelBG", tmp)
 	if true: # panels
 		custom.set_stylebox(&"panel", &"Panel", panel)
 		custom.set_stylebox(&"panel", &"PanelContainer", panel)
@@ -121,9 +123,12 @@ func update_custom_theme() -> void:
 		var back := StyleBoxLine.new()
 		back.color = panel.bg_color
 		custom.set_stylebox(&"separator", &"PanelLabelBG", back)
-	if true: # generics
+	if true: # button
 		custom.set_color(&"font_color", &"Button", text)
+		custom.set_color(&"font_disabled_color", &"Button", light_bg)
 		custom.set_color(&"icon_normal_color", &"Button", text)
+		#TODO: continue
+	if true: # generics
 		custom.set_color(&"font_color", &"FoldableContainer", text)
 		custom.set_color(&"font_color", &"ItemList", text)
 		custom.set_color(&"font_color", &"Label", text)

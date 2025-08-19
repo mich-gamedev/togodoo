@@ -1,6 +1,7 @@
 class_name BlockTree extends Tree
 
 var tree_items: Dictionary[int, TreeItem]
+var block_meta: Dictionary[int, Dictionary]
 
 signal block_selected(idx: int)
 
@@ -31,6 +32,12 @@ func _property_changed(idx: int, property: StringName, value: Variant, reset_pro
 func add_block_to_selected(type: String, select_new: bool = true) -> void:
 	TreeManager.create_default_block(
 		type,
+		TreeManager.get_valid_parent(tree_items.find_key(get_selected())) if get_selected() else TreeManager.get_root()
+	)
+
+func add_dict_to_Selected(dict: Dictionary) -> void:
+	TreeManager.create_block_from_dict(
+		dict,
 		TreeManager.get_valid_parent(tree_items.find_key(get_selected())) if get_selected() else TreeManager.get_root()
 	)
 
@@ -110,7 +117,7 @@ func reset_tree(keep_selected: bool = true) -> void:
 			tree_item = create_item()
 		else:
 			tree_item = create_item(tree_items[dict.parent])
-		tree_item.set_text(0, dict.stripped_title)
+		tree_item.set_text(0, TreeManager.get_bbcode_stripped_title(i))
 		tree_item.set_icon(0, load(FileManager.get_block_config_by_type(dict.type).get_value("display", "icon")))
 		tree_item.set_icon_modulate(0, get_theme_color(&"icon_color"))
 		tree_item.set_autowrap_mode(0, TextServer.AUTOWRAP_WORD_SMART)
@@ -139,6 +146,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				destroy_selected()
 		elif event.is_action_pressed(&"delete_block"):
 			create_delete_popup()
+		elif event.is_action_pressed(&"duplicate"):
+			add_dict_to_Selected(TreeManager.items[tree_items.find_key(get_selected())])
 
 
 const DIALOG_DELETE_BLOCK = preload("res://scenes/dialog_delete_block.tscn")

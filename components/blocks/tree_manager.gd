@@ -5,6 +5,8 @@ class Signals:
 	signal pre_block_removed(dict: Dictionary, idx: int)
 	signal block_moved(dict: Dictionary, idx: int, from: int, to: int, at: int)
 	signal tree_changed
+	signal file_saved(path: String)
+	signal file_save_failed(path: String, error: Error)
 static var signals := Signals.new() ## an object that holds signals for the [TreeManager] singleton. see [TreeManager.Signals]
 ## stores the info of all currently loaded blocks, can be used for more advanced things not covered by methods if needed.[br]
 ## [color=yellow]Warning:[/color] the order of blocks is unstable and can be out of order from the tree. [br]
@@ -35,9 +37,12 @@ static func load_file(path: String) -> void: ## adds all the blocks from a proje
 
 static func save_file(path: String) -> Error: ## formats all the blocks into project syntax and saves them to the file
 	var file = FileAccess.open(path, FileAccess.WRITE)
-	if FileAccess.get_open_error(): return FileAccess.get_open_error()
+	if FileAccess.get_open_error():
+		signals.file_save_failed.emit(path, FileAccess.get_open_error())
+		return FileAccess.get_open_error()
 	for i in get_sorted_blocks():
 		file.store_line(LineParser.parse_dict(items[i]))
+	signals.file_saved.emit(path)
 	return OK
 
 static func create_default_block(type: String, parent_idx: int) -> Dictionary: ## creates a new block of type [param type] to the block at index [param parent_idx]
@@ -85,7 +90,8 @@ static func get_children(idx: int) -> Array:
 	return items[idx].get(&"children", [])
 
 static func get_bbcode_stripped_title(idx: int) -> String:
-	return items[idx].stripped_title
+	var regex = RegEx.new() ; regex.compile("\\[.*?\\]") #strips bbcode tags
+	return regex.sub(get_property(idx, "title"), "", true)
 
 static func get_idx_by_child(parent: int, child_idx: int) -> int: ## returns the global index of the block based on it's index within it's parent
 	return items[parent].children[child_idx]

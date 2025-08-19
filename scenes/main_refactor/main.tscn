@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bhbm0n3du7i3x"]
+[gd_scene load_steps=29 format=3 uid="uid://bhbm0n3du7i3x"]
 
 [ext_resource type="Script" uid="uid://bf4n7yn75rnlm" path="res://scenes/main_refactor/main.gd" id="2_hwhah"]
 [ext_resource type="Script" uid="uid://g15qn6il8mg1" path="res://scenes/main_refactor/ascii_bg.gd" id="3_c5x5u"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" uid="uid://crgds744cw8cx" path="res://scenes/help.gd" id="5_01a8x"]
 [ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/themes/garbage_can.svg" id="6_5g2ds"]
 [ext_resource type="Script" uid="uid://bb10i8o51uhk6" path="res://scenes/main_refactor/destroy_block.gd" id="7_01a8x"]
+[ext_resource type="Script" uid="uid://cxqs8ebeyop6m" path="res://scenes/main_refactor/save_indicator.gd" id="7_hlpmk"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="7_wxjdr"]
+[ext_resource type="Texture2D" uid="uid://bd67ndox07uia" path="res://resources/themes/save.svg" id="8_6doxh"]
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="8_c5x5u"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/themes/plus.svg" id="9_hlpmk"]
 [ext_resource type="Script" uid="uid://cc5rx6ikarprc" path="res://scenes/main_refactor/tree.gd" id="9_hwhah"]
@@ -254,8 +256,7 @@ visible = false
 layout_mode = 2
 icon = ExtResource("9_hlpmk")
 
-[node name="SaveIndicator" type="Label" parent="MarginContainer/VBoxContainer/Control"]
-unique_name_in_owner = true
+[node name="SaveIndicator" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 6
@@ -263,13 +264,34 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -8.375
-offset_bottom = 8.375
+offset_left = -61.0
+offset_top = -6.5
+offset_bottom = 6.5
 grow_horizontal = 0
 grow_vertical = 2
-text = "Saving..."
+script = ExtResource("7_hlpmk")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Control/SaveIndicator"]
+layout_mode = 2
+text = "~/Documents/file_path.togodoo"
 horizontal_alignment = 2
+
+[node name="IconOffset" type="Control" parent="MarginContainer/VBoxContainer/Control/SaveIndicator"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/Control/SaveIndicator/IconOffset"]
+modulate = Color(0.64705884, 0.6784314, 0.79607844, 1)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_top = -1.0
+offset_right = 16.0
+offset_bottom = 15.0
+theme_type_variation = &"ModulateTextureRect"
+texture = ExtResource("8_6doxh")
+expand_mode = 1
+script = ExtResource("17_wxjdr")
+metadata/_custom_type_script = "uid://bvd0mrnh02v7w"
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

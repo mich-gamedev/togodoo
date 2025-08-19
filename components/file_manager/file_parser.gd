@@ -28,9 +28,6 @@ static func parse_line(line: String) -> Dictionary:
 			push_error(expression.get_error_text())
 		args[i.get_slice("=", 0)] = expression.execute()
 	args.title = line.lstrip(" ").replace(line.substr(from, to - from + 1), "").replace(r"\n", "\n").lstrip(" ").rstrip(" ")
-	var regex = RegEx.new()
-	regex.compile("\\[.*?\\]") #strips bbcode tags
-	args.stripped_title = regex.sub(args.title, "", true)
 
 	print_rich("	".repeat(args.indents), args.title, "[color=#FFFFFF6F] =>  ", args)
 
@@ -52,13 +49,14 @@ static func parse_dict(dict: Dictionary) -> String:
 	if config.has_section("properties"): for i in config.get_section_keys("properties"):
 		if dict.has(i) and dict[i] != config.get_value("properties", i):
 			if tags.is_empty(): tags = " "
-			match typeof(dict[i]):
-				TYPE_STRING:
-					tags += "%s=\"%s\" " % [i, dict[i]]
-				TYPE_COLOR:
-					tags += "%s=Color(%.3f,%.3f,%.3f,%.3f) " % [i, dict[i].r, dict[i].g, dict[i].b, dict[i].a]
-				_:
-					tags += "%s=%s " % [i, dict[i]]
+			tags += "%s=%s" % [i, var_to_str(dict[i])]
+			#match typeof(dict[i]):
+				#TYPE_STRING:
+					#tags += "%s=\"%s\" " % [i, dict[i]]
+				#TYPE_COLOR:
+					#tags += "%s=Color(%.3f,%.3f,%.3f,%.3f) " % [i, dict[i].r, dict[i].g, dict[i].b, dict[i].a]
+				#_:
+					#tags += "%s=%s " % [i, dict[i]]
 	tags = tags.trim_suffix(" ").replace("\n", r"\n")
 	var indents: String = ""
 	for i in dict.indents:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://db42p5udd76l6"]
 
-[ext_resource type="Script" uid="uid://nglaxaqbdk3o" path="res://scenes/shift_del_confirmation.gd" id="1_ev8sa"]
+[ext_resource type="Script" uid="uid://nglaxaqbdk3o" path="res://scenes/main_refactor/shift_del_confirmation.gd" id="1_ev8sa"]
 
 [node name="Window" type="Window"]
 oversampling_override = 1.0

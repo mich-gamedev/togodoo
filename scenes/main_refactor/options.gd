@@ -1,7 +1,7 @@
 extends MenuButton
 
-const PREFERENCES = preload("res://scenes/preferences.tscn")
-const MOD_MANAGER = preload("res://scenes/mod_manager.tscn")
+const PREFERENCES = preload("uid://bq821lexcvdre")
+const MOD_MANAGER = preload("uid://d0xlphou0hs56")
 
 func _ready() -> void:
 	get_popup().index_pressed.connect(_index_pressed)

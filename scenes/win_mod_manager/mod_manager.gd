@@ -2,7 +2,7 @@ extends Window
 
 var current_mod: String
 
-const PREFERENCES = preload("res://scenes/preferences.tscn")
+const PREFERENCES = preload("uid://bq821lexcvdre")
 
 func _ready() -> void:
 	content_scale_factor = Settings.get_setting("vanilla", "interface/ui_scale")

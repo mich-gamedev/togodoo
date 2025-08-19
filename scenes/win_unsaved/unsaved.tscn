@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bkf73gv58npop"]
 
-[ext_resource type="Script" uid="uid://bn6vus32dr1f5" path="res://scenes/unsaved.gd" id="1_v7deh"]
+[ext_resource type="Script" uid="uid://bn6vus32dr1f5" path="res://scenes/win_unsaved/unsaved.gd" id="1_v7deh"]
 
 [node name="Window" type="Window"]
 oversampling_override = 1.0

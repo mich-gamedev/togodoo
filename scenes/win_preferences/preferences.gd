@@ -3,7 +3,7 @@ extends Window
 @onready var nav_tree: Tree = %NavTree
 @onready var options: VBoxContainer = %Options
 
-const SEPERATOR = preload("res://scenes/new_block_type_seperator.tscn")
+const SEPERATOR = preload("uid://dwlro8lijegkp")
 
 var contents: Dictionary[String, Control] = {}
 var tree_contents: Dictionary[TreeItem, Control] = {}

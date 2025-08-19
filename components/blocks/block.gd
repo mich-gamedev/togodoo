@@ -20,8 +20,6 @@ func get_arg(arg: String) -> Variant:
 	return args.get(arg, FileManager.get_block_config(FileManager.block_types[get_type()]).get_value("properties", arg))
 
 func get_idx() -> int:
-	if Main.node:
-		return Main.node.items.find(args)
 	return TreeManager.items.find_key(args)
 
 func set_arg(arg: String, value: Variant, reset_property_list: bool = true) -> void:

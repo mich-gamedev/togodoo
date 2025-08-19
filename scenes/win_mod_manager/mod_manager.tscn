@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://d0xlphou0hs56"]
 
-[ext_resource type="Script" uid="uid://dxlxjsj4dd4xd" path="res://scenes/mod_manager.gd" id="1_m2rmo"]
+[ext_resource type="Script" uid="uid://dxlxjsj4dd4xd" path="res://scenes/win_mod_manager/mod_manager.gd" id="1_m2rmo"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_ti26n"]
 [ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/icons/folder.svg" id="3_2j5pp"]
 [ext_resource type="Texture2D" uid="uid://cfx2ivv7ag1q0" path="res://resources/icons/github-mark-white.svg" id="3_juk12"]

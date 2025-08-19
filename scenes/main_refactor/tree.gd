@@ -150,7 +150,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			add_dict_to_Selected(TreeManager.items[tree_items.find_key(get_selected())])
 
 
-const DIALOG_DELETE_BLOCK = preload("res://scenes/dialog_delete_block.tscn")
+const DIALOG_DELETE_BLOCK = preload("uid://dwj50drmgm32x")
 func create_delete_popup() -> Window:
 	var inst = DIALOG_DELETE_BLOCK.instantiate()
 	add_child(inst)

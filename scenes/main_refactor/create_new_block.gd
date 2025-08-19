@@ -1,7 +1,7 @@
 extends Window
 
-const SEPERATOR = preload("res://scenes/new_block_type_seperator.tscn")
-const BLOCK_TYPE = preload("res://scenes/new_block_type.tscn")
+const SEPERATOR = preload("uid://dwlro8lijegkp")
+const BLOCK_TYPE = preload("uid://cog3b6405du76")
 
 var iterated_sections: PackedStringArray
 var last_type: String

@@ -14,9 +14,9 @@
 
 extends Control
 
-const PREF_WINDOW = preload("res://scenes/preferences.tscn")
-const MOD_MANAGER = preload("res://scenes/mod_manager.tscn")
-const BTN_TEMPLATE = preload("res://scenes/project_template_button.tscn")
+const PREF_WINDOW = preload("uid://bq821lexcvdre")
+const MOD_MANAGER = preload("uid://d0xlphou0hs56")
+const BTN_TEMPLATE = preload("uid://ly802qkejukd")
 
 func _ready() -> void:
 	Settings.find_mods()

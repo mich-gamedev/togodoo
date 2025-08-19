@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dwj50drmgm32x"]
 
-[ext_resource type="Script" uid="uid://w877c7hx7avo" path="res://scenes/dialog_delete_block.gd" id="1_to0l2"]
+[ext_resource type="Script" uid="uid://w877c7hx7avo" path="res://scenes/win_delete_block/dialog_delete_block.gd" id="1_to0l2"]
 
 [node name="Window" type="Window"]
 oversampling_override = 1.0

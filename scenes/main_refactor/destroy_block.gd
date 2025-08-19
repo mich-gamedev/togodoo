@@ -1,6 +1,6 @@
 extends Button
 
-const DIALOG_DELETE_BLOCK = preload("res://scenes/dialog_delete_block.tscn")
+const DIALOG_DELETE_BLOCK = preload("uid://dwj50drmgm32x")
 
 @onready var tree: BlockTree = %Tree
 

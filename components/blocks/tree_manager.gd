@@ -91,7 +91,7 @@ static func get_children(idx: int) -> Array:
 
 static func get_bbcode_stripped_title(idx: int) -> String:
 	var regex = RegEx.new() ; regex.compile("\\[.*?\\]") #strips bbcode tags
-	return regex.sub(get_property(idx, "title"), "", true)
+	return regex.sub(get_title(idx), "", true)
 
 static func get_idx_by_child(parent: int, child_idx: int) -> int: ## returns the global index of the block based on it's index within it's parent
 	return items[parent].children[child_idx]

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bf4n7yn75rnlm" path="res://scenes/main_refactor/main.gd" id="2_hwhah"]
 [ext_resource type="Script" uid="uid://g15qn6il8mg1" path="res://scenes/main_refactor/ascii_bg.gd" id="3_c5x5u"]
-[ext_resource type="Script" uid="uid://b88vdrmopa5td" path="res://scenes/file.gd" id="3_loyev"]
-[ext_resource type="Script" uid="uid://c87cuwvf2dpa7" path="res://scenes/options.gd" id="4_p58oo"]
-[ext_resource type="Script" uid="uid://crgds744cw8cx" path="res://scenes/help.gd" id="5_01a8x"]
+[ext_resource type="Script" uid="uid://b88vdrmopa5td" path="res://scenes/main_refactor/file.gd" id="3_loyev"]
+[ext_resource type="Script" uid="uid://c87cuwvf2dpa7" path="res://scenes/main_refactor/options.gd" id="4_p58oo"]
+[ext_resource type="Script" uid="uid://crgds744cw8cx" path="res://scenes/main_refactor/help.gd" id="5_01a8x"]
 [ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/icons/garbage_can.svg" id="6_5g2ds"]
 [ext_resource type="Script" uid="uid://bb10i8o51uhk6" path="res://scenes/main_refactor/destroy_block.gd" id="7_01a8x"]
 [ext_resource type="Script" uid="uid://cxqs8ebeyop6m" path="res://scenes/main_refactor/save_indicator.gd" id="7_hlpmk"]

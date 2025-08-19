@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bq821lexcvdre"]
 
-[ext_resource type="Script" uid="uid://dnlm6kfy6076p" path="res://scenes/preferences.gd" id="1_yybem"]
+[ext_resource type="Script" uid="uid://dnlm6kfy6076p" path="res://scenes/win_preferences/preferences.gd" id="1_yybem"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_8u7so"]
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="3_hg0c2"]
 

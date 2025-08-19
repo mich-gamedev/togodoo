@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dya1ov540dl0n"]
+[gd_scene load_steps=2 format=3 uid="uid://2q0bxcqbnw71"]
 
-[ext_resource type="Texture2D" uid="uid://c4gqmuvse8phy" path="res://icon.svg" id="1_s008d"]
+[ext_resource type="Texture2D" uid="uid://101jiw62qwyf" path="res://icon.svg" id="1_s008d"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
 offset_right = 40.0

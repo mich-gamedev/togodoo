@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ly802qkejukd"]
 
-[ext_resource type="Script" uid="uid://dtl3s1r5js3im" path="res://scenes/project_template_button.gd" id="1_pd6gk"]
+[ext_resource type="Script" uid="uid://dtl3s1r5js3im" path="res://scenes/project_manager/project_template_button.gd" id="1_pd6gk"]
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(120, 120)

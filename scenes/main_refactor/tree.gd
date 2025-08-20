@@ -8,6 +8,7 @@ signal block_selected(idx: int)
 var last_selected: TreeItem
 
 @onready var scroll: SmoothScrollContainer = $".."
+var copied: String
 
 func _ready() -> void:
 	set_column_expand(1, false)
@@ -35,7 +36,7 @@ func add_block_to_selected(type: String, select_new: bool = true) -> void:
 		TreeManager.get_valid_parent(tree_items.find_key(get_selected())) if get_selected() else TreeManager.get_root()
 	)
 
-func add_dict_to_Selected(dict: Dictionary) -> void:
+func add_dict_to_selected(dict: Dictionary) -> void:
 	TreeManager.create_block_from_dict(
 		dict,
 		TreeManager.get_valid_parent(tree_items.find_key(get_selected())) if get_selected() else TreeManager.get_root()
@@ -144,11 +145,15 @@ func _unhandled_input(event: InputEvent) -> void:
 				inst.get_node(^"%Cancel").pressed.connect(inst.queue_free)
 			else:
 				destroy_selected()
-		elif event.is_action_pressed(&"delete_block"):
+		elif event.is_action_pressed(&"ui_text_delete"):
 			create_delete_popup()
 		elif event.is_action_pressed(&"duplicate"):
-			add_dict_to_Selected(TreeManager.items[tree_items.find_key(get_selected())])
-
+			add_dict_to_selected(TreeManager.items[tree_items.find_key(get_selected())])
+		elif event.is_action_pressed(&"ui_copy"):
+			copied = LineParser.parse_dict(TreeManager.items[tree_items.find_key(get_selected())])
+		elif event.is_action_pressed(&"ui_paste"):
+			if copied:
+				add_dict_to_selected(LineParser.parse_line(copied))
 
 const DIALOG_DELETE_BLOCK = preload("uid://dwj50drmgm32x")
 func create_delete_popup() -> Window:

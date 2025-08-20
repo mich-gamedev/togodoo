@@ -12,7 +12,7 @@ func _update_block() -> void:
 	while file.get_position() < file.get_length():
 		items.append(LineParser.parse_line(file.get_line()))
 
-	var root_prefab : TreeItem = Main.node.tree_items[block.get_idx()]
+	#var root_prefab : TreeItem = Main.node.tree_items[block.get_idx()]
 	#TODO: finish block creation
 
 	#for i in items.size():

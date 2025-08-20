@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=102 format=3 uid="uid://dn11g6an1ynwr"]
+[gd_resource type="Theme" load_steps=106 format=3 uid="uid://dn11g6an1ynwr"]
 
 [ext_resource type="StyleBox" uid="uid://bigm786rt6fyn" path="res://resources/themes/catppuccin_macchiato/styles/focus.stylebox" id="1_piy81"]
 [ext_resource type="Texture2D" uid="uid://b6pcbppw7epev" path="res://resources/icons/checkbox_on.svg" id="2_5cfww"]
@@ -84,7 +84,7 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_xim7c")
 origin = ExtResource("2_5cfww")
-modulate = Color(0.8039216, 0.8392157, 0.95686275, 1)
+modulate = Color(0.7176471, 0.7411765, 0.972549, 1)
 metadata/_custom_type_script = "uid://5tj7k3j8v80b"
 
 [sub_resource type="Texture2D" id="Texture2D_mw8ca"]
@@ -503,6 +503,38 @@ border_width_bottom = 1
 border_color = Color(0.35686275, 0.3764706, 0.47058824, 1)
 anti_aliasing = false
 
+[sub_resource type="Texture2D" id="Texture2D_xim7c"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_xim7c")
+origin = ExtResource("5_gnfd0")
+modulate = Color(0.43137255, 0.4509804, 0.5529412, 1)
+metadata/_custom_type_script = "uid://5tj7k3j8v80b"
+
+[sub_resource type="Texture2D" id="Texture2D_85lnx"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_xim7c")
+origin = ExtResource("6_7vhy3")
+modulate = Color(0.43137255, 0.4509804, 0.5529412, 1)
+metadata/_custom_type_script = "uid://5tj7k3j8v80b"
+
+[sub_resource type="Texture2D" id="Texture2D_piy81"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_xim7c")
+origin = ExtResource("17_g23lu")
+modulate = Color(0.7176471, 0.7411765, 0.972549, 1)
+metadata/_custom_type_script = "uid://5tj7k3j8v80b"
+
+[sub_resource type="Texture2D" id="Texture2D_5cfww"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_xim7c")
+origin = ExtResource("18_su81k")
+modulate = Color(0.43137255, 0.4509804, 0.5529412, 1)
+metadata/_custom_type_script = "uid://5tj7k3j8v80b"
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qigw6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlgtg"]
@@ -852,10 +884,10 @@ Tree/constants/draw_guides = 0
 Tree/constants/draw_relationship_lines = 1
 Tree/constants/icon_max_width = 16
 Tree/constants/item_margin = 14
-Tree/icons/arrow = ExtResource("5_gnfd0")
-Tree/icons/arrow_collapsed = ExtResource("6_7vhy3")
-Tree/icons/checked = ExtResource("17_g23lu")
-Tree/icons/unchecked = ExtResource("18_su81k")
+Tree/icons/arrow = SubResource("Texture2D_xim7c")
+Tree/icons/arrow_collapsed = SubResource("Texture2D_85lnx")
+Tree/icons/checked = SubResource("Texture2D_piy81")
+Tree/icons/unchecked = SubResource("Texture2D_5cfww")
 Tree/styles/cursor = SubResource("StyleBoxEmpty_qigw6")
 Tree/styles/cursor_unfocused = SubResource("StyleBoxFlat_qlgtg")
 Tree/styles/focus = SubResource("StyleBoxEmpty_itjbw")

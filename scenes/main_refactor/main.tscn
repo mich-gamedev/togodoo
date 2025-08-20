@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bhbm0n3du7i3x"]
+[gd_scene load_steps=30 format=3 uid="uid://bhbm0n3du7i3x"]
 
 [ext_resource type="Script" uid="uid://bf4n7yn75rnlm" path="res://scenes/main_refactor/main.gd" id="2_hwhah"]
 [ext_resource type="Script" uid="uid://g15qn6il8mg1" path="res://scenes/main_refactor/ascii_bg.gd" id="3_c5x5u"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="8_c5x5u"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/icons/plus.svg" id="9_hlpmk"]
 [ext_resource type="Script" uid="uid://cc5rx6ikarprc" path="res://scenes/main_refactor/tree.gd" id="9_hwhah"]
+[ext_resource type="Script" uid="uid://nnyx47nbas8o" path="res://scenes/main_refactor/h_split_container.gd" id="10_6doxh"]
 [ext_resource type="Script" uid="uid://bbt4lmrvjp5vv" path="res://scenes/main_refactor/block_display.gd" id="10_id72n"]
 [ext_resource type="Script" uid="uid://c4h0sw7eorpoo" path="res://scenes/main_refactor/new_block.gd" id="10_p58oo"]
 [ext_resource type="Script" uid="uid://has1hb1yqvjw" path="res://scenes/main_refactor/favorite_blocks.gd" id="11_5g2ds"]
@@ -305,7 +306,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-split_offset = 1028
+split_offset = 900
+script = ExtResource("10_6doxh")
 
 [node name="HSplitContainer2" type="HSplitContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer"]
 layout_mode = 2
@@ -646,3 +648,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("14_loyev")
+
+[connection signal="dragged" from="MarginContainer/VBoxContainer/Control2/HSplitContainer" to="MarginContainer/VBoxContainer/Control2/HSplitContainer" method="_dragged"]

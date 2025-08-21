@@ -162,3 +162,17 @@ func create_delete_popup() -> Window:
 	inst.get_node(^"%Accept").pressed.connect(destroy_selected)
 	inst.get_node(^"%Label").text %= TreeManager.get_title(tree_items.find_key(get_selected()))
 	return inst
+
+func create_context_menu(at_pos: Vector2) -> PopupMenu:
+	var inst = PopupMenu.new()
+	var idx = tree_items.find_key(get_item_at_position(at_pos))
+	var cfg = FileManager.get_block_config_by_type(TreeManager.get_type(idx))
+
+	if cfg.get_value("logic", "can_have_children", false):
+		inst.add_icon_item(preload("uid://bqkw67f3ey46h"), "Create block as child")
+	inst.add_icon_item(preload("uid://bqkw67f3ey46h"), "Create block as sibling")
+	inst.add_separator()
+
+	inst.add_icon_item(preload("uid://d3b2e8jo8kl68"), "Copy")
+
+	return inst

@@ -155,6 +155,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			if copied:
 				add_dict_to_selected(LineParser.parse_line(copied))
 
+func _gui_input(event: InputEvent) -> void:
+		if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_RIGHT:
+				create_context_menu(DisplayServer.mouse_get_position())
+
 const DIALOG_DELETE_BLOCK = preload("uid://dwj50drmgm32x")
 func create_delete_popup() -> Window:
 	var inst = DIALOG_DELETE_BLOCK.instantiate()
@@ -173,6 +178,14 @@ func create_context_menu(at_pos: Vector2) -> PopupMenu:
 	inst.add_icon_item(preload("uid://bqkw67f3ey46h"), "Create block as sibling")
 	inst.add_separator()
 
+	inst.add_item("Cut")
 	inst.add_icon_item(preload("uid://d3b2e8jo8kl68"), "Copy")
+	inst.add_icon_item(preload("uid://dqgmdk725lut4"), "Paste")
+	inst.add_separator()
 
+	inst.add_icon_item(preload("uid://d3y5186u78brm"), "Change block type")
+	inst.add_separator()
+	inst.add_icon_item(preload("uid://cie5go1jx2okw"), "Delete")
+	get_tree().current_scene.add_child(inst)
+	inst.position = at_pos
 	return inst

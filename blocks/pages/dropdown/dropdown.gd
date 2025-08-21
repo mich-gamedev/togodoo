@@ -15,9 +15,6 @@ func _update_block() -> void:
 	if block.get_arg("use_preset_color"):
 		for i in [&"panel", &"title_collapsed_hover_panel", &"title_collapsed_panel", &"title_hover_panel", &"title_panel"]:
 			var style := get_theme_stylebox(i)
-			if style is StyleBoxFlat:
-				style.border_color = Utils.COLORS[wrapi(block.get_indents() + Utils.ColorTags.OVERLAY_0, Utils.ColorTags.OVERLAY_0, Utils.ColorTags.TEXT)]
-		add_theme_color_override(&"font_color", Utils.COLORS[clampi(block.get_indents() + Utils.ColorTags.SUBTEXT_0, Utils.ColorTags.OVERLAY_0, Utils.ColorTags.TEXT)])
 	else:
 		for i in [&"panel", &"title_collapsed_hover_panel", &"title_collapsed_panel", &"title_hover_panel", &"title_panel"]:
 			var style := get_theme_stylebox(i)

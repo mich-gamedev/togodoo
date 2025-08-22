@@ -19,10 +19,6 @@ func _update_block() -> void:
 		remove_theme_stylebox_override(&"panel")
 		theme_type_variation = &"Panel%s" % clampi(block.get_indents(), 0, 5)
 		%TitleLabel.theme_type_variation = &"PanelLabel%s" % clampi(block.get_indents(), 0, 5)
-		#var style := get_theme_stylebox(&"panel")
-		#if style is StyleBoxFlat:
-			#style.border_color = Utils.COLORS[wrapi(block.get_indents() + Utils.ColorTags.OVERLAY_0, Utils.ColorTags.OVERLAY_0, Utils.ColorTags.TEXT)]
-			#%TitleLabel.add_theme_color_override(&"font_color", Utils.COLORS[clampi(block.get_indents() + Utils.ColorTags.SUBTEXT_0, Utils.ColorTags.OVERLAY_0, Utils.ColorTags.TEXT)])
 	else:
 		var style := get_theme_stylebox(&"panel").duplicate()
 		if style is StyleBoxFlat:

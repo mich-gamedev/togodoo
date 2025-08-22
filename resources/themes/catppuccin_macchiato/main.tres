@@ -1,11 +1,13 @@
-[gd_resource type="Theme" load_steps=106 format=3 uid="uid://dn11g6an1ynwr"]
+[gd_resource type="Theme" load_steps=110 format=3 uid="uid://dn11g6an1ynwr"]
 
 [ext_resource type="StyleBox" uid="uid://bigm786rt6fyn" path="res://resources/themes/catppuccin_macchiato/styles/focus.stylebox" id="1_piy81"]
 [ext_resource type="Texture2D" uid="uid://b6pcbppw7epev" path="res://resources/icons/checkbox_on.svg" id="2_5cfww"]
 [ext_resource type="Script" uid="uid://5tj7k3j8v80b" path="res://components/convenience/modulate_texture.gd" id="3_xim7c"]
 [ext_resource type="Texture2D" uid="uid://bpbmatq3hkf65" path="res://resources/icons/checkbox_off.svg" id="4_85lnx"]
 [ext_resource type="Texture2D" uid="uid://6uf2kxe7jqtl" path="res://resources/icons/tree_expand.svg" id="5_gnfd0"]
+[ext_resource type="Texture2D" uid="uid://kiwb7c2bw1rh" path="res://resources/icons/star_selected.svg" id="5_xim7c"]
 [ext_resource type="Texture2D" uid="uid://dq1f845i4w2xc" path="res://resources/icons/tree_collapse.svg" id="6_7vhy3"]
+[ext_resource type="Texture2D" uid="uid://dawgtx1byq5oa" path="res://resources/icons/star.svg" id="6_85lnx"]
 [ext_resource type="StyleBox" uid="uid://e16r3t4qu1pb" path="res://resources/themes/catppuccin_macchiato/styles/focus_no_inside.tres" id="7_j36ye"]
 [ext_resource type="StyleBox" uid="uid://bpuoro8beqwxu" path="res://resources/themes/catppuccin_macchiato/styles/panel_local_to_scene.stylebox" id="8_fnbec"]
 [ext_resource type="StyleBox" uid="uid://db3o3dnsoetpu" path="res://resources/themes/catppuccin_macchiato/styles/seperator.stylebox" id="9_0w1l0"]
@@ -92,6 +94,22 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("3_xim7c")
 origin = ExtResource("4_85lnx")
+modulate = Color(0.43137255, 0.4509804, 0.5529412, 1)
+metadata/_custom_type_script = "uid://5tj7k3j8v80b"
+
+[sub_resource type="Texture2D" id="Texture2D_gnfd0"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_xim7c")
+origin = ExtResource("5_xim7c")
+modulate = Color(0.7176471, 0.7411765, 0.972549, 1)
+metadata/_custom_type_script = "uid://5tj7k3j8v80b"
+
+[sub_resource type="Texture2D" id="Texture2D_7vhy3"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_xim7c")
+origin = ExtResource("6_85lnx")
 modulate = Color(0.43137255, 0.4509804, 0.5529412, 1)
 metadata/_custom_type_script = "uid://5tj7k3j8v80b"
 
@@ -678,6 +696,9 @@ ButtonWithPanel/styles/pressed = SubResource("StyleBoxFlat_lubjy")
 CheckBox/constants/icon_max_width = 16
 CheckBox/icons/checked = SubResource("Texture2D_nle8c")
 CheckBox/icons/unchecked = SubResource("Texture2D_mw8ca")
+CheckStar/base_type = &"CheckBox"
+CheckStar/icons/checked = SubResource("Texture2D_gnfd0")
+CheckStar/icons/unchecked = SubResource("Texture2D_7vhy3")
 ColorPicker/constants/margin = 8
 ColorPicker/constants/sv_height = 200
 ColorPicker/constants/sv_width = 200

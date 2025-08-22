@@ -162,6 +162,7 @@ func _gui_input(event: InputEvent) -> void:
 				create_context_menu.call_deferred(DisplayServer.mouse_get_position())
 
 const DIALOG_DELETE_BLOCK = preload("uid://dwj50drmgm32x")
+const WIN_CREATE_BLOCK = preload("uid://48c204xfvl2g")
 func create_delete_popup() -> Window:
 	var inst = DIALOG_DELETE_BLOCK.instantiate()
 	add_child(inst)
@@ -170,7 +171,7 @@ func create_delete_popup() -> Window:
 	return inst
 
 func create_context_menu(at_pos: Vector2) -> PopupMenu:
-	var inst = PopupMenu.new()
+	var inst := PopupMenu.new()
 	inst.position = at_pos
 	inst.content_scale_factor = get_window().content_scale_factor
 	var idx = tree_items.find_key(get_item_at_position(get_local_mouse_position()))
@@ -178,16 +179,37 @@ func create_context_menu(at_pos: Vector2) -> PopupMenu:
 
 	if cfg.get_value("logic", "can_have_children", false):
 		inst.add_icon_item(preload("uid://bqkw67f3ey46h"), "Create block as child")
+		inst.set_item_metadata(inst.item_count - 1, func():
+			var win = WIN_CREATE_BLOCK.instantiate()
+			get_tree().current_scene.add_child(win)
+			win.block_selected.connect(add_block_to_selected)
+		)
 	inst.add_separator()
 
 	inst.add_item("Cut")
+	inst.set_item_metadata(inst.item_count - 1, func():
+		copied = LineParser.parse_dict(TreeManager.items[tree_items.find_key(get_selected())])
+		destroy_selected()
+	)
+
 	inst.add_icon_item(preload("uid://ct5hsdxvt1t75"), "Copy")
+	inst.set_item_metadata(inst.item_count - 1, func():
+		copied = LineParser.parse_dict(TreeManager.items[tree_items.find_key(get_selected())])
+	)
 	inst.add_icon_item(preload("uid://dqgmdk725lut4"), "Paste")
+	inst.set_item_metadata(inst.item_count - 1, func():
+		add_dict_to_selected(LineParser.parse_line(copied))
+	)
 	inst.add_separator()
 
-	inst.add_icon_item(preload("uid://d3y5186u78brm"), "Change block type")
-	inst.add_separator()
+	#inst.add_icon_item(preload("uid://d3y5186u78brm"), "Change block type")
+	#inst.add_separator()
 	inst.add_icon_item(preload("uid://cie5go1jx2okw"), "Delete")
+	inst.set_item_metadata(inst.item_count - 1, destroy_selected)
+
+	inst.index_pressed.connect(func(id: int):
+		(inst.get_item_metadata(id) as Callable).call()
+	)
 	get_tree().current_scene.add_child(inst)
 	inst.show()
 	return inst

@@ -439,7 +439,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 columns = 2
-allow_rmb_select = true
 select_mode = 1
 scroll_horizontal_enabled = false
 scroll_vertical_enabled = false

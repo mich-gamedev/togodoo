@@ -160,6 +160,7 @@ func _gui_input(event: InputEvent) -> void:
 			if event.button_index == MOUSE_BUTTON_RIGHT:
 				print("right clicked tree, creating context menu")
 				create_context_menu.call_deferred(DisplayServer.mouse_get_position())
+				get_item_at_position(get_local_mouse_position()).select.call_deferred(0)
 
 const DIALOG_DELETE_BLOCK = preload("uid://dwj50drmgm32x")
 const WIN_CREATE_BLOCK = preload("uid://48c204xfvl2g")
@@ -178,7 +179,7 @@ func create_context_menu(at_pos: Vector2) -> PopupMenu:
 	var cfg = FileManager.get_block_config_by_type(TreeManager.get_type(idx))
 
 	if cfg.get_value("logic", "can_have_children", false):
-		inst.add_icon_item(preload("uid://bqkw67f3ey46h"), "Create block as child")
+		inst.add_icon_item(_create_modtex(preload("uid://bqkw67f3ey46h")), "Create block as child")
 		inst.set_item_metadata(inst.item_count - 1, func():
 			var win = WIN_CREATE_BLOCK.instantiate()
 			get_tree().current_scene.add_child(win)
@@ -192,11 +193,11 @@ func create_context_menu(at_pos: Vector2) -> PopupMenu:
 		destroy_selected()
 	)
 
-	inst.add_icon_item(preload("uid://ct5hsdxvt1t75"), "Copy")
+	inst.add_icon_item(_create_modtex(preload("uid://ct5hsdxvt1t75")), "Copy")
 	inst.set_item_metadata(inst.item_count - 1, func():
 		copied = LineParser.parse_dict(TreeManager.items[tree_items.find_key(get_selected())])
 	)
-	inst.add_icon_item(preload("uid://dqgmdk725lut4"), "Paste")
+	inst.add_icon_item(_create_modtex(preload("uid://dqgmdk725lut4")), "Paste")
 	inst.set_item_metadata(inst.item_count - 1, func():
 		add_dict_to_selected(LineParser.parse_line(copied))
 	)
@@ -204,7 +205,7 @@ func create_context_menu(at_pos: Vector2) -> PopupMenu:
 
 	#inst.add_icon_item(preload("uid://d3y5186u78brm"), "Change block type")
 	#inst.add_separator()
-	inst.add_icon_item(preload("uid://cie5go1jx2okw"), "Delete")
+	inst.add_icon_item(_create_modtex(preload("uid://cie5go1jx2okw")), "Delete")
 	inst.set_item_metadata(inst.item_count - 1, destroy_selected)
 
 	inst.index_pressed.connect(func(id: int):
@@ -213,3 +214,9 @@ func create_context_menu(at_pos: Vector2) -> PopupMenu:
 	get_tree().current_scene.add_child(inst)
 	inst.show()
 	return inst
+
+func _create_modtex(texture: Texture2D) -> ModulateTexture:
+	var modtex = ModulateTexture.new()
+	modtex.origin = texture
+	modtex.modulate = get_theme_color(&"icon_color", &"ItemList")
+	return modtex

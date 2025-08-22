@@ -158,7 +158,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _gui_input(event: InputEvent) -> void:
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_RIGHT:
-				create_context_menu(DisplayServer.mouse_get_position())
+				print("right clicked tree, creating context menu")
+				create_context_menu.call_deferred(DisplayServer.mouse_get_position())
 
 const DIALOG_DELETE_BLOCK = preload("uid://dwj50drmgm32x")
 func create_delete_popup() -> Window:
@@ -170,16 +171,17 @@ func create_delete_popup() -> Window:
 
 func create_context_menu(at_pos: Vector2) -> PopupMenu:
 	var inst = PopupMenu.new()
-	var idx = tree_items.find_key(get_item_at_position(at_pos))
+	inst.position = at_pos
+	inst.content_scale_factor = get_window().content_scale_factor
+	var idx = tree_items.find_key(get_item_at_position(get_local_mouse_position()))
 	var cfg = FileManager.get_block_config_by_type(TreeManager.get_type(idx))
 
 	if cfg.get_value("logic", "can_have_children", false):
 		inst.add_icon_item(preload("uid://bqkw67f3ey46h"), "Create block as child")
-	inst.add_icon_item(preload("uid://bqkw67f3ey46h"), "Create block as sibling")
 	inst.add_separator()
 
 	inst.add_item("Cut")
-	inst.add_icon_item(preload("uid://d3b2e8jo8kl68"), "Copy")
+	inst.add_icon_item(preload("uid://ct5hsdxvt1t75"), "Copy")
 	inst.add_icon_item(preload("uid://dqgmdk725lut4"), "Paste")
 	inst.add_separator()
 
@@ -187,5 +189,5 @@ func create_context_menu(at_pos: Vector2) -> PopupMenu:
 	inst.add_separator()
 	inst.add_icon_item(preload("uid://cie5go1jx2okw"), "Delete")
 	get_tree().current_scene.add_child(inst)
-	inst.position = at_pos
+	inst.show()
 	return inst

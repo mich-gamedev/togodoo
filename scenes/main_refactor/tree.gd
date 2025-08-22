@@ -13,7 +13,7 @@ var copied: String
 func _ready() -> void:
 	set_column_expand(1, false)
 	TreeManager.signals.tree_changed.connect(reset_tree, CONNECT_DEFERRED)
-	PropertyBus.property_changed.connect(_property_changed)
+	PropertyBus.property_changed.connect(_property_changed, CONNECT_DEFERRED)
 	item_selected.connect(_item_selected)
 	item_edited.connect(_item_edited)
 

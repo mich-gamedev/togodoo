@@ -3,7 +3,9 @@ extends RichTextLabel
 @onready var block: Block = $Block
 
 func _ready() -> void:
-	install_effect(RichTextSymbolColoring.new())
+	var rtfx = RichTextSymbolColoring.new()
+	rtfx.rtl = self
+	install_effect(rtfx)
 
 func _update_block() -> void:
 	if block.get_arg("use_custom_color"):

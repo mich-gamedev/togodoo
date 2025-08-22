@@ -9,6 +9,7 @@ extends RichTextEffect
 # - Register this effect on the label.
 # - Use [symbol_coloring param=2.0]hello[/symbol_coloring] in text.
 var bbcode := "symbol_coloring"
+var rtl: RichTextLabel
 
 const symbols : String = "!@$%&(){}[]|:\"\'><Δ~"
 const light_symbols: String = "^*-+÷±∓√≅=./"
@@ -19,9 +20,9 @@ func get_text_server() -> TextServer:
 func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	var character = String.chr(get_text_server().font_get_char_from_glyph_index(char_fx.font, 1, char_fx.glyph_index))
 	if character in symbols:
-		char_fx.color = Utils.COLORS[Utils.ColorTags.SURFACE_2]
+		char_fx.color = rtl.get_theme_color(&"dim_text")
 		return true
 	if character in light_symbols:
-		char_fx.color = Utils.COLORS[Utils.ColorTags.OVERLAY_2]
+		char_fx.color = rtl.get_theme_color(&"subtext")
 		return true
 	return false

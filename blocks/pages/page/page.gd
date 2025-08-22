@@ -4,7 +4,6 @@ extends PanelContainer
 @onready var title: Control = $MarginContainer/Control
 @onready var margin: MarginContainer = %HoverRect
 
-var PANEL_LTS = preload("uid://bpuoro8beqwxu").duplicate() # res://resources/styles/panel_local_to_scene.stylebox
 
 func _update_block() -> void:
 	%TitleLabel.text = block.get_title()
@@ -25,8 +24,8 @@ func _update_block() -> void:
 			#style.border_color = Utils.COLORS[wrapi(block.get_indents() + Utils.ColorTags.OVERLAY_0, Utils.ColorTags.OVERLAY_0, Utils.ColorTags.TEXT)]
 			#%TitleLabel.add_theme_color_override(&"font_color", Utils.COLORS[clampi(block.get_indents() + Utils.ColorTags.SUBTEXT_0, Utils.ColorTags.OVERLAY_0, Utils.ColorTags.TEXT)])
 	else:
-		add_theme_stylebox_override(&"panel", PANEL_LTS)
-		var style := get_theme_stylebox(&"panel")
+		var style := get_theme_stylebox(&"panel").duplicate()
 		if style is StyleBoxFlat:
 			style.border_color = block.get_arg("color")
+			add_theme_stylebox_override(&"panel", style)
 			%TitleLabel.add_theme_color_override(&"font_color", block.get_arg("title_color"))

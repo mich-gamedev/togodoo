@@ -118,8 +118,8 @@ static func format_file_name(file_name: String) -> String:
 	@warning_ignore("integer_division")
 	var dict = {
 		"Root": TreeManager.get_property(TreeManager.get_root(), "title"),
-		"RootAsSnake": String(TreeManager.get_property(TreeManager.get_root(), "title")).to_snake_case(),
-		"RootAsPascal": String(TreeManager.get_property(TreeManager.get_root(), "title")).to_pascal_case(),
+		"RootAsSnake": String(TreeManager.get_title(TreeManager.get_root())).to_snake_case(),
+		"RootAsPascal": String(TreeManager.get_title(TreeManager.get_root())).to_pascal_case(),
 		"dd": str(time.day),
 		"MM": str(time.month),
 		"MMM": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Nov", "Dec"][time.month],

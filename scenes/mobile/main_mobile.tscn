@@ -399,7 +399,8 @@ icon = ExtResource("14_u6tq1")
 layout_mode = 2
 theme_type_variation = &"HSeparatorDim"
 
-[node name="SmoothScrollContainer" type="ScrollContainer" parent="Tree Panel/Tree/Content/Content"]
+[node name="TreeScrollContainer" type="ScrollContainer" parent="Tree Panel/Tree/Content/Content"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
@@ -411,7 +412,7 @@ drag_with_mouse = false
 hide_scrollbar_over_time = true
 scrollbar_hide_time = 2.0
 
-[node name="Tree" type="Tree" parent="Tree Panel/Tree/Content/Content/SmoothScrollContainer"]
+[node name="Tree" type="Tree" parent="Tree Panel/Tree/Content/Content/TreeScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -423,7 +424,7 @@ scroll_horizontal_enabled = false
 scroll_vertical_enabled = false
 script = ExtResource("10_47sp0")
 
-[node name="BlockHoverIndicator" type="Panel" parent="Tree Panel/Tree/Content/Content/SmoothScrollContainer/Tree"]
+[node name="BlockHoverIndicator" type="Panel" parent="Tree Panel/Tree/Content/Content/TreeScrollContainer/Tree"]
 unique_name_in_owner = true
 visible = false
 show_behind_parent = true
@@ -562,5 +563,5 @@ script = ExtResource("18_3g1rd")
 
 [connection signal="pressed" from="Navbar/Contents/Sorter/Tree" to="Tree Panel" method="show"]
 [connection signal="pressed" from="Tree Panel/Tree/Content/Content/Top Bar/HideButton" to="Tree Panel" method="hide"]
-[connection signal="item_selected" from="Tree Panel/Tree/Content/Content/SmoothScrollContainer/Tree" to="Properties Panel" method="show"]
+[connection signal="item_selected" from="Tree Panel/Tree/Content/Content/TreeScrollContainer/Tree" to="Properties Panel" method="show"]
 [connection signal="pressed" from="Properties Panel/Properties/MarginContainer2/VBoxContainer/TopButtons/Close" to="Properties Panel" method="hide"]

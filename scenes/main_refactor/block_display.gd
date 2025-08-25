@@ -5,7 +5,7 @@ static var headers: Dictionary[String, int]
 static var node: BlockDisplay
 
 @onready var tree: BlockTree = %Tree
-@onready var scroll: SmoothScrollContainer = $"../../../VSplitContainer/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer"
+@onready var scroll: SmoothScrollContainer = %TreeScrollContainer
 @onready var block_hover_indicator: Panel = %BlockHoverIndicator
 
 func _ready() -> void:

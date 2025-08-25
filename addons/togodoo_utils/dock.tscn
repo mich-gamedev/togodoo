@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ybfwl6ch82j"]
 
-[ext_resource type="Script" uid="uid://p5f1ampnedq8" path="res://color_format.gd" id="1_rb3rq"]
+[ext_resource type="Script" uid="uid://p5f1ampnedq8" path="res://addons/togodoo_utils/color_format.gd" id="1_rb3rq"]
 [ext_resource type="Texture2D" uid="uid://d3b2e8jo8kl68" path="res://addons/togodoo_utils/copy.svg" id="2_nqgeu"]
 [ext_resource type="Script" uid="uid://m64l5aigdert" path="res://addons/togodoo_utils/theme_setup.gd" id="3_nqgeu"]
 

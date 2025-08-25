@@ -385,14 +385,7 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.7176471, 0.7411765, 0.972549, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwjwb"]
-bg_color = Color(0.09411765, 0.09803922, 0.14901961, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.21176471, 0.22745098, 0.30980393, 1)
-expand_margin_top = 28.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xim7c"]
 
 [sub_resource type="FontVariation" id="FontVariation_34dkq"]
 variation_embolden = 0.5
@@ -826,6 +819,8 @@ PanelLabel5/colors/font_color = Color(0.7921569, 0.827451, 0.9607843, 1)
 PanelLabel5/font_sizes/font_size = 11
 PanelLabelBG/base_type = &"HSeparator"
 PanelLabelBG/styles/separator = SubResource("StyleBoxLine_x8p5e")
+PanelLineEdit/base_type = &"PanelContainer"
+PanelLineEdit/styles/panel = ExtResource("13_7beb0")
 PanelLocalToScene/base_type = &"Panel"
 PanelLocalToScene/styles/panel = ExtResource("8_fnbec")
 PopupDialog/styles/panel = ExtResource("15_rou2j")
@@ -845,7 +840,7 @@ PreviewLineAccent/styles/separator = SubResource("StyleBoxLine_5cfww")
 PreviewPanelAccent/base_type = &"Panel"
 PreviewPanelAccent/styles/panel = SubResource("StyleBoxFlat_piy81")
 PropertyMultiline/base_type = &"TextEdit"
-PropertyMultiline/styles/normal = SubResource("StyleBoxFlat_mwjwb")
+PropertyMultiline/styles/normal = SubResource("StyleBoxEmpty_xim7c")
 RTLHeader/base_type = &"RichTextLabel"
 RTLHeader/colors/default_color = Color(0.43137255, 0.4509804, 0.5529412, 1)
 RichTextLabel/colors/default_color = Color(0.8039216, 0.8392157, 0.95686275, 1)

@@ -234,7 +234,7 @@ modulate = Color(0.23529412, 0.21960784, 0.21176471, 1)
 metadata/_custom_type_script = "uid://5tj7k3j8v80b"
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_mwjwb"]
-color = Color(0.20392157, 0.21960784, 0.3019608, 1)
+color = Color(0.23529412, 0.21960784, 0.21176471, 1)
 grow_begin = 0.0
 grow_end = 0.0
 
@@ -738,6 +738,8 @@ PanelLabel5/colors/font_color = Color(0.8352941, 0.76862746, 0.6313726, 1)
 PanelLabel5/font_sizes/font_size = 11
 PanelLabelBG/base_type = &"HSeparator"
 PanelLabelBG/styles/separator = SubResource("StyleBoxLine_x8p5e")
+PanelLineEdit/base_type = &"PanelContainer"
+PanelLineEdit/styles/panel = ExtResource("13_hh1m6")
 PanelLocalToScene/base_type = &"Panel"
 PanelLocalToScene/styles/panel = ExtResource("8_u82vb")
 PopupDialog/styles/panel = ExtResource("15_vn6m1")

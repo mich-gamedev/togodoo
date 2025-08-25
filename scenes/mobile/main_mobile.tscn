@@ -1,0 +1,566 @@
+[gd_scene load_steps=27 format=3 uid="uid://bpt3sg51vk0qn"]
+
+[ext_resource type="Script" uid="uid://bf4n7yn75rnlm" path="res://scenes/main_refactor/main.gd" id="1_47sp0"]
+[ext_resource type="Script" uid="uid://g15qn6il8mg1" path="res://scenes/main_refactor/ascii_bg.gd" id="1_ydwxe"]
+[ext_resource type="Script" uid="uid://b88vdrmopa5td" path="res://scenes/main_refactor/file.gd" id="3_xr1kh"]
+[ext_resource type="Script" uid="uid://c87cuwvf2dpa7" path="res://scenes/main_refactor/options.gd" id="4_tibhd"]
+[ext_resource type="Script" uid="uid://crgds744cw8cx" path="res://scenes/main_refactor/help.gd" id="5_285bx"]
+[ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/icons/plus.svg" id="6_trm7b"]
+[ext_resource type="Script" uid="uid://cc5rx6ikarprc" path="res://scenes/main_refactor/tree.gd" id="10_47sp0"]
+[ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/icons/garbage_can.svg" id="11_jw74t"]
+[ext_resource type="Script" uid="uid://bb10i8o51uhk6" path="res://scenes/main_refactor/destroy_block.gd" id="12_u6tq1"]
+[ext_resource type="Script" uid="uid://has1hb1yqvjw" path="res://scenes/main_refactor/favorite_blocks.gd" id="13_g8bi3"]
+[ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="13_puy2n"]
+[ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="14_ac56d"]
+[ext_resource type="Script" uid="uid://c4h0sw7eorpoo" path="res://scenes/main_refactor/new_block.gd" id="14_jiwls"]
+[ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/icons/x.svg" id="14_u6tq1"]
+[ext_resource type="Script" uid="uid://o831vl0fn3rq" path="res://scenes/main_refactor/property_search.gd" id="16_f0kqg"]
+[ext_resource type="Script" uid="uid://bvd0mrnh02v7w" path="res://components/convenience/modulate_texture_rect.gd" id="17_dlras"]
+[ext_resource type="Script" uid="uid://bcvxare0clepk" path="res://scenes/main_refactor/property_list.gd" id="18_3g1rd"]
+[ext_resource type="Script" uid="uid://bbt4lmrvjp5vv" path="res://scenes/main_refactor/block_display.gd" id="18_w203x"]
+
+[sub_resource type="Resource" id="Resource_jqgnj"]
+script = ExtResource("14_ac56d")
+
+[sub_resource type="Resource" id="Resource_hfb1w"]
+script = ExtResource("14_ac56d")
+
+[sub_resource type="Resource" id="Resource_f0kqg"]
+script = ExtResource("14_ac56d")
+
+[sub_resource type="Resource" id="Resource_dlras"]
+script = ExtResource("14_ac56d")
+
+[sub_resource type="Resource" id="Resource_3g1rd"]
+script = ExtResource("14_ac56d")
+
+[sub_resource type="Resource" id="Resource_78ueo"]
+script = ExtResource("14_ac56d")
+
+[sub_resource type="Resource" id="Resource_qp4e7"]
+script = ExtResource("14_ac56d")
+
+[sub_resource type="Resource" id="Resource_ffcwf"]
+script = ExtResource("14_ac56d")
+
+[node name="MainMobile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_47sp0")
+
+[node name="BG" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelBG"
+
+[node name="AsciiBG" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -267.5
+offset_top = -70.25
+offset_right = 267.5
+offset_bottom = 70.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"LogoLabel"
+text = "   __                              ___
+__\\  \\__  _____   _____   _____   _\\  \\   _____   _____
+\\__   __\\(  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\ (  \\\\ \\
+  _\\  \\   \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\ \\  \\\\ \\
+  \\____)   \\_____) \\___  \\ \\_____) \\_____) \\_____) \\_____) (_)
+__  __  __  __  __    _\\  \\
+\\_\\ \\√\\ \\√\\ \\_\\ \\√\\  \\_____) A tree-based todo app"
+script = ExtResource("1_ydwxe")
+
+[node name="Visual" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Spacer" type="Control" parent="Visual"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="MainContainer" type="ScrollContainer" parent="Visual"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("13_puy2n")
+speed = 350.0
+wheel_scroll_damper = SubResource("Resource_jqgnj")
+dragging_scroll_damper = SubResource("Resource_hfb1w")
+allow_horizontal_scroll = false
+hide_scrollbar_over_time = true
+scrollbar_hide_time = 2.0
+
+[node name="BlockDisplay" type="VBoxContainer" parent="Visual/MainContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("18_w203x")
+
+[node name="Spacer2" type="Control" parent="Visual"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="Navbar" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Flavor Text" type="MarginContainer" parent="Navbar"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="Navbar/Flavor Text"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Navbar/Flavor Text/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 24.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_type_variation = &"PanelLabel0"
+text = "nav"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Navbar/Flavor Text/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelLabelBG"
+
+[node name="Contents" type="MarginContainer" parent="Navbar"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Sorter" type="HBoxContainer" parent="Navbar/Contents"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Tree" type="Button" parent="Navbar/Contents/Sorter"]
+layout_mode = 2
+text = "tree"
+
+[node name="File" type="MenuButton" parent="Navbar/Contents/Sorter"]
+visible = false
+layout_mode = 2
+text = "file"
+icon_alignment = 1
+item_count = 11
+popup/item_0/text = "project manager"
+popup/item_0/id = 0
+popup/item_1/id = 5
+popup/item_1/separator = true
+popup/item_2/text = "save"
+popup/item_2/id = 1
+popup/item_3/text = "save as"
+popup/item_3/id = 8
+popup/item_4/id = 4
+popup/item_4/separator = true
+popup/item_5/text = "open"
+popup/item_5/id = 2
+popup/item_6/text = "open recent"
+popup/item_6/id = 3
+popup/item_6/disabled = true
+popup/item_7/id = 6
+popup/item_7/separator = true
+popup/item_8/text = "show in filesystem"
+popup/item_8/id = 4
+popup/item_8/disabled = true
+popup/item_9/text = "open in text editor"
+popup/item_9/id = 9
+popup/item_9/disabled = true
+popup/item_10/text = "save project as godot scene"
+popup/item_10/id = 10
+script = ExtResource("3_xr1kh")
+
+[node name="View" type="MenuButton" parent="Navbar/Contents/Sorter"]
+visible = false
+layout_mode = 2
+text = "view"
+icon_alignment = 1
+item_count = 4
+popup/item_0/text = "docks"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_1/text = "hide all docks"
+popup/item_1/id = 1
+popup/item_1/disabled = true
+popup/item_2/id = 3
+popup/item_2/separator = true
+popup/item_3/text = "command pallete"
+popup/item_3/id = 2
+popup/item_3/disabled = true
+script = ExtResource("3_xr1kh")
+
+[node name="Options" type="MenuButton" parent="Navbar/Contents/Sorter"]
+visible = false
+custom_minimum_size = Vector2(24, 18)
+layout_mode = 2
+text = "options"
+icon_alignment = 1
+item_count = 4
+popup/item_0/text = "preferences"
+popup/item_0/id = 0
+popup/item_1/id = 6
+popup/item_1/separator = true
+popup/item_2/text = "open user data folder"
+popup/item_2/id = 5
+popup/item_3/text = "manage mods"
+popup/item_3/id = 6
+script = ExtResource("4_tibhd")
+
+[node name="Help" type="MenuButton" parent="Navbar/Contents/Sorter"]
+visible = false
+custom_minimum_size = Vector2(24, 18)
+layout_mode = 2
+text = "help"
+icon_alignment = 1
+item_count = 3
+popup/item_0/text = "open docs"
+popup/item_0/id = 0
+popup/item_1/text = "open github"
+popup/item_1/id = 1
+popup/item_2/text = "join discord server"
+popup/item_2/id = 2
+script = ExtResource("5_285bx")
+
+[node name="VSeparator" type="VSeparator" parent="Navbar/Contents/Sorter"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Navbar/Contents/Sorter"]
+visible = false
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Navbar/Contents/Sorter"]
+visible = false
+layout_mode = 2
+icon = ExtResource("6_trm7b")
+
+[node name="Tree Panel" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Tree" type="PanelContainer" parent="Tree Panel"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="Top Text" type="MarginContainer" parent="Tree Panel/Tree"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="Tree Panel/Tree/Top Text"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tree Panel/Tree/Top Text/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_type_variation = &"PanelLabel0"
+text = "tree"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Tree Panel/Tree/Top Text/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelLabelBG"
+
+[node name="Content" type="MarginContainer" parent="Tree Panel/Tree"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Content" type="VBoxContainer" parent="Tree Panel/Tree/Content"]
+layout_mode = 2
+
+[node name="Top Bar" type="HBoxContainer" parent="Tree Panel/Tree/Content/Content"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="DestroyBlock" type="Button" parent="Tree Panel/Tree/Content/Content/Top Bar"]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("11_jw74t")
+script = ExtResource("12_u6tq1")
+
+[node name="Control" type="Control" parent="Tree Panel/Tree/Content/Content/Top Bar"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="NewBlock" type="Button" parent="Tree Panel/Tree/Content/Content/Top Bar"]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("6_trm7b")
+script = ExtResource("14_jiwls")
+
+[node name="VSeparator" type="VSeparator" parent="Tree Panel/Tree/Content/Content/Top Bar"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Tree Panel/Tree/Content/Content/Top Bar"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+script = ExtResource("13_puy2n")
+speed = 128.0
+wheel_scroll_damper = SubResource("Resource_f0kqg")
+dragging_scroll_damper = SubResource("Resource_dlras")
+scrollbar_hide_time = 2.0
+
+[node name="FavoriteBlocks" type="HBoxContainer" parent="Tree Panel/Tree/Content/Content/Top Bar/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("13_g8bi3")
+
+[node name="VSeparator2" type="VSeparator" parent="Tree Panel/Tree/Content/Content/Top Bar"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="Tree Panel/Tree/Content/Content/Top Bar"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="HideButton" type="Button" parent="Tree Panel/Tree/Content/Content/Top Bar"]
+layout_mode = 2
+icon = ExtResource("14_u6tq1")
+
+[node name="HSeparator" type="HSeparator" parent="Tree Panel/Tree/Content/Content"]
+layout_mode = 2
+theme_type_variation = &"HSeparatorDim"
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="Tree Panel/Tree/Content/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+script = ExtResource("13_puy2n")
+speed = 500.0
+wheel_scroll_damper = SubResource("Resource_3g1rd")
+dragging_scroll_damper = SubResource("Resource_78ueo")
+drag_with_mouse = false
+hide_scrollbar_over_time = true
+scrollbar_hide_time = 2.0
+
+[node name="Tree" type="Tree" parent="Tree Panel/Tree/Content/Content/SmoothScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+columns = 2
+select_mode = 1
+scroll_horizontal_enabled = false
+scroll_vertical_enabled = false
+script = ExtResource("10_47sp0")
+
+[node name="BlockHoverIndicator" type="Panel" parent="Tree Panel/Tree/Content/Content/SmoothScrollContainer/Tree"]
+unique_name_in_owner = true
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme_type_variation = &"BlockHoverIndicator"
+
+[node name="Properties Panel" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Properties" type="PanelContainer" parent="Properties Panel"]
+custom_minimum_size = Vector2(128, 96)
+layout_mode = 2
+
+[node name="Flavor Text" type="MarginContainer" parent="Properties Panel/Properties"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="Control" type="Control" parent="Properties Panel/Properties/Flavor Text"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Properties Panel/Properties/Flavor Text/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 68.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_type_variation = &"PanelLabel0"
+text = "properties"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Properties Panel/Properties/Flavor Text/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelLabelBG"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Properties Panel/Properties"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Properties Panel/Properties/MarginContainer2"]
+layout_mode = 2
+
+[node name="TopButtons" type="HBoxContainer" parent="Properties Panel/Properties/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+alignment = 2
+
+[node name="PropertySearch" type="LineEdit" parent="Properties Panel/Properties/MarginContainer2/VBoxContainer/TopButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "search here..."
+clear_button_enabled = true
+caret_blink = true
+script = ExtResource("16_f0kqg")
+
+[node name="Close" type="Button" parent="Properties Panel/Properties/MarginContainer2/VBoxContainer/TopButtons"]
+layout_mode = 2
+icon = ExtResource("14_u6tq1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Properties Panel/Properties/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Properties Panel/Properties/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="TypeIcon" type="TextureRect" parent="Properties Panel/Properties/MarginContainer2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.43137255, 0.4509804, 0.5529412, 1)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_type_variation = &"DimIcon"
+texture = ExtResource("14_u6tq1")
+expand_mode = 1
+script = ExtResource("17_dlras")
+
+[node name="TypeLabel" type="Label" parent="Properties Panel/Properties/MarginContainer2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"LabelHeader"
+text = "Nothing Selected"
+vertical_alignment = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Properties Panel/Properties/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="Properties Panel/Properties/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("13_puy2n")
+wheel_scroll_damper = SubResource("Resource_qp4e7")
+dragging_scroll_damper = SubResource("Resource_ffcwf")
+hide_scrollbar_over_time = true
+scrollbar_hide_time = 2.0
+
+[node name="PropertyList" type="VBoxContainer" parent="Properties Panel/Properties/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("18_3g1rd")
+
+[connection signal="pressed" from="Navbar/Contents/Sorter/Tree" to="Tree Panel" method="show"]
+[connection signal="pressed" from="Tree Panel/Tree/Content/Content/Top Bar/HideButton" to="Tree Panel" method="hide"]
+[connection signal="item_selected" from="Tree Panel/Tree/Content/Content/SmoothScrollContainer/Tree" to="Properties Panel" method="show"]
+[connection signal="pressed" from="Properties Panel/Properties/MarginContainer2/VBoxContainer/TopButtons/Close" to="Properties Panel" method="hide"]

@@ -32,10 +32,12 @@ func _ready() -> void:
 		item_dicts[i] = parsed
 		i += 1
 
-func _pressed() -> void:
-	if Settings.get_setting("vanilla", "editor/open_projects_in_new_window"):
-		OS.create_process(OS.get_executable_path(), ["--project=%s" % template_path])
-		get_tree().quit()
-	else:
-		FileManager.file_path = template_path
-		get_tree().change_scene_to_file(Settings.get_setting("vanilla", "editor/main_path"))
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.double_click:
+			if Settings.get_setting("vanilla", "editor/open_projects_in_new_window"):
+				OS.create_process(OS.get_executable_path(), ["--project=%s" % template_path])
+				get_tree().quit()
+			else:
+				FileManager.file_path = template_path
+				get_tree().change_scene_to_file(Settings.get_setting("vanilla", "editor/main_path"))

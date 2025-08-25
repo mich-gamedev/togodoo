@@ -19,6 +19,7 @@ func _update_block() -> void:
 		remove_theme_stylebox_override(&"panel")
 		theme_type_variation = &"Panel%s" % clampi(block.get_indents(), 0, 5)
 		%TitleLabel.theme_type_variation = &"PanelLabel%s" % clampi(block.get_indents(), 0, 5)
+		%TitleLabel.remove_theme_color_override(&"font_color")
 	else:
 		var style := get_theme_stylebox(&"panel").duplicate()
 		if style is StyleBoxFlat:

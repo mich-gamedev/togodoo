@@ -97,7 +97,7 @@ mouse_filter = 2
 [node name="Spacer" type="Control" parent="Visual"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.3
+size_flags_stretch_ratio = 0.2
 
 [node name="MainContainer" type="ScrollContainer" parent="Visual"]
 clip_contents = false
@@ -120,7 +120,7 @@ script = ExtResource("18_w203x")
 [node name="Spacer2" type="Control" parent="Visual"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.3
+size_flags_stretch_ratio = 0.2
 
 [node name="Navbar" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(0, 50)
@@ -281,7 +281,6 @@ layout_mode = 2
 icon = ExtResource("6_trm7b")
 
 [node name="Tree Panel" type="MarginContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -1,11 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://bpt3sg51vk0qn"]
+[gd_scene load_steps=43 format=3 uid="uid://bpt3sg51vk0qn"]
 
 [ext_resource type="Script" uid="uid://bf4n7yn75rnlm" path="res://scenes/main_refactor/main.gd" id="1_47sp0"]
 [ext_resource type="Script" uid="uid://g15qn6il8mg1" path="res://scenes/main_refactor/ascii_bg.gd" id="1_ydwxe"]
-[ext_resource type="Script" uid="uid://b88vdrmopa5td" path="res://scenes/main_refactor/file.gd" id="3_xr1kh"]
-[ext_resource type="Script" uid="uid://c87cuwvf2dpa7" path="res://scenes/main_refactor/options.gd" id="4_tibhd"]
-[ext_resource type="Script" uid="uid://crgds744cw8cx" path="res://scenes/main_refactor/help.gd" id="5_285bx"]
+[ext_resource type="Script" uid="uid://cmrp2htvgqpm4" path="res://scenes/mobile/action_button.gd" id="6_jiwls"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/icons/plus.svg" id="6_trm7b"]
+[ext_resource type="Script" uid="uid://di44s4dx6gr5h" path="res://scenes/mobile/mobile_action_function.gd" id="7_f0kqg"]
 [ext_resource type="Script" uid="uid://cc5rx6ikarprc" path="res://scenes/main_refactor/tree.gd" id="10_47sp0"]
 [ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/icons/garbage_can.svg" id="11_jw74t"]
 [ext_resource type="Script" uid="uid://bb10i8o51uhk6" path="res://scenes/main_refactor/destroy_block.gd" id="12_u6tq1"]
@@ -24,6 +23,111 @@ script = ExtResource("14_ac56d")
 
 [sub_resource type="Resource" id="Resource_hfb1w"]
 script = ExtResource("14_ac56d")
+
+[sub_resource type="Resource" id="Resource_5y8xf"]
+resource_name = "project manager"
+script = ExtResource("7_f0kqg")
+text = "project manager"
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
+
+[sub_resource type="Resource" id="Resource_bp4pn"]
+resource_name = "-------"
+script = ExtResource("7_f0kqg")
+is_seperator = true
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
+
+[sub_resource type="Resource" id="Resource_5lbob"]
+resource_name = "save"
+script = ExtResource("7_f0kqg")
+text = "save"
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
+
+[sub_resource type="Resource" id="Resource_5utkc"]
+resource_name = "save as"
+script = ExtResource("7_f0kqg")
+text = "save as"
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
+
+[sub_resource type="Resource" id="Resource_q0m88"]
+resource_name = "-------"
+script = ExtResource("7_f0kqg")
+is_seperator = true
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
+
+[sub_resource type="Resource" id="Resource_hohmw"]
+resource_name = "open"
+script = ExtResource("7_f0kqg")
+text = "open"
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
+
+[sub_resource type="Resource" id="Resource_2kfjo"]
+resource_name = "recent"
+script = ExtResource("7_f0kqg")
+text = "recent"
+enabled = false
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
+
+[sub_resource type="Resource" id="Resource_5tm6v"]
+resource_name = "-------"
+script = ExtResource("7_f0kqg")
+is_seperator = true
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
+
+[sub_resource type="Resource" id="Resource_p8o3r"]
+resource_name = "show in filesystem"
+script = ExtResource("7_f0kqg")
+text = "show in filesystem"
+enabled = false
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
+
+[sub_resource type="Resource" id="Resource_d2qxq"]
+resource_name = "open in text editor"
+script = ExtResource("7_f0kqg")
+text = "open in text editor"
+enabled = false
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
+
+[sub_resource type="Resource" id="Resource_d6e71"]
+resource_name = "save as godot scene"
+script = ExtResource("7_f0kqg")
+text = "save as godot scene"
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
+
+[sub_resource type="Resource" id="Resource_jiwls"]
+resource_name = "preferences"
+script = ExtResource("7_f0kqg")
+text = "preferences"
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
+
+[sub_resource type="Resource" id="Resource_cxrg6"]
+resource_name = "open user data folder"
+script = ExtResource("7_f0kqg")
+text = "open user data folder"
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
+
+[sub_resource type="Resource" id="Resource_aq4mt"]
+resource_name = "manage mods"
+script = ExtResource("7_f0kqg")
+text = "manage mods"
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
+
+[sub_resource type="Resource" id="Resource_cd6aj"]
+resource_name = "open docs"
+script = ExtResource("7_f0kqg")
+text = "open docs"
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
+
+[sub_resource type="Resource" id="Resource_7h02a"]
+resource_name = "open github"
+script = ExtResource("7_f0kqg")
+text = "open github"
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
+
+[sub_resource type="Resource" id="Resource_t6psa"]
+resource_name = "join discord server"
+script = ExtResource("7_f0kqg")
+text = "join discord server"
+metadata/_custom_type_script = "uid://di44s4dx6gr5h"
 
 [sub_resource type="Resource" id="Resource_f0kqg"]
 script = ExtResource("14_ac56d")
@@ -183,89 +287,29 @@ theme_override_constants/separation = 12
 layout_mode = 2
 text = "tree"
 
-[node name="File" type="MenuButton" parent="Navbar/Contents/Sorter"]
-visible = false
+[node name="File" type="Button" parent="Navbar/Contents/Sorter" node_paths=PackedStringArray("panel_to_show", "panel_sorter")]
 layout_mode = 2
 text = "file"
-icon_alignment = 1
-item_count = 11
-popup/item_0/text = "project manager"
-popup/item_0/id = 0
-popup/item_1/id = 5
-popup/item_1/separator = true
-popup/item_2/text = "save"
-popup/item_2/id = 1
-popup/item_3/text = "save as"
-popup/item_3/id = 8
-popup/item_4/id = 4
-popup/item_4/separator = true
-popup/item_5/text = "open"
-popup/item_5/id = 2
-popup/item_6/text = "open recent"
-popup/item_6/id = 3
-popup/item_6/disabled = true
-popup/item_7/id = 6
-popup/item_7/separator = true
-popup/item_8/text = "show in filesystem"
-popup/item_8/id = 4
-popup/item_8/disabled = true
-popup/item_9/text = "open in text editor"
-popup/item_9/id = 9
-popup/item_9/disabled = true
-popup/item_10/text = "save project as godot scene"
-popup/item_10/id = 10
-script = ExtResource("3_xr1kh")
+script = ExtResource("6_jiwls")
+panel_to_show = NodePath("../../../../ActionPanel")
+panel_sorter = NodePath("../../../../ActionPanel/Panel/Content/Seperator/Sorter")
+items = Array[ExtResource("7_f0kqg")]([SubResource("Resource_5y8xf"), SubResource("Resource_bp4pn"), SubResource("Resource_5lbob"), SubResource("Resource_5utkc"), SubResource("Resource_q0m88"), SubResource("Resource_hohmw"), SubResource("Resource_2kfjo"), SubResource("Resource_5tm6v"), SubResource("Resource_p8o3r"), SubResource("Resource_d2qxq"), SubResource("Resource_d6e71")])
 
-[node name="View" type="MenuButton" parent="Navbar/Contents/Sorter"]
-visible = false
+[node name="Preferences" type="Button" parent="Navbar/Contents/Sorter" node_paths=PackedStringArray("panel_to_show", "panel_sorter")]
 layout_mode = 2
-text = "view"
-icon_alignment = 1
-item_count = 4
-popup/item_0/text = "docks"
-popup/item_0/id = 0
-popup/item_0/disabled = true
-popup/item_1/text = "hide all docks"
-popup/item_1/id = 1
-popup/item_1/disabled = true
-popup/item_2/id = 3
-popup/item_2/separator = true
-popup/item_3/text = "command pallete"
-popup/item_3/id = 2
-popup/item_3/disabled = true
-script = ExtResource("3_xr1kh")
+text = "preferences"
+script = ExtResource("6_jiwls")
+panel_to_show = NodePath("../../../../ActionPanel")
+panel_sorter = NodePath("../../../../ActionPanel/Panel/Content/Seperator/Sorter")
+items = Array[ExtResource("7_f0kqg")]([SubResource("Resource_jiwls"), SubResource("Resource_cxrg6"), SubResource("Resource_aq4mt")])
 
-[node name="Options" type="MenuButton" parent="Navbar/Contents/Sorter"]
-visible = false
-custom_minimum_size = Vector2(24, 18)
-layout_mode = 2
-text = "options"
-icon_alignment = 1
-item_count = 4
-popup/item_0/text = "preferences"
-popup/item_0/id = 0
-popup/item_1/id = 6
-popup/item_1/separator = true
-popup/item_2/text = "open user data folder"
-popup/item_2/id = 5
-popup/item_3/text = "manage mods"
-popup/item_3/id = 6
-script = ExtResource("4_tibhd")
-
-[node name="Help" type="MenuButton" parent="Navbar/Contents/Sorter"]
-visible = false
-custom_minimum_size = Vector2(24, 18)
+[node name="Help" type="Button" parent="Navbar/Contents/Sorter" node_paths=PackedStringArray("panel_to_show", "panel_sorter")]
 layout_mode = 2
 text = "help"
-icon_alignment = 1
-item_count = 3
-popup/item_0/text = "open docs"
-popup/item_0/id = 0
-popup/item_1/text = "open github"
-popup/item_1/id = 1
-popup/item_2/text = "join discord server"
-popup/item_2/id = 2
-script = ExtResource("5_285bx")
+script = ExtResource("6_jiwls")
+panel_to_show = NodePath("../../../../ActionPanel")
+panel_sorter = NodePath("../../../../ActionPanel/Panel/Content/Seperator/Sorter")
+items = Array[ExtResource("7_f0kqg")]([SubResource("Resource_cd6aj"), SubResource("Resource_7h02a"), SubResource("Resource_t6psa")])
 
 [node name="VSeparator" type="VSeparator" parent="Navbar/Contents/Sorter"]
 visible = false
@@ -561,7 +605,84 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("18_3g1rd")
 
+[node name="ActionPanel" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="PanelContainer" parent="ActionPanel"]
+layout_mode = 2
+
+[node name="Flavor Text" type="MarginContainer" parent="ActionPanel/Panel"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="Control" type="Control" parent="ActionPanel/Panel/Flavor Text"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ActionPanel/Panel/Flavor Text/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 38.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_type_variation = &"PanelLabel0"
+text = "file"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ActionPanel/Panel/Flavor Text/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelLabelBG"
+
+[node name="Content" type="MarginContainer" parent="ActionPanel/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Seperator" type="VBoxContainer" parent="ActionPanel/Panel/Content"]
+layout_mode = 2
+
+[node name="Sorter" type="VBoxContainer" parent="ActionPanel/Panel/Content/Seperator"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="ActionPanel/Panel/Content/Seperator"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Lower Buttons" type="VBoxContainer" parent="ActionPanel/Panel/Content/Seperator"]
+layout_mode = 2
+
+[node name="Close" type="Button" parent="ActionPanel/Panel/Content/Seperator/Lower Buttons"]
+layout_mode = 2
+text = "cancel"
+
 [connection signal="pressed" from="Navbar/Contents/Sorter/Tree" to="Tree Panel" method="show"]
 [connection signal="pressed" from="Tree Panel/Tree/Content/Content/Top Bar/HideButton" to="Tree Panel" method="hide"]
 [connection signal="item_selected" from="Tree Panel/Tree/Content/Content/TreeScrollContainer/Tree" to="Properties Panel" method="show"]
 [connection signal="pressed" from="Properties Panel/Properties/MarginContainer2/VBoxContainer/TopButtons/Close" to="Properties Panel" method="hide"]
+[connection signal="pressed" from="ActionPanel/Panel/Content/Seperator/Lower Buttons/Close" to="ActionPanel" method="hide"]

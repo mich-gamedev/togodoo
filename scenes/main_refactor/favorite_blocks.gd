@@ -11,10 +11,10 @@ func update(mod: String, setting: String, value: Variant) -> void:
 		i.queue_free()
 	if [mod, setting] == ["vanilla", "editor/favorite_blocks"]:
 		for i in value:
-			var inst : Button = Button.new() as Button
+			var inst : Button = preload("uid://bfellyvhea3i3").instantiate()
 			var cfg = FileManager.get_block_config_by_type(i)
 			inst.icon = load(cfg.get_value("display", "icon"))
-			inst.add_theme_constant_override(&"icon_max_width", 16)
+			inst.block_type = i
 			add_child(inst)
 			inst.pressed.connect(_pressed.bind(i))
 

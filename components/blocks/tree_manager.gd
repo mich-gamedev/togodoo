@@ -119,6 +119,9 @@ static func get_valid_parent(parent_idx: int) -> int: ## utility function that r
 static func get_config(idx: int) -> ConfigFile:
 	return FileManager.get_block_config_by_type(items[idx].type)
 
+static func get_config_value(idx: int, section: String, key: String, default: Variant = null) -> Variant:
+	return get_config(idx).get_value(section, key, default)
+
 static func move_block(idx: int, to_parent: int, at: int = -1) -> void:
 	var from: int = items[idx].parent
 	items[idx].parent = to_parent

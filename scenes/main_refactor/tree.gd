@@ -55,14 +55,16 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	return get_item_at_position(at_position)
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	if !(data is TreeItem): return false
-	if !tree_items.values().has(data): return false
-	drop_mode_flags = DROP_MODE_INBETWEEN | DROP_MODE_ON_ITEM
-	var section = get_drop_section_at_position(at_position)
-	match section:
-		-1: return get_root() != data
-		0:  return TreeManager.get_config(tree_items.find_key(get_item_at_position(at_position))).get_value("logic", "can_have_children", false)
-		1:  return true
+	if data is TreeItem:
+		if !tree_items.values().has(data): return false
+		drop_mode_flags = DROP_MODE_INBETWEEN | DROP_MODE_ON_ITEM
+		var section = get_drop_section_at_position(at_position)
+		match section:
+			-1: return get_root() != data
+			0:  return TreeManager.get_config(tree_items.find_key(get_item_at_position(at_position))).get_value("logic", "can_have_children", false)
+			1:  return true
+	elif data in FileManager.block_types.keys():
+		return TreeManager.get_config_value(tree_items.find_key(get_item_at_position(at_position)), "logic", "can_have_children", false)
 	return false # won't be reached
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
@@ -98,6 +100,9 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 				parent = parent if (!TreeManager.get_config(to_idx).get_value("logic", "can_have_children", false)) or (tree_items[to_idx].is_any_collapsed()) else to_idx
 				var at = TreeManager.get_children(parent).find(to_idx) + 1
 				TreeManager.move_block(idx, parent, at)
+	elif data in FileManager.block_types.keys():
+		TreeManager.create_default_block(data, tree_items.find_key(get_item_at_position(at_position)))
+
 
 func _block_moved(dict: Dictionary, idx: int, from: int, to: int, at: int) -> void:
 	tree_items[from].remove_child(tree_items[idx])

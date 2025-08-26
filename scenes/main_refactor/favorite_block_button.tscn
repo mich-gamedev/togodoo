@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfellyvhea3i3"]
 
 [ext_resource type="Texture2D" uid="uid://b53vqediuaptc" path="res://blocks/pages/page/page.svg" id="1_bsnrx"]
-[ext_resource type="Script" uid="uid://pcddi1jgwhey" path="res://favorite_block_button.gd" id="2_uvo5a"]
+[ext_resource type="Script" uid="uid://pcddi1jgwhey" path="res://scenes/main_refactor/favorite_block_button.gd" id="2_uvo5a"]
 
 [node name="Button" type="Button"]
 offset_right = 40.0

@@ -281,6 +281,7 @@ layout_mode = 2
 icon = ExtResource("6_trm7b")
 
 [node name="Tree Panel" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

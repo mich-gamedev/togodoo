@@ -332,6 +332,7 @@ layout_mode = 2
 icon = ExtResource("6_trm7b")
 
 [node name="Tree Panel" type="MarginContainer" parent="."]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -494,10 +495,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="Properties" type="PanelContainer" parent="Properties Panel"]
 custom_minimum_size = Vector2(128, 96)
@@ -699,10 +700,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 script = ExtResource("18_f0kqg")
 
 [node name="MainPanel" type="Panel" parent="CreateNewBlock"]
@@ -950,5 +951,7 @@ icon = ExtResource("6_trm7b")
 [connection signal="pressed" from="Tree Panel/Tree/Content/Content/Top Bar/NewBlock" to="CreateNewBlock" method="show"]
 [connection signal="pressed" from="Tree Panel/Tree/Content/Content/Top Bar/HideButton" to="Tree Panel" method="hide"]
 [connection signal="item_selected" from="Tree Panel/Tree/Content/Content/TreeScrollContainer/Tree" to="Properties Panel" method="show"]
+[connection signal="hidden" from="Properties Panel" to="Tree Panel" method="hide"]
+[connection signal="visibility_changed" from="Properties Panel" to="Tree Panel" method="hide"]
 [connection signal="pressed" from="Properties Panel/Properties/MarginContainer2/VBoxContainer/TopButtons/Close" to="Properties Panel" method="hide"]
 [connection signal="pressed" from="ActionPanel/Panel/Content/Seperator/Lower Buttons/Close" to="ActionPanel" method="hide"]

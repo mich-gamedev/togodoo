@@ -9,6 +9,8 @@ func _ready() -> void:
 	mouse_entered.connect(_mouse_entered)
 	mouse_exited.connect(_mouse_exited)
 	create_new_block.block_selected.connect(tree.add_block_to_selected)
+	pressed.connect(%"Tree Panel".hide)
+	
 
 var twn: Tween
 

@@ -14,6 +14,7 @@ signal block_selected(type: String)
 func _ready() -> void:
 	btn_create.pressed.connect(_on_create_pressed)
 	btn_cancel.pressed.connect(hide)
+	btn_cancel.pressed.connect(%"Tree Panel".show)
 	for i in FileManager.block_types:
 		if i in Settings.get_setting("vanilla", "editor/hidden_blocks"): continue
 		var cfg = FileManager.get_block_config_by_type(i)

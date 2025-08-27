@@ -105,38 +105,20 @@ func update_custom_theme() -> void:
 	textbox.set_border_width_all(1)
 	textbox.border_color = get_color("textbox_border")
 
+	var tmp: StyleBox
 
-	# NOTE: `if true` is to keep separated namespaces
-	if true: # background panel
-		var tmp := StyleBoxFlat.new()
-		tmp.bg_color = bg
-		custom.set_stylebox(&"panel", &"PanelBG", tmp)
-	if true: # panels
-		custom.set_stylebox(&"panel", &"Panel", panel)
-		custom.set_stylebox(&"panel", &"PanelContainer", panel)
-		print("Applying panels")
-		for i in 6:
-			var tmp := panel.duplicate()
-			tmp.border_color = get_color("panel_border_%s" % (i + 1))
-			custom.set_stylebox(&"panel", &"Panel%s" % i, tmp)
-			custom.set_color(&"font_color", &"PanelLabel%s" % i, get_color("panel_border_%s" % (i + 1)))
-		var back := StyleBoxLine.new()
-		back.color = panel.bg_color
-		custom.set_stylebox(&"separator", &"PanelLabelBG", back)
-	if true: # button
-		custom.set_color(&"font_color", &"Button", text)
-		custom.set_color(&"font_disabled_color", &"Button", light_bg)
-		custom.set_color(&"icon_normal_color", &"Button", text)
-		#TODO: continue
-	if true: # generics
-		custom.set_color(&"font_color", &"FoldableContainer", text)
-		custom.set_color(&"font_color", &"ItemList", text)
-		custom.set_color(&"font_color", &"Label", text)
-		custom.set_color(&"font_color", &"LineEdit", text)
-		custom.set_color(&"tint", &"ModulateTextureRect", text)
-		custom.set_color(&"font_color", &"PopupMenu", text)
-		custom.set_color(&"font_separator_color", &"PopupMenu", text)
-		custom.set_color(&"default_color", &"RichTextLabel", text)
-		custom.set_color(&"font_color", &"TextEdit", text)
-		custom.set_color(&"font_color", &"Tree", text)
-		custom.set_color(&"title_color", &"Window", text)
+	# BlockHoverIndicator
+	tmp = StyleBoxFlat.new()
+	tmp.bg_color = get_color("focus_background")
+	custom.set_stylebox(&"panel", &"BlockHoverIndicator", tmp)
+
+	# Button  (no panels)
+	custom.set_color(&"font_color", &"Button", get_color("text"))
+	custom.set_color(&"font_disabled_color", &"Button", get_color("dim_text"))
+	custom.set_color(&"font_hover_pressed_color", &"Button", get_color("dim_text"))
+	custom.set_color(&"font_hover_color", &"Button", get_color("highlight"))
+
+	custom.set_color(&"icon_normal_color", &"Button", get_color("text"))
+	custom.set_color(&"icon_disabled_color", &"Button", get_color("dim_text"))
+	custom.set_color(&"icon_hover_pressed_color", &"Button", get_color("dim_text"))
+	custom.set_color(&"icon_hover_color", &"Button", get_color("highlight"))

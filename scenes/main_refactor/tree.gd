@@ -55,6 +55,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	return get_item_at_position(at_position)
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+	if !get_item_at_position(at_position): return false
 	if data is TreeItem:
 		if !tree_items.values().has(data): return false
 		drop_mode_flags = DROP_MODE_INBETWEEN | DROP_MODE_ON_ITEM
@@ -64,6 +65,7 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 			0:  return TreeManager.get_config(tree_items.find_key(get_item_at_position(at_position))).get_value("logic", "can_have_children", false)
 			1:  return true
 	elif data in FileManager.block_types.keys():
+		drop_mode_flags = DROP_MODE_ON_ITEM
 		return TreeManager.get_config_value(tree_items.find_key(get_item_at_position(at_position)), "logic", "can_have_children", false)
 	return false # won't be reached
 

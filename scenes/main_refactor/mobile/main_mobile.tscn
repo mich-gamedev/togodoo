@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bf4n7yn75rnlm" path="res://scenes/main_refactor/main.gd" id="1_47sp0"]
 [ext_resource type="Script" uid="uid://g15qn6il8mg1" path="res://scenes/main_refactor/ascii_bg.gd" id="1_ydwxe"]
-[ext_resource type="Script" uid="uid://cmrp2htvgqpm4" path="res://scenes/mobile/action_button.gd" id="6_jiwls"]
+[ext_resource type="Script" uid="uid://cmrp2htvgqpm4" path="res://scenes/main_refactor/mobile/action_button.gd" id="6_jiwls"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/icons/plus.svg" id="6_trm7b"]
-[ext_resource type="Script" uid="uid://di44s4dx6gr5h" path="res://scenes/mobile/mobile_action_function.gd" id="7_f0kqg"]
+[ext_resource type="Script" uid="uid://di44s4dx6gr5h" path="res://scenes/main_refactor/mobile/mobile_action_function.gd" id="7_f0kqg"]
 [ext_resource type="Script" uid="uid://cc5rx6ikarprc" path="res://scenes/main_refactor/tree.gd" id="10_47sp0"]
-[ext_resource type="Script" uid="uid://bnssb5c6lke6j" path="res://scenes/mobile/new_block_button.gd" id="11_jiwls"]
+[ext_resource type="Script" uid="uid://bnssb5c6lke6j" path="res://scenes/main_refactor/mobile/new_block_button.gd" id="11_jiwls"]
 [ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/icons/garbage_can.svg" id="11_jw74t"]
 [ext_resource type="Script" uid="uid://bb10i8o51uhk6" path="res://scenes/main_refactor/destroy_block.gd" id="12_u6tq1"]
 [ext_resource type="Script" uid="uid://has1hb1yqvjw" path="res://scenes/main_refactor/favorite_blocks.gd" id="13_g8bi3"]
@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://o831vl0fn3rq" path="res://scenes/main_refactor/property_search.gd" id="16_f0kqg"]
 [ext_resource type="Script" uid="uid://bvd0mrnh02v7w" path="res://components/convenience/modulate_texture_rect.gd" id="17_dlras"]
 [ext_resource type="Script" uid="uid://bcvxare0clepk" path="res://scenes/main_refactor/property_list.gd" id="18_3g1rd"]
-[ext_resource type="Script" uid="uid://d4fj3h8ljhi55" path="res://scenes/mobile/mobile_create_new_block.gd" id="18_f0kqg"]
+[ext_resource type="Script" uid="uid://d4fj3h8ljhi55" path="res://scenes/main_refactor/mobile/mobile_create_new_block.gd" id="18_f0kqg"]
 [ext_resource type="Script" uid="uid://bbt4lmrvjp5vv" path="res://scenes/main_refactor/block_display.gd" id="18_w203x"]
 
 [sub_resource type="Resource" id="Resource_jqgnj"]

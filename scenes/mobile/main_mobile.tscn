@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bpt3sg51vk0qn"]
+[gd_scene load_steps=46 format=3 uid="uid://bpt3sg51vk0qn"]
 
 [ext_resource type="Script" uid="uid://bf4n7yn75rnlm" path="res://scenes/main_refactor/main.gd" id="1_47sp0"]
 [ext_resource type="Script" uid="uid://g15qn6il8mg1" path="res://scenes/main_refactor/ascii_bg.gd" id="1_ydwxe"]
@@ -6,16 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/icons/plus.svg" id="6_trm7b"]
 [ext_resource type="Script" uid="uid://di44s4dx6gr5h" path="res://scenes/mobile/mobile_action_function.gd" id="7_f0kqg"]
 [ext_resource type="Script" uid="uid://cc5rx6ikarprc" path="res://scenes/main_refactor/tree.gd" id="10_47sp0"]
+[ext_resource type="Script" uid="uid://bnssb5c6lke6j" path="res://scenes/mobile/new_block_button.gd" id="11_jiwls"]
 [ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/icons/garbage_can.svg" id="11_jw74t"]
 [ext_resource type="Script" uid="uid://bb10i8o51uhk6" path="res://scenes/main_refactor/destroy_block.gd" id="12_u6tq1"]
 [ext_resource type="Script" uid="uid://has1hb1yqvjw" path="res://scenes/main_refactor/favorite_blocks.gd" id="13_g8bi3"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="13_puy2n"]
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="14_ac56d"]
-[ext_resource type="Script" uid="uid://c4h0sw7eorpoo" path="res://scenes/main_refactor/new_block.gd" id="14_jiwls"]
 [ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/icons/x.svg" id="14_u6tq1"]
 [ext_resource type="Script" uid="uid://o831vl0fn3rq" path="res://scenes/main_refactor/property_search.gd" id="16_f0kqg"]
 [ext_resource type="Script" uid="uid://bvd0mrnh02v7w" path="res://components/convenience/modulate_texture_rect.gd" id="17_dlras"]
 [ext_resource type="Script" uid="uid://bcvxare0clepk" path="res://scenes/main_refactor/property_list.gd" id="18_3g1rd"]
+[ext_resource type="Script" uid="uid://d4fj3h8ljhi55" path="res://scenes/mobile/mobile_create_new_block.gd" id="18_f0kqg"]
 [ext_resource type="Script" uid="uid://bbt4lmrvjp5vv" path="res://scenes/main_refactor/block_display.gd" id="18_w203x"]
 
 [sub_resource type="Resource" id="Resource_jqgnj"]
@@ -145,6 +146,12 @@ script = ExtResource("14_ac56d")
 script = ExtResource("14_ac56d")
 
 [sub_resource type="Resource" id="Resource_ffcwf"]
+script = ExtResource("14_ac56d")
+
+[sub_resource type="Resource" id="Resource_cqo2v"]
+script = ExtResource("14_ac56d")
+
+[sub_resource type="Resource" id="Resource_jqto7"]
 script = ExtResource("14_ac56d")
 
 [node name="MainMobile" type="Control"]
@@ -325,7 +332,6 @@ layout_mode = 2
 icon = ExtResource("6_trm7b")
 
 [node name="Tree Panel" type="MarginContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -405,7 +411,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 icon = ExtResource("6_trm7b")
-script = ExtResource("14_jiwls")
+script = ExtResource("11_jiwls")
 
 [node name="VSeparator" type="VSeparator" parent="Tree Panel/Tree/Content/Content/Top Bar"]
 layout_mode = 2
@@ -681,7 +687,265 @@ layout_mode = 2
 layout_mode = 2
 text = "cancel"
 
+[node name="CreateNewBlock" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+script = ExtResource("18_f0kqg")
+
+[node name="MainPanel" type="Panel" parent="CreateNewBlock"]
+layout_mode = 2
+
+[node name="Top Text" type="MarginContainer" parent="CreateNewBlock/MainPanel"]
+layout_mode = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="CreateNewBlock/MainPanel/Top Text"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CreateNewBlock/MainPanel/Top Text/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_type_variation = &"PanelLabel0"
+text = "create new block"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CreateNewBlock/MainPanel/Top Text/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelLabelBG"
+
+[node name="Content" type="MarginContainer" parent="CreateNewBlock/MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Main Container" type="VSplitContainer" parent="CreateNewBlock/MainPanel/Content"]
+layout_mode = 2
+touch_dragger_enabled = true
+
+[node name="Nav" type="Panel" parent="CreateNewBlock/MainPanel/Content/Main Container"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Top Text" type="MarginContainer" parent="CreateNewBlock/MainPanel/Content/Main Container/Nav"]
+layout_mode = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="CreateNewBlock/MainPanel/Content/Main Container/Nav/Top Text"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CreateNewBlock/MainPanel/Content/Main Container/Nav/Top Text/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 21.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_type_variation = &"PanelLabel0"
+text = "nav"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="CreateNewBlock/MainPanel/Content/Main Container/Nav/Top Text/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -2.5
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelLabelBG"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CreateNewBlock/MainPanel/Content/Main Container/Nav"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="CreateNewBlock/MainPanel/Content/Main Container/Nav/MarginContainer2"]
+layout_mode = 2
+script = ExtResource("13_puy2n")
+speed = 500.0
+wheel_scroll_damper = SubResource("Resource_cqo2v")
+dragging_scroll_damper = SubResource("Resource_jqto7")
+
+[node name="BlockTypeContainer" type="VBoxContainer" parent="CreateNewBlock/MainPanel/Content/Main Container/Nav/MarginContainer2/SmoothScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
+[node name="Panel2" type="Panel" parent="CreateNewBlock/MainPanel/Content/Main Container"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="MarginContainer" type="MarginContainer" parent="CreateNewBlock/MainPanel/Content/Main Container/Panel2"]
+layout_mode = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="CreateNewBlock/MainPanel/Content/Main Container/Panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CreateNewBlock/MainPanel/Content/Main Container/Panel2/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 28.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_type_variation = &"PanelLabel0"
+text = "info"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CreateNewBlock/MainPanel/Content/Main Container/Panel2/MarginContainer/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -2.5
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelLabelBG"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CreateNewBlock/MainPanel/Content/Main Container/Panel2"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreateNewBlock/MainPanel/Content/Main Container/Panel2/MarginContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CreateNewBlock/MainPanel/Content/Main Container/Panel2/MarginContainer2/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="CreateNewBlock/MainPanel/Content/Main Container/Panel2/MarginContainer2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.64705884, 0.6784314, 0.79607844, 1)
+layout_mode = 2
+theme_type_variation = &"ModulateTextureRect"
+texture = ExtResource("14_u6tq1")
+expand_mode = 3
+script = ExtResource("17_dlras")
+
+[node name="Title" type="Label" parent="CreateNewBlock/MainPanel/Content/Main Container/Panel2/MarginContainer2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Nothing Selected"
+
+[node name="HSeparator" type="HSeparator" parent="CreateNewBlock/MainPanel/Content/Main Container/Panel2/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Credits" type="Label" parent="CreateNewBlock/MainPanel/Content/Main Container/Panel2/MarginContainer2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"LabelHeader"
+
+[node name="Description" type="Label" parent="CreateNewBlock/MainPanel/Content/Main Container/Panel2/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/line_spacing = 0
+text = "Select a block type in the upper dock."
+autowrap_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CreateNewBlock/MainPanel/Content/Main Container/Panel2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Cancel" type="Button" parent="CreateNewBlock/MainPanel/Content/Main Container/Panel2/MarginContainer2/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+theme_type_variation = &"ButtonWithPanel"
+theme_override_constants/icon_max_width = 16
+text = "Cancel"
+
+[node name="Create" type="Button" parent="CreateNewBlock/MainPanel/Content/Main Container/Panel2/MarginContainer2/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+theme_type_variation = &"ButtonWithPanel"
+theme_override_constants/icon_max_width = 16
+text = "Add Block"
+icon = ExtResource("6_trm7b")
+
 [connection signal="pressed" from="Navbar/Contents/Sorter/Tree" to="Tree Panel" method="show"]
+[connection signal="pressed" from="Tree Panel/Tree/Content/Content/Top Bar/NewBlock" to="CreateNewBlock" method="show"]
 [connection signal="pressed" from="Tree Panel/Tree/Content/Content/Top Bar/HideButton" to="Tree Panel" method="hide"]
 [connection signal="item_selected" from="Tree Panel/Tree/Content/Content/TreeScrollContainer/Tree" to="Properties Panel" method="show"]
 [connection signal="pressed" from="Properties Panel/Properties/MarginContainer2/VBoxContainer/TopButtons/Close" to="Properties Panel" method="hide"]

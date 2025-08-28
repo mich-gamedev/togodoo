@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqe3k6kmot0fx"]
+[gd_scene load_steps=27 format=3 uid="uid://cqe3k6kmot0fx"]
 
 [ext_resource type="Script" uid="uid://dt78fkxkiscr2" path="res://scenes/project_manager/mobile/project_manager.gd" id="1_u288o"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_qileq"]
@@ -11,6 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://ddlsrj8v0qiuv" path="res://resources/icons/search.svg" id="9_vn5df"]
 [ext_resource type="Texture2D" uid="uid://cfx2ivv7ag1q0" path="res://resources/icons/github-mark-white.svg" id="10_rdj3p"]
 [ext_resource type="Script" uid="uid://dgcggcumkv7ro" path="res://scenes/project_manager/logo_label.gd" id="11_2o0pp"]
+[ext_resource type="Script" uid="uid://c3w4ogbu111op" path="res://scenes/project_manager/mobile/mod_manager.gd" id="12_is0i4"]
+[ext_resource type="Texture2D" uid="uid://npomtk540ich" path="res://resources/icons/x.svg" id="12_mbqej"]
+[ext_resource type="Script" uid="uid://bvd0mrnh02v7w" path="res://components/convenience/modulate_texture_rect.gd" id="13_is0i4"]
+[ext_resource type="Texture2D" uid="uid://b2vkmquso6nbs" path="res://resources/icons/Discord-Symbol-White.svg" id="14_sanq3"]
+[ext_resource type="Texture2D" uid="uid://x7tdi6mwpo4a" path="res://resources/icons/gitlab-logo-700.svg" id="15_giuxl"]
+[ext_resource type="Texture2D" uid="uid://d0i3o6br684je" path="res://resources/icons/web.svg" id="16_67lni"]
 
 [sub_resource type="Resource" id="Resource_u288o"]
 script = ExtResource("3_2pppr")
@@ -22,6 +28,21 @@ script = ExtResource("3_2pppr")
 script = ExtResource("3_2pppr")
 
 [sub_resource type="Resource" id="Resource_86lm8"]
+script = ExtResource("3_2pppr")
+
+[sub_resource type="Resource" id="Resource_goere"]
+script = ExtResource("3_2pppr")
+
+[sub_resource type="Resource" id="Resource_5gkyp"]
+script = ExtResource("3_2pppr")
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_u288o"]
+color = Color(0.141176, 0.152941, 0.227451, 1)
+
+[sub_resource type="Resource" id="Resource_a4wjr"]
+script = ExtResource("3_2pppr")
+
+[sub_resource type="Resource" id="Resource_mbqej"]
 script = ExtResource("3_2pppr")
 
 [node name="ProjectManager" type="Panel"]
@@ -337,6 +358,269 @@ size_flags_vertical = 3
 layout_mode = 2
 text = "close"
 
+[node name="Mod Panel" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("12_is0i4")
+
+[node name="Mods" type="PanelContainer" parent="Mod Panel"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+
+[node name="Label" type="MarginContainer" parent="Mod Panel/Mods"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="Mod Panel/Mods/Label"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Mod Panel/Mods/Label/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_type_variation = &"PanelLabel0"
+text = "mods"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Mod Panel/Mods/Label/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelLabelBG"
+
+[node name="Content" type="MarginContainer" parent="Mod Panel/Mods"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+
+[node name="Sorter" type="VBoxContainer" parent="Mod Panel/Mods/Content"]
+layout_mode = 2
+
+[node name="TabBar" type="TabBar" parent="Mod Panel/Mods/Content/Sorter"]
+layout_mode = 2
+size_flags_vertical = 4
+current_tab = 0
+tab_alignment = 1
+drag_to_rearrange_enabled = true
+tab_count = 2
+tab_0/title = "installed"
+tab_1/title = "marketplace"
+tab_1/disabled = true
+
+[node name="Management" type="VBoxContainer" parent="Mod Panel/Mods/Content/Sorter"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Mod Panel/Mods/Content/Sorter/Management"]
+clip_contents = true
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Mod Panel/Mods/Content/Sorter/Management/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.64705884, 0.6784314, 0.79607844, 1)
+layout_mode = 2
+theme_type_variation = &"ModulateTextureRect"
+texture = ExtResource("12_mbqej")
+expand_mode = 3
+script = ExtResource("13_is0i4")
+metadata/_custom_type_script = "uid://bvd0mrnh02v7w"
+
+[node name="Title" type="RichTextLabel" parent="Mod Panel/Mods/Content/Sorter/Management/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Nothing Selected"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator" type="HSeparator" parent="Mod Panel/Mods/Content/Sorter/Management/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Credits" type="Label" parent="Mod Panel/Mods/Content/Sorter/Management/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"LabelHeader"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Mod Panel/Mods/Content/Sorter/Management"]
+clip_contents = true
+layout_mode = 2
+
+[node name="Discord" type="Button" parent="Mod Panel/Mods/Content/Sorter/Management/HBoxContainer3"]
+visible = false
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+icon = ExtResource("14_sanq3")
+expand_icon = true
+
+[node name="Github" type="Button" parent="Mod Panel/Mods/Content/Sorter/Management/HBoxContainer3"]
+visible = false
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+icon = ExtResource("10_rdj3p")
+expand_icon = true
+
+[node name="Gitlab" type="Button" parent="Mod Panel/Mods/Content/Sorter/Management/HBoxContainer3"]
+visible = false
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+icon = ExtResource("15_giuxl")
+expand_icon = true
+
+[node name="Link" type="Button" parent="Mod Panel/Mods/Content/Sorter/Management/HBoxContainer3"]
+visible = false
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+icon = ExtResource("16_67lni")
+expand_icon = true
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="Mod Panel/Mods/Content/Sorter/Management"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_qileq")
+speed = 250.0
+wheel_scroll_damper = SubResource("Resource_goere")
+dragging_scroll_damper = SubResource("Resource_5gkyp")
+hide_scrollbar_over_time = true
+scrollbar_hide_time = 2.0
+
+[node name="Description" type="RichTextLabel" parent="Mod Panel/Mods/Content/Sorter/Management/SmoothScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+bbcode_enabled = true
+text = "Select a mod on the bottom to manage it."
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Mod Panel/Mods/Content/Sorter/Management"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="OpenModFolder" type="Button" parent="Mod Panel/Mods/Content/Sorter/Management/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 2
+theme_type_variation = &"ButtonWithPanel"
+theme_override_constants/icon_max_width = 16
+disabled = true
+text = "Open Folder"
+icon = ExtResource("6_6uc77")
+
+[node name="OpenSettings" type="Button" parent="Mod Panel/Mods/Content/Sorter/Management/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(138, 0)
+layout_mode = 2
+theme_type_variation = &"ButtonWithPanel"
+theme_override_constants/icon_max_width = 16
+disabled = true
+text = "Open Mod Settings"
+icon = ExtResource("7_tfm7y")
+
+[node name="Nav Seperator" type="MarginContainer" parent="Mod Panel/Mods/Content/Sorter"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="Mod Panel/Mods/Content/Sorter/Nav Seperator"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Mod Panel/Mods/Content/Sorter/Nav Seperator/Control"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Mod Panel/Mods/Content/Sorter/Nav Seperator/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 26.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_type_variation = &"PanelLabel0"
+text = "nav"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Mod Panel/Mods/Content/Sorter/Nav Seperator/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_u288o")
+
+[node name="Mod List" type="ScrollContainer" parent="Mod Panel/Mods/Content/Sorter"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+horizontal_scroll_mode = 0
+script = ExtResource("2_qileq")
+speed = 500.0
+wheel_scroll_damper = SubResource("Resource_a4wjr")
+dragging_scroll_damper = SubResource("Resource_mbqej")
+
+[node name="ModList" type="VBoxContainer" parent="Mod Panel/Mods/Content/Sorter/Mod List"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Open Folder" type="HBoxContainer" parent="Mod Panel/Mods/Content/Sorter"]
+layout_mode = 2
+
+[node name="OpenFolder" type="Button" parent="Mod Panel/Mods/Content/Sorter/Open Folder"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 0.0
+mouse_filter = 1
+theme_type_variation = &"ButtonWithPanel"
+theme_override_constants/icon_max_width = 16
+icon = ExtResource("6_6uc77")
+
+[node name="Close" type="Button" parent="Mod Panel/Mods/Content/Sorter"]
+layout_mode = 2
+text = "close"
+
 [connection signal="timeout" from="Home Panel/VBoxContainer/MainPanel/Main Content/Logo/Timer" to="Home Panel/VBoxContainer/MainPanel/Main Content/Logo" method="_on_timer_timeout"]
 [connection signal="pressed" from="Home Panel/VBoxContainer/MainPanel/Main Content/Buttons/NewFile" to="." method="_on_new_file_pressed"]
 [connection signal="pressed" from="Home Panel/VBoxContainer/MainPanel/Main Content/Buttons/NewTemplate" to="Home Panel" method="hide"]
@@ -348,3 +632,4 @@ text = "close"
 [connection signal="pressed" from="Home Panel/VBoxContainer/Recents Panel/MarginContainer2/VBoxContainer/ClearRecents" to="." method="_on_clear_recents_pressed"]
 [connection signal="pressed" from="Templates Container/Templates Panel/MarginContainer2/VBoxContainer/Close" to="Home Panel" method="show"]
 [connection signal="pressed" from="Templates Container/Templates Panel/MarginContainer2/VBoxContainer/Close" to="Templates Container" method="hide"]
+[connection signal="pressed" from="Mod Panel/Mods/Content/Sorter/Close" to="Mod Panel" method="hide"]

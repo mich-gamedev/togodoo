@@ -1,17 +1,3 @@
-#   __                              ___
-#__\  \__  _____   _____   _____   _\  \   _____   _____
-#\__   __\(  \\ \ (  \\ \ (  \\ \ (  \\ \ (  \\ \ (  \\ \
-#  _\  \   \  \\ \ \  \\ \ \  \\ \ \  \\ \ \  \\ \ \  \\ \
-#  \____)   \_____) \___  \ \_____) \_____) \_____) \_____) (_)
-#__  __  __  __  __    _\  \
-#\√\ \√\ \√\ \√\ \√\  \_____) A tree-based todo app
-
-
-
-
-
-
-
 extends Control
 
 const PREF_WINDOW = preload("uid://bq821lexcvdre")
@@ -29,6 +15,12 @@ func _ready() -> void:
 	for i in args:
 		if i.get_slice("=", 0) == "--project":
 			FileManager.file_path = i.get_slice("=", 1)
+			Settings.set_setting(
+				"vanilla",
+				"editor/recent_projects",
+				Settings.get_setting("vanilla", "editor/recent_projects") + [i.get_slice("=", 1)]
+			)
+			Settings.save_config("vanilla")
 			get_tree().change_scene_to_file.call_deferred(Settings.get_setting("vanilla", "editor/main_path"))
 		elif i.get_slice("=", 0) == "--override_win_pos":
 			get_window().position = str_to_var(i.get_slice("=", 1))
@@ -45,7 +37,7 @@ func update_recents_list() -> void:
 		i.queue_free()
 	for i: String in Settings.get_setting("vanilla", "editor/recent_projects"):
 		var inst := Button.new()
-		inst.text = i.split("/")[-1].trim_suffix(".togodoo")
+		inst.text = PrefSetup.get_path_formatted(i)
 		inst.pressed.connect(_dialog_accepted.bind(i))
 		inst.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 		inst.alignment = HORIZONTAL_ALIGNMENT_LEFT

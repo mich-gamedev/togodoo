@@ -122,3 +122,13 @@ func update_custom_theme() -> void:
 	custom.set_color(&"icon_disabled_color", &"Button", get_color("dim_text"))
 	custom.set_color(&"icon_hover_pressed_color", &"Button", get_color("dim_text"))
 	custom.set_color(&"icon_hover_color", &"Button", get_color("highlight"))
+
+func get_path_formatted(path: String) -> String:
+	match Settings.get_setting("vanilla", "editor/show_paths_as"):
+		0: return path
+		1:
+			var slices = path.split("/")
+			return slices[-2] + "/" + slices[-1]
+		2:
+			return path.get_file()
+	return path

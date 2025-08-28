@@ -109,7 +109,6 @@ layout_mode = 2
 [node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/HSplitContainer/PanelContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-horizontal_scroll_mode = 0
 script = ExtResource("10_3lsco")
 speed = 480.0
 wheel_scroll_damper = SubResource("Resource_3lsco")
@@ -132,10 +131,12 @@ text = "clear list"
 icon = ExtResource("4_bgcx4")
 
 [node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/HSplitContainer"]
+clip_contents = true
 layout_mode = 2
 split_offset = 585
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HSplitContainer/VSplitContainer"]
+clip_contents = true
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer"]
@@ -174,6 +175,7 @@ grow_vertical = 2
 theme_type_variation = &"PanelLabelBG"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer"]
+clip_contents = true
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 10
@@ -239,6 +241,7 @@ clip_text = true
 expand_icon = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer"]
+clip_contents = true
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/MarginContainer2/HBoxContainer/VBoxContainer2"]

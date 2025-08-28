@@ -31,7 +31,7 @@ func _actionbar_pressed(content:String):
 	match content:
 		# FILE
 		"project manager":
-			OS.create_process(OS.get_executable_path(), [])
+			get_tree().change_scene_to_file("res://scenes/project_manager/mobile/project_manager.tscn")
 		"save as":
 			var dialog = FileDialog.new()
 			dialog.access = FileDialog.ACCESS_FILESYSTEM

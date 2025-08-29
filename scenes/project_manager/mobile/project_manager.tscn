@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://cqe3k6kmot0fx"]
+[gd_scene load_steps=28 format=3 uid="uid://cqe3k6kmot0fx"]
 
 [ext_resource type="Script" uid="uid://dt78fkxkiscr2" path="res://scenes/project_manager/mobile/project_manager.gd" id="1_u288o"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_qileq"]
 [ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="3_2pppr"]
 [ext_resource type="Texture2D" uid="uid://cie5go1jx2okw" path="res://resources/icons/garbage_can.svg" id="4_14dsw"]
 [ext_resource type="Texture2D" uid="uid://bqkw67f3ey46h" path="res://resources/icons/plus.svg" id="5_p441i"]
+[ext_resource type="Texture2D" uid="uid://cali1huvlmf83" path="res://resources/icons/eye_open.svg" id="5_sanq3"]
 [ext_resource type="Texture2D" uid="uid://bkb6hyrffjxlq" path="res://resources/icons/folder.svg" id="6_6uc77"]
 [ext_resource type="Texture2D" uid="uid://c2kr2kifcs4yc" path="res://resources/icons/settings.svg" id="7_tfm7y"]
 [ext_resource type="Texture2D" uid="uid://bw60ho2s4y84t" path="res://resources/icons/wrench.svg" id="8_w2l0d"]
@@ -17,12 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://b2vkmquso6nbs" path="res://resources/icons/Discord-Symbol-White.svg" id="14_sanq3"]
 [ext_resource type="Texture2D" uid="uid://x7tdi6mwpo4a" path="res://resources/icons/gitlab-logo-700.svg" id="15_giuxl"]
 [ext_resource type="Texture2D" uid="uid://d0i3o6br684je" path="res://resources/icons/web.svg" id="16_67lni"]
-
-[sub_resource type="Resource" id="Resource_u288o"]
-script = ExtResource("3_2pppr")
-
-[sub_resource type="Resource" id="Resource_br4vm"]
-script = ExtResource("3_2pppr")
 
 [sub_resource type="Resource" id="Resource_7hm8r"]
 script = ExtResource("3_2pppr")
@@ -45,6 +40,12 @@ script = ExtResource("3_2pppr")
 [sub_resource type="Resource" id="Resource_mbqej"]
 script = ExtResource("3_2pppr")
 
+[sub_resource type="Resource" id="Resource_u288o"]
+script = ExtResource("3_2pppr")
+
+[sub_resource type="Resource" id="Resource_br4vm"]
+script = ExtResource("3_2pppr")
+
 [node name="ProjectManager" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,6 +55,7 @@ grow_vertical = 2
 script = ExtResource("1_u288o")
 
 [node name="Home Panel" type="MarginContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -163,6 +165,13 @@ icon = ExtResource("8_w2l0d")
 clip_text = true
 expand_icon = true
 
+[node name="NewTemplate2" type="Button" parent="Home Panel/VBoxContainer/MainPanel/Main Content/Buttons"]
+layout_mode = 2
+text = "recents"
+icon = ExtResource("5_sanq3")
+clip_text = true
+expand_icon = true
+
 [node name="OpenFile" type="Button" parent="Home Panel/VBoxContainer/MainPanel/Main Content/Buttons"]
 layout_mode = 2
 text = "open file"
@@ -204,80 +213,6 @@ text = "contribute"
 icon = ExtResource("10_rdj3p")
 clip_text = true
 expand_icon = true
-
-[node name="Recents Panel" type="PanelContainer" parent="Home Panel/VBoxContainer"]
-custom_minimum_size = Vector2(72, 128)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Home Panel/VBoxContainer/Recents Panel"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/margin_left = 8
-
-[node name="Control" type="Control" parent="Home Panel/VBoxContainer/Recents Panel/MarginContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Home Panel/VBoxContainer/Recents Panel/MarginContainer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -11.5
-offset_right = 31.0
-offset_bottom = 11.5
-grow_vertical = 2
-theme_type_variation = &"PanelLabel0"
-text = "recent files"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="Home Panel/VBoxContainer/Recents Panel/MarginContainer/Control/Label"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -3.0
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_type_variation = &"PanelLabelBG"
-
-[node name="MarginContainer2" type="MarginContainer" parent="Home Panel/VBoxContainer/Recents Panel"]
-layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Home Panel/VBoxContainer/Recents Panel/MarginContainer2"]
-layout_mode = 2
-
-[node name="SmoothScrollContainer" type="ScrollContainer" parent="Home Panel/VBoxContainer/Recents Panel/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-script = ExtResource("2_qileq")
-speed = 480.0
-wheel_scroll_damper = SubResource("Resource_u288o")
-dragging_scroll_damper = SubResource("Resource_br4vm")
-hide_scrollbar_over_time = true
-scrollbar_hide_time = 2.0
-metadata/_custom_type_script = "uid://dfdtyckl77df4"
-
-[node name="Recents" type="VBoxContainer" parent="Home Panel/VBoxContainer/Recents Panel/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 6
-
-[node name="ClearRecents" type="Button" parent="Home Panel/VBoxContainer/Recents Panel/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_type_variation = &"ButtonWithPanel"
-text = "clear list"
-icon = ExtResource("4_14dsw")
 
 [node name="Templates Container" type="MarginContainer" parent="."]
 visible = false
@@ -359,6 +294,8 @@ layout_mode = 2
 text = "close"
 
 [node name="Mod Panel" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -621,15 +558,111 @@ icon = ExtResource("6_6uc77")
 layout_mode = 2
 text = "close"
 
+[node name="Recents Panel" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Recents" type="PanelContainer" parent="Recents Panel"]
+custom_minimum_size = Vector2(72, 128)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Recents Panel/Recents"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="Recents Panel/Recents/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Recents Panel/Recents/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_type_variation = &"PanelLabel0"
+text = "recent files"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Recents Panel/Recents/MarginContainer/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelLabelBG"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Recents Panel/Recents"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Recents Panel/Recents/MarginContainer2"]
+layout_mode = 2
+
+[node name="ClearRecents" type="Button" parent="Recents Panel/Recents/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"ButtonWithPanel"
+text = "clear list"
+icon = ExtResource("4_14dsw")
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="Recents Panel/Recents/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+script = ExtResource("2_qileq")
+speed = 480.0
+wheel_scroll_damper = SubResource("Resource_u288o")
+dragging_scroll_damper = SubResource("Resource_br4vm")
+hide_scrollbar_over_time = true
+scrollbar_hide_time = 2.0
+metadata/_custom_type_script = "uid://dfdtyckl77df4"
+
+[node name="Recents" type="VBoxContainer" parent="Recents Panel/Recents/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="Close" type="Button" parent="Recents Panel/Recents/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "close"
+
 [connection signal="timeout" from="Home Panel/VBoxContainer/MainPanel/Main Content/Logo/Timer" to="Home Panel/VBoxContainer/MainPanel/Main Content/Logo" method="_on_timer_timeout"]
 [connection signal="pressed" from="Home Panel/VBoxContainer/MainPanel/Main Content/Buttons/NewFile" to="." method="_on_new_file_pressed"]
 [connection signal="pressed" from="Home Panel/VBoxContainer/MainPanel/Main Content/Buttons/NewTemplate" to="Home Panel" method="hide"]
 [connection signal="pressed" from="Home Panel/VBoxContainer/MainPanel/Main Content/Buttons/NewTemplate" to="Templates Container" method="show"]
+[connection signal="pressed" from="Home Panel/VBoxContainer/MainPanel/Main Content/Buttons/NewTemplate2" to="Home Panel" method="hide"]
+[connection signal="pressed" from="Home Panel/VBoxContainer/MainPanel/Main Content/Buttons/NewTemplate2" to="Recents Panel" method="show"]
 [connection signal="pressed" from="Home Panel/VBoxContainer/MainPanel/Main Content/Buttons/OpenFile" to="." method="_on_open_file_pressed"]
 [connection signal="pressed" from="Home Panel/VBoxContainer/MainPanel/Main Content/Buttons/Preferences" to="." method="_on_preferences_pressed"]
 [connection signal="pressed" from="Home Panel/VBoxContainer/MainPanel/Main Content/Buttons/ManageMods" to="." method="_on_manage_mods_pressed"]
 [connection signal="pressed" from="Home Panel/VBoxContainer/MainPanel/Main Content/Buttons/Contribute" to="." method="_on_contribute_pressed"]
-[connection signal="pressed" from="Home Panel/VBoxContainer/Recents Panel/MarginContainer2/VBoxContainer/ClearRecents" to="." method="_on_clear_recents_pressed"]
 [connection signal="pressed" from="Templates Container/Templates Panel/MarginContainer2/VBoxContainer/Close" to="Home Panel" method="show"]
 [connection signal="pressed" from="Templates Container/Templates Panel/MarginContainer2/VBoxContainer/Close" to="Templates Container" method="hide"]
+[connection signal="pressed" from="Mod Panel/Mods/Content/Sorter/Close" to="Home Panel" method="show"]
 [connection signal="pressed" from="Mod Panel/Mods/Content/Sorter/Close" to="Mod Panel" method="hide"]
+[connection signal="pressed" from="Recents Panel/Recents/MarginContainer2/VBoxContainer/ClearRecents" to="." method="_on_clear_recents_pressed"]
+[connection signal="pressed" from="Recents Panel/Recents/MarginContainer2/VBoxContainer/Close" to="Home Panel" method="show"]
+[connection signal="pressed" from="Recents Panel/Recents/MarginContainer2/VBoxContainer/Close" to="Recents Panel" method="hide"]

@@ -81,8 +81,8 @@ func _on_preferences_pressed() -> void:
 	add_child(inst)
 
 func _on_manage_mods_pressed() -> void:
-	var inst = MOD_MANAGER.instantiate()
-	add_child(inst)
+	%"Mod Panel".show()
+	%"Home Panel".hide()
 
 func _on_clear_recents_pressed() -> void:
 	print("clearing recent list")

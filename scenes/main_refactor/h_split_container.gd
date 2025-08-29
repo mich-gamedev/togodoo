@@ -1,7 +1,7 @@
 extends HSplitContainer
 
-var _prev_w: float
-var _prev_mode: int
+@onready var _prev_w: float = (get_child(1) as Control).size.x
+@onready var _prev_mode: int = get_window().mode
 
 
 func _ready() -> void:

@@ -113,6 +113,8 @@ func update_custom_theme() -> void:
 	custom.set_stylebox(&"panel", &"BlockHoverIndicator", tmp)
 
 	# Button  (no panels)
+	custom.set_stylebox(&"focus", &"Button", focus)
+
 	custom.set_color(&"font_color", &"Button", get_color("text"))
 	custom.set_color(&"font_disabled_color", &"Button", get_color("dim_text"))
 	custom.set_color(&"font_hover_pressed_color", &"Button", get_color("dim_text"))
@@ -122,6 +124,38 @@ func update_custom_theme() -> void:
 	custom.set_color(&"icon_disabled_color", &"Button", get_color("dim_text"))
 	custom.set_color(&"icon_hover_pressed_color", &"Button", get_color("dim_text"))
 	custom.set_color(&"icon_hover_color", &"Button", get_color("highlight"))
+
+	# ButtonWithPanel
+	tmp = StyleBoxFlat.new() ; tmp.set_border_width_all(1) ; tmp.border_width_bottom = 2
+	#	Normal
+	tmp.bg_color = get_color("button_normal_background") ; tmp.border_color = get_color("button_normal_outline")
+	custom.set_stylebox(&"normal", &"ButtonWithPanel", tmp)
+	#	Hover
+	tmp = (tmp.duplicate() as StyleBoxFlat)
+	tmp.bg_color = get_color("button_higlight_background") ; tmp.border_color = get_color("button_highlight_outline")
+	custom.set_stylebox(&"hover", &"ButtonWithPanel", tmp)
+	#	Disabled
+	tmp = (tmp.duplicate() as StyleBoxFlat)
+	tmp.bg_color = get_color("button_darken_background") ; tmp.border_color = get_color("button_darken_outline")
+	custom.set_stylebox(&"disabled", &"ButtonWithPanel", tmp)
+	#	Pressed
+	tmp = (tmp.duplicate() as StyleBoxFlat)
+	tmp.border_width_bottom = 1
+	custom.set_stylebox(&"pressed", &"ButtonWithPanel", tmp)
+
+	# CheckBox
+	custom.set_color(&"checkbox_checked_color", &"CheckBox", get_color("accent"))
+	custom.set_color(&"checkbox_unchecked_color", &"CheckBox", get_color("dim_text"))
+
+	# DimIcon
+	custom.set_color(&"tint", &"DimIcon", get_color("dim_text"))
+
+	# ErrorIcon
+	custom.set_color(&"tint", &"ErrorIcon", get_color("error"))
+
+	# ErrorLabel
+	custom.set_color(&"font_color", &"ErrorLabel", get_color("error"))
+
 
 func get_path_formatted(path: String) -> String:
 	match Settings.get_setting("vanilla", "editor/show_paths_as"):

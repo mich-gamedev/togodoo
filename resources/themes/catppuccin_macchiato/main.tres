@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=110 format=3 uid="uid://dn11g6an1ynwr"]
+[gd_resource type="Theme" load_steps=105 format=3 uid="uid://dn11g6an1ynwr"]
 
 [ext_resource type="StyleBox" uid="uid://bigm786rt6fyn" path="res://resources/themes/catppuccin_macchiato/styles/focus.stylebox" id="1_piy81"]
 [ext_resource type="Texture2D" uid="uid://b6pcbppw7epev" path="res://resources/icons/checkbox_on.svg" id="2_5cfww"]
@@ -80,53 +80,6 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 2
 border_color = Color(0.431373, 0.45098, 0.552941, 1)
-
-[sub_resource type="Texture2D" id="Texture2D_nle8c"]
-resource_local_to_scene = false
-resource_name = ""
-script = ExtResource("3_xim7c")
-origin = ExtResource("2_5cfww")
-modulate = Color(0.7176471, 0.7411765, 0.972549, 1)
-metadata/_custom_type_script = "uid://5tj7k3j8v80b"
-
-[sub_resource type="Texture2D" id="Texture2D_mw8ca"]
-resource_local_to_scene = false
-resource_name = ""
-script = ExtResource("3_xim7c")
-origin = ExtResource("4_85lnx")
-modulate = Color(0.43137255, 0.4509804, 0.5529412, 1)
-metadata/_custom_type_script = "uid://5tj7k3j8v80b"
-
-[sub_resource type="Texture2D" id="Texture2D_gnfd0"]
-resource_local_to_scene = false
-resource_name = ""
-script = ExtResource("3_xim7c")
-origin = ExtResource("5_xim7c")
-modulate = Color(0.7176471, 0.7411765, 0.972549, 1)
-metadata/_custom_type_script = "uid://5tj7k3j8v80b"
-
-[sub_resource type="Texture2D" id="Texture2D_7vhy3"]
-resource_local_to_scene = false
-resource_name = ""
-script = ExtResource("3_xim7c")
-origin = ExtResource("6_85lnx")
-modulate = Color(0.43137255, 0.4509804, 0.5529412, 1)
-metadata/_custom_type_script = "uid://5tj7k3j8v80b"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngs6s"]
-content_margin_left = 2.0
-content_margin_right = 2.0
-bg_color = Color(0.21176471, 0.22745098, 0.30980393, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.5764706, 0.6039216, 0.7176471, 1)
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jey6g"]
 resource_local_to_scene = true
@@ -686,16 +639,18 @@ ButtonWithPanel/styles/hover = SubResource("StyleBoxFlat_3t8pw")
 ButtonWithPanel/styles/hover_pressed = SubResource("StyleBoxFlat_lubjy")
 ButtonWithPanel/styles/normal = SubResource("StyleBoxFlat_ggk4c")
 ButtonWithPanel/styles/pressed = SubResource("StyleBoxFlat_lubjy")
+CheckBox/colors/checkbox_checked_color = Color(0.7176471, 0.7411765, 0.972549, 1)
+CheckBox/colors/checkbox_unchecked_color = Color(0.43137255, 0.4509804, 0.5529412, 1)
 CheckBox/constants/icon_max_width = 16
-CheckBox/icons/checked = SubResource("Texture2D_nle8c")
-CheckBox/icons/unchecked = SubResource("Texture2D_mw8ca")
+CheckBox/icons/checked = ExtResource("2_5cfww")
+CheckBox/icons/unchecked = ExtResource("4_85lnx")
 CheckStar/base_type = &"CheckBox"
-CheckStar/icons/checked = SubResource("Texture2D_gnfd0")
-CheckStar/icons/unchecked = SubResource("Texture2D_7vhy3")
+CheckStar/icons/checked = ExtResource("5_xim7c")
+CheckStar/icons/unchecked = ExtResource("6_85lnx")
+CheckStar/styles/pressed = null
 ColorPicker/constants/margin = 8
 ColorPicker/constants/sv_height = 200
 ColorPicker/constants/sv_width = 200
-ColorPickerButton/styles/focus = SubResource("StyleBoxFlat_ngs6s")
 DimIcon/base_type = &"TextureRect"
 DimIcon/colors/tint = Color(0.43137255, 0.4509804, 0.5529412, 1)
 ErrorIcon/base_type = &"ModulateTextureRect"

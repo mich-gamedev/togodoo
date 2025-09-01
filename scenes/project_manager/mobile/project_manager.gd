@@ -39,6 +39,7 @@ func _ready() -> void:
 		inst.template_path = "res://project_templates/%s" % i
 		%TemplatesContainer.add_child(inst)
 	update_recents_list()
+	%Preferences.hidden.connect(func(): %"Home Panel".show())
 
 func update_recents_list() -> void:
 	for i in %Recents.get_children():
@@ -77,8 +78,8 @@ func _on_contribute_pressed() -> void:
 	OS.shell_open("https://github.com/mich-gamedev/togodoo")
 
 func _on_preferences_pressed() -> void:
-	var inst = PREF_WINDOW.instantiate()
-	add_child(inst)
+	%Preferences.show()
+	$"Home Panel".hide()
 
 func _on_manage_mods_pressed() -> void:
 	%"Mod Panel".show()

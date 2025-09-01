@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cqe3k6kmot0fx"]
+[gd_scene load_steps=29 format=3 uid="uid://cqe3k6kmot0fx"]
 
 [ext_resource type="Script" uid="uid://dt78fkxkiscr2" path="res://scenes/project_manager/mobile/project_manager.gd" id="1_u288o"]
 [ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_qileq"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b2vkmquso6nbs" path="res://resources/icons/Discord-Symbol-White.svg" id="14_sanq3"]
 [ext_resource type="Texture2D" uid="uid://x7tdi6mwpo4a" path="res://resources/icons/gitlab-logo-700.svg" id="15_giuxl"]
 [ext_resource type="Texture2D" uid="uid://d0i3o6br684je" path="res://resources/icons/web.svg" id="16_67lni"]
+[ext_resource type="PackedScene" uid="uid://7do8emufx22r" path="res://scenes/win_preferences/mobile/preferences.tscn" id="19_giuxl"]
 
 [sub_resource type="Resource" id="Resource_7hm8r"]
 script = ExtResource("3_2pppr")
@@ -648,6 +649,11 @@ theme_override_constants/separation = 6
 [node name="Close" type="Button" parent="Recents Panel/Recents/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 text = "close"
+
+[node name="Preferences" parent="." instance=ExtResource("19_giuxl")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
 
 [connection signal="timeout" from="Home Panel/VBoxContainer/MainPanel/Main Content/Logo/Timer" to="Home Panel/VBoxContainer/MainPanel/Main Content/Logo" method="_on_timer_timeout"]
 [connection signal="pressed" from="Home Panel/VBoxContainer/MainPanel/Main Content/Buttons/NewFile" to="." method="_on_new_file_pressed"]

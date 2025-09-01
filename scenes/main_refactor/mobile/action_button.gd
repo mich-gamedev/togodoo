@@ -72,9 +72,7 @@ func _actionbar_pressed(content:String):
 			dialog.show()
 		# PREFERENCES
 		"preferences":
-			var inst = PREFERENCES.instantiate()
-			get_tree().current_scene.add_child(inst)
-			inst.show()
+			%Preferences.show()
 		"open user data folder":
 			OS.shell_show_in_file_manager(OS.get_user_data_dir())
 		"manage mods":

@@ -132,7 +132,7 @@ func update_custom_theme() -> void:
 	custom.set_stylebox(&"normal", &"ButtonWithPanel", tmp)
 	#	Hover
 	tmp = (tmp.duplicate() as StyleBoxFlat)
-	tmp.bg_color = get_color("button_higlight_background") ; tmp.border_color = get_color("button_highlight_outline")
+	tmp.bg_color = get_color("button_highlight_background") ; tmp.border_color = get_color("button_highlight_outline")
 	custom.set_stylebox(&"hover", &"ButtonWithPanel", tmp)
 	#	Disabled
 	tmp = (tmp.duplicate() as StyleBoxFlat)

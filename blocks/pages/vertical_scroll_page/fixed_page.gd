@@ -11,12 +11,12 @@ func _update_block() -> void:
 	custom_minimum_size.y = block.get_arg("size")
 
 	if block.get_arg("use_preset_color"):
-		var style := get_theme_stylebox(&"panel")
-		if style is StyleBoxFlat:
-			style.border_color = Utils.COLORS[wrapi(block.get_indents() + Utils.ColorTags.OVERLAY_0, Utils.ColorTags.OVERLAY_0, Utils.ColorTags.TEXT)]
-			%TitleLabel.add_theme_color_override(&"font_color", Utils.COLORS[clampi(block.get_indents() + Utils.ColorTags.SUBTEXT_0, Utils.ColorTags.OVERLAY_0, Utils.ColorTags.TEXT)])
+		remove_theme_stylebox_override(&"panel")
+		theme_type_variation = &"Panel%s" % clampi(block.get_indents(), 0, 5)
+		%TitleLabel.theme_type_variation = &"PanelLabel%s" % clampi(block.get_indents(), 0, 5)
 	else:
-		var style := get_theme_stylebox(&"panel")
+		var style := get_theme_stylebox(&"panel").duplicate()
 		if style is StyleBoxFlat:
 			style.border_color = block.get_arg("color")
+			add_theme_stylebox_override(&"panel", style)
 			%TitleLabel.add_theme_color_override(&"font_color", block.get_arg("title_color"))

@@ -35,3 +35,7 @@ func request_save() -> void:
 			add_child(dialog)
 			dialog.show()
 			return
+
+func _save_file(path: String) -> void:
+	FileManager.file_path = path
+	TreeManager.save_file(path)

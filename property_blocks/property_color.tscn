@@ -9,7 +9,7 @@ custom_minimum_size = Vector2(0, 24)
 offset_right = 256.0
 script = ExtResource("1_oicwi")
 value_node = NodePath("PanelContainer/MarginContainer/ColorPickerButton")
-value_property = &"color"
+custom_function = &"_update"
 reset_button = NodePath("Reset")
 
 [node name="PropertyName" type="Label" parent="."]

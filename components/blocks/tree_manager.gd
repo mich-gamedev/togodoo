@@ -14,6 +14,8 @@ static var items: Dictionary[int, Dictionary]
 static var _root: int = -1 ## the index of the root node, or [code]-1[/code] if no root was yet created.
 static var _itr: int = 0
 
+static var _undoredo := UndoRedo.new()
+
 #region PUBLIC FUNCS
 
 static func load_file(path: String) -> void: ## adds all the blocks from a project file at [param path]
@@ -21,6 +23,7 @@ static func load_file(path: String) -> void: ## adds all the blocks from a proje
 	var file = FileAccess.open(path, FileAccess.READ)
 	print("PROJECT LOAD STATUS: ", error_string(FileAccess.get_open_error()))
 	var i: int = 0
+	_undoredo.clear_history(false)
 	while file.get_position() < file.get_length():
 		var line = file.get_line()
 		var parsed = LineParser.parse_line(line)
@@ -102,6 +105,7 @@ static func get_idx_by_dict(dict: Dictionary) -> int:
 static func remove_block(idx: int) -> void: ## removes the block at [param idx]
 	print("deleting ", items[idx].title)
 	var dict = items[idx]
+
 	signals.pre_block_removed.emit(dict, idx)
 	if dict.parent != -1: items[dict.parent].children.erase(idx)
 	if idx == get_root(): _root = -1
@@ -172,6 +176,10 @@ static func _add_block(dict: Dictionary) -> void:
 	signals.block_added.emit(dict, idx)
 	signals.tree_changed.emit()
 	_itr += 1
+	_undoredo.create_action("Add block of type '%s'" % dict.type)
+	_undoredo.add_do_method(_add_block.bind(dict))
+	_undoredo.add_undo_method(remove_block.bind(idx))
+	_undoredo.commit_action(false)
 
 static func _add_i_and_children(arr: Array[int], i: int) -> void:
 	arr.append(i)

@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bokx1hfy0buia"]
+[gd_scene load_steps=9 format=3 uid="uid://bokx1hfy0buia"]
 
 [ext_resource type="Script" uid="uid://f3vwghb174fk" path="res://blocks/controls/entry/entry.gd" id="1_u5xpu"]
 [ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="2_05vk0"]
+[ext_resource type="Script" uid="uid://bps3ea2prgr2p" path="res://blocks/items/text/subscript.gd" id="2_abt3n"]
+[ext_resource type="Script" uid="uid://c5oob8sj8ff8n" path="res://blocks/items/text/superscript.gd" id="3_4sqek"]
+[ext_resource type="Script" uid="uid://bnppbrxqmeu0s" path="res://blocks/items/text/symbol_coloring.gd" id="4_vik5u"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_aiwuc"]
+script = ExtResource("2_abt3n")
+metadata/_custom_type_script = "uid://bps3ea2prgr2p"
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_x5wfi"]
+script = ExtResource("3_4sqek")
+metadata/_custom_type_script = "uid://c5oob8sj8ff8n"
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_4cdyn"]
+script = ExtResource("4_vik5u")
+metadata/_custom_type_script = "uid://bnppbrxqmeu0s"
 
 [node name="HBoxContainer" type="HFlowContainer"]
 offset_right = 128.0
@@ -30,6 +45,7 @@ mouse_filter = 2
 bbcode_enabled = true
 text = "adgadgadg"
 fit_content = true
+custom_effects = [SubResource("RichTextEffect_aiwuc"), SubResource("RichTextEffect_x5wfi"), SubResource("RichTextEffect_4cdyn")]
 selection_enabled = true
 
 [node name="Block" type="Node" parent="."]

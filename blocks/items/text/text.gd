@@ -2,11 +2,6 @@ extends RichTextLabel
 
 @onready var block: Block = $Block
 
-func _ready() -> void:
-	var rtfx = RichTextSymbolColoring.new()
-	rtfx.rtl = self
-	install_effect(rtfx)
-
 func _update_block() -> void:
 	if block.get_arg("use_custom_color"):
 		add_theme_color_override(&"default_color", block.get_arg("custom_color"))

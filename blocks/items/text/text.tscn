@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://n7bryc6jh3r4"]
+[gd_scene load_steps=9 format=3 uid="uid://n7bryc6jh3r4"]
 
 [ext_resource type="Script" uid="uid://jeeorggwjk38" path="res://blocks/items/text/text.gd" id="1_6bj5u"]
+[ext_resource type="Script" uid="uid://bps3ea2prgr2p" path="res://blocks/items/text/subscript.gd" id="1_h23l3"]
 [ext_resource type="Script" uid="uid://y2yuj6soyb6y" path="res://components/blocks/block.gd" id="2_3kogx"]
+[ext_resource type="Script" uid="uid://c5oob8sj8ff8n" path="res://blocks/items/text/superscript.gd" id="2_gewll"]
+[ext_resource type="Script" uid="uid://bnppbrxqmeu0s" path="res://blocks/items/text/symbol_coloring.gd" id="3_camon"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_8k65i"]
+script = ExtResource("1_h23l3")
+metadata/_custom_type_script = "uid://bps3ea2prgr2p"
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_vkpr2"]
+script = ExtResource("2_gewll")
+metadata/_custom_type_script = "uid://c5oob8sj8ff8n"
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_i0ofu"]
+script = ExtResource("3_camon")
+metadata/_custom_type_script = "uid://bnppbrxqmeu0s"
 
 [node name="Label" type="RichTextLabel"]
 clip_contents = false
@@ -12,6 +27,7 @@ size_flags_horizontal = 3
 focus_mode = 2
 bbcode_enabled = true
 fit_content = true
+custom_effects = [SubResource("RichTextEffect_8k65i"), SubResource("RichTextEffect_vkpr2"), SubResource("RichTextEffect_i0ofu")]
 selection_enabled = true
 script = ExtResource("1_6bj5u")
 

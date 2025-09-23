@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://bw60ho2s4y84t"
-path="res://.godot/imported/wrench.svg-bdba6770c1d811aaa235f987c9d5e8a8.svgtex"
+path="res://.godot/imported/wrench.svg-bdba6770c1d811aaa235f987c9d5e8a8.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/wrench.svg"
-dest_files=["res://.godot/imported/wrench.svg-bdba6770c1d811aaa235f987c9d5e8a8.svgtex"]
+dest_files=["res://.godot/imported/wrench.svg-bdba6770c1d811aaa235f987c9d5e8a8.dpitex"]
 
 [params]
 

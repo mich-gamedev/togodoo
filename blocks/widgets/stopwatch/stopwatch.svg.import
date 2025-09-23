@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://cqwbl4lbyatcg"
-path="res://.godot/imported/stopwatch.svg-ebb8e7181449151abf2fcf7bd24e9685.svgtex"
+path="res://.godot/imported/stopwatch.svg-ebb8e7181449151abf2fcf7bd24e9685.dpitex"
 
 [deps]
 
 source_file="res://blocks/widgets/stopwatch/stopwatch.svg"
-dest_files=["res://.godot/imported/stopwatch.svg-ebb8e7181449151abf2fcf7bd24e9685.svgtex"]
+dest_files=["res://.godot/imported/stopwatch.svg-ebb8e7181449151abf2fcf7bd24e9685.dpitex"]
 
 [params]
 

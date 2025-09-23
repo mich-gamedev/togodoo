@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://b6pcbppw7epev"
-path="res://.godot/imported/checkbox_on.svg-24177eaad6f36318578bdb5c5af5865d.svgtex"
+path="res://.godot/imported/checkbox_on.svg-24177eaad6f36318578bdb5c5af5865d.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/checkbox_on.svg"
-dest_files=["res://.godot/imported/checkbox_on.svg-24177eaad6f36318578bdb5c5af5865d.svgtex"]
+dest_files=["res://.godot/imported/checkbox_on.svg-24177eaad6f36318578bdb5c5af5865d.dpitex"]
 
 [params]
 

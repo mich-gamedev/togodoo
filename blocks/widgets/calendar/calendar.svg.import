@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://bywnfpqmu1vll"
-path="res://.godot/imported/calendar.svg-59d6e1f199d832c3051bf7d1d14db865.svgtex"
+path="res://.godot/imported/calendar.svg-59d6e1f199d832c3051bf7d1d14db865.dpitex"
 
 [deps]
 
 source_file="res://blocks/widgets/calendar/calendar.svg"
-dest_files=["res://.godot/imported/calendar.svg-59d6e1f199d832c3051bf7d1d14db865.svgtex"]
+dest_files=["res://.godot/imported/calendar.svg-59d6e1f199d832c3051bf7d1d14db865.dpitex"]
 
 [params]
 

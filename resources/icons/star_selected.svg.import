@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://kiwb7c2bw1rh"
-path="res://.godot/imported/star_selected.svg-aa1ccdad24e9d06cdb6ccdc58d1a808f.svgtex"
+path="res://.godot/imported/star_selected.svg-aa1ccdad24e9d06cdb6ccdc58d1a808f.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/star_selected.svg"
-dest_files=["res://.godot/imported/star_selected.svg-aa1ccdad24e9d06cdb6ccdc58d1a808f.svgtex"]
+dest_files=["res://.godot/imported/star_selected.svg-aa1ccdad24e9d06cdb6ccdc58d1a808f.dpitex"]
 
 [params]
 

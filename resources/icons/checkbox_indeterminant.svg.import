@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://32x1nijrcc3s"
-path="res://.godot/imported/checkbox_indeterminant.svg-9542bc2fa092bf8f7c54988d54bf823e.svgtex"
+path="res://.godot/imported/checkbox_indeterminant.svg-9542bc2fa092bf8f7c54988d54bf823e.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/checkbox_indeterminant.svg"
-dest_files=["res://.godot/imported/checkbox_indeterminant.svg-9542bc2fa092bf8f7c54988d54bf823e.svgtex"]
+dest_files=["res://.godot/imported/checkbox_indeterminant.svg-9542bc2fa092bf8f7c54988d54bf823e.dpitex"]
 
 [params]
 

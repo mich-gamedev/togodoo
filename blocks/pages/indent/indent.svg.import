@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://dgpxpb4sgtcnm"
-path="res://.godot/imported/indent.svg-3a7604455d26670af42d98edcfc3aebb.svgtex"
+path="res://.godot/imported/indent.svg-3a7604455d26670af42d98edcfc3aebb.dpitex"
 
 [deps]
 
 source_file="res://blocks/pages/indent/indent.svg"
-dest_files=["res://.godot/imported/indent.svg-3a7604455d26670af42d98edcfc3aebb.svgtex"]
+dest_files=["res://.godot/imported/indent.svg-3a7604455d26670af42d98edcfc3aebb.dpitex"]
 
 [params]
 

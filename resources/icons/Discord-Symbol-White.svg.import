@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://b2vkmquso6nbs"
-path="res://.godot/imported/Discord-Symbol-White.svg-8d506c3da5fb665f00216961f3e3bf32.svgtex"
+path="res://.godot/imported/Discord-Symbol-White.svg-8d506c3da5fb665f00216961f3e3bf32.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/Discord-Symbol-White.svg"
-dest_files=["res://.godot/imported/Discord-Symbol-White.svg-8d506c3da5fb665f00216961f3e3bf32.svgtex"]
+dest_files=["res://.godot/imported/Discord-Symbol-White.svg-8d506c3da5fb665f00216961f3e3bf32.dpitex"]
 
 [params]
 

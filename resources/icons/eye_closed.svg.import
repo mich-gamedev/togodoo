@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://n1burh2wji0"
-path="res://.godot/imported/eye_closed.svg-8d0a42994383bbb07483f96738694f03.svgtex"
+path="res://.godot/imported/eye_closed.svg-8d0a42994383bbb07483f96738694f03.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/eye_closed.svg"
-dest_files=["res://.godot/imported/eye_closed.svg-8d0a42994383bbb07483f96738694f03.svgtex"]
+dest_files=["res://.godot/imported/eye_closed.svg-8d0a42994383bbb07483f96738694f03.dpitex"]
 
 [params]
 

@@ -1,5 +1,5 @@
 @icon("res://resources/themes/cli.svg")
-abstract class_name Command extends Resource
+@abstract class_name Command extends Resource
 
 @export_group("Display")
 @export var text: String
@@ -8,8 +8,8 @@ abstract class_name Command extends Resource
 @export var id: StringName
 @export var include_in_history: bool = true
 
-abstract func _run() -> void
-abstract func _is_valid() -> bool
+@abstract func _run() -> void
+@abstract func _is_valid() -> bool
 
 func is_valid() -> bool:
 	return _is_valid()

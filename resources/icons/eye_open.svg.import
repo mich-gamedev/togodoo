@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://cali1huvlmf83"
-path="res://.godot/imported/eye_open.svg-891a870bbefc4d3ae10113376c0d1cdb.svgtex"
+path="res://.godot/imported/eye_open.svg-891a870bbefc4d3ae10113376c0d1cdb.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/eye_open.svg"
-dest_files=["res://.godot/imported/eye_open.svg-891a870bbefc4d3ae10113376c0d1cdb.svgtex"]
+dest_files=["res://.godot/imported/eye_open.svg-891a870bbefc4d3ae10113376c0d1cdb.dpitex"]
 
 [params]
 

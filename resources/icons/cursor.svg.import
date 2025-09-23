@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://doy33hxmprcko"
-path="res://.godot/imported/cursor.svg-1fe4325d9f6d635a9862828515255257.svgtex"
+path="res://.godot/imported/cursor.svg-1fe4325d9f6d635a9862828515255257.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/cursor.svg"
-dest_files=["res://.godot/imported/cursor.svg-1fe4325d9f6d635a9862828515255257.svgtex"]
+dest_files=["res://.godot/imported/cursor.svg-1fe4325d9f6d635a9862828515255257.dpitex"]
 
 [params]
 

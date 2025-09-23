@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://bqqi662bw4vha"
-path="res://.godot/imported/pencil.svg-074b167647e7ad2cb5abaa577781cfda.svgtex"
+path="res://.godot/imported/pencil.svg-074b167647e7ad2cb5abaa577781cfda.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/pencil.svg"
-dest_files=["res://.godot/imported/pencil.svg-074b167647e7ad2cb5abaa577781cfda.svgtex"]
+dest_files=["res://.godot/imported/pencil.svg-074b167647e7ad2cb5abaa577781cfda.dpitex"]
 
 [params]
 

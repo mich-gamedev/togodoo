@@ -21,7 +21,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func request_save() -> void:
 	if FileManager.file_path and !FileManager.file_path.begins_with("res://"):
-		TreeManager.save_file(FileManager.file_path)
+		_save_file(FileManager.file_path)
 	else:
 			var dialog = FileDialog.new()
 			dialog.access = FileDialog.ACCESS_FILESYSTEM
@@ -31,11 +31,16 @@ func request_save() -> void:
 			dialog.current_path = Settings.get_setting("vanilla", "file_system/default_project_folder")\
 			+ "/"\
 			+ LineParser.format_file_name(Settings.get_setting("vanilla", "file_system/default_project_name"))
-			dialog.file_selected.connect(TreeManager.save_file)
+			dialog.file_selected.connect(_save_file)
 			add_child(dialog)
 			dialog.show()
-			return
+
 
 func _save_file(path: String) -> void:
 	FileManager.file_path = path
+	Settings.set_setting(
+		"vanilla",
+		"editor/recent_projects",
+		Settings.get_setting("vanilla", "editor/recent_projects") + [path]
+	)
 	TreeManager.save_file(path)

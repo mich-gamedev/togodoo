@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://ckdbdq3i4xr4c"
-path="res://.godot/imported/separator.svg-3fd7939a530feb37d6e46c0e39c76cc5.svgtex"
+path="res://.godot/imported/separator.svg-3fd7939a530feb37d6e46c0e39c76cc5.dpitex"
 
 [deps]
 
 source_file="res://blocks/items/separator/separator.svg"
-dest_files=["res://.godot/imported/separator.svg-3fd7939a530feb37d6e46c0e39c76cc5.svgtex"]
+dest_files=["res://.godot/imported/separator.svg-3fd7939a530feb37d6e46c0e39c76cc5.dpitex"]
 
 [params]
 

@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://bf8gx4q036dm7"
-path="res://.godot/imported/h_seperator_grabber.svg-5de9e2861cc97db3daffcde79a3568a0.svgtex"
+path="res://.godot/imported/h_seperator_grabber.svg-5de9e2861cc97db3daffcde79a3568a0.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/h_seperator_grabber.svg"
-dest_files=["res://.godot/imported/h_seperator_grabber.svg-5de9e2861cc97db3daffcde79a3568a0.svgtex"]
+dest_files=["res://.godot/imported/h_seperator_grabber.svg-5de9e2861cc97db3daffcde79a3568a0.dpitex"]
 
 [params]
 

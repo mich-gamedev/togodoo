@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://bpbmatq3hkf65"
-path="res://.godot/imported/checkbox_off.svg-2a005f0616042d26effbcb0fe8d32e8b.svgtex"
+path="res://.godot/imported/checkbox_off.svg-2a005f0616042d26effbcb0fe8d32e8b.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/checkbox_off.svg"
-dest_files=["res://.godot/imported/checkbox_off.svg-2a005f0616042d26effbcb0fe8d32e8b.svgtex"]
+dest_files=["res://.godot/imported/checkbox_off.svg-2a005f0616042d26effbcb0fe8d32e8b.dpitex"]
 
 [params]
 

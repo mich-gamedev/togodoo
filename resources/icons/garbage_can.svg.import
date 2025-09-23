@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://cie5go1jx2okw"
-path="res://.godot/imported/garbage_can.svg-a03c0e52ec9fd426a243e5e781c8420d.svgtex"
+path="res://.godot/imported/garbage_can.svg-a03c0e52ec9fd426a243e5e781c8420d.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/garbage_can.svg"
-dest_files=["res://.godot/imported/garbage_can.svg-a03c0e52ec9fd426a243e5e781c8420d.svgtex"]
+dest_files=["res://.godot/imported/garbage_can.svg-a03c0e52ec9fd426a243e5e781c8420d.dpitex"]
 
 [params]
 

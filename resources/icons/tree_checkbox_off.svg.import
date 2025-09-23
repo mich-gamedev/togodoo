@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://bfsrw2kswkwgw"
-path="res://.godot/imported/tree_checkbox_off.svg-af43fc81ab2c4775f83c57a58df04cd6.svgtex"
+path="res://.godot/imported/tree_checkbox_off.svg-af43fc81ab2c4775f83c57a58df04cd6.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/tree_checkbox_off.svg"
-dest_files=["res://.godot/imported/tree_checkbox_off.svg-af43fc81ab2c4775f83c57a58df04cd6.svgtex"]
+dest_files=["res://.godot/imported/tree_checkbox_off.svg-af43fc81ab2c4775f83c57a58df04cd6.dpitex"]
 
 [params]
 

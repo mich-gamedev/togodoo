@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://crlv5perrmipm"
-path="res://.godot/imported/referral.svg-f8085f232ff54f1b41ec0b38cd2effae.svgtex"
+path="res://.godot/imported/referral.svg-f8085f232ff54f1b41ec0b38cd2effae.dpitex"
 
 [deps]
 
 source_file="res://blocks/controls/referral/referral.svg"
-dest_files=["res://.godot/imported/referral.svg-f8085f232ff54f1b41ec0b38cd2effae.svgtex"]
+dest_files=["res://.godot/imported/referral.svg-f8085f232ff54f1b41ec0b38cd2effae.dpitex"]
 
 [params]
 

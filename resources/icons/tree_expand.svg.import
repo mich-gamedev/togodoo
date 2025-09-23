@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://6uf2kxe7jqtl"
-path="res://.godot/imported/tree_expand.svg-dce3ff5b0a2b1ec88eed182a19ebf9b7.svgtex"
+path="res://.godot/imported/tree_expand.svg-dce3ff5b0a2b1ec88eed182a19ebf9b7.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/tree_expand.svg"
-dest_files=["res://.godot/imported/tree_expand.svg-dce3ff5b0a2b1ec88eed182a19ebf9b7.svgtex"]
+dest_files=["res://.godot/imported/tree_expand.svg-dce3ff5b0a2b1ec88eed182a19ebf9b7.dpitex"]
 
 [params]
 

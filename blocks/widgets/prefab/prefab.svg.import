@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://osgwu8ujrbbq"
-path="res://.godot/imported/prefab.svg-9a372b4fab5105438309aacf08b1f70c.svgtex"
+path="res://.godot/imported/prefab.svg-9a372b4fab5105438309aacf08b1f70c.dpitex"
 
 [deps]
 
 source_file="res://blocks/widgets/prefab/prefab.svg"
-dest_files=["res://.godot/imported/prefab.svg-9a372b4fab5105438309aacf08b1f70c.svgtex"]
+dest_files=["res://.godot/imported/prefab.svg-9a372b4fab5105438309aacf08b1f70c.dpitex"]
 
 [params]
 

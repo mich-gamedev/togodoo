@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://cpal7vjped686"
-path="res://.godot/imported/point.svg-22de2442888427417e5e08afb54ce310.svgtex"
+path="res://.godot/imported/point.svg-22de2442888427417e5e08afb54ce310.dpitex"
 
 [deps]
 
 source_file="res://blocks/controls/point/point.svg"
-dest_files=["res://.godot/imported/point.svg-22de2442888427417e5e08afb54ce310.svgtex"]
+dest_files=["res://.godot/imported/point.svg-22de2442888427417e5e08afb54ce310.dpitex"]
 
 [params]
 

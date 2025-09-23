@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://fh32i4nctiwt"
-path="res://.godot/imported/dropdown.svg-8903ae23915fb35606f87a7c040e2c20.svgtex"
+path="res://.godot/imported/dropdown.svg-8903ae23915fb35606f87a7c040e2c20.dpitex"
 
 [deps]
 
 source_file="res://blocks/pages/dropdown/dropdown.svg"
-dest_files=["res://.godot/imported/dropdown.svg-8903ae23915fb35606f87a7c040e2c20.svgtex"]
+dest_files=["res://.godot/imported/dropdown.svg-8903ae23915fb35606f87a7c040e2c20.dpitex"]
 
 [params]
 

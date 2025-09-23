@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://dq1f845i4w2xc"
-path="res://.godot/imported/tree_collapse.svg-9edf0188e10dd2383d2884cab3fbddb1.svgtex"
+path="res://.godot/imported/tree_collapse.svg-9edf0188e10dd2383d2884cab3fbddb1.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/tree_collapse.svg"
-dest_files=["res://.godot/imported/tree_collapse.svg-9edf0188e10dd2383d2884cab3fbddb1.svgtex"]
+dest_files=["res://.godot/imported/tree_collapse.svg-9edf0188e10dd2383d2884cab3fbddb1.dpitex"]
 
 [params]
 

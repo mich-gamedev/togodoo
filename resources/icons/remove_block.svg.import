@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://c3ujjxood5adf"
-path="res://.godot/imported/remove_block.svg-374742fbb1a09f64385de19b5575b791.svgtex"
+path="res://.godot/imported/remove_block.svg-374742fbb1a09f64385de19b5575b791.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/remove_block.svg"
-dest_files=["res://.godot/imported/remove_block.svg-374742fbb1a09f64385de19b5575b791.svgtex"]
+dest_files=["res://.godot/imported/remove_block.svg-374742fbb1a09f64385de19b5575b791.dpitex"]
 
 [params]
 

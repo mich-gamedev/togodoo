@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://cfx2ivv7ag1q0"
-path="res://.godot/imported/github-mark-white.svg-d184c9139fd0df23a4ca2e6f9b5558bc.svgtex"
+path="res://.godot/imported/github-mark-white.svg-d184c9139fd0df23a4ca2e6f9b5558bc.dpitex"
 
 [deps]
 
 source_file="res://resources/icons/github-mark-white.svg"
-dest_files=["res://.godot/imported/github-mark-white.svg-d184c9139fd0df23a4ca2e6f9b5558bc.svgtex"]
+dest_files=["res://.godot/imported/github-mark-white.svg-d184c9139fd0df23a4ca2e6f9b5558bc.dpitex"]
 
 [params]
 

@@ -1,0 +1,185 @@
+[gd_scene load_steps=8 format=3 uid="uid://7do8emufx22r"]
+
+[ext_resource type="Script" uid="uid://cj4wscwxjwvp1" path="res://scenes/win_preferences/mobile/preferences.gd" id="1_kmkj3"]
+[ext_resource type="Script" uid="uid://dfdtyckl77df4" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_dko8h"]
+[ext_resource type="Script" uid="uid://dx2vfs4rouhu2" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="3_qyfjo"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_kmkj3"]
+color = Color(0.141176, 0.152941, 0.227451, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0jmtf"]
+color = Color(0.141176, 0.152941, 0.227451, 1)
+
+[sub_resource type="Resource" id="Resource_ekbh3"]
+script = ExtResource("3_qyfjo")
+
+[sub_resource type="Resource" id="Resource_7ulx5"]
+script = ExtResource("3_qyfjo")
+
+[node name="Preferences" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kmkj3")
+
+[node name="Tree" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="PanelContainer" parent="Tree"]
+layout_mode = 2
+
+[node name="FlavorText" type="MarginContainer" parent="Tree/Panel"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="Tree/Panel/FlavorText"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tree/Panel/FlavorText/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 21.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_type_variation = &"PanelLabel0"
+text = "preferences"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Tree/Panel/FlavorText/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_kmkj3")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Tree/Panel"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 2
+
+[node name="Sorter" type="VBoxContainer" parent="Tree/Panel/MarginContainer2"]
+layout_mode = 2
+
+[node name="NavTree" type="Tree" parent="Tree/Panel/MarginContainer2/Sorter"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+allow_reselect = true
+hide_root = true
+
+[node name="Close" type="Button" parent="Tree/Panel/MarginContainer2/Sorter"]
+layout_mode = 2
+text = "close"
+
+[node name="Options Panel" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Options" type="PanelContainer" parent="Options Panel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Options Panel/Options"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+
+[node name="Control" type="Control" parent="Options Panel/Options/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options Panel/Options/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_type_variation = &"PanelLabel0"
+text = "options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Options Panel/Options/MarginContainer/Control/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_0jmtf")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Options Panel/Options"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Sorter" type="VBoxContainer" parent="Options Panel/Options/MarginContainer2"]
+layout_mode = 2
+
+[node name="OptionsScroll" type="ScrollContainer" parent="Options Panel/Options/MarginContainer2/Sorter"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_dko8h")
+speed = 640.0
+wheel_scroll_damper = SubResource("Resource_ekbh3")
+dragging_scroll_damper = SubResource("Resource_7ulx5")
+hide_scrollbar_over_time = true
+metadata/_custom_type_script = "uid://dfdtyckl77df4"
+
+[node name="Options" type="VBoxContainer" parent="Options Panel/Options/MarginContainer2/Sorter/OptionsScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Close" type="Button" parent="Options Panel/Options/MarginContainer2/Sorter"]
+layout_mode = 2
+text = "back"
+
+[connection signal="cell_selected" from="Tree/Panel/MarginContainer2/Sorter/NavTree" to="." method="_on_nav_tree_cell_selected"]
+[connection signal="cell_selected" from="Tree/Panel/MarginContainer2/Sorter/NavTree" to="Tree" method="hide"]
+[connection signal="cell_selected" from="Tree/Panel/MarginContainer2/Sorter/NavTree" to="Options Panel" method="show"]
+[connection signal="pressed" from="Tree/Panel/MarginContainer2/Sorter/Close" to="." method="hide"]
+[connection signal="pressed" from="Options Panel/Options/MarginContainer2/Sorter/Close" to="." method="hide"]

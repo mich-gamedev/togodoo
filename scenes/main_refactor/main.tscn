@@ -420,7 +420,8 @@ script = ExtResource("10_p58oo")
 layout_mode = 2
 theme_type_variation = &"HSeparatorDim"
 
-[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer"]
+[node name="TreeScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
@@ -432,7 +433,7 @@ drag_with_mouse = false
 hide_scrollbar_over_time = true
 scrollbar_hide_time = 2.0
 
-[node name="Tree" type="Tree" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer"]
+[node name="Tree" type="Tree" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/TreeScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -444,7 +445,7 @@ scroll_horizontal_enabled = false
 scroll_vertical_enabled = false
 script = ExtResource("9_hwhah")
 
-[node name="BlockHoverIndicator" type="Panel" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/SmoothScrollContainer/Tree"]
+[node name="BlockHoverIndicator" type="Panel" parent="MarginContainer/VBoxContainer/Control2/HSplitContainer/HSplitContainer2/VSplitContainer/Tree/MarginContainer2/VBoxContainer/TreeScrollContainer/Tree"]
 unique_name_in_owner = true
 visible = false
 show_behind_parent = true

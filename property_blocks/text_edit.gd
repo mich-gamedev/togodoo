@@ -56,3 +56,13 @@ func _strikethrough_pressed() -> void:
 	insert_text_at_caret("[s][/s]")
 	grab_focus.call_deferred()
 	set_caret_column(get_caret_column() - 4)
+
+func _super_pressed() -> void:
+	insert_text_at_caret("[superscript][/superscript]")
+	grab_focus.call_deferred()
+	set_caret_column(get_caret_column() - 14)
+
+func _sub_pressed() -> void:
+	insert_text_at_caret("[subscript][/subscript]")
+	grab_focus.call_deferred()
+	set_caret_column(get_caret_column() - 12)
